@@ -31,8 +31,8 @@ export const DisplayLink: React.FC<DisplayLinkProps> = ({
             <Box
               // Give the favicon a circular shadow
               sx={{ boxShadow: 2, borderRadius: '50%' }}
-              width="28px"
-              height="28px"
+              width="46px"
+              height="46px"
               p="8px"
             >
               <img
@@ -41,8 +41,8 @@ export const DisplayLink: React.FC<DisplayLinkProps> = ({
                 alt={'favicon'}
                 // If no favicon was found then hide the element
                 onError={() => setDisplayFavicon(false)}
-                width="28px"
-                height="28px"
+                width="30px"
+                height="30px"
               />
             </Box>
           </Grid>
