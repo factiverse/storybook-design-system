@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
-import { DisplayLink, DisplayLinkProps } from './../src/DisplayLink';
+import { DisplayLink, DisplayLinkProps } from './DisplayLink';
 
 const meta: Meta = {
   title: 'DisplayLink',
