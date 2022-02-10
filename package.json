@@ -16,7 +16,7 @@
   "size-limit": [
     {
       "limit": "100 kB",
-      "path": "dist/index.js"
+      "path": "dist/Tutorial/index.js"
     }
   ],
   "scripts": {
