@@ -11,7 +11,7 @@ jobs:
     # The list of steps that the action will go through
     steps:
       - uses: actions/checkout@v1
-      - run: npm
+      - run: npm install
       - run: npm run test # Adds the test command
         #👇 Adds Chromatic as a step in the workflow
       - uses: chromaui/action@v1
