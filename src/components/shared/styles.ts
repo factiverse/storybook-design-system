@@ -32,6 +32,8 @@ export const color = {
   darker: '#444444',
   darkest: '#333333',
 
+  border: 'rgba(0,0,0,0.1)',
+
   // Status
   supported: '#a7e395',
   disputed: '#e69495',
