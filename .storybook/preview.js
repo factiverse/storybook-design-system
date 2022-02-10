@@ -1,20 +1,26 @@
 import React from 'react';
 
-import { GlobalStyle } from '../src/Tutorial/shared/global';
+import { muiTheme } from 'storybook-addon-material-ui'
+
+export const decorators = [
+  muiTheme()
+];
+
+// import { GlobalStyle } from '../src/Tutorial/shared/global';
 
 /*
  * Global decorator to apply the styles to all stories
  * Read more about them at:
  * https://storybook.js.org/docs/react/writing-stories/decorators#global-decorators
  */
-export const decorators = [
-  Story => (
-    <>
-      <GlobalStyle />
-      <Story />
-    </>
-  ),
-];
+// export const decorators = [
+//   Story => (
+//     <>
+//       <GlobalStyle />
+//       <Story />
+//     </>
+//   ),
+// ];
 
 /*
 * More on Storybook global parameters at:
