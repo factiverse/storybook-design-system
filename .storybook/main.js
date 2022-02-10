@@ -11,5 +11,8 @@ module.exports = {
     '@storybook/addon-a11y',
     '@storybook/addon-interactions'
   ],
-  "framework": "@storybook/react"
+  "framework": "@storybook/react",
+  "typescript": {
+    check: true, // type-check stories during Storybook build
+  }
 }

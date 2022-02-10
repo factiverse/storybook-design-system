@@ -1,7 +1,7 @@
 {
-  "name": "learnstorybook-design-system-template",
+  "name": "storybook-design-system",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -13,11 +13,18 @@
     "styled-components": "^5.2.1",
     "web-vitals": "^1.0.1"
   },
+  "size-limit": [
+    {
+      "limit": "100 kB",
+      "path": "dist/index.js"
+    }
+  ],
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "build": "cross-env BABEL_ENV=production babel src -d dist",
+    "test": "jest && eslint . && npm run size",
     "eject": "react-scripts eject",
+    "size": "npm run build && size-limit",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
     "build-storybook-docs": "build-storybook  --docs",
@@ -39,7 +46,16 @@
       }
     ]
   },
-  "babel": {},
+  "babel": {
+    "presets": [
+      [
+        "react-app",
+        {
+          "absoluteRuntime": false
+        }
+      ]
+    ]
+  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -53,6 +69,8 @@
     ]
   },
   "devDependencies": {
+    "@babel/cli": "^7.17.0",
+    "@size-limit/preset-small-lib": "^7.0.8",
     "@storybook/addon-a11y": "^6.4.18",
     "@storybook/addon-actions": "^6.4.18",
     "@storybook/addon-essentials": "^6.4.18",
@@ -63,6 +81,7 @@
     "@storybook/react": "^6.4.18",
     "@storybook/testing-library": "^0.0.9",
     "chromatic": "^6.4.3",
+    "cross-env": "^7.0.3",
     "prettier": "^2.5.1",
     "size-limit": "^7.0.8"
   }
