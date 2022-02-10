@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import styled, { css } from 'styled-components';
 
 import { Icon } from './Icon';
-import { icons } from './shared/icons';
+import { icons } from '../shared/icons';
 
 const Meta = styled.div`
   color: #666;
@@ -49,7 +49,7 @@ const List = styled.ul`
 `;
 
 export default {
-  title: 'Design System/Icon',
+  title: 'Tutorial/Icon',
   component: Icon,
 };
 
@@ -84,18 +84,18 @@ export const Inline = (args) => (
     this is an inline <Icon {...args} /> icon (default)
   </Fragment>
 );
-Inline.args={
-  icon:'facehappy',
-  "aria-label":'Happy face',
+Inline.args = {
+  icon: 'facehappy',
+  "aria-label": 'Happy face',
 };
 
-export const Block = (args) =>(
+export const Block = (args) => (
   <Fragment>
     this is a block <Icon {...args} /> icon
   </Fragment>
 );
-Block.args={
-  icon:'facehappy',
-  "aria-label":'Happy face',
-  block:true
+Block.args = {
+  icon: 'facehappy',
+  "aria-label": 'Happy face',
+  block: true
 };
