@@ -18,7 +18,7 @@ export const DisplayLink: React.FC<DisplayLinkProps> = ({
   // Is true if the favicon should be displayed, gets set to false if an error occurs when loading it
   const [displayFavicon, setDisplayFavicon] = React.useState(true);
 
-  if (displayLink == undefined && link != undefined)
+  if (displayLink === undefined && link !== undefined)
     displayLink = new URL(link).hostname.replace('www.', '');
 
   return (
