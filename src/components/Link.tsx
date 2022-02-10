@@ -28,6 +28,7 @@ export interface StyledLinkProps {
   tertiary?: boolean;
   nochrome?: boolean;
   inverse?: boolean;
+  newTab?: boolean;
 }
 
 const StyledLink = styled.a<StyledLinkProps>`
@@ -146,6 +147,7 @@ const LinkComponentPicker = forwardRef<
       nochrome,
       secondary,
       tertiary,
+      newTab,
       ...rest
     }: LinkProps,
     ref
@@ -177,7 +179,7 @@ const LinkComponentPicker = forwardRef<
 export const Link = forwardRef<
   HTMLAnchorElement | HTMLButtonElement,
   LinkProps
->(({ children, withArrow, ...rest }, ref) => {
+>(({ children, withArrow, newTab, ...rest }, ref) => {
   const content = (
     <>
       <LinkInner withArrow={withArrow ?? false}>
@@ -192,6 +194,7 @@ export const Link = forwardRef<
       // @ts-expect-error Emotion 10 doesn't include `as` in its types
       as={LinkComponentPicker}
       ref={ref as React.ForwardedRef<HTMLAnchorElement>}
+      target={newTab ? '_blank' : ''}
       {...rest}
     >
       {content}
@@ -207,4 +210,5 @@ Link.defaultProps = {
   tertiary: false,
   nochrome: false,
   inverse: false,
+  newTab: false,
 };

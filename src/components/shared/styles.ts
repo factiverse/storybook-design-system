@@ -14,7 +14,7 @@ export const background = {
 export const color = {
   // Palette
   primary: '#64e041',
-  secondary: '#47A88D',
+  secondary: '#24a455',
   tertiary: '#DDDDDD',
 
   // Logo colors

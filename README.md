@@ -1,5 +1,7 @@
-# Storybook design system tutorial
+# Factiverse Design System
 
-The Storybook design system tutorial is a subset of the full [Storybook design system](https://github.com/storybookjs/design-system/), created as a learning resource for those interested in learning how to write and publish a design system using best in practice techniques.
+Factiverse Design System is a reusable component library that helps Factiverse contributors build UIs faster. The goal is to make building durable UIs more productive and satisfying.
 
-Learn more in [Storybook tutorials](https://storybook.js.org/tutorials/).
+It was built following the [design system tutorial](https://storybook.js.org/tutorials/design-systems-for-developers) by Storybook.
+
+To look at the components and/or get started developing check out the GitHub Pages [deployment](https://factiverse.github.io/storybook-design-system/).
