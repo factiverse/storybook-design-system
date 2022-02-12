@@ -52,24 +52,6 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "babel": {
-    "presets": [
-      [
-        "@babel/preset-env",
-        {
-          "shippedProposals": true,
-          "targets": {
-            "node": "current"
-          }
-        }
-      ],
-      ["@babel/preset-react", { "runtime": "automatic" }],
-      "@babel/typescript"
-    ]
-  },
-  "externals": {
-    "react": "React"
-  },
   "browserslist": {
     "production": [
       ">0.2%",
