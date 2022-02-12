@@ -1,6 +1,6 @@
 // Copied from https://github.com/storybookjs/design-system
 
-import React, { FunctionComponent } from 'react';
+import { FunctionComponent } from 'react';
 import { styled } from '@storybook/theming';
 import { icons } from './shared/icons';
 

@@ -14,7 +14,7 @@
   },
   "size-limit": [
     {
-      "limit": "100 kB",
+      "limit": "500 kB",
       "path": "dist/Tutorial/index.js"
     }
   ],
@@ -27,7 +27,7 @@
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
     "build-storybook-docs": "build-storybook  --docs",
-    "chromatic": "npx chromatic --project-token=e8130cbb59b8",
+    "chromatic": "npx chromatic --project-token=e8130cbb59b8 --exit-once-uploaded",
     "deploy-storybook": "storybook-to-ghpages"
   },
   "eslintConfig": {
