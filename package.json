@@ -55,12 +55,20 @@
   "babel": {
     "presets": [
       [
-        "react-app",
+        "@babel/preset-env",
         {
-          "absoluteRuntime": false
+          "shippedProposals": true,
+          "targets": {
+            "node": "current"
+          }
         }
-      ]
+      ],
+      ["@babel/preset-react", { "runtime": "automatic" }],
+      "@babel/typescript"
     ]
+  },
+  "externals": {
+    "react": "React"
   },
   "browserslist": {
     "production": [
