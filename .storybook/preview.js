@@ -6,7 +6,7 @@ import React from 'react';
 
 // export const decorators = [muiTheme([newTheme])];
 
-import { GlobalStyle } from '../src/Tutorial/shared/global';
+import { GlobalStyle } from '../src/shared/global';
 
 /*
  * Global decorator to apply the styles to all stories
