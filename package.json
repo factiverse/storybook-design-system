@@ -1,7 +1,19 @@
 {
-  "name": "storybook-design-system",
-  "version": "0.1.0",
+  "name": "@factiverse/design-system",
+  "description": "Factiverse Design System is a reusable component library that helps Factiverse contributors build UIs faster. The goal is to make building durable UIs more productive and satisfying.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/factiverse/storybook-design-system.git"
+  },
+  "author": "Tobias Tykvart",
+  "license": "UNLICENSED",
+  "version": "0.1.1",
   "private": false,
+  "bugs": {
+    "url": "https://github.com/factiverse/storybook-design-system/issues"
+  },
+  "homepage": "https://github.com/factiverse/storybook-design-system#readme",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -28,7 +40,18 @@
     "build-storybook": "build-storybook -s public",
     "build-storybook-docs": "build-storybook  --docs",
     "chromatic": "npx chromatic --project-token=e8130cbb59b8 --exit-once-uploaded",
-    "deploy-storybook": "storybook-to-ghpages"
+    "deploy-storybook": "storybook-to-ghpages",
+    "release": "auto shipit --base-branch=main"
+  },
+  "babel": {
+    "presets": [
+      [
+        "react-app",
+        {
+          "absoluteRuntime": false
+        }
+      ]
+    ]
   },
   "eslintConfig": {
     "extends": [
@@ -82,6 +105,7 @@
     "@storybook/storybook-deployer": "^2.8.10",
     "@storybook/testing-library": "^0.0.9",
     "@types/react-dom": "^17.0.11",
+    "auto": "^10.32.6",
     "chromatic": "^6.4.3",
     "cross-env": "^7.0.3",
     "prettier": "^2.5.1",
