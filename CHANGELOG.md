@@ -1,10 +1,10 @@
 # v0.1.3 (Thu Feb 24 2022)
 
-#### 🐛 Bug Fix
+## 🐛 Bug Fix
 
 - Testing auto publish [#3](https://github.com/factiverse/storybook-design-system/pull/3) ([@tobiastykvart](https://github.com/tobiastykvart))
 
-#### Authors: 1
+## Authors: 1
 
 - Tobias Tykvart ([@tobiastykvart](https://github.com/tobiastykvart))
 

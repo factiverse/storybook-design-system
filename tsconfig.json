@@ -1,33 +1,42 @@
 {
-  "include": [
-    "src",
-    "types"
-    , "babel.config.js"  ],
-    "compilerOptions": {
-      "module": "esnext",
-      "lib": [
-        "dom",
-        "esnext"
-      ],
-      "importHelpers": true,
-      "declaration": true,
-      "sourceMap": true,
-      "rootDir": "./src",
-      "strict": true,
-      "noImplicitReturns": true,
-      "noFallthroughCasesInSwitch": true,
-      "noUnusedLocals": true,
-      "noUnusedParameters": true,
-      "moduleResolution": "node",
-      "jsx": "react-jsx",
-      "esModuleInterop": true,
-      "skipLibCheck": true,
-      "forceConsistentCasingInFileNames": true,
-      "noEmit": true,
-      "allowJs": true,
-      "allowSyntheticDefaultImports": true,
-      "resolveJsonModule": true,
-      "isolatedModules": true
-    }
+  "include": ["src"],
+  "exclude": [
+    "**/*.stories.*",
+    "**/*.test.*",
+    "**/dist",
+    "node_modules",
+    "**/node_modules",
+  ],
+  "compilerOptions": {
+    "module": "commonjs",
+    "lib": ["es2017", "dom"],
+    "importHelpers": true,
+    "declaration": true,
+    "sourceMap": true,
+    "rootDir": "./src",
+    "strict": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "moduleResolution": "node",
+    "jsx": "react",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "allowJs": true,
+    "checkJs": false,
+    "baseUrl": ".",
+    "incremental": false,
+    "noImplicitAny": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "skipDefaultLibCheck": true,
+    "target": "es5",
+    "types": [],
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true
   }
-  
+}
