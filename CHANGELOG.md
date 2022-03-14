@@ -1,3 +1,16 @@
+# v0.1.4 (Thu Mar 10 2022)
+
+#### ⚠️ Pushed to `main`
+
+- Fix jsx flag ([@tobiastykvart](https://github.com/tobiastykvart))
+- Fix? tsconfig ([@tobiastykvart](https://github.com/tobiastykvart))
+
+#### Authors: 1
+
+- Tobias Tykvart ([@tobiastykvart](https://github.com/tobiastykvart))
+
+---
+
 # v0.1.3 (Thu Feb 24 2022)
 
 ## 🐛 Bug Fix
