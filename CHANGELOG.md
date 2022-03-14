@@ -1,3 +1,16 @@
+# v0.1.5 (Mon Mar 14 2022)
+
+#### ⚠️ Pushed to `main`
+
+- Merge branch 'main' of github.com:factiverse/storybook-design-system ([@tobiastykvart](https://github.com/tobiastykvart))
+- Add react-docgen-typescript-plugin to add typings ([@tobiastykvart](https://github.com/tobiastykvart))
+
+#### Authors: 1
+
+- Tobias Tykvart ([@tobiastykvart](https://github.com/tobiastykvart))
+
+---
+
 # v0.1.4 (Thu Mar 10 2022)
 
 #### ⚠️ Pushed to `main`
