@@ -7,6 +7,9 @@ import { darken } from 'polished';
 import { Icon } from './Icon';
 import { color } from './shared/styles';
 
+import { StyledLinkProps } from '../@types/design-system/components/Link';
+import { LinkProps } from '../@types/design-system/components/Link';
+
 const LinkInner = styled.span<{ withArrow: boolean }>`
   ${(props) =>
     props.withArrow &&
@@ -21,15 +24,6 @@ const LinkInner = styled.span<{ withArrow: boolean }>`
       }
     `};
 `;
-
-export interface StyledLinkProps {
-  containsIcon?: boolean;
-  secondary?: boolean;
-  tertiary?: boolean;
-  nochrome?: boolean;
-  inverse?: boolean;
-  newTab?: boolean;
-}
 
 const StyledLink = styled.a<StyledLinkProps>`
   display: inline-block;
@@ -122,15 +116,6 @@ const LinkButton = styled.button`
   cursor: pointer;
 `;
 
-/**
- * Links can contains text and/or icons. Be careful using only icons, you must provide a text alternative via aria-label for accessibility.
- */
-export type LinkProps = React.ComponentProps<typeof StyledLink> & {
-  withArrow?: boolean;
-  isButton?: boolean;
-  LinkWrapper?: React.ComponentType<any>;
-};
-
 // The main purpose of this component is to strip certain props that get passed
 // down to the styled component, so that we don't end up passing them to a
 // tag which would throw warnings for non-standard props.
@@ -191,7 +176,6 @@ export const Link = forwardRef<
 
   return (
     <StyledLink
-      // @ts-expect-error Emotion 10 doesn't include `as` in its types
       as={LinkComponentPicker}
       ref={ref as React.ForwardedRef<HTMLAnchorElement>}
       target={newTab ? '_blank' : ''}

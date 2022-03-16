@@ -1,5 +1,5 @@
 {
-  "include": ["src"],
+  "include": ["src", "design-system.d.ts"],
   "exclude": [
     "**/*.stories.*",
     "**/*.test.*",
@@ -27,7 +27,6 @@
     "noEmit": true,
     "allowJs": true,
     "checkJs": false,
-    "baseUrl": ".",
     "incremental": false,
     "noImplicitAny": true,
     "experimentalDecorators": true,
@@ -35,6 +34,8 @@
     "skipDefaultLibCheck": true,
     "target": "es5",
     "types": [],
+    "baseUrl": "types",
+    "typeRoots": ["types"],
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
     "isolatedModules": true
