@@ -1,3 +1,16 @@
+# v0.1.7 (Wed Mar 16 2022)
+
+#### ⚠️ Pushed to `main`
+
+- Merge branch 'main' of github.com:factiverse/storybook-design-system ([@tobiastykvart](https://github.com/tobiastykvart))
+- Update tsconfig ([@tobiastykvart](https://github.com/tobiastykvart))
+
+#### Authors: 1
+
+- Tobias Tykvart ([@tobiastykvart](https://github.com/tobiastykvart))
+
+---
+
 # v0.1.6 (Wed Mar 16 2022)
 
 #### ⚠️ Pushed to `main`
