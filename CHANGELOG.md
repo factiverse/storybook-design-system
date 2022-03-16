@@ -1,3 +1,15 @@
+# v0.1.6 (Wed Mar 16 2022)
+
+#### ⚠️ Pushed to `main`
+
+- Add types for Link ([@tobiastykvart](https://github.com/tobiastykvart))
+
+#### Authors: 1
+
+- Tobias Tykvart ([@tobiastykvart](https://github.com/tobiastykvart))
+
+---
+
 # v0.1.5 (Mon Mar 14 2022)
 
 #### ⚠️ Pushed to `main`
