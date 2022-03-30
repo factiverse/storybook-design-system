@@ -1,3 +1,15 @@
+# v0.1.8 (Wed Mar 30 2022)
+
+#### ⚠️ Pushed to `main`
+
+- update to release workflow ([@withchristopher](https://github.com/withchristopher))
+
+#### Authors: 1
+
+- Chris Maxwell ([@withchristopher](https://github.com/withchristopher))
+
+---
+
 # v0.1.7 (Wed Mar 16 2022)
 
 #### ⚠️ Pushed to `main`
