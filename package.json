@@ -33,7 +33,6 @@
     "deploy-storybook": "storybook-to-ghpages",
     "release": "auto shipit --base-branch=main",
     "postbuild": "npm run copy-fonts",
-    "prebuild": "npm run clean && npm run compile-icons",
     "prepublish": "npm run build"
   },
   "babel": {
