@@ -15,7 +15,8 @@
   "homepage": "https://github.com/factiverse/storybook-design-system#readme",
   "dependencies": {
     "polished": "^4.1.1",
-    "styled-components": "^5.3.5"
+    "styled-components": "^5.3.5",
+    "email-validator": ">=2.0.4"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -32,6 +33,7 @@
     "deploy-storybook": "storybook-to-ghpages",
     "release": "auto shipit --base-branch=main",
     "postbuild": "npm run copy-fonts",
+    "prebuild": "npm run clean && npm run compile-icons",
     "prepublish": "npm run build"
   },
   "babel": {
