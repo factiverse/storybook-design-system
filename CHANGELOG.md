@@ -1,3 +1,25 @@
+# v0.1.9 (Wed Apr 13 2022)
+
+#### ⚠️ Pushed to `main`
+
+- no clean in npm ([@withchristopher](https://github.com/withchristopher))
+- added install and email validator ([@withchristopher](https://github.com/withchristopher))
+- added ci ([@withchristopher](https://github.com/withchristopher))
+- removed ci ([@withchristopher](https://github.com/withchristopher))
+- node version 12 ([@withchristopher](https://github.com/withchristopher))
+- removed ci from push gh workflow ([@withchristopher](https://github.com/withchristopher))
+- updated package-lock.json and github workflow ([@withchristopher](https://github.com/withchristopher))
+- updated package.json and github workflow ([@withchristopher](https://github.com/withchristopher))
+- updated storybook ([@withchristopher](https://github.com/withchristopher))
+- added components with output ([@withchristopher](https://github.com/withchristopher))
+- updated library ([@withchristopher](https://github.com/withchristopher))
+
+#### Authors: 1
+
+- Chris Maxwell ([@withchristopher](https://github.com/withchristopher))
+
+---
+
 # v0.1.8 (Wed Mar 30 2022)
 
 #### ⚠️ Pushed to `main`
