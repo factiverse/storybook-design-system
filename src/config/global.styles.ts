@@ -1,13 +1,11 @@
-import { createGlobalStyle, css } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
+import './fonts/styles.css';
 
 export const GlobalStyles = createGlobalStyle`
-    @font-face {
-
-    }
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-
-        font-family: 
-    }`
+  * {
+    font-family: 'Poppins';
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+`;
