@@ -23,7 +23,7 @@
     "test": "jest && eslint .",
     "clean": "rm -rf ./lib",
     "eject": "react-scripts eject",
-    "compile-icons": "npx @svgr/cli src/icons src/icons --typescript",
+    "compile-icons": "npx @svgr/cli --out-dir src/icons src/icons --typescript",
     "copy-fonts": "copyfiles -u 1 src/config/fonts/* lib/",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
