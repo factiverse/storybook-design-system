@@ -1,42 +1,36 @@
 {
-  "include": ["src"],
-  "exclude": [
-    "**/*.stories.*",
-    "**/*.test.*",
-    "**/dist",
-    "node_modules",
-    "**/node_modules",
-  ],
   "compilerOptions": {
-    "module": "commonjs",
-    "lib": ["es2017", "dom"],
-    "importHelpers": true,
-    "declaration": true,
-    "sourceMap": true,
-    "rootDir": "./src",
-    "strict": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "moduleResolution": "node",
-    "jsx": "react-jsx",
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
-    "allowJs": true,
-    "checkJs": false,
-    "baseUrl": ".",
-    "incremental": false,
-    "noImplicitAny": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "skipDefaultLibCheck": true,
     "target": "es5",
-    "types": [],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "esnext",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
-    "isolatedModules": true
-  }
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "outDir": "lib",
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "noEmit": true
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/*.stories.tsx",
+    "./src/setupTests.ts"
+  ]
 }

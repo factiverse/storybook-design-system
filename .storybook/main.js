@@ -2,7 +2,7 @@ module.exports = {
   "stories": [
     '../src/Introduction.stories.mdx',
     "../src/**/*.stories.mdx",
-    "../src/**/*.stories.@(js|jsx|ts|tsx)"
+    "../src/**/*.stories.tsx",
   ],
   "addons": [
     "@storybook/addon-links",
@@ -15,5 +15,11 @@ module.exports = {
   "framework": "@storybook/react",
   "typescript": {
     check: true, // type-check stories during Storybook build
+    checkOptions: {},
+    reactDocgen: 'react-docgen-typescript',
+    reactDocgenTypescriptOptions: {
+      shouldExtractLiteralValuesFromEnum: true,
+      propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
+    },
   }
 }
