@@ -1,12 +1,4 @@
 {
-  "include": ["src", "design-system.d.ts"],
-  "exclude": [
-    "**/*.stories.*",
-    "**/*.test.*",
-    "**/dist",
-    "node_modules",
-    "**/node_modules",
-  ],
   "compilerOptions": {
     // Default
     "target": "es5",

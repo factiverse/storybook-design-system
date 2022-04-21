@@ -7,3 +7,7 @@ It was built following the [design system tutorial](https://storybook.js.org/tut
 To look at the components and/or get started developing check out the GitHub Pages [deployment](https://factiverse.github.io/storybook-design-system/).
 
 Testing automatic publishing
+
+### Components:
+
+List of components
