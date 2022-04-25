@@ -6,6 +6,8 @@ import React from 'react';
 
 // export const decorators = [muiTheme([newTheme])];
 
+import { GlobalStyles } from '../src/config/global.styles';
+
 /*
  * Global decorator to apply the styles to all stories
  * Read more about them at:
@@ -14,6 +16,7 @@ import React from 'react';
 export const decorators = [
   (Story) => (
     <>
+      <GlobalStyles />
       <Story />
     </>
   ),

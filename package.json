@@ -7,7 +7,7 @@
   },
   "author": "Tobias Tykvart",
   "license": "MIT",
-  "version": "0.2.3",
+  "version": "0.2.0",
   "private": false,
   "bugs": {
     "url": "https://github.com/factiverse/storybook-design-system/issues"
@@ -21,6 +21,8 @@
     "deploy-storybook": "storybook-to-ghpages",
     "release": "auto shipit --base-branch=main",
     "rollup": "rollup -c",
+    "pre-build": "rm -rf dist/",
+    "dev-rollup": "npm run pre-build && npm run rollup",
     "test": "jest",
     "publish": "npm run rollup"
   },
@@ -81,6 +83,7 @@
     "@storybook/addon-a11y": "^6.4.18",
     "@storybook/addon-actions": "^6.3.12",
     "@storybook/addon-essentials": "^6.3.12",
+    "@storybook/addon-interactions": "^6.4.22",
     "@storybook/addon-links": "^6.3.12",
     "@storybook/builder-webpack5": "^6.3.12",
     "@storybook/manager-webpack5": "^6.3.12",

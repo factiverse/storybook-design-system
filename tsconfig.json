@@ -1,4 +1,18 @@
 {
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules",
+    "src/develop-stories/*",
+    "./src/config/*",
+    "./src/example/*",
+    "./src/icons/*",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "./src/dev.components/*",
+    "./src/setupTests.ts",
+  ],
   "compilerOptions": {
     // Default
     "target": "es5",
