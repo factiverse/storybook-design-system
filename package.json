@@ -1,5 +1,5 @@
 {
-  "name": "@withchristopher/storybook-design-system",
+  "name": "@factiverse/design-system",
   "description": "Factiverse Design System is a reusable component library that helps Factiverse contributors build UIs faster. The goal is to make building durable UIs more productive and satisfying.",
   "repository": {
     "type": "git",
