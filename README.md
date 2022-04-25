@@ -21,7 +21,7 @@ NPM version <= v8.1.2
 
 To run these components locally, use
 
-View the component library in Storybook
+View the component library in Storybook:
 ```
 npm run storybook
 ```
