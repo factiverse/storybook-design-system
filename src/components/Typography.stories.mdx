@@ -1,16 +1,38 @@
-import { Meta, Typeset } from '@storybook/addon-docs/blocks';
+import { Meta, Typeset, Canvas } from '@storybook/addon-docs/blocks';
 
 import { typography } from './shared/styles';
+
+import { Typography } from '@mui/material';
 
 <Meta title="Typography" />
 
 # Typography
 
-**Font:** Arizona Serif
+## Hierarchy
+
+<Canvas columns={2} withSource="open">
+  <Typography variant="subtitle1" fontFamily="DM Mono">
+    Mission
+  </Typography>
+  <Typography variant="h1" fontFamily="Arizona Serif">
+    Unblurring the lines between fact and misinformation
+  </Typography>
+  <Typography variant="body" fontFamily="Arizona Serif">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+    do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+    minim veniam, quis nostrud.
+  </Typography>
+</Canvas>
+
+## Headline/Body text
+
+**Font:** ABC Arizona Serif Light
 
 **Weights:** 400(regular), 700(bold)
 
-## Font weight: regular
+### Font weight: regular
 
 <Typeset
   fontSizes={[
@@ -28,7 +50,7 @@ import { typography } from './shared/styles';
   fontWeight={typography.weight.regular}
 />
 
-## Font weight: bold
+### Font weight: bold
 
 <Typeset
   fontSizes={[
@@ -45,4 +67,45 @@ import { typography } from './shared/styles';
   fontFamily="Arizona Serif"
   fontWeight={typography.weight.bold}
 />
+
+## Overline heading/Buttons
+
+**Font:** DM Mono Light
+
+**Weights:** 400(regular), 700(bold)
+
+### Font weight: regular
+
+<Typeset
+  fontSizes={[
+    Number(typography.size.s1),
+    Number(typography.size.s2),
+    Number(typography.size.s3),
+    Number(typography.size.m1),
+    Number(typography.size.m2),
+    Number(typography.size.m3),
+    Number(typography.size.l1),
+    Number(typography.size.l2),
+    Number(typography.size.l3),
+  ]}
+  fontFamily="DM Mono"
+  fontWeight={typography.weight.regular}
+/>
+
+### Font weight: bold
+
+<Typeset
+  fontSizes={[
+    Number(typography.size.s1),
+    Number(typography.size.s2),
+    Number(typography.size.s3),
+    Number(typography.size.m1),
+    Number(typography.size.m2),
+    Number(typography.size.m3),
+    Number(typography.size.l1),
+    Number(typography.size.l2),
+    Number(typography.size.l3),
+  ]}
+  fontFamily="DM Mono"
+  fontWeight={typography.weight.bold}
 />
