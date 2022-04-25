@@ -30,7 +30,7 @@
     "build-storybook": "build-storybook -s public",
     "build-storybook-docs": "build-storybook  --docs",
     "chromatic": "npx chromatic --project-token=e8130cbb59b8 --exit-once-uploaded",
-    "deploy-storybook": "storybook-to-ghpages",
+    "deploy-storybook": "storybook-to-ghpages --source-branch 'develop'",
     "release": "auto shipit --base-branch=main",
     "postbuild": "npm run copy-fonts",
     "prepublish": "npm run build"

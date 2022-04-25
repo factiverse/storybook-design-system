@@ -1,36 +1,96 @@
 @font-face {
-    font-family: 'Poppins';
-    src: url('./Poppins-Thin.ttf') format("truetype");
-    font-weight: 200;
-    font-style: normal;
+  font-family: 'Arizona Serif';
+  src: url('./ABCArizonaSerif-Light.ttf') format('truetype');
+  font-style: normal;
 }
+
 @font-face {
-    font-family: 'Poppins';
-    src: url('./Poppins-Light.ttf') format("truetype");
-    font-weight: 300;
-    font-style: normal;
+  font-family: 'Arizona Serif';
+  src: url('./ArizonaSerif-Light.woff') format('woff');
+  font-style: normal;
 }
+
 @font-face {
-    font-family: 'Poppins';
-    src: url('./Poppins-Regular.ttf') format("truetype");
-    font-weight: 400;
-    font-style: normal;
+  font-family: 'Arizona Serif';
+  src: url('./ArizonaSerif-Light.woff2') format('woff2');
+  font-style: normal;
 }
+
 @font-face {
-    font-family: 'Poppins';
-    src: url('./Poppins-Medium.ttf') format("truetype");
-    font-weight: 500;
-    font-style: normal;
+  font-family: 'Arizona Text';
+  src: url('./ArizonaText-Light.ttf') format('truetype');
+  font-style: normal;
 }
+
 @font-face {
-    font-family: 'Poppins';
-    src: url('./Poppins-SemiBold.ttf') format("truetype");
-    font-weight: 600;
-    font-style: normal;
+  font-family: 'Arizona Text';
+  src: url('./ArizonaText-Light.woff') format('woff');
+  font-style: normal;
 }
+
 @font-face {
-    font-family: 'Poppins';
-    src: url('./Poppins-Bold.ttf') format("truetype");
-    font-weight: 700;
-    font-style: normal;
+  font-family: 'Arizona Text';
+  src: url('./ArizonaText-Light.woff2') format('woff2');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Arizona Text';
+  src: url('./ArizonaText-LightItalic.ttf') format('truetype');
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Arizona Text';
+  src: url('./ArizonaText-LightItalic.woff') format('woff');
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Arizona Text';
+  src: url('./ArizonaText-LightItalic.woff2') format('woff2');
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'DM Mono';
+  src: url('./DMMono-Light.ttf') format('truetype');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DM Mono';
+  src: url('./DMMono-Light.woff') format('woff');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DM Mono';
+  src: url('./DMMono-Light.woff2') format('woff2');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DM Mono';
+  src: url('./DMMono-LightItalic.ttf') format('truetype');
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'DM Mono';
+  src: url('./DMMono-LightItalic.woff') format('woff');
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'DM Mono';
+  src: url('./DMMono-LightItalic.woff2') format('woff2');
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'DM Mono';
+  src: url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap')
+    format('woff2');
+  font-style: italic;
 }
