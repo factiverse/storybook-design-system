@@ -6,8 +6,8 @@
     "url": "git+https://github.com/factiverse/storybook-design-system.git"
   },
   "author": "Tobias Tykvart",
-  "license": "UNLICENSED",
-  "version": "0.1.9",
+  "license": "MIT",
+  "version": "0.2.1",
   "private": false,
   "bugs": {
     "url": "https://github.com/factiverse/storybook-design-system/issues"
@@ -61,7 +61,7 @@
   "files": [
     "dist"
   ],
-  "main": "dist/index.js",
+  "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
   "devDependencies": {
@@ -99,11 +99,13 @@
     "babel-loader": "^8.2.3",
     "chromatic": "^6.4.3",
     "css-loader": "^6.5.1",
+    "email-validator": "^2.0.4",
     "html-webpack-plugin": "^5.5.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.3.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.2",
+    "react-is": "^18.0.0",
     "rollup": "^2.60.0",
     "rollup-plugin-dts": "^4.0.1",
     "rollup-plugin-postcss": "^4.0.1",
