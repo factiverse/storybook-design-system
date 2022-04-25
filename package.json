@@ -21,8 +21,6 @@
     "deploy-storybook": "storybook-to-ghpages",
     "release": "auto shipit --base-branch=main",
     "rollup": "rollup -c",
-    "pre-build": "rm -rf dist/",
-    "dev-rollup": "npm run pre-build && npm run rollup",
     "test": "jest",
     "publish": "npm run rollup"
   },
