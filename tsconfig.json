@@ -4,13 +4,12 @@
   ],
   "exclude": [
     "node_modules",
-    "src/develop-stories/*",
+    "src/develop-components/*",
     "./src/config/*",
     "./src/example/*",
     "./src/icons/*",
     "**/*.test.ts",
     "**/*.test.tsx",
-    "./src/dev.components/*",
     "./src/setupTests.ts",
   ],
   "compilerOptions": {
