@@ -14,9 +14,9 @@
   },
   "homepage": "https://github.com/factiverse/storybook-design-system#readme",
   "dependencies": {
+    "email-validator": ">=2.0.4",
     "polished": "^4.1.1",
-    "styled-components": "^5.3.5",
-    "email-validator": ">=2.0.4"
+    "styled-components": "^5.3.5"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -46,15 +46,10 @@
     ]
   },
   "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ],
+    "extends": ["react-app", "react-app/jest"],
     "overrides": [
       {
-        "files": [
-          "**/*.stories.*"
-        ],
+        "files": ["**/*.stories.*"],
         "rules": {
           "import/no-anonymous-default-export": "off"
         }
@@ -68,11 +63,7 @@
     "trailingComma": "es5"
   },
   "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
+    "production": [">0.2%", "not dead", "not op_mini all"],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
