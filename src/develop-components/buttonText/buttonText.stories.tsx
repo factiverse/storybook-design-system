@@ -2,16 +2,16 @@ import React from 'react';
 // also exported from '@storybook/react' if you can deal with breaking changes in 6.1
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import ButtonTest, { ButtonProps } from '.';
+import ButtonText, { ButtonProps } from '.';
 import styled from 'styled-components';
 import DownloadIcon from '../../icons/Download';
 
 export default {
   title: 'Development-Components/Button',
-  component: ButtonTest,
+  component: ButtonText,
 } as Meta;
 
-const Template: Story<ButtonProps> = (args) => <ButtonTest {...args} />;
+const Template: Story<ButtonProps> = (args) => <ButtonText {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
@@ -44,7 +44,7 @@ Disabled.args = {
 
 export const Loading = Template.bind({});
 Loading.args = {
-  children: 'ButtonTest',
+  children: 'ButtonText',
   loading: true,
 };
 
@@ -67,29 +67,29 @@ export const Sizes = () => {
   return (
     <>
       <ButtonRow>
-        <ButtonTest size='large'>Large</ButtonTest>
-        <ButtonTest size='default'>Default</ButtonTest>
-        <ButtonTest size='small'>Small</ButtonTest>
+        <ButtonText size='large'>Large</ButtonText>
+        <ButtonText size='default'>Default</ButtonText>
+        <ButtonText size='small'>Small</ButtonText>
       </ButtonRow>
       <ButtonRow>
-        <ButtonTest type='danger' size='large'>Large</ButtonTest>
-        <ButtonTest type='danger' size='default'>Default</ButtonTest>
-        <ButtonTest type='danger' size='small'>Small</ButtonTest>
+        <ButtonText type='danger' size='large'>Large</ButtonText>
+        <ButtonText type='danger' size='default'>Default</ButtonText>
+        <ButtonText type='danger' size='small'>Small</ButtonText>
       </ButtonRow>
       <ButtonRow>
-        <ButtonTest type='ghost' size='large'>Large</ButtonTest>
-        <ButtonTest type='ghost' size='default'>Default</ButtonTest>
-        <ButtonTest type='ghost' size='small'>Small</ButtonTest>
+        <ButtonText type='ghost' size='large'>Large</ButtonText>
+        <ButtonText type='ghost' size='default'>Default</ButtonText>
+        <ButtonText type='ghost' size='small'>Small</ButtonText>
       </ButtonRow>
       <ButtonRow>
-        <ButtonTest type='secondary' size='large'>Large</ButtonTest>
-        <ButtonTest type='secondary' size='default'>Default</ButtonTest>
-        <ButtonTest type='secondary' size='small'>Small</ButtonTest>
+        <ButtonText type='secondary' size='large'>Large</ButtonText>
+        <ButtonText type='secondary' size='default'>Default</ButtonText>
+        <ButtonText type='secondary' size='small'>Small</ButtonText>
       </ButtonRow>
       <ButtonRow>
-        <ButtonTest loading disabled size='large'>Large</ButtonTest>
-        <ButtonTest loading disabled size='default'>Default</ButtonTest>
-        <ButtonTest loading disabled size='small'>Small</ButtonTest>
+        <ButtonText loading disabled size='large'>Large</ButtonText>
+        <ButtonText loading disabled size='default'>Default</ButtonText>
+        <ButtonText loading disabled size='small'>Small</ButtonText>
       </ButtonRow>
     </>
   );

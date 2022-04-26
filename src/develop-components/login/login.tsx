@@ -2,7 +2,7 @@ import React, { ChangeEvent, HTMLAttributes } from 'react';
 import useLoginLogic from './use-login-logic';
 import FormControl from '../form-control';
 import TextInput from '../text-input';
-import ButtonTest from '../buttonTest';
+import ButtonText from '../buttonText';
 import { ButtonWrapper, StyledForm } from './styled';
 import { H3 } from '../typography';
 import Link from '../link';
@@ -72,10 +72,10 @@ const Login: React.ForwardRefRenderFunction<HTMLFormElement, LoginProps> = (prop
             </FormControl>
             <ButtonWrapper>
                 <Link href={registerLink}>Create account</Link>
-                <Button
+                <ButtonText
                     onClick={handleSubmit}
                     loading={loading}
-                >Proceed</Button>
+                >Proceed</ButtonText>
             </ButtonWrapper>
         </StyledForm>
     );

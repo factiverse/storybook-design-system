@@ -1,5 +1,5 @@
 import React, { ChangeEventHandler } from 'react';
-import ButtonTest from '../buttonTest';
+import ButtonText from '../buttonText';
 import TextInput from '../text-input';
 import { ComponentSize } from '../../config/sizes';
 import { SearchWrapper } from './styled';
@@ -42,7 +42,7 @@ const Search: React.ForwardRefRenderFunction<HTMLDivElement, SearchProps> = (pro
                 clearable
                 {...textInputStyles}
             />
-            <ButtonTest type='secondary' icon={SearchIcon} />
+            <ButtonText type='secondary' icon={SearchIcon} />
         </SearchWrapper>
     );
 }
