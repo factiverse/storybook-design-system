@@ -6,6 +6,7 @@ import dts from 'rollup-plugin-dts';
 
 const packageJson = require('./package.json');
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default [
   {
     input: 'src/index.ts',
@@ -32,6 +33,6 @@ export default [
     input: 'dist/esm/types/index.d.ts',
     output: [{ file: 'dist/index.d.ts', format: 'esm' }],
     plugins: [dts()],
-    external: [/\.(css|less|scss)$/],
+    external: [/\.(css|less|scss)$/, 'react', '@material-ui/core'],
   },
 ];
