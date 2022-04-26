@@ -1,25 +1,29 @@
 module.exports = {
-  "stories": [
+  stories: [
     '../src/Introduction.stories.mdx',
-    "../src/**/*.stories.mdx",
-    "../src/**/*.stories.tsx",
+    '../src/**/*.stories.mdx',
+    '../src/**/*.stories.@(js|jsx|ts|tsx)',
   ],
-  "addons": [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/preset-create-react-app",
+  addons: [
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
+    '@storybook/preset-scss',
     '@storybook/addon-a11y',
-    'storybook-addon-material-ui',
-    '@storybook/addon-interactions'
+    '@storybook/addon-interactions',
+    // '@storybook/preset-create-react-app'
+    // 'storybook-addon-material-ui',
   ],
-  "framework": "@storybook/react",
-  "typescript": {
+  core: {
+    builder: 'webpack5',
+  },
+  typescript: {
     check: true, // type-check stories during Storybook build
     checkOptions: {},
     reactDocgen: 'react-docgen-typescript',
     reactDocgenTypescriptOptions: {
       shouldExtractLiteralValuesFromEnum: true,
-      propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
+      propFilter: (prop) =>
+        prop.parent ? !/node_modules/.test(prop.parent.fileName) : true,
     },
-  }
-}
+  },
+};
