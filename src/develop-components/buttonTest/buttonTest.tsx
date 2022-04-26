@@ -36,7 +36,7 @@ type CustomNodeProps = {
 
 export type ButtonProps = HTMLButtonProps & HTMLAnchorProps & CustomNodeProps;
 
-const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref) => {
+const ButtonTest: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref) => {
     const { 
         type = 'default',
         icon,
@@ -127,4 +127,4 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref
     );
 }
 
-export default React.forwardRef<unknown, ButtonProps>(Button);
+export default React.forwardRef<unknown, ButtonProps>(ButtonTest);

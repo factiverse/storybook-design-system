@@ -1,4 +1,4 @@
-export { default as Button } from './button';
+export { default as ButtonTest } from './buttonTest';
 
 export { default as FormControl } from './form-control';
 

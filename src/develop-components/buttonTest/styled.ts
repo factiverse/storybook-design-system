@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { ComponentSize, heights, sidePaddings } from "../../config/sizes";
-import { ButtonType } from "./button";
+import { ButtonType } from "./buttonTest";
 
 type StateColors = {
     regular: string;

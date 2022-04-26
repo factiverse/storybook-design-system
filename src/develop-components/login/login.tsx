@@ -2,7 +2,7 @@ import React, { ChangeEvent, HTMLAttributes } from 'react';
 import useLoginLogic from './use-login-logic';
 import FormControl from '../form-control';
 import TextInput from '../text-input';
-import Button from '../button';
+import ButtonTest from '../buttonTest';
 import { ButtonWrapper, StyledForm } from './styled';
 import { H3 } from '../typography';
 import Link from '../link';
