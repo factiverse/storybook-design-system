@@ -41,4 +41,9 @@ export const parameters = {
     // sets the execution mode for the addon
     manual: false,
   },
+  options: {
+    storySort: {
+      order: ['Introduction', 'Colors', 'Typography'],
+    },
+  },
 };
