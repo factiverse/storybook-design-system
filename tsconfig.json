@@ -12,6 +12,7 @@
     "**/*.test.tsx",
     "./src/setupTests.ts",
   ],
+  
   "compilerOptions": {
     // Default
     "target": "es5",
@@ -21,7 +22,7 @@
     "skipLibCheck": true,
     
     // Added
-    "jsx": "react-jsx",
+    "jsx": "react",
     "module": "ESNext",
     "declaration": true,
     "declarationDir": "types",
