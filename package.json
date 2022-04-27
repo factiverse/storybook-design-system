@@ -64,6 +64,11 @@
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
+  "overrides": {
+    "mdx-embed": {
+      "react": "^16.9.0"
+    }
+  },
   "dependencies": {
     "@material-ui/core": "^4.12.4"
   },
