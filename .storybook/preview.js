@@ -6,7 +6,7 @@ import React from 'react';
 
 // export const decorators = [muiTheme([newTheme])];
 
-import { GlobalStyles } from '../src/config/global.styles';
+// import { GlobalStyles } from '../src/config/global.styles';
 
 /*
  * Global decorator to apply the styles to all stories
@@ -16,7 +16,7 @@ import { GlobalStyles } from '../src/config/global.styles';
 export const decorators = [
   (Story) => (
     <>
-      <GlobalStyles />
+      {/* <GlobalStyles /> */}
       <Story />
     </>
   ),
@@ -40,5 +40,10 @@ export const parameters = {
     element: '#root',
     // sets the execution mode for the addon
     manual: false,
+  },
+  options: {
+    storySort: {
+      order: ['Introduction', 'Colors', 'Typography'],
+    },
   },
 };

@@ -6,44 +6,23 @@
     "url": "git+https://github.com/factiverse/storybook-design-system.git"
   },
   "author": "Tobias Tykvart",
-  "license": "UNLICENSED",
-  "version": "0.1.9",
+  "license": "MIT",
+  "version": "0.2.3",
   "private": false,
   "bugs": {
     "url": "https://github.com/factiverse/storybook-design-system/issues"
   },
   "homepage": "https://github.com/factiverse/storybook-design-system#readme",
-  "dependencies": {
-    "email-validator": ">=2.0.4",
-    "polished": "^4.1.1",
-    "styled-components": "^5.3.5"
-  },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "tsc --build \"./tsconfig.json\"",
-    "test": "jest && eslint .",
-    "clean": "rm -rf ./lib",
-    "eject": "react-scripts eject",
-    "compile-icons": "npx @svgr/cli -d src/icons src/icons --typescript",
-    "copy-fonts": "copyfiles -u 1 src/config/fonts/* lib/",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public",
+    "build-storybook": "build-storybook",
     "build-storybook-docs": "build-storybook  --docs",
     "chromatic": "npx chromatic --project-token=e8130cbb59b8 --exit-once-uploaded",
-    "deploy-storybook": "storybook-to-ghpages --source-branch 'develop'",
+    "deploy-storybook": "storybook-to-ghpages",
     "release": "auto shipit --base-branch=main",
-    "postbuild": "npm run copy-fonts",
-    "prepublish": "npm run build"
-  },
-  "babel": {
-    "presets": [
-      [
-        "react-app",
-        {
-          "absoluteRuntime": false
-        }
-      ]
-    ]
+    "rollup": "rollup -c",
+    "test": "jest && eslint .",
+    "publish": "npm run rollup"
   },
   "eslintConfig": {
     "extends": ["react-app", "react-app/jest"],
@@ -70,44 +49,78 @@
       "last 1 safari version"
     ]
   },
-  "main": "lib/index.js",
-  "peerDependencies": {
-    "email-validator": ">=2.0.4",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.2"
+  "files": [
+    "dist"
+  ],
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/index.d.ts",
+  "overrides": {
+    "mdx-embed": {
+      "react": "^17.0.0",
+      "react-dom": "^17.0.0"
+    }
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.12.4"
+  },
+  "engines": {
+    "node": "17.x",
+    "npm": "8.x"
   },
   "devDependencies": {
-    "@babel/cli": "^7.17.0",
-    "@emotion/react": "^11.7.1",
-    "@emotion/styled": "^11.6.0",
-    "@mui/icons-material": "^5.4.1",
-    "@mui/material": "^5.4.1",
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "@babel/preset-react": "^7.16.0",
+    "@babel/preset-typescript": "^7.16.0",
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "@mui/icons-material": "^5.6.2",
+    "@mui/material": "^5.6.2",
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-node-resolve": "^13.0.6",
+    "@rollup/plugin-typescript": "^8.3.0",
     "@storybook/addon-a11y": "^6.4.18",
-    "@storybook/addon-actions": "^6.4.18",
-    "@storybook/addon-essentials": "^6.4.18",
-    "@storybook/addon-interactions": "^6.4.18",
-    "@storybook/addon-links": "^6.4.18",
+    "@storybook/addon-actions": "^6.3.12",
+    "@storybook/addon-essentials": "^6.3.12",
+    "@storybook/addon-interactions": "^6.4.22",
+    "@storybook/addon-links": "^6.3.12",
+    "@storybook/builder-webpack5": "^6.3.12",
+    "@storybook/manager-webpack5": "^6.3.12",
     "@storybook/node-logger": "^6.4.18",
     "@storybook/preset-create-react-app": "^3.2.0",
-    "@storybook/react": "^6.4.18",
+    "@storybook/preset-scss": "^1.0.3",
+    "@storybook/react": "^6.3.12",
     "@storybook/storybook-deployer": "^2.8.10",
-    "@storybook/testing-library": "^0.0.9",
-    "@svgr/cli": "^6.2.1",
     "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
+    "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^12.1.10",
-    "@types/react-dom": "^17.0.11",
+    "@types/jest": "^27.0.2",
+    "@types/react": "^17.0.34",
     "@types/styled-components": "^5.1.25",
-    "auto": "^10.32.6",
+    "auto": "^10.36.5",
+    "babel-jest": "^27.3.1",
+    "babel-loader": "^8.2.3",
     "chromatic": "^6.4.3",
-    "copyfiles": "^2.4.1",
-    "cross-env": "^7.0.3",
-    "prettier": "^2.5.1",
+    "css-loader": "^6.5.1",
+    "email-validator": "^2.0.4",
+    "html-webpack-plugin": "^5.5.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^27.3.1",
+    "mdx-embed": "^1.0.0",
+    "postcss": "^8.4.12",
     "react": "^17.0.1",
-    "react-docgen-typescript-plugin": "^1.0.0",
     "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3",
-    "typescript": "^4.5.5",
-    "web-vitals": "^1.0.1"
+    "react-is": "^18.0.0",
+    "rollup": "^2.60.0",
+    "rollup-plugin-dts": "^4.0.1",
+    "rollup-plugin-postcss": "^4.0.1",
+    "sass": "^1.43.5",
+    "sass-loader": "^12.3.0",
+    "storybook-addon-mdx-embed": "^1.0.0",
+    "style-loader": "^3.3.1",
+    "styled-components": "^5.3.5",
+    "typescript": "^4.4.4"
   }
 }

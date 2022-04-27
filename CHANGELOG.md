@@ -1,3 +1,49 @@
+# v0.1.11 (Wed Apr 27 2022)
+
+#### 🐛 Bug Fix
+
+- rebased with main [#6](https://github.com/factiverse/storybook-design-system/pull/6) ([@withchristopher](https://github.com/withchristopher))
+
+#### ⚠️ Pushed to `main`
+
+- node engine v17 ([@withchristopher](https://github.com/withchristopher))
+- added css to button to test release ([@withchristopher](https://github.com/withchristopher))
+
+#### Authors: 1
+
+- Chris Maxwell ([@withchristopher](https://github.com/withchristopher))
+
+---
+
+# v0.1.10 (Tue Apr 26 2022)
+
+#### 🐛 Bug Fix
+
+- Added rollup compiler and single Button component [#5](https://github.com/factiverse/storybook-design-system/pull/5) (runner@fv-az91-652.1u4dveb1r3ruphbftqvtwhitpc.gx.internal.cloudapp.net [@withchristopher](https://github.com/withchristopher))
+- Merging setup done in "main" back into "develop" [#4](https://github.com/factiverse/storybook-design-system/pull/4) (runner@fv-az91-652.1u4dveb1r3ruphbftqvtwhitpc.gx.internal.cloudapp.net [@withchristopher](https://github.com/withchristopher))
+
+#### ⚠️ Pushed to `main`
+
+- update to push ci workflow ([@withchristopher](https://github.com/withchristopher))
+- npm ci added ([@withchristopher](https://github.com/withchristopher))
+- updated the scripts for main ([@withchristopher](https://github.com/withchristopher))
+- update to package.json ([@withchristopher](https://github.com/withchristopher))
+- update to package.json number ([@withchristopher](https://github.com/withchristopher))
+- update to dev packages ([@withchristopher](https://github.com/withchristopher))
+- update to gh workflow for release ([@withchristopher](https://github.com/withchristopher))
+- rebased with develop ([@withchristopher](https://github.com/withchristopher))
+- updated main ([@withchristopher](https://github.com/withchristopher))
+- Adjust font size (runner@fv-az91-652.1u4dveb1r3ruphbftqvtwhitpc.gx.internal.cloudapp.net)
+- Add font docs (runner@fv-az91-652.1u4dveb1r3ruphbftqvtwhitpc.gx.internal.cloudapp.net)
+- Add new fonts (runner@fv-az91-652.1u4dveb1r3ruphbftqvtwhitpc.gx.internal.cloudapp.net)
+
+#### Authors: 2
+
+- Chris Maxwell ([@withchristopher](https://github.com/withchristopher))
+- Tobias Tykvart ([@tobiastykvart](https://github.com/tobiastykvart))
+
+---
+
 # v0.1.9 (Wed Apr 13 2022)
 
 #### ⚠️ Pushed to `main`
