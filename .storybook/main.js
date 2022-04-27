@@ -1,6 +1,5 @@
 module.exports = {
   stories: [
-    '../src/Introduction.stories.mdx',
     '../src/**/*.stories.mdx',
     '../src/**/*.stories.@(js|jsx|ts|tsx)',
   ],
@@ -10,6 +9,7 @@ module.exports = {
     '@storybook/preset-scss',
     '@storybook/addon-a11y',
     '@storybook/addon-interactions',
+    'storybook-addon-mdx-embed',
     // '@storybook/preset-create-react-app'
     // 'storybook-addon-material-ui',
   ],
