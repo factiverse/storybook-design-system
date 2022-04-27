@@ -66,7 +66,8 @@
   "types": "dist/index.d.ts",
   "overrides": {
     "mdx-embed": {
-      "react": "^17.0.1"
+      "react": "^17.0.0",
+      "react-dom": "^17.0.0"
     }
   },
   "dependencies": {
