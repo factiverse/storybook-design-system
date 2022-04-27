@@ -1,3 +1,20 @@
+# v0.1.11 (Wed Apr 27 2022)
+
+#### 🐛 Bug Fix
+
+- rebased with main [#6](https://github.com/factiverse/storybook-design-system/pull/6) ([@withchristopher](https://github.com/withchristopher))
+
+#### ⚠️ Pushed to `main`
+
+- node engine v17 ([@withchristopher](https://github.com/withchristopher))
+- added css to button to test release ([@withchristopher](https://github.com/withchristopher))
+
+#### Authors: 1
+
+- Chris Maxwell ([@withchristopher](https://github.com/withchristopher))
+
+---
+
 # v0.1.10 (Tue Apr 26 2022)
 
 #### 🐛 Bug Fix
