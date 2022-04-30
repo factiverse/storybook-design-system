@@ -1,18 +1,37 @@
 import React from 'react';
-import { Card } from '@mui/material';
-// import { useTheme } from '@mui/material/styles';
-// import { useMediaQuery } from '@mui/material';
+import { Card, Checkbox, Grid, Typography } from '@mui/material';
 
 export interface ClaimWithCheckboxProps {
-  label: string;
+  exampleClaims: string[];
+  onChange: () => void;
+  checkboxSize?: 'small' | 'medium' | undefined;
+  claimTextstyle?: React.CSSProperties;
 }
 
 const ClaimWithCheckbox = (props: ClaimWithCheckboxProps) => {
-  const { label } = props;
-  // const theme = useTheme();
-  // const isMobileSize = useMediaQuery(theme.breakpoints.down('sm'));
+  const { exampleClaims, onChange, checkboxSize, claimTextstyle } = props;
 
-  return <Card>{label}</Card>;
+  return (
+    <Grid>
+      <Grid item>
+        <Typography>Try one of these trending claims:</Typography>
+      </Grid>
+      <Grid mt={1}>
+        {exampleClaims.map((claim) => {
+          return (
+            <Grid mb={1}>
+              <Card key={claim}>
+                <Grid container alignItems="center">
+                  <Checkbox onChange={onChange} size={checkboxSize} />
+                  <Typography style={claimTextstyle}>{claim}</Typography>
+                </Grid>
+              </Card>
+            </Grid>
+          );
+        })}
+      </Grid>
+    </Grid>
+  );
 };
 
 export default ClaimWithCheckbox;
