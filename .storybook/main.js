@@ -11,7 +11,7 @@ module.exports = {
     '@storybook/addon-a11y',
     '@storybook/addon-interactions',
     // '@storybook/preset-create-react-app'
-    // 'storybook-addon-material-ui',
+    'storybook-addon-material-ui',
   ],
   core: {
     builder: 'webpack5',
@@ -22,8 +22,12 @@ module.exports = {
     reactDocgen: 'react-docgen-typescript',
     reactDocgenTypescriptOptions: {
       shouldExtractLiteralValuesFromEnum: true,
-      propFilter: (prop) =>
-        prop.parent ? !/node_modules/.test(prop.parent.fileName) : true,
+      propFilter: (prop) => {
+        return prop.parent
+          ? /@mui/.test(prop.parent.fileName) ||
+              !/node_modules/.test(prop.parent.fileName)
+          : true;
+      },
     },
   },
 };

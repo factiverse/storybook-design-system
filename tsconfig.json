@@ -1,13 +1,13 @@
 {
   "include": [
-    "src"
+    "src",
+    "./src/config/*",
+    "./src/icons/*",
   ],
   "exclude": [
     "node_modules",
     "src/develop-components/*",
-    "./src/config/*",
     "./src/example/*",
-    "./src/icons/*",
     "**/*.test.ts",
     "**/*.test.tsx",
     "./src/setupTests.ts",

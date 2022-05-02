@@ -1,5 +1,5 @@
 {
-  "name": "@factiverse/design-system",
+  "name": "@withchristopher/design-system",
   "description": "Factiverse Design System is a reusable component library that helps Factiverse contributors build UIs faster. The goal is to make building durable UIs more productive and satisfying.",
   "repository": {
     "type": "git",
@@ -7,7 +7,7 @@
   },
   "author": "Tobias Tykvart",
   "license": "MIT",
-  "version": "0.2.3",
+  "version": "0.2.7",
   "private": false,
   "bugs": {
     "url": "https://github.com/factiverse/storybook-design-system/issues"
@@ -20,9 +20,12 @@
     "chromatic": "npx chromatic --project-token=e8130cbb59b8 --exit-once-uploaded",
     "deploy-storybook": "storybook-to-ghpages",
     "release": "auto shipit --base-branch=main",
-    "rollup": "rollup -c",
+    "build": "rollup -c",
+    "clean": "rm -rf ./dist",
+    "compile-icons": "npx @svgr/cli -d src/icons src/icons --typescript",
+    "prebuild": "npm run clean && npm run compile-icons",
     "test": "jest && eslint .",
-    "publish": "npm run rollup"
+    "publish": "npm run build"
   },
   "eslintConfig": {
     "extends": [
@@ -64,12 +67,12 @@
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
-  "dependencies": {
-    "@material-ui/core": "^4.12.4"
-  },
   "engines": {
     "node": "17.x",
     "npm": "8.x"
+  },
+  "dependencies": {
+    "@mui/material": "^5.6.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.6",
@@ -80,7 +83,7 @@
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
     "@mui/icons-material": "^5.6.2",
-    "@mui/material": "^5.6.2",
+    "@mui/material": "^5.6.3",
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.0.6",
     "@rollup/plugin-typescript": "^8.3.0",
@@ -120,6 +123,7 @@
     "rollup-plugin-postcss": "^4.0.1",
     "sass": "^1.43.5",
     "sass-loader": "^12.3.0",
+    "storybook-addon-material-ui": "^0.9.0-alpha.24",
     "style-loader": "^3.3.1",
     "styled-components": "^5.3.5",
     "typescript": "^4.4.4"

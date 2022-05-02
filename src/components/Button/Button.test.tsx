@@ -5,6 +5,8 @@ import Button from "./Button";
 
 describe("Button", () => {
   test("renders the Button component", () => {
-    render(<Button label="Hello world!" />);
+    render(<Button color="primary" />);
   });
 });
+
+// Write a test to check the to prop as a link

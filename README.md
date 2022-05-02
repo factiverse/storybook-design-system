@@ -1,3 +1,5 @@
+[![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg)](https://factiverse.github.io/storybook-design-system/?path=/story/introduction--page)
+
 # Factiverse Design System
 
 Factiverse Design System is a reusable component library that helps Factiverse contributors build UIs faster. The goal is to make building durable UIs more productive and satisfying.
@@ -28,7 +30,7 @@ npm run storybook
 
 View the bundled folder:
 ```
-npm run dev-rollup
+npm run build
 ```
 
 To publish to NPM: 

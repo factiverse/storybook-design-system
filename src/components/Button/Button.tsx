@@ -1,12 +1,20 @@
 import React from "react";
 import "./Button.scss";
-
-export interface ButtonProps {
-  label: string;
-}
+import { Button as ButtonMUI, ButtonProps } from "@mui/material";
 
 const Button = (props: ButtonProps) => {
-  return <button>{props.label}</button>;
+
+    const { color, value, disabled } = props
+
+    return (
+    <ButtonMUI
+        style={{background: color}}
+        aria-label={'Check claim'}
+        disabled={disabled}
+        >{value}
+    </ButtonMUI>)
 };
 
+
+// export default React.forwardRef<HTMLAnchorElement, ButtonBaseProps>(Button);
 export default Button;
