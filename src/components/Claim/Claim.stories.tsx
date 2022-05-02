@@ -25,6 +25,12 @@ Default.args = {
   },
 };
 
+export const SimpleClaim = Template.bind({});
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+SimpleClaim.args = {
+  simpleClaim: 'Putin warned India to not interfere in Ukraine.',
+};
+
 export const LongClaimTitle = Template.bind({});
 LongClaimTitle.args = {
   claim: {

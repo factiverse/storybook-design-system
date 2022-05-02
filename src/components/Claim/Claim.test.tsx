@@ -1,5 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
+import '@types/jest';
 
 import Claim from './Claim';
 
@@ -12,8 +13,24 @@ const claim = {
   label: 'Originated As Satire',
 };
 
-describe('Button', () => {
-  test('renders the Button component', () => {
-    render(<Claim claim={claim} />);
+describe('Claim', () => {
+  test('renders the Claim component', () => {
+    render(
+      <Claim
+        claim={claim}
+        checkClaimClick={() => console.log('Check Claim is clicked')}
+      />
+    );
+  });
+});
+
+describe('Simple Claim', () => {
+  test('renders the Simple Claim component', () => {
+    render(
+      <Claim
+        simpleClaim="Putin warned India to not interfere in Ukraine."
+        checkClaimClick={() => console.log('Check Claim is clicked')}
+      />
+    );
   });
 });
