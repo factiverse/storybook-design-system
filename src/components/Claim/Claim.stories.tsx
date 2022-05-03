@@ -1,5 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+// import {Meta, Canvas, Story} from "@storybook/addon-docs/blocks";
 
 import Claim from './Claim';
 
@@ -29,6 +30,17 @@ export const SimpleClaim = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 SimpleClaim.args = {
   simpleClaim: 'Putin warned India to not interfere in Ukraine.',
+};
+
+export const SimpleClaimWithStyles = Template.bind({});
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+SimpleClaimWithStyles.args = {
+  simpleClaim:
+    'An American was killed in Ukraine by a mine planted by Russian backed seperatists.',
+  simpleClaimTypographyStyles: {
+    fontSize: '0.75rem',
+    textTransform: 'uppercase',
+  },
 };
 
 export const LongClaimTitle = Template.bind({});

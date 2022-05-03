@@ -14,7 +14,7 @@ import React from 'react';
  * https://storybook.js.org/docs/react/writing-stories/decorators#global-decorators
  */
 export const decorators = [
-  (Story) => (
+  Story => (
     <>
       {/* <GlobalStyles /> */}
       <Story />
@@ -33,6 +33,11 @@ export const parameters = {
       color: /(background|color)$/i,
       date: /Date$/,
     },
+  },
+  // Add docs for MUI v5
+  docs: {
+    inlineStories: false,
+    iframeHeight: 'auto',
   },
   // Storybook a11y addon configuration
   a11y: {

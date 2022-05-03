@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Card, Grid, Link, Typography } from '@mui/material';
+import { Card, Grid, Link, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { useMediaQuery } from '@mui/material';
 import Button from '../Button';
@@ -16,10 +16,17 @@ export interface ClaimProps {
   };
   onLinkClicked?: () => void;
   simpleClaim?: string;
+  simpleClaimTypographyStyles?: React.CSSProperties;
 }
 
 const Claim = (props: ClaimProps) => {
-  const { claim, onLinkClicked, simpleClaim, checkClaimClick } = props;
+  const {
+    claim,
+    onLinkClicked,
+    simpleClaim,
+    checkClaimClick,
+    simpleClaimTypographyStyles,
+  } = props;
   const theme = useTheme();
   const isMobileSize = useMediaQuery(theme.breakpoints.down('sm'));
 
@@ -27,6 +34,7 @@ const Claim = (props: ClaimProps) => {
     <Card>
       <Grid
         container
+        item
         xs={12}
         py={0.5}
         px={2}
@@ -34,11 +42,13 @@ const Claim = (props: ClaimProps) => {
         alignItems="center"
       >
         {simpleClaim ? (
-          <Box>{simpleClaim}</Box>
+          <Typography style={simpleClaimTypographyStyles}>
+            {simpleClaim}
+          </Typography>
         ) : (
           claim && (
             <>
-              <Grid xs={1} sm={2} md={1} container item justifyContent="center">
+              <Grid container item xs={1} sm={2} lg={1} justifyContent="center">
                 <Grid container direction="column" alignItems="center">
                   <Grid item>
                     <img
@@ -60,7 +70,7 @@ const Claim = (props: ClaimProps) => {
                   </Grid>
                 </Grid>
               </Grid>
-              <Grid xs={9} sm={8} md={9}>
+              <Grid item xs={9} sm={8} lg={9}>
                 <Grid>
                   <Typography
                     variant={isMobileSize ? 'subtitle1' : 'h6'}
@@ -95,6 +105,7 @@ const Claim = (props: ClaimProps) => {
           )
         )}
         <Grid
+          item
           xs={12}
           sm={2}
           container
