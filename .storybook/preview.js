@@ -14,7 +14,7 @@ import React from 'react';
  * https://storybook.js.org/docs/react/writing-stories/decorators#global-decorators
  */
 export const decorators = [
-  Story => (
+  (Story) => (
     <>
       {/* <GlobalStyles /> */}
       <Story />

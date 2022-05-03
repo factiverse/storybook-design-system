@@ -1,6 +1,5 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-// import {Meta, Canvas, Story} from "@storybook/addon-docs/blocks";
 
 import Claim from './Claim';
 
