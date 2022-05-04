@@ -14,7 +14,7 @@ export const Default = () => {
 //   const [value, setValue] = useState('');
 
   return (
-    <Autocomplete data={data} id={"icon-test"} label='this is a tes'    //   placeholder='Search the site'
+    <Autocomplete data={data} id={"icon-test"} 
     //   // width='400px'
     //   value={value}
     //   onChange={e => setValue(e.currentTarget.value)}

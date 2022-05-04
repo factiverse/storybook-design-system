@@ -2,23 +2,21 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react';
 import SearchBar from './SearchBar';
 import './SearchBar.scss'
-import { InputAdornment } from '@mui/material';
 
 export default {
     title: 'Components/SearchBar',
     component: SearchBar,
     argTypes: {
-        disabled: {
-            control: { type: 'boolean' },
-        },
-        label: {
+        color: {
             control: {
-                type: 'string'
+                options:  ["primary" , "secondary" , "success" , "error" , "info" , "warning" , undefined],
+                type: 'select'
             }
         },
-        helperText: {
+        size: {
             control: {
-                type: 'string'
+                options: ["small", "medium", "large"],
+                type: 'radio'
             }
         },
         variant: {
@@ -27,11 +25,8 @@ export default {
                 type: 'radio'
             }
         },
-        id: {
-            control :{ 
-                options: ["input-with-icon-textfield","filled-search"],
-                type: 'radio'
-            }
+        disabled: {
+            control: { type: 'boolean' },
         },
         focused:{
             control: {type: 'boolean'},
@@ -44,6 +39,10 @@ const Template: Story= ({...args}) => <SearchBar {...args} />;
 
 // Default SearchBar
 export const Default = Template.bind({});
+Default.args = {
+    disabled: false,
+    focused: false
+}
 
 // When Focus is set to true
 export const Focus = Template.bind({});
@@ -54,21 +53,25 @@ Focus.args = {
 // FullWidth button
 export const FullWidth = Template.bind({})
 FullWidth.args = { 
-    label:"Search field",
-    type:"search",
-    sx:{width: "100%"}  
+    type:"search", 
+}
+
+// Disabled button
+export const Disabled = Template.bind({})
+Disabled.args = { 
+    disabled: true,
+    type: "search",
 }
 
 // Dynamic button
 export const Dynamic = Template.bind({})
 Dynamic.args = { 
-    label:"Search field",
-    type:"search",
+    type: "search",
     class: "dynamicClass"
 }
 
 export const WithIcon = () => {
     return (
-         <SearchBar placeholder='placeholder text' />
+         <SearchBar placeholder='Type your own claim to see fact checks, sources and disputes' />
     );
   };

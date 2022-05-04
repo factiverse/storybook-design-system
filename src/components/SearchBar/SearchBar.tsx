@@ -1,13 +1,8 @@
-import React, { ChangeEventHandler, HTMLAttributes } from 'react';
-import { FormControl, Typography, InputAdornment, FormControlProps} from '@mui/material';
-import PropTypes from 'prop-types';
+import React, { ChangeEventHandler} from 'react';
+import { FormControl, Typography, InputAdornment} from '@mui/material';
 import TextField from '../TextField';
 import Button from '../Button';
-import { ComponentSize } from '../../config/sizes';
-
-export interface SearchModel {
-    text?: string;
-}
+import { ComponentSize, ComponentVariant, ComponentColor } from '../../config/sizes';
 
 export interface SearchBarProps {
     className?: string;
@@ -16,31 +11,40 @@ export interface SearchBarProps {
     value?: string;
     onChange?: ChangeEventHandler<HTMLInputElement>;
     placeholder?: string;
+    variant?: ComponentVariant
+    color ?: ComponentColor
+    disabled ?: boolean,
+    focused ?: boolean
 }
 
 const SearchBar: React.ForwardRefRenderFunction<HTMLDivElement, SearchBarProps> = (props, ref) => {
 
     const { 
-        size = 'default',
+        size = 'medium',
         className,
         value,
         onChange,
         placeholder,
         width = '100%',
+        variant,
+        color,
+        disabled = false,
+        focused = false
     } = props;
 
+
     return (
-        <FormControl variant="outlined" fullWidth>
+        <FormControl disabled={disabled} variant={variant} fullWidth>
         <TextField
-          aria-label={'Check a claim'}
-          variant={'outlined'}
+          focused={focused}
+          disabled={disabled}
+          variant={variant}
           value={value}
           onChange={onChange}
+          color={color}
         //   onKeyDown={onEnter}
           // TODO: #125 Use random/popular claims as the placeholder, let the user check one without having to type anything
-          placeholder={
-            'Type your own claim to see fact checks, sources and disputes'
-          }
+          placeholder={placeholder}
           sx={{
             '& .MuiInputBase-root': {
               fontFamily: 'DM Mono',
@@ -51,10 +55,11 @@ const SearchBar: React.ForwardRefRenderFunction<HTMLDivElement, SearchBarProps> 
             endAdornment: (
               <InputAdornment position="end">
                 <Button
+                  disabled={disabled}
+                  size={size}
                   variant={'contained'}
-                  aria-label={'Check claim'}
                 //   onClick={onCheckClaimClicked}
-                  color={'secondary'}
+                  color={color}
                 >
                   <Typography variant="button">Check claim</Typography>
                 </Button>

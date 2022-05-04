@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 
 interface SearchBarProps {
     id: string; 
-    label : string; 
     data: any
 }
 
@@ -16,7 +15,7 @@ export const Autocomplete = ({data, id} : SearchBarProps) => {
         <AutocompleteMUI
           id={id}
           disableClearable
-          options={data.map((option:any) => option.text)}
+          options={data.map((option:any) => option.title)}
           renderInput={(params) => (
             <TextField
               {...params}
