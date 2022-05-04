@@ -1,5 +1,5 @@
 {
-  "name": "@withchristopher/design-system",
+  "name": "@factiverse/design-system",
   "description": "Factiverse Design System is a reusable component library that helps Factiverse contributors build UIs faster. The goal is to make building durable UIs more productive and satisfying.",
   "repository": {
     "type": "git",
@@ -7,7 +7,7 @@
   },
   "author": "Tobias Tykvart",
   "license": "MIT",
-  "version": "0.2.7",
+  "version": "0.2.0",
   "private": false,
   "bugs": {
     "url": "https://github.com/factiverse/storybook-design-system/issues"
