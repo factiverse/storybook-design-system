@@ -1,0 +1,14 @@
+button {
+  background-color: #f8c608;
+  padding: 10px 20px;
+  border: none;
+}
+
+.button-row {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  & > * {
+    margin-right: 10px;
+  }
+}
