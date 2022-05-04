@@ -18,7 +18,7 @@ Default.args = {
   claim: {
     claim:
       'Viral video of the moon rising in the North Pole is computer generated',
-    domain: 'https://www.reuters.com/favicon.ico',
+    domain: 'www.reuters.com',
     domainName: 'reuters',
     publishDate: '2022-04-27',
     label: 'Originated As Satire',
@@ -47,7 +47,7 @@ LongClaimTitle.args = {
   claim: {
     claim:
       'A high school in Indiana sent out an email informing teachers of a new “otherkin policy” to accommodate students who identify as part animal.',
-    domain: 'https://www.snopes.com/favicon.ico',
+    domain: 'www.snopes.com',
     domainName: 'snopes',
     publishDate: '2022-04-27',
     label: 'False',
