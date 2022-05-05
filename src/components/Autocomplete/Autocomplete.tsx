@@ -6,14 +6,16 @@ import PropTypes from 'prop-types';
 interface SearchBarProps {
     id: string; 
     data: any
+    fullWidth?: boolean
 }
 
-export const Autocomplete = ({data, id} : SearchBarProps) => {
+export const Autocomplete = ({data, id, fullWidth} : SearchBarProps) => {
   // const [value, setValue] = React.useState<HeadlineOptionType | null>(null);
     return (
         <Stack spacing={2} sx={{ width: '100%' }}>
         <AutocompleteMUI
           id={id}
+          fullWidth={fullWidth}
           disableClearable
           options={data.map((option:any) => option.title)}
           renderInput={(params) => (
