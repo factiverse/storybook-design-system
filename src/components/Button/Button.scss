@@ -2,3 +2,9 @@ button {
   background-color: #5de039;
   padding: 10px 20px;
 }
+
+@media only screen and (max-width: 500px) {
+  button {
+    padding: 2px;
+  }
+}
