@@ -26,7 +26,9 @@ const useLoginLogic = (
 ): {
   values: LoginModel;
   errors: ErrorModel;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   handleChange: (fieldName: string) => (value: any) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   handleSubmit: (event: any) => void;
 } => {
   const [values, setValues] = useState<LoginModel>(initialValues);
@@ -41,6 +43,7 @@ const useLoginLogic = (
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [errors]);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleSubmit = (event: any) => {
     if (event) event.preventDefault();
 
@@ -48,6 +51,7 @@ const useLoginLogic = (
     setIsSubmitting(true);
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleChange = (fieldName: string) => (value: any) => {
     setValues(
       (values: LoginModel): LoginModel => ({

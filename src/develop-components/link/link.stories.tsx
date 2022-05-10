@@ -13,20 +13,20 @@ const Template: Story<LinkProps> = (args) => <Link {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-    children: 'Link',
-    href: '#'
-}
+  children: 'Link',
+  href: '#',
+};
 
 export const CustomElement = Template.bind({});
 CustomElement.args = {
-    children: 'I am span',
-    href: '#',
-    as: 'span'
-}
+  children: 'I am span',
+  href: '#',
+  as: 'span',
+};
 
 export const Disabled = Template.bind({});
 Disabled.args = {
-    children: 'Disabled link',
-    href: '#',
-    disabled: true
-}
+  children: 'Disabled link',
+  href: '#',
+  disabled: true,
+};
