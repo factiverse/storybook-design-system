@@ -12,7 +12,6 @@
     "@typescript-eslint",
     "react-hooks",
     "@babel",
-    "jsdoc",
     "jest",
     "prettier"
   ],
@@ -22,7 +21,6 @@
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
-    "plugin:jsdoc/recommended",
     "plugin:jest/recommended",
     "plugin:prettier/recommended"
   ],
@@ -44,17 +42,7 @@
         "toThrowErrorMatchingSnapshot": "Use `toThrowErrorMatchingInlineSnapshot()` instead",
         "toMatchSnapshot": "Use `toMatchInlineSnapshot()` instead"
       }
-    ],
-    "jsdoc/require-hyphen-before-param-description": ["error", "never"],
-    "jsdoc/check-tag-names": "error",
-    "jsdoc/check-param-names": "error",
-    "jsdoc/require-param-description": "error",
-    "jsdoc/require-param-name": "error",
-    "jsdoc/require-param-type": "error",
-    "jsdoc/require-param": "error",
-    "jsdoc/require-returns-description": "error",
-    "jsdoc/require-returns-type": "error",
-    "jsdoc/require-returns": "error"
+    ]
   },
   "env": {
     "es6": true,
@@ -70,7 +58,6 @@
       "version": "detect"
     },
     "jsdoc": {
-      
       "return": "returns",
       "constructor": "constructor",
       "prop": "property",
