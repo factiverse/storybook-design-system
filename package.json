@@ -26,10 +26,6 @@
     "publish": "npm run rollup"
   },
   "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ],
     "overrides": [
       {
         "files": [
