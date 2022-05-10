@@ -22,6 +22,7 @@
     "release": "auto shipit --base-branch=main",
     "rollup": "rollup -c",
     "test": "jest --coverage && eslint .",
+    "test:watch": "jest --coverage --watchAll --json --outputFile=testOutput.json",
     "publish": "npm run rollup"
   },
   "eslintConfig": {
