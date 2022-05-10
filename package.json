@@ -21,7 +21,7 @@
     "deploy-storybook": "storybook-to-ghpages",
     "release": "auto shipit --base-branch=main",
     "rollup": "rollup -c",
-    "test": "jest --coverage && eslint .",
+    "test": "jest --coverage && eslint src",
     "test:watch": "jest --coverage --watchAll --json --outputFile=testOutput.json",
     "publish": "npm run rollup"
   },
