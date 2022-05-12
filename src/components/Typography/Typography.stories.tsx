@@ -50,7 +50,7 @@ export default {
     },
     fontFamily: {
       control: {
-        options: ['DM Mono', 'Arizona Serif', 'default'],
+        options: ['DM Mono', 'Arizona Serif'],
         type: 'radio',
       },
     },
@@ -130,18 +130,17 @@ export const OtherSizes: ComponentStory<typeof Typography> = () => (
 );
 
 export const FontFamilies: ComponentStory<typeof Typography> = () => (
-  <Grid container flexDirection="column">
+  <>
     <Typography fontFamily="DM Mono">DM Mono</Typography>
     <Typography fontFamily="Arizona Serif">Arizona Serif</Typography>
-    <Typography fontFamily="default">Default</Typography>
-  </Grid>
+  </>
 );
 
 export const Align: ComponentStory<typeof Typography> = () => (
-  <Grid container flexDirection="column">
+  <>
     <Typography align="left">Left</Typography>
     <Typography align="center">Center</Typography>
     <Typography align="right">Right</Typography>
     <Typography align="justify">Justify</Typography>
-  </Grid>
+  </>
 );
