@@ -19,11 +19,27 @@ export interface ClaimProps {
   simpleClaimTypographyStyles?: React.CSSProperties;
 }
 
+/* const defaultClaim = {claim:
+      'Viral video of the moon rising in the North Pole is computer generated',
+    domain: 'www.reuters.com',
+    domainName: 'reuters',
+    publishDate: '2022-04-27',
+    label: 'Originated As Satire',
+    url: 'https://topics.factiverse.no/',} */
+
 const Claim = (props: ClaimProps) => {
   const {
-    claim,
+    claim = {
+      claim:
+        'Viral video of the moon rising in the North Pole is computer generated',
+      domain: 'www.reuters.com',
+      domainName: 'reuters',
+      publishDate: '2022-04-27',
+      label: 'Originated As Satire',
+      url: 'https://topics.factiverse.no/',
+    },
     onLinkClicked,
-    simpleClaim,
+    simpleClaim = 'An American was killed in Ukraine by a mine planted by Russian backed seperatists.',
     checkClaimClick,
     simpleClaimTypographyStyles,
   } = props;
@@ -118,5 +134,40 @@ const Claim = (props: ClaimProps) => {
     </Card>
   );
 };
+
+/* Claim.propTypes = {
+  checkClaimClick: PropTypes.func,
+  claim: {
+    domain: PropTypes.string,
+    domainName: PropTypes.string,
+    url: PropTypes.string,
+    claim: PropTypes.string,
+    publishDate: PropTypes.string,
+    label: PropTypes.string,
+  },
+  onLinkClicked: PropTypes.func,
+  simpleClaim: PropTypes.string,
+  simpleClaimTypographyStyles: PropTypes.object,
+};
+
+Claim.defaultProps = {
+  checkClaimClick: console.log('check claim'),
+  claim: {
+    domain: 'www.reuters.com',
+    domainName: 'reuters',
+    url: 'https://topics.factiverse.no/',
+    claim:
+      'Viral video of the moon rising in the North Pole is computer generated',
+    publishDate: '2022-04-27',
+    label: 'Originated As Satire',
+  },
+  onLinkClicked: console.log('claim link clicked'),
+  simpleClaim:
+    'An American was killed in Ukraine by a mine planted by Russian backed seperatists.',
+  simpleClaimTypographyStyles: {
+    fontSize: '0.75rem',
+    textTransform: 'uppercase',
+  },
+}; */
 
 export default Claim;

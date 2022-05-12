@@ -1,19 +1,15 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-
 import Claim from './Claim';
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: 'Components/Claim',
   component: Claim,
 } as ComponentMeta<typeof Claim>;
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof Claim> = (args) => <Claim {...args} />;
 
 export const Default = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
 Default.args = {
   claim: {
     claim:
@@ -22,17 +18,16 @@ Default.args = {
     domainName: 'reuters',
     publishDate: '2022-04-27',
     label: 'Originated As Satire',
+    url: 'https://topics.factiverse.no/',
   },
 };
 
 export const SimpleClaim = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
 SimpleClaim.args = {
   simpleClaim: 'Putin warned India to not interfere in Ukraine.',
 };
 
 export const SimpleClaimWithStyles = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
 SimpleClaimWithStyles.args = {
   simpleClaim:
     'An American was killed in Ukraine by a mine planted by Russian backed seperatists.',
