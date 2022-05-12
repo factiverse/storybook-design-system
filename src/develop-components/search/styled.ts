@@ -1,11 +1,11 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 interface SearchWrapperProps {
-    width: string;
+  width: string;
 }
 
 export const SearchWrapper = styled.div<SearchWrapperProps>`
-    width: ${pr => pr.width};
+  width: ${(pr) => pr.width};
 
-    display: flex;
+  display: flex;
 `;

@@ -13,5 +13,5 @@ const Template: Story<LoginProps> = (args) => <Login {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-    onSubmit: (values) => alert(JSON.stringify(values, undefined, 2))
-}
+  onSubmit: (values) => alert(JSON.stringify(values, undefined, 2)),
+};
