@@ -93,7 +93,7 @@ export default {
             control: { type: 'boolean' },
         },
     },
-    parameters: { actions: { argTypesRegex: '^on.*' } },
+    parameters: { actions: { argTypesRegex: '^on.*' } }
 } as Meta;
 
 const Template: Story= ({...args}) => <Button {...args} />;

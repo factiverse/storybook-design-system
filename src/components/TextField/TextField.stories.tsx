@@ -64,7 +64,7 @@ export const Dynamic = Template.bind({})
 Dynamic.args = { 
     label:"Search field",
     type:"search",
-    class: "dynamicClass"
+
 }
 
 export const WithIcon = () => {

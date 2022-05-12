@@ -11,7 +11,7 @@ module.exports = {
     '@storybook/addon-a11y',
     '@storybook/addon-interactions',
     // '@storybook/preset-create-react-app'
-    'storybook-addon-material-ui',
+    'storybook-addon-material-ui5',
   ],
   core: {
     builder: 'webpack5',

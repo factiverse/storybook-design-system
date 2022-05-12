@@ -5,7 +5,6 @@ import Button from '../Button';
 import { ComponentSize, ComponentVariant, ComponentColor } from '../../config/sizes';
 
 export interface SearchBarProps {
-    className?: string;
     size?: ComponentSize;
     width?: string;
     value?: string;
@@ -21,7 +20,6 @@ const SearchBar: React.ForwardRefRenderFunction<HTMLDivElement, SearchBarProps> 
 
     const { 
         size = 'medium',
-        className,
         value,
         onChange,
         placeholder,

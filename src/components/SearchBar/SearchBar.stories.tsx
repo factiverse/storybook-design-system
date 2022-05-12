@@ -61,17 +61,18 @@ export const Disabled = Template.bind({})
 Disabled.args = { 
     disabled: true,
     type: "search",
+    variant: "outlined",
 }
 
 // Dynamic button
 export const Dynamic = Template.bind({})
 Dynamic.args = { 
     type: "search",
-    class: "dynamicClass"
+    variant: "outlined",
 }
 
 export const WithIcon = () => {
     return (
-         <SearchBar placeholder='Type your own claim to see fact checks, sources and disputes' />
+         <SearchBar variant='outlined' placeholder='Type your own claim to see fact checks, sources and disputes' />
     );
   };
