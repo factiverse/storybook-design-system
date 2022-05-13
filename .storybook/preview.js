@@ -34,6 +34,11 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  // Add docs for MUI v5
+  docs: {
+    inlineStories: false,
+    iframeHeight: 'auto',
+  },
   // Storybook a11y addon configuration
   a11y: {
     // the target DOM element
