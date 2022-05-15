@@ -6,7 +6,6 @@ import TextInput, { TextInputProps } from '.';
 import styled from 'styled-components';
 import UserIcon from '../../icons/User';
 
-
 export default {
   title: 'Development-Components/TextInput',
   component: TextInput,
@@ -16,58 +15,59 @@ const Template: Story<TextInputProps> = (args) => <TextInput {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  width: '250px'
-}
+  width: '250px',
+};
 
 export const Placeholder = Template.bind({});
 Placeholder.args = {
   placeholder: 'Placeholder',
-  width: '250px'
-}
+  width: '250px',
+};
 
 export const WithIcon = Template.bind({});
 WithIcon.args = {
   placeholder: 'Login',
   icon: UserIcon,
-  width: '250px'
-}
+  width: '250px',
+};
 
 export const WithError = Template.bind({});
 WithError.args = {
   placeholder: 'Wrong input',
   width: '250px',
-  error: true
-}
+  error: true,
+};
 
 export const Disabled = Template.bind({});
 Disabled.args = {
   placeholder: 'Disabled',
   width: '250px',
   disabled: true,
-}
+};
 
 export const ReadOnly = Template.bind({});
 ReadOnly.args = {
   placeholder: 'Not editable',
   width: '250px',
   readonly: true,
-}
+};
 
 export const Clearable = () => {
   const [value, setValue] = useState('');
 
   return (
     <TextInput
-      placeholder='Type and clear'
-      width='250px'
+      placeholder="Type and clear"
+      width="250px"
       value={value}
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       onChange={(e: any) => {
         return setValue(e.currentTarget.value);
       }}
       clearable
     />
   );
-}
+};
 
 const Row = styled.div`
   display: flex;
@@ -82,9 +82,9 @@ export const Sizes = () => {
   return (
     <>
       <Row>
-        <TextInput placeholder='large' size='large' />
-        <TextInput placeholder='default' size='default' />
-        <TextInput placeholder='small' size='small' />
+        <TextInput placeholder="large" size="large" />
+        <TextInput placeholder="default" size="default" />
+        <TextInput placeholder="small" size="small" />
       </Row>
     </>
   );
