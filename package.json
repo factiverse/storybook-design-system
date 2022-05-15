@@ -62,6 +62,12 @@
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
+  "overrides": {
+    "mdx-embed": {
+      "react": "^17.0.0",
+      "react-dom": "^17.0.0"
+    }
+  },
   "dependencies": {
     "@material-ui/core": "^4.12.4",
     "eslint-config-prettier": "^8.5.0"
@@ -120,6 +126,7 @@
     "html-webpack-plugin": "^5.5.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.3.1",
+    "mdx-embed": "^1.0.0",
     "postcss": "^8.4.12",
     "react": "^17.0.1",
     "react-dom": "^17.0.2",
@@ -129,6 +136,7 @@
     "rollup-plugin-postcss": "^4.0.1",
     "sass": "^1.43.5",
     "sass-loader": "^12.3.0",
+    "storybook-addon-mdx-embed": "^1.0.0",
     "style-loader": "^3.3.1",
     "styled-components": "^5.3.5",
     "typescript": "^4.4.4"
