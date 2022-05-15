@@ -1,0 +1,73 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2021,
+    "sourceType": "module",
+    "ecmaFeatures":  {
+      "jsx":  true  // Allows for the parsing of JSX
+    }
+  },
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "react-hooks",
+    "@babel",
+    "jest",
+    "prettier"
+  ],
+  "extends": [
+    "plugin:jest/style",
+    "google",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:jest/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "rules": {
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/prop-types": "off",
+    "object-curly-spacing":"off",
+    "jest/no-disabled-tests": "warn",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+    "jest/prefer-to-have-length": "warn",
+    "jest/valid-expect": "error",
+    "valid-jsdoc": "off",
+    "comma-dangle": [ "error", { "arrays": "always-multiline", "objects": "always-multiline", "imports": "always-multiline", "exports": "always-multiline", "functions": "never" } ],
+    "jest/no-restricted-matchers": [
+      "error",
+      {
+        "toThrowErrorMatchingSnapshot": "Use `toThrowErrorMatchingInlineSnapshot()` instead",
+        "toMatchSnapshot": "Use `toMatchInlineSnapshot()` instead"
+      }
+    ]
+  },
+  "env": {
+    "es6": true,
+    "jest": true,
+    "browser": true,
+    "node": true,
+    "es2021": true,
+    "jest/globals": true
+  },
+  "settings": {
+    "react": {
+      "pragma": "React",
+      "version": "detect"
+    },
+    "jsdoc": {
+      "return": "returns",
+      "constructor": "constructor",
+      "prop": "property",
+      "arg": "param",
+      "augments": "extends",
+      "description": false,
+      "desc": false,
+      "inheritdoc": false,
+      "class": false
+    },
+    "overrideReplacesDocs": false
+  }
+}
