@@ -18,7 +18,7 @@ export interface ClaimProps {
   };
   onLinkClicked?: () => void;
   simpleClaim?: string;
-  simpleClaimFontFamily?: string;
+  simpleClaimFontFamily?: 'DM Mono' | 'Arizona Serif';
   simpleClaimVariant?: Variant;
   simpleClaimStyles?: React.CSSProperties;
 }
@@ -40,7 +40,6 @@ const Claim = (props: ClaimProps) => {
     simpleClaim = false,
     checkClaimClick,
     simpleClaimStyles,
-    simpleClaimFontFamily = 'Arizona Serif',
     simpleClaimVariant = 'caption',
   } = props;
   const theme = useTheme();
@@ -59,11 +58,7 @@ const Claim = (props: ClaimProps) => {
       >
         {simpleClaim ? (
           <Grid item xs={10}>
-            <Typography
-              fontFamily={simpleClaimFontFamily}
-              variant={simpleClaimVariant}
-              sx={simpleClaimStyles}
-            >
+            <Typography variant={simpleClaimVariant} sx={simpleClaimStyles}>
               {simpleClaim}
             </Typography>
           </Grid>

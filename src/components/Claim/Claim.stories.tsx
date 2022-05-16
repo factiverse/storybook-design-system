@@ -6,12 +6,6 @@ export default {
   title: 'Components/Claim',
   component: Claim,
   argTypes: {
-    simpleClaimFontFamily: {
-      control: {
-        options: ['DM Mono', 'Arizona Serif'],
-        type: 'radio',
-      },
-    },
     simpleClaimVariant: {
       control: {
         options: [
@@ -54,15 +48,17 @@ Default.args = {
 export const SimpleClaimTopics = Template.bind({});
 SimpleClaimTopics.args = {
   simpleClaim: 'Russia and Ukraine have a common heritage.',
-  simpleClaimFontFamily: 'DM Mono',
+  simpleClaimStyles: {
+    fontFamily: 'DM Mono',
+  },
 };
 
 export const SimpleClaimEditor = Template.bind({});
 SimpleClaimEditor.args = {
   simpleClaim: 'Putin warned India to not interfere in Ukraine.',
+  simpleClaimVariant: 'button',
   simpleClaimStyles: {
-    textTransform: 'uppercase',
-    letterSpacing: '0.02857em',
+    fontSize: '0.75rem',
   },
 };
 
