@@ -5,6 +5,35 @@ import Claim from './Claim';
 export default {
   title: 'Components/Claim',
   component: Claim,
+  argTypes: {
+    simpleClaimFontFamily: {
+      control: {
+        options: ['DM Mono', 'Arizona Serif'],
+        type: 'radio',
+      },
+    },
+    simpleClaimVariant: {
+      control: {
+        options: [
+          'h1',
+          'h2',
+          'h3',
+          'h4',
+          'h5',
+          'h6',
+          'subtitle1',
+          'subtitle2',
+          'body1',
+          'body2',
+          'caption',
+          'button',
+          'overline',
+          'inherit',
+        ],
+        type: 'radio',
+      },
+    },
+  },
 } as ComponentMeta<typeof Claim>;
 
 const Template: ComponentStory<typeof Claim> = (args) => <Claim {...args} />;
@@ -22,18 +51,42 @@ Default.args = {
   },
 };
 
-export const SimpleClaim = Template.bind({});
-SimpleClaim.args = {
+export const SimpleClaimTopics = Template.bind({});
+SimpleClaimTopics.args = {
+  simpleClaim: 'Russia and Ukraine have a common heritage.',
+  simpleClaimFontFamily: 'DM Mono',
+};
+
+export const SimpleClaimEditor = Template.bind({});
+SimpleClaimEditor.args = {
   simpleClaim: 'Putin warned India to not interfere in Ukraine.',
+  simpleClaimStyles: {
+    textTransform: 'uppercase',
+    letterSpacing: '0.02857em',
+  },
 };
 
 export const SimpleClaimWithStyles = Template.bind({});
 SimpleClaimWithStyles.args = {
   simpleClaim:
-    'An American was killed in Ukraine by a mine planted by Russian backed seperatists.',
-  simpleClaimTypographyStyles: {
-    fontSize: '0.75rem',
-    textTransform: 'uppercase',
+    'Homemade baby formula recipes offer a ‘viable option’ during U.S. shortage.',
+  simpleClaimStyles: {
+    textTransform: 'lowercase',
+    letterSpacing: '0.02857em',
+    color: 'blue',
+    fontWeight: 600,
+  },
+};
+
+export const ShortClaimTitle = Template.bind({});
+ShortClaimTitle.args = {
+  claim: {
+    claim: 'Photo shows Sri Lankan PM fleeing after resignation',
+    domain: 'www.afp.com',
+    domainName: 'afp',
+    publishDate: '2022-05-14',
+    label: 'Misleading',
+    url: 'https://topics.factiverse.no/',
   },
 };
 

@@ -1,28 +1,19 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-// import '@types/jest';
-
-import Claim from './Claim';
+import Claim, { defaultClaim } from './Claim';
 
 const simpleClaim =
   'An American was killed in Ukraine by a mine planted by Russian backed seperatists.';
-
-const claim = {
-  claim:
-    'Viral video of the moon rising in the North Pole is computer generated',
-  domain: 'www.reuters.com',
-  domainName: 'reuters',
-  publishDate: '2022-04-27',
-  label: 'Originated As Satire',
-  url: 'https://topics.factiverse.no/',
-};
 
 // claim component tests
 describe('Claim component', () => {
   beforeEach(() => {
     render(
-      <Claim claim={claim} checkClaimClick={() => console.log('check claim')} />
+      <Claim
+        claim={defaultClaim}
+        checkClaimClick={() => console.log('check claim')}
+      />
     );
   });
 
@@ -30,29 +21,27 @@ describe('Claim component', () => {
     expect(screen.getByText(/check claim/i)).toBeInTheDocument();
   });
 
-  /* it('should render claim title', () => {
-    expect(screen.getByText(claim.claim)).toBeInTheDocument();
-  }); */
+  it('should render claim title', () => {
+    expect(screen.getByText(defaultClaim.claim)).toBeInTheDocument();
+  });
 
-  /* it('should show domain', () => {
-    expect(screen.getByText(claim.domain)).toBeInTheDocument();
-  }); */
+  it('should show domain', () => {
+    expect(
+      screen.getByAltText(`favicon ${defaultClaim.domain}`)
+    ).toBeInTheDocument();
+  });
 
   it('should show domain name', () => {
-    expect(screen.getByText(claim.domainName)).toBeInTheDocument();
+    expect(screen.getByText(defaultClaim.domainName)).toBeInTheDocument();
   });
 
-  /* it('should show label', () => {
-    expect(screen.getByLabelText(claim.label)).toBeInTheDocument();
-  }); 
+  it('should show label', () => {
+    expect(screen.getByText(`${defaultClaim.label}:`)).toBeInTheDocument();
+  });
 
   it('should show date', () => {
-    expect(screen.getByLabelText(claim.publishDate)).toBeInTheDocument();
+    expect(screen.getByText(defaultClaim.publishDate)).toBeInTheDocument();
   });
-
-  it('domain name should work as a link', () => {
-    expect(screen.getByRole(claim.label)).toHaveAttribute('href', claim.domain);
-  }); */
 });
 
 // simple claim component tests
