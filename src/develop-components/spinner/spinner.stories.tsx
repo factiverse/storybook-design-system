@@ -14,8 +14,8 @@ const Template: Story<SpinnerProps> = (args) => <Spinner {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-    size: 50
-}
+  size: 50,
+};
 
 const DarkBackground = styled.div`
   display: flex;
@@ -30,4 +30,4 @@ export const Light: React.FC = () => (
   <DarkBackground>
     <Spinner size={50} light />
   </DarkBackground>
-)
+);
