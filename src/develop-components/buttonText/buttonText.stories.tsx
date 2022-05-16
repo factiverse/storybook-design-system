@@ -15,8 +15,8 @@ const Template: Story<ButtonProps> = (args) => <ButtonText {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-    children: 'Default Button'
-}
+  children: 'Default Button',
+};
 
 export const DangerButton = Template.bind({});
 DangerButton.args = {
@@ -39,7 +39,7 @@ Secondary.args = {
 export const Disabled = Template.bind({});
 Disabled.args = {
   children: 'Disabled Button',
-  disabled: true
+  disabled: true,
 };
 
 export const Loading = Template.bind({});
@@ -67,29 +67,53 @@ export const Sizes = () => {
   return (
     <>
       <ButtonRow>
-        <ButtonText size='large'>Large</ButtonText>
-        <ButtonText size='default'>Default</ButtonText>
-        <ButtonText size='small'>Small</ButtonText>
+        <ButtonText size="large">Large</ButtonText>
+        <ButtonText size="default">Default</ButtonText>
+        <ButtonText size="small">Small</ButtonText>
       </ButtonRow>
       <ButtonRow>
-        <ButtonText type='danger' size='large'>Large</ButtonText>
-        <ButtonText type='danger' size='default'>Default</ButtonText>
-        <ButtonText type='danger' size='small'>Small</ButtonText>
+        <ButtonText type="danger" size="large">
+          Large
+        </ButtonText>
+        <ButtonText type="danger" size="default">
+          Default
+        </ButtonText>
+        <ButtonText type="danger" size="small">
+          Small
+        </ButtonText>
       </ButtonRow>
       <ButtonRow>
-        <ButtonText type='ghost' size='large'>Large</ButtonText>
-        <ButtonText type='ghost' size='default'>Default</ButtonText>
-        <ButtonText type='ghost' size='small'>Small</ButtonText>
+        <ButtonText type="ghost" size="large">
+          Large
+        </ButtonText>
+        <ButtonText type="ghost" size="default">
+          Default
+        </ButtonText>
+        <ButtonText type="ghost" size="small">
+          Small
+        </ButtonText>
       </ButtonRow>
       <ButtonRow>
-        <ButtonText type='secondary' size='large'>Large</ButtonText>
-        <ButtonText type='secondary' size='default'>Default</ButtonText>
-        <ButtonText type='secondary' size='small'>Small</ButtonText>
+        <ButtonText type="secondary" size="large">
+          Large
+        </ButtonText>
+        <ButtonText type="secondary" size="default">
+          Default
+        </ButtonText>
+        <ButtonText type="secondary" size="small">
+          Small
+        </ButtonText>
       </ButtonRow>
       <ButtonRow>
-        <ButtonText loading disabled size='large'>Large</ButtonText>
-        <ButtonText loading disabled size='default'>Default</ButtonText>
-        <ButtonText loading disabled size='small'>Small</ButtonText>
+        <ButtonText loading disabled size="large">
+          Large
+        </ButtonText>
+        <ButtonText loading disabled size="default">
+          Default
+        </ButtonText>
+        <ButtonText loading disabled size="small">
+          Small
+        </ButtonText>
       </ButtonRow>
     </>
   );

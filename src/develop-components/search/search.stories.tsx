@@ -9,16 +9,15 @@ export default {
   component: Search,
 } as Meta;
 
-
 export const Default = () => {
   const [value, setValue] = useState('');
 
   return (
     <Search
-      placeholder='Search the site'
-      width='400px'
+      placeholder="Search the site"
+      width="400px"
       value={value}
-      onChange={e => setValue(e.currentTarget.value)}
+      onChange={(e) => setValue(e.currentTarget.value)}
     />
   );
-}
+};
