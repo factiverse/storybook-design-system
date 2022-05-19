@@ -1,12 +1,19 @@
-import React from 'react';
-import { AppBar, Grid, Toolbar } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
+import React, { useState } from 'react';
+import {
+  AppBar,
+  Grid,
+  IconButton,
+  SwipeableDrawer,
+  Toolbar,
+} from '@mui/material';
+import { useTheme, styled } from '@mui/material/styles';
 import { useMediaQuery } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import Button from '../Button';
 
 export interface HeaderProps {
-  disclaimer: JSX.Element;
-  login?: JSX.Element;
-  signup?: JSX.Element;
   logo: string;
   appBarColor: 'default' | 'inherit' | 'primary';
   disclaimerEnd?: boolean;
@@ -15,60 +22,137 @@ export interface HeaderProps {
   logoHeight: string;
   mobileLogoWidth?: string;
   mobileLogoHeight?: string;
+  withLoginAndSignup?: boolean;
 }
 
+const DrawerHeader = styled('div')(({ theme }: any) => ({
+  display: 'flex',
+  alignItems: 'center',
+  padding: theme.spacing(0, 1),
+  // necessary for content to be below app bar
+  ...theme.mixins.toolbar,
+  justifyContent: 'flex-start',
+}));
+
+export const disclaimerText = 'ALPHA V0.1';
+
 const Header = (props: HeaderProps) => {
+  // default logo size is for Topics logo
   const {
-    disclaimer,
-    login,
-    signup,
+    withLoginAndSignup = false,
     logo,
-    appBarColor,
+    appBarColor = 'inherit',
     disclaimerEnd,
     disclaimerStart,
-    logoWidth,
-    logoHeight,
-    mobileLogoWidth,
-    mobileLogoHeight,
+    logoWidth = '221',
+    logoHeight = '72',
+    mobileLogoWidth = '160',
+    mobileLogoHeight = '45',
   } = props;
   const theme = useTheme();
   const isMobileSize = useMediaQuery(theme.breakpoints.down('sm'));
 
-  return (
-    <AppBar position="static" className={'HeaderBar'} color={appBarColor}>
-      <Toolbar>
-        <Grid
-          container
-          alignItems="center"
-          justifyContent={isMobileSize ? 'space-evenly' : 'space-between'}
-        >
-          {disclaimerStart && <Grid item>{disclaimer}</Grid>}
-          <Grid item>
-            <a
-              href={'https://www.factiverse.no/'}
-              target={'_blank'}
-              rel="noreferrer"
-            >
-              <img
-                src={logo}
-                alt="Factiverse Logo"
-                width={isMobileSize ? mobileLogoWidth : logoWidth}
-                height={isMobileSize ? mobileLogoHeight : logoHeight}
-              />
-            </a>
-          </Grid>
-          <Grid item>
-            {login && signup && (
-              <Grid container spacing={2}>
-                <Grid item>{login}</Grid>
-                {signup && <Grid item>{signup}</Grid>}
+  const [open, setOpen] = useState<boolean>(false);
+
+  const logoWrapper = (
+    <a href={'https://www.factiverse.no/'} target={'_blank'} rel="noreferrer">
+      <img
+        src={logo}
+        alt="Factiverse Logo"
+        width={isMobileSize ? mobileLogoWidth : logoWidth}
+        height={isMobileSize ? mobileLogoHeight : logoHeight}
+      />
+    </a>
+  );
+
+  const drawer = (
+    <div>
+      <SwipeableDrawer
+        id="mobileDrawer"
+        variant="temporary"
+        open={open}
+        onOpen={() => setOpen(true)}
+        onClose={() => setOpen(false)}
+        ModalProps={{
+          keepMounted: true,
+        }}
+      >
+        <DrawerHeader>
+          <IconButton onClick={() => setOpen(!open)}>
+            {open === true ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+          </IconButton>
+        </DrawerHeader>
+        {/* mobile menu content  */}
+        <Grid container flexDirection="column" px={3}>
+          {withLoginAndSignup && (
+            <Grid container flexDirection="column">
+              <Grid mb={1}>
+                <Button label="sign in" />
               </Grid>
-            )}
-            {disclaimerEnd && <Grid item>{disclaimer}</Grid>}
+              <Grid mb={1}>
+                <Button label="sign up for free" />
+              </Grid>
+            </Grid>
+          )}
+          <Grid item>
+            <Button label={disclaimerText} />
           </Grid>
         </Grid>
-      </Toolbar>
-    </AppBar>
+      </SwipeableDrawer>
+    </div>
+  );
+
+  return (
+    <>
+      {isMobileSize ? (
+        <AppBar position="fixed" color={appBarColor}>
+          <Toolbar>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="end"
+              onClick={() => setOpen(true)}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Grid container justifyContent="center">
+              {logoWrapper}
+            </Grid>
+          </Toolbar>
+          {drawer}
+        </AppBar>
+      ) : (
+        <AppBar position="static" color={appBarColor}>
+          <Toolbar>
+            <Grid container alignItems="center" justifyContent="space-between">
+              {disclaimerStart && (
+                <Grid item>
+                  <Button label={disclaimerText} />
+                </Grid>
+              )}
+              <Grid item>{logoWrapper}</Grid>
+              <Grid>
+                {withLoginAndSignup && (
+                  <Grid container flexDirection="row">
+                    <Grid mr={2}>
+                      <Button label="sign in" />
+                    </Grid>
+                    <Grid>
+                      <Button label="sign up for free" />
+                    </Grid>
+                  </Grid>
+                )}
+                {disclaimerEnd && (
+                  <Grid item>
+                    <Button label={disclaimerText} />
+                  </Grid>
+                )}
+              </Grid>
+            </Grid>
+          </Toolbar>
+        </AppBar>
+      )}
+    </>
   );
 };
 
