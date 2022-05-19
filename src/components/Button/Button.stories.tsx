@@ -1,18 +1,18 @@
-// import React from 'react';
-// import { Story, Meta } from '@storybook/react';
-// import Button from './Button';
+// import React from "react";
+// import { Story, Meta } from "@storybook/react";
+// import Button from "./Button";
 // import { ButtonProps } from "@mui/material";
-// import PropTypes from 'prop-types';
+// import PropTypes from "prop-types";
 
 // // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 // export default {
-//   title: 'Components/Button',
+//   title: "Components/Button",
 //   component: Button,
-//   parameters: { actions: { argTypesRegex: '^on.*' } },
+//   parameters: { actions: { argTypesRegex: "^on.*" } },
 //   argTypes: {
 //     variant: {
 //       options: ["text","contained", "outlined"],
-//       control: { type: 'select' },
+//       control: { type: "select" },
 //     },
 //     color: {
 //       options: PropTypes.oneOf()
@@ -81,46 +81,45 @@
 //   disabled:true
 // }
 
-import React from 'react';
-import { Button } from './Button';
-import { Story, Meta } from '@storybook/react';
+import React from "react";
+import { Button } from "./Button";
+import { Story, Meta } from "@storybook/react";
 
 export default {
-    title: 'Components/Button',
+    title: "Components/Button",
     component: Button,
     argTypes: {
         disabled: {
-            control: { type: 'boolean' },
+            control: { type: "boolean" },
         },
     },
-    parameters: { actions: { argTypesRegex: '^on.*' } }
+    parameters: { actions: { argTypesRegex: "^on.*" } }
 } as Meta;
 
 const Template: Story= ({...args}) => <Button {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-    children: 'Default',
-
+    children: "Default",
 };
 
 export const Primary = Template.bind({});
 Primary.args = {
-    children: 'Primary',
-
+    children: "Primary",
+    color: "primary"
 };
 
 export const Secondary = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Secondary.args = {
-  children: 'Secondary',
+  children: "Secondary",
   color:"secondary",
 
 };
 
 export const Success = Template.bind({});
 Success.args = {
-  children: 'Success',
+  children: "Success",
   color:"success",
 };
 
@@ -151,11 +150,9 @@ Disabled.args = {
 export const Sizes = () => {
     return (
       <>
-        <div>
-          <Button size='large'>Large</Button>
-          <Button size='medium'>medium</Button>
-          <Button size='small'>Small</Button>
-        </div>
+        <Button style={{marginRight: '1' + 'em'}} size="large">Large</Button>
+        <Button style={{marginRight: '1' + 'em'}} size="medium">medium</Button>     
+        <Button style={{marginRight: '1' + 'em'}} size="small">Small</Button>
       </>
     );
   };

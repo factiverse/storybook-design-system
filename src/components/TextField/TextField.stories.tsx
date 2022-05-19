@@ -11,9 +11,10 @@ export default {
         disabled: {
             control: { type: 'boolean' },
         },
-        label: {
+        label : { 
             control: {
-                type: 'string'
+                options: ["headline", "claims", "Test"], 
+                type: "string"
             }
         },
         helperText: {
@@ -44,11 +45,15 @@ const Template: Story= ({...args}) => <TextField {...args} />;
 
 // Default TextField
 export const Default = Template.bind({});
+Default.args = {
+    sx: {width: "50%"}
+}
 
 // When Focus is set to true
 export const Focus = Template.bind({});
 Focus.args = {
-    focused: true
+    focused: true,
+    sx: {width: "50%"}
 }
 
 // FullWidth button
@@ -56,7 +61,6 @@ export const FullWidth = Template.bind({})
 FullWidth.args = { 
     label:"Search field",
     type:"search",
-    sx:{width: "100%"}  
 }
 
 // Dynamic button
@@ -64,7 +68,6 @@ export const Dynamic = Template.bind({})
 Dynamic.args = { 
     label:"Search field",
     type:"search",
-
 }
 
 export const WithIcon = () => {
@@ -87,11 +90,11 @@ export const Variants = () => {
     return (
       <>
         <div>
-            <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+            <TextField sx={{width: "50%"}} className="m-2 p-2" id="outlined-basic" label="Outlined" variant="outlined" />
             <br />
-            <TextField id="filled-basic" label="Filled" variant="filled" />
+            <TextField sx={{width: "50%"}} className="m-2 p-2" id="filled-basic" label="Filled" variant="filled" />
             <br />
-            <TextField id="standard-basic" label="Standard" variant="standard" />
+            <TextField sx={{width: "50%"}} className="m-2 p-2" id="standard-basic" label="Standard" variant="standard" />
         </div>
       </>
     );

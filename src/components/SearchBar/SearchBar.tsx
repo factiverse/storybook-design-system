@@ -13,7 +13,9 @@ export interface SearchBarProps {
     variant?: ComponentVariant
     color ?: ComponentColor
     disabled ?: boolean,
-    focused ?: boolean
+    focused ?: boolean,
+    label ?: string,
+    sx ?: object
 }
 
 const SearchBar: React.ForwardRefRenderFunction<HTMLDivElement, SearchBarProps> = (props, ref) => {
@@ -23,16 +25,16 @@ const SearchBar: React.ForwardRefRenderFunction<HTMLDivElement, SearchBarProps> 
         value,
         onChange,
         placeholder,
-        width = '100%',
         variant,
         color,
         disabled = false,
-        focused = false
+        focused = false,
+        label,
+        sx
     } = props;
 
-
     return (
-        <FormControl disabled={disabled} variant={variant} fullWidth>
+        <FormControl fullWidth disabled={disabled} variant={variant} sx={sx}>
         <TextField
           focused={focused}
           disabled={disabled}
@@ -40,6 +42,7 @@ const SearchBar: React.ForwardRefRenderFunction<HTMLDivElement, SearchBarProps> 
           value={value}
           onChange={onChange}
           color={color}
+          label={label}
         //   onKeyDown={onEnter}
           // TODO: #125 Use random/popular claims as the placeholder, let the user check one without having to type anything
           placeholder={placeholder}
