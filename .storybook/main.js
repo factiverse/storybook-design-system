@@ -1,15 +1,12 @@
 module.exports = {
-  stories: [
-    '../src/Introduction.stories.mdx',
-    '../src/**/*.stories.mdx',
-    '../src/**/*.stories.@(js|jsx|ts|tsx)',
-  ],
+  stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/preset-scss',
     '@storybook/addon-a11y',
     '@storybook/addon-interactions',
+    'storybook-addon-mdx-embed',
     // '@storybook/preset-create-react-app'
     'storybook-addon-material-ui5',
   ],
@@ -29,5 +26,8 @@ module.exports = {
           : true;
       },
     },
+  },
+  features: {
+    emotionAlias: false,
   },
 };

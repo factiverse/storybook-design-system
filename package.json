@@ -20,22 +20,17 @@
     "chromatic": "npx chromatic --project-token=e8130cbb59b8 --exit-once-uploaded",
     "deploy-storybook": "storybook-to-ghpages",
     "release": "auto shipit --base-branch=main",
-    "build": "rollup -c",
-    "clean": "rm -rf ./dist",
-    "compile-icons": "npx @svgr/cli -d src/icons src/icons --typescript",
-    "prebuild": "npm run clean && npm run compile-icons",
-    "test": "jest && eslint .",
-    "publish": "npm run build"
+    "rollup": "rollup -c",
+    "test": "jest --coverage && eslint src",
+    "test:watch": "jest --coverage --watchAll --json --outputFile=testOutput.json",
+    "publish": "npm run rollup"
   },
   "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ],
+    "extends": "eslint:recommended",
     "overrides": [
       {
         "files": [
-          "**/*.stories.*"
+          "src/components/*.tsx"
         ],
         "rules": {
           "import/no-anonymous-default-export": "off"
@@ -67,16 +62,23 @@
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
-  "engines": {
-    "node": "17.x",
-    "npm": "8.x"
+  "overrides": {
+    "mdx-embed": {
+      "react": "^17.0.0",
+      "react-dom": "^17.0.0"
+    }
   },
   "dependencies": {
     "@mui/material": "^5.6.3"
   },
+  "engines": {
+    "node": "17.x",
+    "npm": "8.x"
+  },
   "devDependencies": {
     "@babel/cli": "^7.17.6",
     "@babel/core": "^7.16.0",
+    "@babel/eslint-plugin": "^7.17.7",
     "@babel/preset-env": "^7.16.4",
     "@babel/preset-react": "^7.16.0",
     "@babel/preset-typescript": "^7.16.0",
@@ -102,18 +104,29 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^12.1.5",
     "@testing-library/user-event": "^12.1.10",
-    "@types/jest": "^27.0.2",
+    "@types/jest": "^27.5.1",
     "@types/react": "^17.0.34",
     "@types/styled-components": "^5.1.25",
+    "@typescript-eslint/eslint-plugin": "^5.23.0",
+    "@typescript-eslint/parser": "^5.23.0",
     "auto": "^10.36.5",
     "babel-jest": "^27.3.1",
     "babel-loader": "^8.2.3",
     "chromatic": "^6.4.3",
     "css-loader": "^6.5.1",
     "email-validator": "^2.0.4",
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-jest": "^26.1.5",
+    "eslint-plugin-jsdoc": "^39.2.9",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.29.4",
+    "eslint-plugin-react-hooks": "^4.5.0",
     "html-webpack-plugin": "^5.5.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.3.1",
+    "mdx-embed": "^1.0.0",
     "postcss": "^8.4.12",
     "react": "^17.0.1",
     "react-dom": "^17.0.2",
@@ -125,6 +138,7 @@
     "sass-loader": "^12.3.0",
     "storybook-addon-material-ui": "^0.9.0-alpha.24",
     "storybook-addon-material-ui5": "^1.0.0",
+    "storybook-addon-mdx-embed": "^1.0.0",
     "style-loader": "^3.3.1",
     "styled-components": "^5.3.5",
     "typescript": "^4.4.4"

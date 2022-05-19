@@ -1,12 +1,11 @@
-// import React from "react";
-// import { render } from "@testing-library/react";
+import * as React from 'react';
+import { render } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import Autocomplete from './Autocomplete';
 
-// import SearchBar from "./SearchBar";
-
-// describe("SearchBar", () => {
-//   test("renders the Button component", () => {
-//     render(<SearchBar color="primary" />);
-//   });
-// });
-
-// // Write a test to check the to prop as a link
+describe('Autocomplete', () => {
+  it('should render autocomplete component', () => {
+    const data = [];
+    render(<Autocomplete data={data} id={'1'} />);
+  });
+});

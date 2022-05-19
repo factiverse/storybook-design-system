@@ -1,8 +1,8 @@
 @font-face {
-    font-family: 'ArizonaSerif';
-    src: url('./ArizonaSerif/ArizonaSerif-Light.otf') format("truetype");
-    font-weight: 200;
-    font-style: normal;
+  font-family: 'ArizonaSerif';
+  src: url('./ArizonaSerif/ArizonaSerif-Light.otf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
 }
 /* @font-face {
     font-family: 'ArizonaSerif';
