@@ -65,6 +65,12 @@ const Header = (props: HeaderProps) => {
     </a>
   );
 
+  const diclaimerWrapper = (
+    <Grid item>
+      <Button label={disclaimerText} />
+    </Grid>
+  );
+
   const drawer = (
     <div>
       <SwipeableDrawer
@@ -94,9 +100,7 @@ const Header = (props: HeaderProps) => {
               </Grid>
             </Grid>
           )}
-          <Grid item>
-            <Button label={disclaimerText} />
-          </Grid>
+          {diclaimerWrapper}
         </Grid>
       </SwipeableDrawer>
     </div>
@@ -125,11 +129,7 @@ const Header = (props: HeaderProps) => {
         <AppBar position="static" color={appBarColor}>
           <Toolbar>
             <Grid container alignItems="center" justifyContent="space-between">
-              {disclaimerStart && (
-                <Grid item>
-                  <Button label={disclaimerText} />
-                </Grid>
-              )}
+              {disclaimerStart && diclaimerWrapper}
               <Grid item>{logoWrapper}</Grid>
               <Grid>
                 {withLoginAndSignup && (
@@ -142,11 +142,7 @@ const Header = (props: HeaderProps) => {
                     </Grid>
                   </Grid>
                 )}
-                {disclaimerEnd && (
-                  <Grid item>
-                    <Button label={disclaimerText} />
-                  </Grid>
-                )}
+                {disclaimerEnd && diclaimerWrapper}
               </Grid>
             </Grid>
           </Toolbar>
