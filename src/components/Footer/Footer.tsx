@@ -1,21 +1,22 @@
 import React from 'react';
-import { Box, Grid, Typography } from '@mui/material';
+import { Box, Grid } from '@mui/material';
+import Typography from '../Typography';
 
 export interface FooterProps {
-  year: any;
+  text: string;
+  year: string;
 }
 
+export const footerText =
+  'We are continuously developing our patented AI for different use cases and would love to hear from you. If you have any questions or want to know more about our services feel free to contact us:';
+
 const Footer = (props: FooterProps) => {
-  const { year } = props;
+  const { text = footerText, year } = props;
   return (
     <div>
       <Grid item>
         <Box mt={4}>
-          <Typography align="center">
-            We are continuously developing our patented AI for different use
-            cases and would love to hear from you. If you have any questions or
-            want to know more about our services feel free to contact us:
-          </Typography>
+          <Typography align="center">{text}</Typography>
         </Box>
       </Grid>
       <Grid item>

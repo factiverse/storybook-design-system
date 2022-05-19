@@ -1,18 +1,14 @@
 import React from 'react';
-import { render } from '@testing-library/react';
-import '@types/jest';
-import Button from '../Button';
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import Header from '../Header';
+import { disclaimerText } from './Header';
 
-import Header from './Header';
-
-describe('Header', () => {
-  test('renders the Header component', () => {
+describe('Header component', () => {
+  beforeEach(() => {
     render(
       <Header
         logo="https://editor.factiverse.no/79b028bc000a5e47c9a7.png"
-        login={<Button label="SIGN IN" />}
-        signup={<Button label="SIGN UP FOR FREE" />}
-        disclaimer={<Button label="ALPHA V0.1" />}
         appBarColor="default"
         disclaimerStart={true}
         logoWidth="200"
@@ -21,5 +17,13 @@ describe('Header', () => {
         mobileLogoHeight="35"
       />
     );
+  });
+
+  it('should render logo', () => {
+    expect(screen.getByAltText(/factiverse logo/i)).toBeInTheDocument();
+  });
+
+  it('should render alpha button', () => {
+    expect(screen.getByText(disclaimerText)).toBeInTheDocument();
   });
 });
