@@ -18,6 +18,7 @@ Editor.args = {
   mobileLogoWidth: '130',
   mobileLogoHeight: '40',
   withLoginAndSignup: true,
+  diclaimerClick: () => console.log('Disclaimer Click'),
 };
 
 export const Topics = Template.bind({});
@@ -31,4 +32,5 @@ Topics.args = {
   logoHeight: '72',
   mobileLogoWidth: '160',
   mobileLogoHeight: '50',
+  diclaimerClick: () => console.log('Disclaimer Click'),
 };

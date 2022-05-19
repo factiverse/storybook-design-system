@@ -16,10 +16,13 @@ import Button from '../Button';
 export interface HeaderProps {
   logo: string;
   appBarColor: 'default' | 'inherit' | 'primary';
-  disclaimerEnd?: boolean;
-  disclaimerStart?: boolean;
+  diclaimerClick: () => void;
   logoWidth: string;
   logoHeight: string;
+  signInClick?: () => void;
+  signUpClick?: () => void;
+  disclaimerEnd?: boolean;
+  disclaimerStart?: boolean;
   mobileLogoWidth?: string;
   mobileLogoHeight?: string;
   withLoginAndSignup?: boolean;
@@ -48,6 +51,9 @@ const Header = (props: HeaderProps) => {
     logoHeight = '72',
     mobileLogoWidth = '160',
     mobileLogoHeight = '45',
+    diclaimerClick,
+    signInClick,
+    signUpClick,
   } = props;
   const theme = useTheme();
   const isMobileSize = useMediaQuery(theme.breakpoints.down('sm'));
@@ -67,7 +73,7 @@ const Header = (props: HeaderProps) => {
 
   const diclaimerWrapper = (
     <Grid item>
-      <Button label={disclaimerText} />
+      <Button label={disclaimerText} onClick={diclaimerClick} />
     </Grid>
   );
 
@@ -90,13 +96,13 @@ const Header = (props: HeaderProps) => {
         </DrawerHeader>
         {/* mobile menu content  */}
         <Grid container flexDirection="column" px={3}>
-          {withLoginAndSignup && (
+          {withLoginAndSignup && signInClick && signUpClick && (
             <Grid container flexDirection="column">
               <Grid mb={1}>
-                <Button label="sign in" />
+                <Button label="sign in" onClick={signInClick} />
               </Grid>
               <Grid mb={1}>
-                <Button label="sign up for free" />
+                <Button label="sign up for free" onClick={signUpClick} />
               </Grid>
             </Grid>
           )}
@@ -132,13 +138,13 @@ const Header = (props: HeaderProps) => {
               {disclaimerStart && diclaimerWrapper}
               <Grid item>{logoWrapper}</Grid>
               <Grid>
-                {withLoginAndSignup && (
+                {withLoginAndSignup && signInClick && signUpClick && (
                   <Grid container flexDirection="row">
                     <Grid mr={2}>
-                      <Button label="sign in" />
+                      <Button label="sign in" onClick={signInClick} />
                     </Grid>
                     <Grid>
-                      <Button label="sign up for free" />
+                      <Button label="sign up for free" onClick={signUpClick} />
                     </Grid>
                   </Grid>
                 )}
