@@ -13,13 +13,13 @@ describe('Footer component', () => {
     expect(screen.getByText(footerText)).toBeInTheDocument();
   });
 
-  it('should open send email link', async () => {
-    userEvent.click(screen.getByRole('link', { name: 'Send us an email' }));
+  it('should open send email link', () => {
+    userEvent.click(screen.getByRole('link', { name: /Send us an email/i }));
     expect(screen.getByText('Send us an email')).toBeInTheDocument();
   });
 
-  it('should click GDPR link', async () => {
-    userEvent.click(screen.getByRole('link', { name: 'GDPR notice' }));
+  it('should click GDPR link', () => {
+    userEvent.click(screen.getByRole('link', { name: /GDPR notice/i }));
     expect(screen.getByText('GDPR notice')).toBeInTheDocument();
   });
 

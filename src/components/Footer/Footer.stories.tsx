@@ -15,8 +15,8 @@ Default.args = {
   text: footerText,
 };
 
-export const DifferentYear = Template.bind({});
-DifferentYear.args = {
+export const DifferentYearAndText = Template.bind({});
+DifferentYearAndText.args = {
   year: '2020',
-  text: footerText,
+  text: 'We are continuously developing our patented AI for different use cases and would love to hear from you.',
 };
