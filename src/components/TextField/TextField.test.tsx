@@ -6,5 +6,6 @@ import TextField from './TextField';
 describe('TextField', () => {
   it('should render a TextField', () => {
     render(<TextField />);
+    expect(screen.getByLabelText(/Headline/)).toBeInTheDocument();
   });
 });

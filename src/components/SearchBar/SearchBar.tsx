@@ -25,7 +25,7 @@ export interface SearchBarProps {
 const SearchBar: React.ForwardRefRenderFunction<
   HTMLDivElement,
   SearchBarProps
-> = (props, ref) => {
+> = (props) => {
   const {
     size = 'medium',
     value,

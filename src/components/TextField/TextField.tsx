@@ -20,6 +20,7 @@ export const TextField = ({
       id={id}
       disabled={disabled}
       color={color}
+      placeholder={placeholder}
       {...props}
     />
   );

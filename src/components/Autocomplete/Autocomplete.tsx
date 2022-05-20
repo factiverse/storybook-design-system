@@ -1,16 +1,15 @@
-import React, { useState } from 'react';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React from 'react';
 import { Autocomplete as AutocompleteMUI, Stack } from '@mui/material';
 import TextField from '../TextField';
-import PropTypes from 'prop-types';
 
-interface SearchBarProps {
+interface AutocompleteProps {
   id: string;
   data: any;
   fullWidth?: boolean;
 }
 
-export const Autocomplete = ({ data, id, fullWidth }: SearchBarProps) => {
-  // const [value, setValue] = React.useState<HeadlineOptionType | null>(null);
+export const Autocomplete = ({ data, id, fullWidth }: AutocompleteProps) => {
   return (
     <Stack spacing={2} sx={{ width: '100%' }}>
       <AutocompleteMUI
