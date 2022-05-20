@@ -27,6 +27,7 @@ To run these components locally, use
 View the component library in Storybook:
 
 ```
+npm install
 npm run storybook
 ```
 
