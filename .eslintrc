@@ -3,8 +3,8 @@
   "parserOptions": {
     "ecmaVersion": 2021,
     "sourceType": "module",
-    "ecmaFeatures":  {
-      "jsx":  true  // Allows for the parsing of JSX
+    "ecmaFeatures": {
+      "jsx": true // Allows for the parsing of JSX
     }
   },
   "plugins": [
@@ -28,14 +28,29 @@
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "react/prop-types": "off",
-    "object-curly-spacing":"off",
+    "object-curly-spacing": "off",
     "jest/no-disabled-tests": "warn",
     "jest/no-focused-tests": "error",
     "jest/no-identical-title": "error",
     "jest/prefer-to-have-length": "warn",
     "jest/valid-expect": "error",
     "valid-jsdoc": "off",
-    "comma-dangle": [ "error", { "arrays": "always-multiline", "objects": "always-multiline", "imports": "always-multiline", "exports": "always-multiline", "functions": "never" } ],
+    "comma-dangle": [
+      "error",
+      {
+        "arrays": "always-multiline",
+        "objects": "always-multiline",
+        "imports": "always-multiline",
+        "exports": "always-multiline",
+        "functions": "never"
+      }
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
     "jest/no-restricted-matchers": [
       "error",
       {
