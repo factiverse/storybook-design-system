@@ -25,12 +25,12 @@ const Footer = (props: FooterProps) => {
         </Typography>
       </Grid>
       <Grid item>
-        <Box mt={2}>
+        <Box mt={1}>
           <Typography align="center">&copy; {year} by Factiverse AS</Typography>
         </Box>
       </Grid>
       <Grid item>
-        <Box mt={2}>
+        <Box mt={1}>
           <Typography align="center">
             <a href="/GDPR.pdf" download>
               GDPR notice

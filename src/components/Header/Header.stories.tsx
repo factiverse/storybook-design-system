@@ -1,6 +1,9 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Header from './Header';
+import EditorLogo from '../../img/editorLogo.png';
+import TopicsLogo from '../../img/topicsLogo.png';
+
 export default {
   title: 'Components/Header',
   component: Header,
@@ -10,7 +13,7 @@ const Template: ComponentStory<typeof Header> = (args) => <Header {...args} />;
 
 export const Editor = Template.bind({});
 Editor.args = {
-  logo: 'https://editor.factiverse.no/79b028bc000a5e47c9a7.png',
+  logo: EditorLogo,
   disclaimerStart: true,
   appBarColor: 'default',
   logoWidth: '200',
@@ -24,7 +27,7 @@ Editor.args = {
 export const Topics = Template.bind({});
 Topics.args = {
   withLoginAndSignup: false,
-  logo: 'https://topics.factiverse.no/657cfe7fc0482dcc08b9.png',
+  logo: TopicsLogo,
   appBarColor: 'inherit',
   disclaimerEnd: true,
   disclaimerStart: false,
