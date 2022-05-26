@@ -1,15 +1,17 @@
+import { Grid } from '@mui/material';
 import React from 'react';
 import EmailField from '../EmailField';
-import FormWrapper from '../FormWrapper';
 import PasswordField from '../PasswordField';
+import TextField from '../TextField';
+import FormWrapper from '../FormWrapper';
 
-export interface LoginProps {
+export interface SignupProps {
   handleSubmit: () => void;
   loading: boolean;
   message?: string;
 }
 
-const Login = (props: LoginProps) => {
+const Signup = (props: SignupProps) => {
   const { handleSubmit, message, loading } = props;
 
   const emailFieldActions = {
@@ -20,7 +22,7 @@ const Login = (props: LoginProps) => {
   };
 
   const passwordFieldActions = {
-    values: { password: 'dsnkjn' },
+    values: { password: 'something' },
     handleChange: () => console.log('handleChange'),
     touched: { password: '' },
     errors: { password: '' },
@@ -29,16 +31,19 @@ const Login = (props: LoginProps) => {
   return (
     <FormWrapper
       handleSubmit={handleSubmit}
-      message={message}
-      formName="Login"
       loading={loading}
+      message={message}
+      formName="Sign Up"
     >
       <>
         <EmailField actions={emailFieldActions} />
+        <Grid item>
+          <TextField label="Name" />
+        </Grid>
         <PasswordField actions={passwordFieldActions} />
       </>
     </FormWrapper>
   );
 };
 
-export default Login;
+export default Signup;

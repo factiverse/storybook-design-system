@@ -1,0 +1,57 @@
+import { Box, Button, Grid, Paper } from '@mui/material';
+import React from 'react';
+import Typography from '../Typography';
+
+export interface FormWrapperProps {
+  handleSubmit: () => void;
+  loading: boolean;
+  message?: string;
+  children: React.ReactChild;
+  formName: string;
+}
+
+const FormWrapper = (props: FormWrapperProps) => {
+  const { handleSubmit, message, loading, children, formName } = props;
+
+  return (
+    <Paper elevation={4} className={'Popup'}>
+      <form onSubmit={handleSubmit}>
+        <Box p={4}>
+          <Grid container direction={'column'} spacing={3}>
+            <Grid item>
+              <Typography variant="h5">{formName}</Typography>
+            </Grid>
+            {children}
+            <Grid item>
+              <Typography>{message}</Typography>
+            </Grid>
+            <Grid item container justifyContent={'flex-end'}>
+              <Grid mr={2}>
+                <Button
+                  variant={'contained'}
+                  color={'primary'}
+                  type="submit"
+                  disabled={loading}
+                >
+                  Cancel
+                </Button>
+              </Grid>
+              <Grid>
+                <Button
+                  variant={'contained'}
+                  color={'secondary'}
+                  type="submit"
+                  disabled={loading}
+                >
+                  Submit
+                </Button>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Box>
+      </form>
+    </Paper>
+  );
+};
+
+export default FormWrapper;

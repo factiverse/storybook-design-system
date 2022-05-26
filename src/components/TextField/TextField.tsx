@@ -3,7 +3,7 @@ import { TextField as TextFieldMUI, TextFieldProps } from '@mui/material';
 
 const TextField = ({
   label,
-  variant = 'standard',
+  variant = 'filled',
   hiddenLabel = false,
   margin = 'none',
 }: TextFieldProps) => {
@@ -13,6 +13,7 @@ const TextField = ({
       variant={variant}
       hiddenLabel={hiddenLabel}
       margin={margin}
+      fullWidth
     />
   );
 };
