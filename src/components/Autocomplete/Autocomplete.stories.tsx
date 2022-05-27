@@ -10,13 +10,16 @@ export default {
     fullWidth: {
       control: { type: 'boolean' },
     },
+    label: {
+      control: { type: 'string'},
+    },
   },
 } as Meta;
 
 export const Default = () => {
-  //   const [value, setValue] = useState('');
-
-  return <Autocomplete data={data} id={'icon-test'} fullWidth />;
+  return (
+    <Autocomplete data={data} id={'icon-test'} label="Search Name" fullWidth />
+  );
 };
 
 const data = [
@@ -45,7 +48,7 @@ const data = [
   },
   {
     title:
-      'An American was killed in Ukraine by a mine planted by Russian backed seperatists.',
+      'An American was killed in Ukraine by a mine planted by Russian backed separatists.',
     year: 2022,
   },
   { title: 'Putin warned India to not interfere in Ukraine.', year: 2022 },

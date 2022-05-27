@@ -45,9 +45,7 @@ const Template: Story = ({ ...args }) => <TextField {...args} />;
 
 // Default TextField
 export const Default = Template.bind({});
-Default.args = {
-  sx: { width: '50%' },
-};
+Default.args = {};
 
 // When Focus is set to true
 export const Focus = Template.bind({});
@@ -76,7 +74,11 @@ export const WithIcon = () => {
       id="input-with-icon-textfield"
       label="Headline"
       InputProps={{
-        startAdornment: <InputAdornment position="start">🔎</InputAdornment>,
+        startAdornment: (
+          <InputAdornment position="start">
+            <i className="ph-smiley"></i>
+          </InputAdornment>
+        ),
       }}
     />
   );

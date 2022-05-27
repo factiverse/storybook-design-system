@@ -6,10 +6,16 @@ import TextField from '../TextField';
 interface AutocompleteProps {
   id: string;
   data: any;
+  label: string;
   fullWidth?: boolean;
 }
 
-export const Autocomplete = ({ data, id, fullWidth }: AutocompleteProps) => {
+export const Autocomplete = ({
+  data,
+  id,
+  fullWidth,
+  label,
+}: AutocompleteProps) => {
   return (
     <Stack spacing={2} sx={{ width: '100%' }}>
       <AutocompleteMUI
@@ -20,7 +26,7 @@ export const Autocomplete = ({ data, id, fullWidth }: AutocompleteProps) => {
         renderInput={(params) => (
           <TextField
             {...params}
-            label="Search input"
+            label={label}
             InputProps={{
               ...params.InputProps,
               type: 'search',

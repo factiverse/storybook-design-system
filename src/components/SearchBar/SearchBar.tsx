@@ -49,8 +49,7 @@ const SearchBar: React.ForwardRefRenderFunction<
         onChange={onChange}
         color={color}
         label={label}
-        //   onKeyDown={onEnter}
-        // TODO: #125 Use random/popular claims as the placeholder, let the user check one without having to type anything
+        // TODO: # 125 Use random/popular claims as the placeholder, let the user check one without having to type anything
         placeholder={placeholder}
         sx={{
           '& .MuiInputBase-root': {
@@ -59,15 +58,14 @@ const SearchBar: React.ForwardRefRenderFunction<
         }}
         inputProps={{ maxLength: 150 }}
         InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+              <i className="ph-magnifying-glass"></i>
+            </InputAdornment>
+          ),
           endAdornment: (
             <InputAdornment position="end">
-              <Button
-                disabled={disabled}
-                size={size}
-                variant={'contained'}
-                //   onClick={onCheckClaimClicked}
-                color={color}
-              >
+              <Button size={size} variant={'contained'} color={color}>
                 <Typography variant="button">Check claim</Typography>
               </Button>
             </InputAdornment>

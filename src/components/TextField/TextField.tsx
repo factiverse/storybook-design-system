@@ -1,5 +1,6 @@
 import React from 'react';
 import { TextField as TextFieldMUI, TextFieldProps } from '@mui/material';
+import { InputAdornment } from '@mui/material';
 
 export const TextField = ({
   sx,
@@ -21,6 +22,13 @@ export const TextField = ({
       disabled={disabled}
       color={color}
       placeholder={placeholder}
+      InputProps={{
+        startAdornment: (
+          <InputAdornment position="start">
+            <i className="ph-magnifying-glass"></i>
+          </InputAdornment>
+        ),
+      }}
       {...props}
     />
   );
