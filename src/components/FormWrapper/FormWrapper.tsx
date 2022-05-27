@@ -8,10 +8,12 @@ export interface FormWrapperProps {
   message?: string;
   children: React.ReactChild;
   formName: string;
+  formSubtitle?: string;
 }
 
 const FormWrapper = (props: FormWrapperProps) => {
-  const { handleSubmit, message, loading, children, formName } = props;
+  const { handleSubmit, message, loading, children, formName, formSubtitle } =
+    props;
 
   return (
     <Paper elevation={4} className={'Popup'}>
@@ -21,6 +23,11 @@ const FormWrapper = (props: FormWrapperProps) => {
             <Grid item>
               <Typography variant="h5">{formName}</Typography>
             </Grid>
+            {formSubtitle && (
+              <Grid item mt={-2}>
+                <Typography variant="subtitle1">{formSubtitle}</Typography>
+              </Grid>
+            )}
             {children}
             <Grid item>
               <Typography>{message}</Typography>

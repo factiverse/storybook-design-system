@@ -29,7 +29,7 @@ const Template: ComponentStory<typeof TextField> = (args) => (
 export const Default = Template.bind({});
 Default.args = {
   label: 'Default',
-  variant: 'standard',
+  variant: 'filled',
 };
 
 export const Variants: ComponentStory<typeof TextField> = () => (

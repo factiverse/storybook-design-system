@@ -15,7 +15,7 @@ const Signup = (props: SignupProps) => {
   const { handleSubmit, message, loading } = props;
 
   const emailFieldActions = {
-    values: { email: 'something' },
+    values: { email: 'something@something.com' },
     handleChange: () => console.log('handleChange'),
     touched: { email: '' },
     errors: { email: '' },

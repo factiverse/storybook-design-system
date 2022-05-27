@@ -70,7 +70,9 @@
   },
   "dependencies": {
     "@mui/material": "^5.6.2",
-    "@mui/styles": "^5.6.2"
+    "@mui/styles": "^5.6.2",
+    "formik": "^2.2.9",
+    "yup": "^0.32.11"
   },
   "engines": {
     "node": "17.x",

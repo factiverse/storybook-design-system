@@ -21,9 +21,10 @@ const ForgotPassword = (props: ForgotPasswordProps) => {
   return (
     <FormWrapper
       message={message}
-      formName="Forgot Password"
+      formName="Forgot Password?"
       handleSubmit={handleSubmit}
       loading={loading}
+      formSubtitle="Please enter email address associated with your account"
     >
       <EmailField actions={emailFieldActions} />
     </FormWrapper>

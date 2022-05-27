@@ -14,8 +14,8 @@ const ChangePassword = (props: ChangePasswordProps) => {
   const passwordFieldActions = {
     values: { password: 'dsnkjn' },
     handleChange: () => console.log('handleChange'),
-    touched: { password: '' },
-    errors: { password: '' },
+    touched: { password: 'I am here' },
+    errors: { password: 'I am here' },
   };
 
   return (
@@ -24,6 +24,7 @@ const ChangePassword = (props: ChangePasswordProps) => {
       loading={loading}
       message={message}
       formName="Change Password"
+      formSubtitle="Your new password must be different from previously used password"
     >
       <>
         <PasswordField label="New password" actions={passwordFieldActions} />

@@ -12,7 +12,7 @@ interface EmailFieldProps {
 
 const EmailField = ({ actions }: EmailFieldProps) => {
   return (
-    <Grid item>
+    <Grid item mt={-1}>
       <TextField
         fullWidth
         variant={'filled'}
