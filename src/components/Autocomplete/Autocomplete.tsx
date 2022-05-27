@@ -14,7 +14,7 @@ export const Autocomplete = ({
   data,
   id,
   fullWidth,
-  label,
+  label = 'Search input',
 }: AutocompleteProps) => {
   return (
     <Stack spacing={2} sx={{ width: '100%' }}>

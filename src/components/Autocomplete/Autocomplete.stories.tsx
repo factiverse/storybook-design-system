@@ -11,7 +11,7 @@ export default {
       control: { type: 'boolean' },
     },
     label: {
-      control: { type: 'string'},
+      control: { type: 'string' },
     },
   },
 } as Meta;
