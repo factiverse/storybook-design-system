@@ -1,7 +1,6 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
 import { TextField } from './TextField';
-import './TextField.scss';
 import { InputAdornment } from '@mui/material';
 
 export default {

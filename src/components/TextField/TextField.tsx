@@ -5,11 +5,11 @@ import { InputAdornment } from '@mui/material';
 export const TextField = ({
   sx,
   placeholder,
-  id,
-  label,
-  variant,
-  disabled,
-  color,
+  id = 'outlined-basic',
+  label = 'Headline',
+  variant = 'outlined',
+  disabled = false,
+  color = 'primary',
   ...props
 }: TextFieldProps) => {
   return (
@@ -34,11 +34,4 @@ export const TextField = ({
   );
 };
 
-TextField.defaultProps = {
-  variant: 'outlined',
-  id: 'outlined-basic',
-  label: 'Headline',
-  disabled: false,
-  color: 'primary',
-};
 export default TextField;
