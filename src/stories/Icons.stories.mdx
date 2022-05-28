@@ -1,0 +1,26 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { Figma } from 'mdx-embed';
+
+<Meta title="Icons" />
+
+# Icons
+
+We source the majority of our UI icons from [Phospor Icons](https://phosphoricons.com/).
+
+<Figma
+  title="icons"
+  url="file/aYPxlcXliGRONNY4krepDY/Phosphor-Icons-(Community)"
+/>
+
+## Usage
+
+- Always use the "light" version
+- Download SVGs instead of raster images
+- Add them in React/HMTL by adding a class with the name of the icon:
+  ```
+    <i class="ph-address-book-light"></i>
+  ```
+- Use [helper classes](https://github.com/phosphor-icons/phosphor-icons) to change the size of the icon:
+  ```
+    <i class="ph-address-book-light ph-4x"></i>
+  ```
