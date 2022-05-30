@@ -6,7 +6,6 @@ import EmailField from '../EmailField';
 import PasswordField from '../PasswordField';
 import TextField from '../TextField';
 import FormWrapper from '../FormWrapper';
-import { CheckCircle } from 'phosphor-react';
 import Typography from '../Typography';
 
 const useStyles = makeStyles(() =>
@@ -62,7 +61,7 @@ const Signup = (props: SignupProps) => {
               className={classes.successMessageCheck}
               p={4}
             >
-              <CheckCircle size={110} />
+              <i className="ph-check-circle ph-7x"></i>
             </Grid>
             <Grid p={4}>
               <Grid container justifyContent="center" pb={1}>

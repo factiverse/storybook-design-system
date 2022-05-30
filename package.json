@@ -72,7 +72,6 @@
     "@mui/material": "^5.6.2",
     "@mui/styles": "^5.6.2",
     "formik": "^2.2.9",
-    "phosphor-react": "^1.4.1",
     "yup": "^0.32.11"
   },
   "engines": {
