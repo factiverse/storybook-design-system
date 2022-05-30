@@ -2,7 +2,6 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Footer, { footerText } from './Footer';
-import userEvent from '@testing-library/user-event';
 
 describe('Footer component', () => {
   beforeEach(() => {
@@ -14,13 +13,11 @@ describe('Footer component', () => {
   });
 
   it('should open send email link', () => {
-    userEvent.click(screen.getByRole('link', { name: /Send us an email/i }));
-    expect(screen.getByText('Send us an email')).toBeInTheDocument();
+    expect(screen.getAllByRole('link')[0].innerHTML).toBe('Send us an email');
   });
 
   it('should click GDPR link', () => {
-    userEvent.click(screen.getByRole('link', { name: /GDPR notice/i }));
-    expect(screen.getByText('GDPR notice')).toBeInTheDocument();
+    expect(screen.getAllByRole('link')[1].innerHTML).toBe('GDPR notice');
   });
 
   it('should render copyright', () => {

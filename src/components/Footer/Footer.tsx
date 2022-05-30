@@ -21,7 +21,7 @@ const Footer = (props: FooterProps) => {
       </Grid>
       <Grid item>
         <Typography align="center">
-          <a href={'mailto:tobias@factiverse.no'}>Send us an email</a>
+          <a href={'mailto:info@factiverse.no'}>Send us an email</a>
         </Typography>
       </Grid>
       <Grid item>

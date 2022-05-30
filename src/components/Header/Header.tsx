@@ -13,18 +13,17 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import Button from '../Button';
 
+const defaultLogoSize = { width: 221, height: 72 };
+const mobileLogoSize = { width: 160, height: 45 };
+
 export interface HeaderProps {
   logo: string;
   appBarColor: 'default' | 'inherit' | 'primary';
   diclaimerClick: () => void;
-  logoWidth: string;
-  logoHeight: string;
   signInClick?: () => void;
   signUpClick?: () => void;
   disclaimerEnd?: boolean;
   disclaimerStart?: boolean;
-  mobileLogoWidth?: string;
-  mobileLogoHeight?: string;
   withLoginAndSignup?: boolean;
 }
 
@@ -47,10 +46,6 @@ const Header = (props: HeaderProps) => {
     appBarColor = 'inherit',
     disclaimerEnd,
     disclaimerStart,
-    logoWidth = '221',
-    logoHeight = '72',
-    mobileLogoWidth = '160',
-    mobileLogoHeight = '45',
     diclaimerClick,
     signInClick,
     signUpClick,
@@ -65,8 +60,8 @@ const Header = (props: HeaderProps) => {
       <img
         src={logo}
         alt="Factiverse Logo"
-        width={isMobileSize ? mobileLogoWidth : logoWidth}
-        height={isMobileSize ? mobileLogoHeight : logoHeight}
+        width={isMobileSize ? mobileLogoSize.width : defaultLogoSize.width}
+        height={isMobileSize ? mobileLogoSize.height : defaultLogoSize.height}
       />
     </a>
   );
