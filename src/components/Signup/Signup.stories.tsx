@@ -16,3 +16,11 @@ Default.args = {
   message: '',
   loading: false,
 };
+
+export const SuccessMessage = Template.bind({});
+SuccessMessage.args = {
+  handleSubmit: () => console.log('submit'),
+  message: '',
+  loading: false,
+  signedInMessage: true,
+};

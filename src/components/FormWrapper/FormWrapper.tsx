@@ -33,26 +33,14 @@ const FormWrapper = (props: FormWrapperProps) => {
               <Typography>{message}</Typography>
             </Grid>
             <Grid item container justifyContent={'flex-end'}>
-              <Grid mr={2}>
-                <Button
-                  variant={'contained'}
-                  color={'primary'}
-                  type="submit"
-                  disabled={loading}
-                >
-                  Cancel
-                </Button>
-              </Grid>
-              <Grid>
-                <Button
-                  variant={'contained'}
-                  color={'secondary'}
-                  type="submit"
-                  disabled={loading}
-                >
-                  Submit
-                </Button>
-              </Grid>
+              <Button
+                variant={'contained'}
+                color={'secondary'}
+                type="submit"
+                disabled={loading}
+              >
+                Submit
+              </Button>
             </Grid>
           </Grid>
         </Box>
