@@ -4,16 +4,16 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import Warning from '@mui/icons-material/Warning';
 
-export interface PasswordFieldProps {
+export interface ConfirmPassFieldProps {
   actions: {
-    values: { password: string };
+    values: { passwordConfirmation: string };
     handleChange: (e: string | ChangeEvent<unknown>) => void;
-    touched: { password?: boolean };
-    errors: { password?: string };
+    touched: { passwordConfirmation?: boolean };
+    errors: { passwordConfirmation?: string };
   };
 }
 
-const PasswordField = ({ actions }: PasswordFieldProps) => {
+const ConfirmPassField = ({ actions }: ConfirmPassFieldProps) => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [isCapsEnabled, setIsCapsEnabled] = useState<boolean>(false);
 
@@ -28,15 +28,21 @@ const PasswordField = ({ actions }: PasswordFieldProps) => {
       <TextField
         fullWidth
         variant={'filled'}
-        id="password"
-        name="password"
-        label="Password"
+        id="passwordConfirmation"
+        name="passwordConfirmation"
+        label="Confirm new password"
         type={showPassword ? 'text' : 'password'}
-        value={actions.values.password}
+        value={actions.values.passwordConfirmation}
         onChange={actions.handleChange}
         onKeyDown={onKeyDown}
-        error={actions.touched.password && Boolean(actions.errors.password)}
-        helperText={actions.touched.password && actions.errors.password}
+        error={
+          actions.touched.passwordConfirmation &&
+          Boolean(actions.errors.passwordConfirmation)
+        }
+        helperText={
+          actions.touched.passwordConfirmation &&
+          actions.errors.passwordConfirmation
+        }
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">
@@ -57,4 +63,4 @@ const PasswordField = ({ actions }: PasswordFieldProps) => {
   );
 };
 
-export default PasswordField;
+export default ConfirmPassField;

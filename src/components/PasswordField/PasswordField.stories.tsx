@@ -17,7 +17,7 @@ Default.args = {
   actions: {
     values: { password: 'dsnkjn' },
     handleChange: () => console.log('handleChange'),
-    touched: { password: '' },
+    touched: { password: true },
     errors: { password: '' },
   },
 };

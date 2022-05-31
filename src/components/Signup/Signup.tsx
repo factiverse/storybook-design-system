@@ -1,10 +1,11 @@
-import { Grid, Paper, Button } from '@mui/material';
+import React, { ChangeEvent } from 'react';
+import { Grid, TextField, Paper, Button } from '@mui/material';
 import createStyles from '@mui/styles/createStyles';
 import { makeStyles } from '@mui/styles';
-import React from 'react';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 import EmailField from '../EmailField';
 import PasswordField from '../PasswordField';
-import TextField from '../TextField';
 import FormWrapper from '../FormWrapper';
 import Typography from '../Typography';
 
@@ -25,29 +26,67 @@ const useStyles = makeStyles(() =>
 );
 
 export interface SignupProps {
-  handleSubmit: () => void;
+  initialValues: {
+    name: string;
+    email: string;
+    password: string;
+  };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  schemaSignup: Yup.ObjectSchema<any>;
+  handleSignup: (formValue: {
+    name: string;
+    email: string;
+    password: string;
+  }) => void;
   loading: boolean;
-  message?: string;
+  message: string;
   signedInMessage?: boolean;
 }
 
+interface NameFieldProps {
+  actions: {
+    values: { name: string };
+    handleChange: (e: string | ChangeEvent<unknown>) => void;
+    touched: { name?: boolean };
+    errors: { name?: string };
+  };
+}
+
+const NameField = (props: NameFieldProps) => {
+  const { actions } = props;
+  return (
+    <Grid item mt={-1}>
+      <TextField
+        fullWidth
+        variant={'filled'}
+        id="name"
+        name="name"
+        label="Name"
+        value={actions.values.name}
+        onChange={actions.handleChange}
+        error={actions.touched.name && Boolean(actions.errors.name)}
+        helperText={actions.touched.name && actions.errors.name}
+      />
+    </Grid>
+  );
+};
+
 const Signup = (props: SignupProps) => {
   const classes = useStyles();
-  const { handleSubmit, message, loading, signedInMessage = false } = props;
+  const {
+    handleSignup,
+    initialValues,
+    schemaSignup,
+    message,
+    loading,
+    signedInMessage = false,
+  } = props;
 
-  const emailFieldActions = {
-    values: { email: 'something@something.com' },
-    handleChange: () => console.log('handleChange'),
-    touched: { email: '' },
-    errors: { email: '' },
-  };
-
-  const passwordFieldActions = {
-    values: { password: 'something' },
-    handleChange: () => console.log('handleChange'),
-    touched: { password: '' },
-    errors: { password: '' },
-  };
+  const formik = useFormik({
+    initialValues: initialValues,
+    validationSchema: schemaSignup,
+    onSubmit: handleSignup,
+  });
 
   return (
     <div>
@@ -88,17 +127,15 @@ const Signup = (props: SignupProps) => {
         </Paper>
       ) : (
         <FormWrapper
-          handleSubmit={handleSubmit}
+          handleSubmit={formik.handleSubmit}
           loading={loading}
           message={message}
           formName="Sign Up"
         >
           <>
-            <EmailField actions={emailFieldActions} />
-            <Grid item>
-              <TextField label="Name" />
-            </Grid>
-            <PasswordField actions={passwordFieldActions} />
+            <EmailField actions={formik} />
+            <NameField actions={formik} />
+            <PasswordField actions={formik} />
           </>
         </FormWrapper>
       )}

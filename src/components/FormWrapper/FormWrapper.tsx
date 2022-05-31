@@ -9,11 +9,19 @@ export interface FormWrapperProps {
   children: React.ReactChild;
   formName: string;
   formSubtitle?: string;
+  submitName?: string;
 }
 
 const FormWrapper = (props: FormWrapperProps) => {
-  const { handleSubmit, message, loading, children, formName, formSubtitle } =
-    props;
+  const {
+    handleSubmit,
+    message,
+    loading,
+    children,
+    formName,
+    formSubtitle,
+    submitName = 'Submit',
+  } = props;
 
   return (
     <Paper elevation={4} className={'Popup'}>
@@ -39,7 +47,7 @@ const FormWrapper = (props: FormWrapperProps) => {
                 type="submit"
                 disabled={loading}
               >
-                Submit
+                {submitName}
               </Button>
             </Grid>
           </Grid>

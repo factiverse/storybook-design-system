@@ -1,32 +1,43 @@
 import React from 'react';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 import EmailField from '../EmailField';
 import FormWrapper from '../FormWrapper/FormWrapper';
 
 export interface ForgotPasswordProps {
-  handleSubmit: () => void;
+  initialValues: { email: string };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  schemaForgotPass: Yup.ObjectSchema<any>;
+  handleForgotPassword: (formValue: { email: string }) => void;
   loading: boolean;
   message?: string;
 }
 
 const ForgotPassword = (props: ForgotPasswordProps) => {
-  const { handleSubmit, message, loading } = props;
+  const {
+    initialValues,
+    schemaForgotPass,
+    handleForgotPassword,
+    message,
+    loading,
+  } = props;
 
-  const emailFieldActions = {
-    values: { email: 'something' },
-    handleChange: () => console.log('handleChange'),
-    touched: { email: '' },
-    errors: { email: '' },
-  };
+  const formik = useFormik({
+    initialValues: initialValues,
+    validationSchema: schemaForgotPass,
+    onSubmit: handleForgotPassword,
+  });
 
   return (
     <FormWrapper
       message={message}
       formName="Forgot Password?"
-      handleSubmit={handleSubmit}
+      handleSubmit={formik.handleSubmit}
       loading={loading}
       formSubtitle="Please enter email address associated with your account"
+      submitName="Send"
     >
-      <EmailField actions={emailFieldActions} />
+      <EmailField actions={formik} />
     </FormWrapper>
   );
 };
