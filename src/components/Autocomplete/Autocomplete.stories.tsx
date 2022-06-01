@@ -22,7 +22,7 @@ export const Default = () => {
   );
 };
 
-const data = [
+export const data = [
   { title: 'Russia has no plans to occupy Ukraine.', year: 2022 },
   {
     title: 'There are U.S. biolabs in Ukraine funded by the U.S. government.',

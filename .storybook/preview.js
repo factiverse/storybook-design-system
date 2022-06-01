@@ -7,6 +7,7 @@ import { muiTheme } from 'storybook-addon-material-ui5';
 // you can specify only required fields overriding the `Light Base Theme`
 
 export const decorators = [
+  muiTheme(),
   (Story) => (
     <>
       <Story />

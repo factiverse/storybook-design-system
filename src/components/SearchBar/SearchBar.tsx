@@ -40,10 +40,9 @@ const SearchBar: React.ForwardRefRenderFunction<
   } = props;
 
   return (
-    <FormControl fullWidth disabled={disabled} variant={variant} sx={sx}>
+    <FormControl fullWidth variant={variant} sx={sx}>
       <TextField
         focused={focused}
-        disabled={disabled}
         variant={variant}
         value={value}
         onChange={onChange}
@@ -65,7 +64,12 @@ const SearchBar: React.ForwardRefRenderFunction<
           ),
           endAdornment: (
             <InputAdornment position="end">
-              <Button size={size} variant={'contained'} color={color}>
+              <Button
+                size={size}
+                variant={'contained'}
+                color={color}
+                disabled={disabled}
+              >
                 <Typography variant="button">Check claim</Typography>
               </Button>
             </InputAdornment>

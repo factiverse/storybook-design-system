@@ -6,7 +6,7 @@ import TextField from '../TextField';
 interface AutocompleteProps {
   id: string;
   data: any;
-  label: string;
+  label?: string;
   fullWidth?: boolean;
 }
 
