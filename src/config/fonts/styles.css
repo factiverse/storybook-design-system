@@ -7,7 +7,8 @@
 
 @font-face {
   font-family: 'Arizona Serif';
-  src: url('./ArizonaSerif-Light.woff') format('woff');
+  src: url('./ArizonaSerif/ArizonaSerif-Light.otf') format('woff');
+  font-weight: 200;
   font-style: normal;
 }
 
@@ -15,7 +16,8 @@
 
 @font-face {
   font-family: 'Arizona Text';
-  src: url('./ArizonaText-Light.woff') format('woff');
+  src: url('./ArizonaSerif/ArizonaText-Light.otf') format('otf');
+  font-weight: 200;
   font-style: normal;
 }
 
@@ -23,21 +25,24 @@
 
 @font-face {
   font-family: 'Arizona Text';
-  src: url('./ArizonaText-LightItalic.woff') format('woff');
+  src: url('./ArizonaSerif/ArizonaText-LightItalic.otf') format('woff');
+  font-weight: 200;
   font-style: italic;
 }
 
 
 @font-face {
   font-family: 'DM Mono';
-  src: url('./DMMono-Light.woff') format('woff');
+  src: url('./DMmono/DMMono-Light.ttf') format('woff');
+  font-weight: 200;
   font-style: normal;
 }
 
 
 @font-face {
   font-family: 'DM Mono';
-  src: url('./DMMono-LightItalic.woff') format('woff');
+  src: url('./DMmono/DMMono-LightItalic.ttf') format('woff');
+  font-weight: 200;
   font-style: italic;
 }
 
@@ -45,5 +50,6 @@
   font-family: 'DM Mono';
   src: url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap')
     format('woff2');
+  font-weight: 200;
   font-style: italic;
 }
