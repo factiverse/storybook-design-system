@@ -1,55 +1,116 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import TextField from './TextField';
-import { Grid } from '@mui/material';
+import { Story, Meta } from '@storybook/react';
+import { TextField } from './TextField';
+import { InputAdornment } from '@mui/material';
 
 export default {
   title: 'Components/TextField',
   component: TextField,
   argTypes: {
+    disabled: {
+      control: { type: 'boolean' },
+    },
+    label: {
+      control: {
+        options: ['headline', 'claims', 'Test'],
+        type: 'string',
+      },
+    },
+    helperText: {
+      control: {
+        type: 'string',
+      },
+    },
     variant: {
       control: {
-        options: ['outlined', 'filled', 'standard'],
+        options: ['outlined', 'standard', 'filled'],
         type: 'radio',
       },
     },
-    margin: {
+    id: {
       control: {
-        options: ['none', 'dense', 'normal'],
+        options: ['input-with-icon-textfield', 'filled-search'],
         type: 'radio',
       },
+    },
+    focused: {
+      control: { type: 'boolean' },
     },
   },
-} as ComponentMeta<typeof TextField>;
+  parameters: { actions: { argTypesRegex: '^on.*' } },
+} as Meta;
 
-const Template: ComponentStory<typeof TextField> = (args) => (
-  <TextField {...args} />
-);
+const Template: Story = ({ ...args }) => <TextField {...args} />;
 
+// Default TextField
 export const Default = Template.bind({});
-Default.args = {
-  label: 'Default',
-  variant: 'filled',
+Default.args = {};
+
+// When Focus is set to true
+export const Focus = Template.bind({});
+Focus.args = {
+  focused: true,
+  sx: { width: '50%' },
 };
 
-export const Variants: ComponentStory<typeof TextField> = () => (
-  <>
-    <TextField variant="standard" label="standard" />
-    <TextField variant="outlined" label="outlined" />
-    <TextField variant="filled" label="filled" />
-  </>
-);
-
-export const HiddenLabel = Template.bind({});
-HiddenLabel.args = {
-  variant: 'outlined',
-  hiddenLabel: true,
+// FullWidth button
+export const FullWidth = Template.bind({});
+FullWidth.args = {
+  label: 'Search field',
+  type: 'search',
 };
 
-export const Margin: ComponentStory<typeof TextField> = () => (
-  <Grid container flexDirection="column">
-    <TextField variant="outlined" label="outlined" margin="none" />
-    <TextField variant="outlined" label="outlined" margin="dense" />
-    <TextField variant="outlined" label="outlined" margin="normal" />
-  </Grid>
-);
+// Dynamic button
+export const Dynamic = Template.bind({});
+Dynamic.args = {
+  label: 'Search field',
+  type: 'search',
+};
+
+export const WithIcon = () => {
+  return (
+    <TextField
+      id="input-with-icon-textfield"
+      label="Headline"
+      InputProps={{
+        startAdornment: (
+          <InputAdornment position="start">
+            <i className="ph-smiley"></i>
+          </InputAdornment>
+        ),
+      }}
+    />
+  );
+};
+
+export const Variants = () => {
+  return (
+    <>
+      <div>
+        <TextField
+          sx={{ width: '50%' }}
+          className="m-2 p-2"
+          id="outlined-basic"
+          label="Outlined"
+          variant="outlined"
+        />
+        <br />
+        <TextField
+          sx={{ width: '50%' }}
+          className="m-2 p-2"
+          id="filled-basic"
+          label="Filled"
+          variant="filled"
+        />
+        <br />
+        <TextField
+          sx={{ width: '50%' }}
+          className="m-2 p-2"
+          id="standard-basic"
+          label="Standard"
+          variant="standard"
+        />
+      </div>
+    </>
+  );
+};

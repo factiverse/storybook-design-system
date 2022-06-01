@@ -4,12 +4,12 @@ import Typography from '../Typography';
 
 export interface FormWrapperProps {
   handleSubmit: () => void;
-  loading: boolean;
-  message?: string;
   children: React.ReactChild;
   formName: string;
+  loading: boolean;
+  message?: string;
   formSubtitle?: string;
-  submitName?: string;
+  submitButtonLabel?: string;
 }
 
 const FormWrapper = (props: FormWrapperProps) => {
@@ -20,7 +20,7 @@ const FormWrapper = (props: FormWrapperProps) => {
     children,
     formName,
     formSubtitle,
-    submitName = 'Submit',
+    submitButtonLabel = 'Submit',
   } = props;
 
   return (
@@ -47,7 +47,7 @@ const FormWrapper = (props: FormWrapperProps) => {
                 type="submit"
                 disabled={loading}
               >
-                {submitName}
+                {submitButtonLabel}
               </Button>
             </Grid>
           </Grid>

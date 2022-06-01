@@ -4,9 +4,12 @@ import * as Yup from 'yup';
 import ChangePassword from './ChangePassword';
 
 const schemaChangePass = Yup.object().shape({
-  password: Yup.string().required('Password is required'),
+  password: Yup.string()
+    .required('Password is required')
+    .min(8, 'Password should be of minimum 8 characters length'),
   passwordConfirmation: Yup.string()
     .required('Confirm password is required')
+    .min(8, 'Password should be of minimum 8 characters length')
     .oneOf([Yup.ref('password'), null], 'Passwords must match'),
 });
 

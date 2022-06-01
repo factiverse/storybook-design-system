@@ -1,7 +1,8 @@
 import React, { ChangeEvent } from 'react';
-import { Grid, TextField } from '@mui/material';
+import { Grid } from '@mui/material';
+import TextField from '../TextField';
 
-interface EmailFieldProps {
+export interface EmailFieldProps {
   actions: {
     values: { email: string };
     handleChange: (e: string | ChangeEvent<unknown>) => void;
@@ -10,12 +11,17 @@ interface EmailFieldProps {
   };
 }
 
-const EmailField = ({ actions }: EmailFieldProps) => {
+export const defaultEmailActions = {
+  values: { email: 'emailValue' },
+  handleChange: () => console.log('handleChange'),
+  touched: { email: true },
+  errors: { email: 'emailError' },
+};
+
+const EmailField = ({ actions = defaultEmailActions }: EmailFieldProps) => {
   return (
     <Grid item mt={-1}>
       <TextField
-        fullWidth
-        variant={'filled'}
         id="email"
         name="email"
         label="Email"

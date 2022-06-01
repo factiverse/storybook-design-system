@@ -1,19 +1,29 @@
 import React from 'react';
 import { TextField as TextFieldMUI, TextFieldProps } from '@mui/material';
 
-const TextField = ({
-  label,
+export const TextField = ({
+  sx,
+  placeholder,
+  id = 'outlined-basic',
+  label = 'Headline',
   variant = 'filled',
-  hiddenLabel = false,
-  margin = 'none',
+  disabled = false,
+  color = 'primary',
+  InputProps,
+  ...props
 }: TextFieldProps) => {
   return (
     <TextFieldMUI
+      fullWidth
+      sx={sx}
       label={label}
       variant={variant}
-      hiddenLabel={hiddenLabel}
-      margin={margin}
-      fullWidth
+      id={id}
+      disabled={disabled}
+      color={color}
+      placeholder={placeholder}
+      InputProps={InputProps}
+      {...props}
     />
   );
 };

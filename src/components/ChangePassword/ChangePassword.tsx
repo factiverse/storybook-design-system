@@ -3,7 +3,6 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import PasswordField from '../PasswordField';
 import FormWrapper from '../FormWrapper/FormWrapper';
-import ConfirmPassField from '../ConfirmPassField';
 
 export interface ChangePasswordProps {
   initialValues: { password: string; passwordConfirmation: string };
@@ -42,7 +41,7 @@ const ChangePassword = (props: ChangePasswordProps) => {
     >
       <>
         <PasswordField actions={formik} />
-        <ConfirmPassField actions={formik} />
+        <PasswordField actions={formik} isConfirmPassword />
       </>
     </FormWrapper>
   );

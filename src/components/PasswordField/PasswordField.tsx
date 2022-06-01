@@ -1,19 +1,31 @@
 import React, { ChangeEvent, useState } from 'react';
-import { Grid, IconButton, InputAdornment, TextField } from '@mui/material';
+import { Grid, IconButton, InputAdornment } from '@mui/material';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import Warning from '@mui/icons-material/Warning';
+import TextField from '../TextField';
 
 export interface PasswordFieldProps {
   actions: {
-    values: { password: string };
+    values: { password: string; passwordConfirmation?: string };
     handleChange: (e: string | ChangeEvent<unknown>) => void;
-    touched: { password?: boolean };
-    errors: { password?: string };
+    touched: { password?: boolean; passwordConfirmation?: boolean };
+    errors: { password?: string; passwordConfirmation?: string };
   };
+  isConfirmPassword?: boolean;
 }
 
-const PasswordField = ({ actions }: PasswordFieldProps) => {
+export const defaultPasswordActions = {
+  values: { password: 'passwordValue' },
+  handleChange: () => console.log('handleChange'),
+  touched: { password: true },
+  errors: { password: 'passwordError' },
+};
+
+const PasswordField = ({
+  actions = defaultPasswordActions,
+  isConfirmPassword = false,
+}: PasswordFieldProps) => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [isCapsEnabled, setIsCapsEnabled] = useState<boolean>(false);
 
@@ -23,20 +35,37 @@ const PasswordField = ({ actions }: PasswordFieldProps) => {
     }
   };
 
+  const passwordValues = isConfirmPassword
+    ? {
+        id: 'passwordConfirmation',
+        label: 'Confirm new password',
+        value: actions.values.passwordConfirmation,
+        error:
+          actions.touched.passwordConfirmation &&
+          Boolean(actions.errors.passwordConfirmation),
+        helptext:
+          actions.touched.passwordConfirmation &&
+          actions.errors.passwordConfirmation,
+      }
+    : {
+        id: 'password',
+        label: 'Password',
+        value: actions?.values.password,
+        error: actions.touched.password && Boolean(actions.errors.password),
+        helptext: actions.touched.password && actions.errors.password,
+      };
+
   return (
     <Grid item mt={-1}>
       <TextField
-        fullWidth
-        variant={'filled'}
-        id="password"
-        name="password"
-        label="Password"
+        id={passwordValues.id}
+        label={passwordValues.label}
         type={showPassword ? 'text' : 'password'}
-        value={actions.values.password}
+        value={passwordValues.value}
         onChange={actions.handleChange}
         onKeyDown={onKeyDown}
-        error={actions.touched.password && Boolean(actions.errors.password)}
-        helperText={actions.touched.password && actions.errors.password}
+        error={passwordValues.error}
+        helperText={passwordValues.helptext}
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">

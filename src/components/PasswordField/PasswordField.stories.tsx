@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import PasswordField from './PasswordField';
+import PasswordField, { defaultPasswordActions } from './PasswordField';
 
 export default {
   title: 'Components/PasswordField',
@@ -14,10 +14,5 @@ const Template: ComponentStory<typeof PasswordField> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  actions: {
-    values: { password: 'dsnkjn' },
-    handleChange: () => console.log('handleChange'),
-    touched: { password: true },
-    errors: { password: '' },
-  },
+  actions: defaultPasswordActions,
 };
