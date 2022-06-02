@@ -45,17 +45,17 @@
         "functions": "never"
       }
     ],
-    "prettier/prettier": [
-      "error",
-      {
-        "endOfLine": "auto"
-      }
-    ],
     "jest/no-restricted-matchers": [
       "error",
       {
         "toThrowErrorMatchingSnapshot": "Use `toThrowErrorMatchingInlineSnapshot()` instead",
         "toMatchSnapshot": "Use `toMatchInlineSnapshot()` instead"
+      }
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
       }
     ]
   },

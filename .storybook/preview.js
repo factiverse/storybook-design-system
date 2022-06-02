@@ -1,5 +1,20 @@
 import React from 'react';
 
+/**
+ * Display test results within Storybook
+ * run `npm run test:watch` to keep the test output file up to date
+ */
+import { addDecorator } from '@storybook/react';
+import { withTests } from '@storybook/addon-jest';
+
+import results from '../testOutput.json';
+
+addDecorator(
+  withTests({
+    results,
+  })
+);
+
 // import { muiTheme } from 'storybook-addon-material-ui'
 
 // const newTheme = { themeName: 'Grey Theme', palette: { primary: '#00bcd4', alternateTextColor: '#4a4a4a', canvasColor: '#616161', textColor: '#bdbdbd', secondaryTextColor: 'rgba(255, 255, 255, 0.54)', disabledColor: '#757575', accent1Color: '#607d8b', }, };
