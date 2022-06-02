@@ -1,5 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { linkTo } from '@storybook/addon-links';
 
 import Button from './Button';
 
@@ -22,3 +23,11 @@ export const ClickMe = Template.bind({});
 ClickMe.args = {
   label: 'Click me!',
 };
+
+// Example for @storybook/addon-links: link from one component to another
+export const first = () => (
+  <button onClick={linkTo('Components/Button', 'second')}>Go to Second</button>
+);
+export const second = () => (
+  <button onClick={linkTo('Components/Button', 'first')}>Go to First</button>
+);
