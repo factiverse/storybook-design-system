@@ -56,8 +56,17 @@ describe('PasswordField component', () => {
 
   it('should hide caps lock warning.', async () => {
     expect(screen.queryByLabelText('warning')).not.toBeInTheDocument();
+    // click the input field to put the focus on it
+    await userEvent.click(screen.getByLabelText('Password'));
     // press caps lock twice to activate and deactivate it
     await userEvent.keyboard('[CapsLock][CapsLock]');
     expect(screen.queryByLabelText('warning')).not.toBeInTheDocument();
+  });
+
+  it('should execute handleChange.', async () => {
+    const logSpy = jest.spyOn(console, 'log');
+    await userEvent.click(screen.getByLabelText('Password'));
+    await userEvent.keyboard('a');
+    expect(logSpy).toHaveBeenCalledWith('handleChange');
   });
 });
