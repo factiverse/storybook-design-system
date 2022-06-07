@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useState } from 'react';
-import { Grid, IconButton, InputAdornment } from '@mui/material';
+import { Grid, IconButton, InputAdornment, Tooltip } from '@mui/material';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import Warning from '@mui/icons-material/Warning';
@@ -29,10 +29,8 @@ const PasswordField = ({
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [isCapsEnabled, setIsCapsEnabled] = useState<boolean>(false);
 
-  const onKeyDown = (event: { keyCode: number }): void => {
-    if (event.keyCode === 20 && isCapsEnabled !== null) {
-      setIsCapsEnabled(!isCapsEnabled);
-    }
+  const onKeyDown = (event: React.KeyboardEvent): void => {
+    setIsCapsEnabled(event.getModifierState('CapsLock'));
   };
 
   const passwordValues = isConfirmPassword
@@ -64,17 +62,20 @@ const PasswordField = ({
         value={passwordValues.value}
         onChange={actions.handleChange}
         onKeyDown={onKeyDown}
+        onKeyUp={onKeyDown}
         error={passwordValues.error}
         helperText={passwordValues.helptext}
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">
               {isCapsEnabled && (
-                <Warning
-                  color="error"
-                  aria-label="warning"
-                  titleAccess="Caps Lock is enabled"
-                />
+                <Tooltip title="Caps Lock is enabled">
+                  <Warning
+                    color="error"
+                    aria-label="warning"
+                    titleAccess="Caps Lock is enabled"
+                  />
+                </Tooltip>
               )}
               <IconButton
                 aria-label="Toggle visibility"

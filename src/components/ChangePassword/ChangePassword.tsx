@@ -37,7 +37,7 @@ const ChangePassword = (props: ChangePasswordProps) => {
       loading={loading}
       message={message}
       formName="Change Password"
-      formSubtitle="Your new password must be different from previously used password"
+      formSubtitle="Your new password must be different from the previously used password"
     >
       <>
         <PasswordField actions={formik} />
