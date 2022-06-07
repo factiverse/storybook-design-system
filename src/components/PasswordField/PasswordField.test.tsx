@@ -9,7 +9,12 @@ describe('PasswordField component', () => {
     render(<PasswordField actions={defaultPasswordActions} />);
   });
 
-  it('should render PasswordField value', () => {
-    expect(screen.getByDisplayValue(/passwordValue/i)).toBeInTheDocument();
+  it('should render Password eye icon hide and show', () => {
+    expect(screen.getByLabelText('visibility')).toBeInTheDocument();
+    expect(screen.queryByLabelText('visibilityOff')).not.toBeInTheDocument();
+  });
+
+  it('should render Password caps lock warning', () => {
+    expect(screen.queryByLabelText('warning')).not.toBeInTheDocument();
   });
 });

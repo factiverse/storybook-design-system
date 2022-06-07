@@ -1,5 +1,5 @@
 import React from 'react';
-import { render /* screen */ } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import FormWrapper from './FormWrapper';
 
@@ -11,12 +11,12 @@ describe('FormWrapper component', () => {
         handleSubmit={() => console.log('handleSubmit')}
         loading={false}
       >
-        <div>I am child</div>
+        I am child
       </FormWrapper>
     );
   });
 
   it('should render submit button', () => {
-    expect(screen.getByText(/Submit/i)).toBeInTheDocument();
+    expect(screen.getByText(/submit/i)).toBeInTheDocument();
   });
 });

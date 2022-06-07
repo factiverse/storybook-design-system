@@ -2,6 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import * as Yup from 'yup';
 import Signup from './Signup';
+import { linkTo } from '@storybook/addon-links';
 
 const schemaSignup = Yup.object().shape({
   name: Yup.string().required('Name is required.'),
@@ -23,13 +24,8 @@ const Template: ComponentStory<typeof Signup> = (args) => <Signup {...args} />;
 export const Default = Template.bind({});
 Default.args = {
   initialValues: { email: '', name: '', password: '' },
-  handleSignup: () => alert('you have signed up'),
+  handleSignup: linkTo('Components/SignupSuccessMsg', 'message'),
   schemaSignup: schemaSignup,
   message: '',
   loading: false,
-};
-
-export const SuccessMessage = Template.bind({});
-SuccessMessage.args = {
-  signedInMessage: true,
 };

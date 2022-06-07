@@ -50,7 +50,7 @@ const PasswordField = ({
     : {
         id: 'password',
         label: 'Password',
-        value: actions?.values.password,
+        value: actions?.values?.password,
         error: actions.touched.password && Boolean(actions.errors.password),
         helptext: actions.touched.password && actions.errors.password,
       };
@@ -70,13 +70,21 @@ const PasswordField = ({
           endAdornment: (
             <InputAdornment position="end">
               {isCapsEnabled && (
-                <Warning color="error" titleAccess="Caps Lock is enabled" />
+                <Warning
+                  color="error"
+                  aria-label="warning"
+                  titleAccess="Caps Lock is enabled"
+                />
               )}
               <IconButton
-                aria-label="Toggle password visibility"
+                aria-label="Toggle visibility"
                 onClick={() => setShowPassword(!showPassword)}
               >
-                {showPassword ? <VisibilityOff /> : <Visibility />}
+                {showPassword ? (
+                  <VisibilityOff aria-label="visibilityOff" />
+                ) : (
+                  <Visibility aria-label="visibility" />
+                )}
               </IconButton>
             </InputAdornment>
           ),

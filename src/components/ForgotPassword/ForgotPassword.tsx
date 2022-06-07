@@ -35,7 +35,7 @@ const ForgotPassword = (props: ForgotPasswordProps) => {
       handleSubmit={formik.handleSubmit}
       loading={loading}
       formSubtitle="Please enter email address associated with your account"
-      submitName="Send"
+      submitButtonLabel="Send"
     >
       <EmailField actions={formik} />
     </FormWrapper>
