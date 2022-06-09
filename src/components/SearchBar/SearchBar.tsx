@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler } from 'react';
+import React, { ChangeEventHandler, MouseEventHandler } from 'react';
 import { FormControl, Typography, InputAdornment } from '@mui/material';
 import TextField from '../TextField';
 import Button from '../Button';
@@ -13,6 +13,7 @@ export interface SearchBarProps {
   width?: string;
   value?: string;
   onChange?: ChangeEventHandler<HTMLInputElement>;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
   placeholder?: string;
   variant?: ComponentVariant;
   color?: ComponentColor;
@@ -36,6 +37,7 @@ const SearchBar: React.ForwardRefRenderFunction<
     disabled = false,
     focused = false,
     label,
+    onClick,
     sx,
   } = props;
 
@@ -69,6 +71,7 @@ const SearchBar: React.ForwardRefRenderFunction<
                 variant={'contained'}
                 color={color}
                 disabled={disabled}
+                onClick={onClick}
               >
                 <Typography variant="button">Check claim</Typography>
               </Button>
