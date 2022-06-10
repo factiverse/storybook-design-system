@@ -1,14 +1,14 @@
 {
-  "numFailedTestSuites": 1,
+  "numFailedTestSuites": 0,
   "numFailedTests": 0,
-  "numPassedTestSuites": 2,
-  "numPassedTests": 2,
+  "numPassedTestSuites": 3,
+  "numPassedTests": 9,
   "numPendingTestSuites": 0,
   "numPendingTests": 0,
-  "numRuntimeErrorTestSuites": 1,
+  "numRuntimeErrorTestSuites": 0,
   "numTodoTests": 0,
   "numTotalTestSuites": 3,
-  "numTotalTests": 2,
+  "numTotalTests": 9,
   "openHandles": [],
   "snapshot": {
     "added": 0,
@@ -26,19 +26,9 @@
     "unmatched": 0,
     "updated": 0
   },
-  "startTime": 1652618194008,
-  "success": false,
+  "startTime": 1653742893350,
+  "success": true,
   "testResults": [
-    {
-      "assertionResults": [],
-      "coverage": {},
-      "endTime": 1652618195855,
-      "message": "  \u001b[1m● \u001b[22mTest suite failed to run\n\n    Cannot find module '@types/jest' from 'src/components/Claim/Claim.test.tsx'\n\n    \u001b[0m \u001b[90m 1 |\u001b[39m \u001b[36mimport\u001b[39m \u001b[33mReact\u001b[39m \u001b[36mfrom\u001b[39m \u001b[32m'react'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n    \u001b[0m \u001b[90m 2 |\u001b[39m \u001b[36mimport\u001b[39m { render } \u001b[36mfrom\u001b[39m \u001b[32m'@testing-library/react'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n    \u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 3 |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m'@types/jest'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n    \u001b[0m \u001b[90m   |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n    \u001b[0m \u001b[90m 4 |\u001b[39m\u001b[0m\n    \u001b[0m \u001b[90m 5 |\u001b[39m \u001b[36mimport\u001b[39m \u001b[33mClaim\u001b[39m \u001b[36mfrom\u001b[39m \u001b[32m'./Claim'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n    \u001b[0m \u001b[90m 6 |\u001b[39m\u001b[0m\n\n      \u001b[2mat Resolver.resolveModule (\u001b[22mnode_modules/jest-resolve/build/resolver.js\u001b[2m:324:11)\u001b[22m\n      \u001b[2mat Object.<anonymous> (\u001b[22m\u001b[0m\u001b[36msrc/components/Claim/Claim.test.tsx\u001b[39m\u001b[0m\u001b[2m:3:1)\u001b[22m\n",
-      "name": "/Users/tobiastykvart/Git/storybook-design-system/src/components/Claim/Claim.test.tsx",
-      "startTime": 1652618195855,
-      "status": "failed",
-      "summary": ""
-    },
     {
       "assertionResults": [
         {
@@ -50,10 +40,10 @@
           "title": "renders the Button component"
         }
       ],
-      "endTime": 1652618195218,
+      "endTime": 1653742894746,
       "message": "",
       "name": "/Users/tobiastykvart/Git/storybook-design-system/src/components/Button/Button.test.tsx",
-      "startTime": 1652618194578,
+      "startTime": 1653742893998,
       "status": "passed",
       "summary": ""
     },
@@ -68,10 +58,76 @@
           "title": "renders the Typography component"
         }
       ],
-      "endTime": 1652618195817,
+      "endTime": 1653742895483,
       "message": "",
       "name": "/Users/tobiastykvart/Git/storybook-design-system/src/components/Typography/Typography.test.tsx",
-      "startTime": 1652618194578,
+      "startTime": 1653742893999,
+      "status": "passed",
+      "summary": ""
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["Claim component"],
+          "failureMessages": [],
+          "fullName": "Claim component should render check claim button",
+          "location": null,
+          "status": "passed",
+          "title": "should render check claim button"
+        },
+        {
+          "ancestorTitles": ["Claim component"],
+          "failureMessages": [],
+          "fullName": "Claim component should render claim title",
+          "location": null,
+          "status": "passed",
+          "title": "should render claim title"
+        },
+        {
+          "ancestorTitles": ["Claim component"],
+          "failureMessages": [],
+          "fullName": "Claim component should show domain",
+          "location": null,
+          "status": "passed",
+          "title": "should show domain"
+        },
+        {
+          "ancestorTitles": ["Claim component"],
+          "failureMessages": [],
+          "fullName": "Claim component should show domain name",
+          "location": null,
+          "status": "passed",
+          "title": "should show domain name"
+        },
+        {
+          "ancestorTitles": ["Claim component"],
+          "failureMessages": [],
+          "fullName": "Claim component should show label",
+          "location": null,
+          "status": "passed",
+          "title": "should show label"
+        },
+        {
+          "ancestorTitles": ["Claim component"],
+          "failureMessages": [],
+          "fullName": "Claim component should show date",
+          "location": null,
+          "status": "passed",
+          "title": "should show date"
+        },
+        {
+          "ancestorTitles": ["Simple Claim component"],
+          "failureMessages": [],
+          "fullName": "Simple Claim component renders the Simple Claim component",
+          "location": null,
+          "status": "passed",
+          "title": "renders the Simple Claim component"
+        }
+      ],
+      "endTime": 1653742895599,
+      "message": "",
+      "name": "/Users/tobiastykvart/Git/storybook-design-system/src/components/Claim/Claim.test.tsx",
+      "startTime": 1653742893998,
       "status": "passed",
       "summary": ""
     }
@@ -105,8 +161,8 @@
         }
       },
       "branchMap": {},
-      "s": { "0": 1, "1": 1 },
-      "f": { "0": 1 },
+      "s": { "0": 2, "1": 8 },
+      "f": { "0": 8 },
       "b": {},
       "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
       "hash": "3cdeed41dfa07ac641ce9469def05b967642fdb8"
@@ -116,23 +172,23 @@
       "statementMap": {
         "0": {
           "start": { "line": 10, "column": 26 },
-          "end": { "line": 38, "column": 1 }
+          "end": { "line": 39, "column": 1 }
         },
         "1": {
-          "start": { "line": 19, "column": 6 },
-          "end": { "line": 19, "column": 11 }
+          "start": { "line": 20, "column": 6 },
+          "end": { "line": 20, "column": 11 }
         },
         "2": {
-          "start": { "line": 21, "column": 14 },
-          "end": { "line": 21, "column": 27 }
+          "start": { "line": 22, "column": 14 },
+          "end": { "line": 22, "column": 27 }
         },
         "3": {
-          "start": { "line": 22, "column": 2 },
-          "end": { "line": 22, "column": 37 }
+          "start": { "line": 23, "column": 2 },
+          "end": { "line": 23, "column": 37 }
         },
         "4": {
-          "start": { "line": 24, "column": 2 },
-          "end": { "line": 37, "column": 4 }
+          "start": { "line": 25, "column": 2 },
+          "end": { "line": 38, "column": 4 }
         }
       },
       "fnMap": {
@@ -144,7 +200,7 @@
           },
           "loc": {
             "start": { "line": 10, "column": 54 },
-            "end": { "line": 38, "column": 1 }
+            "end": { "line": 39, "column": 1 }
           },
           "line": 10
         }
@@ -247,21 +303,364 @@
             }
           ],
           "line": 18
+        },
+        "7": {
+          "loc": {
+            "start": { "line": 33, "column": 12 },
+            "end": { "line": 33, "column": 44 }
+          },
+          "type": "binary-expr",
+          "locations": [
+            {
+              "start": { "line": 33, "column": 12 },
+              "end": { "line": 33, "column": 14 }
+            },
+            {
+              "start": { "line": 33, "column": 18 },
+              "end": { "line": 33, "column": 44 }
+            }
+          ],
+          "line": 33
         }
       },
-      "s": { "0": 1, "1": 1, "2": 1, "3": 1, "4": 1 },
-      "f": { "0": 1 },
+      "s": { "0": 2, "1": 26, "2": 26, "3": 26, "4": 26 },
+      "f": { "0": 26 },
       "b": {
         "0": [1],
         "1": [1],
-        "2": [1],
-        "3": [1],
-        "4": [1],
-        "5": [1],
-        "6": [1]
+        "2": [26],
+        "3": [26],
+        "4": [26],
+        "5": [26],
+        "6": [20],
+        "7": [26, 14]
       },
       "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-      "hash": "4951a354eb90e7039b6e80680cf1918afe69484b"
+      "hash": "5267560123d9e60d1095a3f7063d3e93d6ca6d8c"
+    },
+    "/Users/tobiastykvart/Git/storybook-design-system/src/components/Button/index.ts": {
+      "path": "/Users/tobiastykvart/Git/storybook-design-system/src/components/Button/index.ts",
+      "statementMap": {},
+      "fnMap": {},
+      "branchMap": {},
+      "s": {},
+      "f": {},
+      "b": {},
+      "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+      "hash": "693b0bd8f492277daeb924f58ddbdaa048a1ad18"
+    },
+    "/Users/tobiastykvart/Git/storybook-design-system/src/components/Typography/index.tsx": {
+      "path": "/Users/tobiastykvart/Git/storybook-design-system/src/components/Typography/index.tsx",
+      "statementMap": {},
+      "fnMap": {},
+      "branchMap": {},
+      "s": {},
+      "f": {},
+      "b": {},
+      "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+      "hash": "c3b0a35897769da9c1877f633caac0a0068c77c0"
+    },
+    "/Users/tobiastykvart/Git/storybook-design-system/src/components/Claim/Claim.tsx": {
+      "path": "/Users/tobiastykvart/Git/storybook-design-system/src/components/Claim/Claim.tsx",
+      "statementMap": {
+        "0": {
+          "start": { "line": 26, "column": 28 },
+          "end": { "line": 34, "column": 1 }
+        },
+        "1": {
+          "start": { "line": 36, "column": 14 },
+          "end": { "line": 147, "column": 1 }
+        },
+        "2": {
+          "start": { "line": 44, "column": 6 },
+          "end": { "line": 44, "column": 11 }
+        },
+        "3": {
+          "start": { "line": 45, "column": 16 },
+          "end": { "line": 45, "column": 26 }
+        },
+        "4": {
+          "start": { "line": 46, "column": 23 },
+          "end": { "line": 46, "column": 66 }
+        },
+        "5": {
+          "start": { "line": 48, "column": 2 },
+          "end": { "line": 146, "column": 4 }
+        },
+        "6": {
+          "start": { "line": 83, "column": 25 },
+          "end": { "line": 83, "column": 78 }
+        }
+      },
+      "fnMap": {
+        "0": {
+          "name": "(anonymous_0)",
+          "decl": {
+            "start": { "line": 36, "column": 14 },
+            "end": { "line": 36, "column": 15 }
+          },
+          "loc": {
+            "start": { "line": 36, "column": 37 },
+            "end": { "line": 147, "column": 1 }
+          },
+          "line": 36
+        },
+        "1": {
+          "name": "(anonymous_1)",
+          "decl": {
+            "start": { "line": 82, "column": 31 },
+            "end": { "line": 82, "column": 32 }
+          },
+          "loc": {
+            "start": { "line": 83, "column": 25 },
+            "end": { "line": 83, "column": 78 }
+          },
+          "line": 83
+        }
+      },
+      "branchMap": {
+        "0": {
+          "loc": {
+            "start": { "line": 38, "column": 4 },
+            "end": { "line": 38, "column": 24 }
+          },
+          "type": "default-arg",
+          "locations": [
+            {
+              "start": { "line": 38, "column": 12 },
+              "end": { "line": 38, "column": 24 }
+            }
+          ],
+          "line": 38
+        },
+        "1": {
+          "loc": {
+            "start": { "line": 40, "column": 4 },
+            "end": { "line": 40, "column": 23 }
+          },
+          "type": "default-arg",
+          "locations": [
+            {
+              "start": { "line": 40, "column": 18 },
+              "end": { "line": 40, "column": 23 }
+            }
+          ],
+          "line": 40
+        },
+        "2": {
+          "loc": {
+            "start": { "line": 43, "column": 4 },
+            "end": { "line": 43, "column": 34 }
+          },
+          "type": "default-arg",
+          "locations": [
+            {
+              "start": { "line": 43, "column": 25 },
+              "end": { "line": 43, "column": 34 }
+            }
+          ],
+          "line": 43
+        },
+        "3": {
+          "loc": {
+            "start": { "line": 59, "column": 9 },
+            "end": { "line": 133, "column": 9 }
+          },
+          "type": "cond-expr",
+          "locations": [
+            {
+              "start": { "line": 60, "column": 10 },
+              "end": { "line": 64, "column": 17 }
+            },
+            {
+              "start": { "line": 66, "column": 10 },
+              "end": { "line": 132, "column": 11 }
+            }
+          ],
+          "line": 59
+        },
+        "4": {
+          "loc": {
+            "start": { "line": 66, "column": 10 },
+            "end": { "line": 132, "column": 11 }
+          },
+          "type": "binary-expr",
+          "locations": [
+            {
+              "start": { "line": 66, "column": 10 },
+              "end": { "line": 66, "column": 15 }
+            },
+            {
+              "start": { "line": 67, "column": 12 },
+              "end": { "line": 131, "column": 15 }
+            }
+          ],
+          "line": 66
+        },
+        "5": {
+          "loc": {
+            "start": { "line": 89, "column": 31 },
+            "end": { "line": 89, "column": 64 }
+          },
+          "type": "cond-expr",
+          "locations": [
+            {
+              "start": { "line": 89, "column": 46 },
+              "end": { "line": 89, "column": 57 }
+            },
+            {
+              "start": { "line": 89, "column": 60 },
+              "end": { "line": 89, "column": 64 }
+            }
+          ],
+          "line": 89
+        },
+        "6": {
+          "loc": {
+            "start": { "line": 100, "column": 29 },
+            "end": { "line": 100, "column": 62 }
+          },
+          "type": "cond-expr",
+          "locations": [
+            {
+              "start": { "line": 100, "column": 44 },
+              "end": { "line": 100, "column": 55 }
+            },
+            {
+              "start": { "line": 100, "column": 58 },
+              "end": { "line": 100, "column": 62 }
+            }
+          ],
+          "line": 100
+        },
+        "7": {
+          "loc": {
+            "start": { "line": 117, "column": 41 },
+            "end": { "line": 117, "column": 74 }
+          },
+          "type": "cond-expr",
+          "locations": [
+            {
+              "start": { "line": 117, "column": 56 },
+              "end": { "line": 117, "column": 67 }
+            },
+            {
+              "start": { "line": 117, "column": 70 },
+              "end": { "line": 117, "column": 74 }
+            }
+          ],
+          "line": 117
+        },
+        "8": {
+          "loc": {
+            "start": { "line": 125, "column": 29 },
+            "end": { "line": 125, "column": 69 }
+          },
+          "type": "cond-expr",
+          "locations": [
+            {
+              "start": { "line": 125, "column": 44 },
+              "end": { "line": 125, "column": 55 }
+            },
+            {
+              "start": { "line": 125, "column": 58 },
+              "end": { "line": 125, "column": 69 }
+            }
+          ],
+          "line": 125
+        },
+        "9": {
+          "loc": {
+            "start": { "line": 136, "column": 14 },
+            "end": { "line": 136, "column": 34 }
+          },
+          "type": "cond-expr",
+          "locations": [
+            {
+              "start": { "line": 136, "column": 28 },
+              "end": { "line": 136, "column": 29 }
+            },
+            {
+              "start": { "line": 136, "column": 32 },
+              "end": { "line": 136, "column": 34 }
+            }
+          ],
+          "line": 136
+        },
+        "10": {
+          "loc": {
+            "start": { "line": 139, "column": 26 },
+            "end": { "line": 139, "column": 62 }
+          },
+          "type": "cond-expr",
+          "locations": [
+            {
+              "start": { "line": 139, "column": 41 },
+              "end": { "line": 139, "column": 49 }
+            },
+            {
+              "start": { "line": 139, "column": 52 },
+              "end": { "line": 139, "column": 62 }
+            }
+          ],
+          "line": 139
+        },
+        "11": {
+          "loc": {
+            "start": { "line": 140, "column": 14 },
+            "end": { "line": 140, "column": 50 }
+          },
+          "type": "cond-expr",
+          "locations": [
+            {
+              "start": { "line": 140, "column": 45 },
+              "end": { "line": 140, "column": 46 }
+            },
+            {
+              "start": { "line": 140, "column": 49 },
+              "end": { "line": 140, "column": 50 }
+            }
+          ],
+          "line": 140
+        },
+        "12": {
+          "loc": {
+            "start": { "line": 140, "column": 14 },
+            "end": { "line": 140, "column": 42 }
+          },
+          "type": "binary-expr",
+          "locations": [
+            {
+              "start": { "line": 140, "column": 14 },
+              "end": { "line": 140, "column": 26 }
+            },
+            {
+              "start": { "line": 140, "column": 30 },
+              "end": { "line": 140, "column": 42 }
+            }
+          ],
+          "line": 140
+        }
+      },
+      "s": { "0": 1, "1": 1, "2": 7, "3": 7, "4": 7, "5": 7, "6": 0 },
+      "f": { "0": 7, "1": 0 },
+      "b": {
+        "0": [1],
+        "1": [6],
+        "2": [7],
+        "3": [1, 6],
+        "4": [6, 6],
+        "5": [0, 6],
+        "6": [0, 6],
+        "7": [0, 6],
+        "8": [0, 6],
+        "9": [1, 6],
+        "10": [0, 7],
+        "11": [0, 7],
+        "12": [7, 0]
+      },
+      "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+      "hash": "f23f7e01809c1907c0fee79b937f9dc7a3bff724"
     }
   }
 }

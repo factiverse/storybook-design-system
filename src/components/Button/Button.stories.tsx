@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from './Button';
 import { Story, Meta } from '@storybook/react';
+import { linkTo } from '@storybook/addon-links';
 
 export default {
   title: 'Components/Button',
@@ -78,3 +79,11 @@ export const Sizes = () => {
     </>
   );
 };
+
+// Example for @storybook/addon-links: link from one component to another
+export const first = () => (
+  <button onClick={linkTo('Components/Button', 'second')}>Go to Second</button>
+);
+export const second = () => (
+  <button onClick={linkTo('Components/Button', 'first')}>Go to First</button>
+);

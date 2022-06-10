@@ -2,9 +2,22 @@ import React from 'react';
 // import { ThemeProvider, createTheme } from '@mui/material';
 import { muiTheme } from 'storybook-addon-material-ui5';
 
-// Create your own theme like this.
-// Note: you can specify theme name in `themeName` field. Otherwise it will be displayed by the number.
-// you can specify only required fields overriding the `Light Base Theme`
+/**
+ * Display test results within Storybook
+ * run `npm run test:watch` to keep the test output file up to date
+ */
+import { addDecorator } from '@storybook/react';
+import { withTests } from '@storybook/addon-jest';
+
+import results from '../testOutput.json';
+
+addDecorator(
+  withTests({
+    results,
+  })
+);
+
+// import { muiTheme } from 'storybook-addon-material-ui'
 
 export const decorators = [
   muiTheme(),

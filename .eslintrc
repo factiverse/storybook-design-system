@@ -51,6 +51,12 @@
         "toThrowErrorMatchingSnapshot": "Use `toThrowErrorMatchingInlineSnapshot()` instead",
         "toMatchSnapshot": "Use `toMatchInlineSnapshot()` instead"
       }
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
     ]
   },
   "env": {

@@ -1,14 +1,18 @@
 module.exports = {
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
+    // Official addons
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/preset-scss',
     '@storybook/addon-a11y',
     '@storybook/addon-interactions',
-    'storybook-addon-mdx-embed',
-    // '@storybook/preset-create-react-app'
     'storybook-addon-material-ui5',
+    '@storybook/addon-jest',
+
+    // Community addons
+    'storybook-mobile',
+    'storybook-addon-mdx-embed'
   ],
   core: {
     builder: 'webpack5',
