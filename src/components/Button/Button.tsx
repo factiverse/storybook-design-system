@@ -1,13 +1,29 @@
 import React from 'react';
-import './Button.scss';
+import { Button as ButtonMUI, ButtonProps } from '@mui/material';
 
-export interface ButtonProps {
-  label: string;
-  onClick: () => void;
-}
+export const Button = ({
+  variant,
+  size,
+  color,
+  disabled,
+  ...props
+}: ButtonProps) => {
+  return (
+    <ButtonMUI
+      variant={variant}
+      size={size}
+      color={color}
+      disabled={disabled}
+      {...props}
+    />
+  );
+};
 
-const Button = (props: ButtonProps) => {
-  return <button onClick={props.onClick}>{props.label}</button>;
+Button.defaultProps = {
+  variant: 'contained',
+  size: 'medium',
+  color: 'primary',
+  disabled: false,
 };
 
 export default Button;

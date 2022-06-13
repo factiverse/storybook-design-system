@@ -7,6 +7,7 @@ module.exports = {
     '@storybook/preset-scss',
     '@storybook/addon-a11y',
     '@storybook/addon-interactions',
+    'storybook-addon-material-ui5',
     '@storybook/addon-jest',
 
     // Community addons
@@ -22,8 +23,12 @@ module.exports = {
     reactDocgen: 'react-docgen-typescript',
     reactDocgenTypescriptOptions: {
       shouldExtractLiteralValuesFromEnum: true,
-      propFilter: (prop) =>
-        prop.parent ? !/node_modules/.test(prop.parent.fileName) : true,
+      propFilter: (prop) => {
+        return prop.parent
+          ? /@mui/.test(prop.parent.fileName) ||
+              !/node_modules/.test(prop.parent.fileName)
+          : true;
+      },
     },
   },
   features: {

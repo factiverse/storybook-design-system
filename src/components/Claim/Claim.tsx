@@ -139,7 +139,7 @@ const Claim = (props: ClaimProps) => {
           justifyContent={isMobileSize ? 'center' : 'flex-end'}
           my={isMobileSize && !simpleClaim ? 1 : 0}
         >
-          <Button onClick={checkClaimClick} label="Check Claim"></Button>
+          <Button onClick={checkClaimClick}>Check Claim</Button>
         </Grid>
       </Grid>
     </Card>

@@ -68,7 +68,7 @@ const Header = (props: HeaderProps) => {
 
   const diclaimerWrapper = (
     <Grid item>
-      <Button label={disclaimerText} onClick={diclaimerClick} />
+      <Button onClick={diclaimerClick}>{disclaimerText}</Button>
     </Grid>
   );
 
@@ -94,10 +94,10 @@ const Header = (props: HeaderProps) => {
           {withLoginAndSignup && signInClick && signUpClick && (
             <Grid container flexDirection="column">
               <Grid mb={1}>
-                <Button label="sign in" onClick={signInClick} />
+                <Button onClick={signInClick}>sign in</Button>
               </Grid>
               <Grid mb={1}>
-                <Button label="sign up for free" onClick={signUpClick} />
+                <Button onClick={signUpClick}>sign up for free</Button>
               </Grid>
             </Grid>
           )}
@@ -136,10 +136,10 @@ const Header = (props: HeaderProps) => {
                 {withLoginAndSignup && signInClick && signUpClick && (
                   <Grid container flexDirection="row">
                     <Grid mr={2}>
-                      <Button label="sign in" onClick={signInClick} />
+                      <Button onClick={signInClick}>sign in</Button>
                     </Grid>
                     <Grid>
-                      <Button label="sign up for free" onClick={signUpClick} />
+                      <Button onClick={signUpClick}>sign up for free</Button>
                     </Grid>
                   </Grid>
                 )}

@@ -1,10 +1,9 @@
 ---
 name: "\U0001F4A1 Feature request"
-about: "Suggest a new idea"
+about: 'Suggest a new idea'
 title: ''
 labels: 'Type: Enhancement'
 assignees: ''
-
 ---
 
 **Is your feature request related to a problem? Please describe.**

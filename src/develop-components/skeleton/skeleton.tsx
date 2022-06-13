@@ -8,24 +8,21 @@ export type SkeletonProps = {
   borderRadius: string;
 };
 
-const Skeleton: React.ForwardRefRenderFunction<HTMLDivElement, SkeletonProps> =
-  (props, ref) => {
-    const {
-      className,
-      width = 100,
-      height = 100,
-      borderRadius = 'none',
-    } = props;
+const Skeleton: React.ForwardRefRenderFunction<
+  HTMLDivElement,
+  SkeletonProps
+> = (props, ref) => {
+  const { className, width = 100, height = 100, borderRadius = 'none' } = props;
 
-    return (
-      <StyledSkeleton
-        ref={ref}
-        className={className}
-        width={width}
-        height={height}
-        borderRadius={borderRadius}
-      />
-    );
-  };
+  return (
+    <StyledSkeleton
+      ref={ref}
+      className={className}
+      width={width}
+      height={height}
+      borderRadius={borderRadius}
+    />
+  );
+};
 
 export default React.forwardRef<HTMLDivElement, SkeletonProps>(Skeleton);
