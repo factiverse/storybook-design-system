@@ -1,15 +1,67 @@
 import React from 'react';
-// import { ThemeProvider, createTheme } from '@mui/material';
+import { ThemeProvider, createTheme } from '@mui/material';
 import { muiTheme } from 'storybook-addon-material-ui5';
-
+// import * as CONSTANTS from './constants';
 /**
  * Display test results within Storybook
  * run `npm run test:watch` to keep the test output file up to date
  */
 import { addDecorator } from '@storybook/react';
 import { withTests } from '@storybook/addon-jest';
-
 import results from '../testOutput.json';
+
+const theme = createTheme({
+  /* .MuiButton-containedSecondary {
+    box-shadow: 0px 0px 10px #f8c608;
+  } */
+  palette: {
+    primary: {
+      main: '#fffff',
+      // contrastText: 'black',
+    },
+    secondary: {
+      main: '#f8c608',
+      // boxShadow: '0px 0px 10px #f8c608',
+      // contrastText: '#f8c608',
+    },
+  },
+  typography: {
+    button: {
+      fontFamily: 'DM Mono',
+    },
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        // Name of the slot
+        root: ({ ownerState }) => ({
+          ...(ownerState.variant === 'contained' &&
+            ownerState.color === 'secondary' && {
+              // backgroundColor: '#202020',
+              // color: '#fff',
+              boxShadow: '0px 0px 10px #f8c608',
+            }),
+        }),
+      },
+    },
+  },
+
+  overrides: {
+    MuiButton: {
+      contained: {
+        color: '#f8c608',
+        backgroundColor: '#f8c608',
+        '&:hover': {
+          backgroundColor: '#f8c608',
+          // Reset on touch devices, it doesn't add specificity
+          '@media (hover: none)': {
+            backgroundColor: '#f8c608',
+          },
+        },
+      },
+    },
+  },
+});
 
 addDecorator(
   withTests({
@@ -17,16 +69,7 @@ addDecorator(
   })
 );
 
-// import { muiTheme } from 'storybook-addon-material-ui'
-
-export const decorators = [
-  muiTheme(),
-  (Story) => (
-    <>
-      <Story />
-    </>
-  ),
-];
+export const decorators = [muiTheme(theme)];
 
 /*
  * More on Storybook global parameters at:
