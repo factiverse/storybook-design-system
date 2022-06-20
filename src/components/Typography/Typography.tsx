@@ -17,6 +17,7 @@ export const Typography = (props: TypographyProps) => {
     paragraph = false,
     fontFamily = 'Arizona Serif',
     sx,
+    color,
   } = props;
 
   let theme = createTheme();
@@ -30,6 +31,7 @@ export const Typography = (props: TypographyProps) => {
         gutterBottom={gutterBottom}
         noWrap={noWrap}
         paragraph={paragraph}
+        color={color}
         sx={sx ?? { fontFamily: fontFamily }}
       >
         {children}

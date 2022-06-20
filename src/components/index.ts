@@ -11,3 +11,4 @@ export { default as RadioButtons } from './RadioButtons';
 export { default as CheckboxGroup } from './CheckboxGroup';
 export { default as SupportIcon } from './SupportIcon';
 export { default as Dropdown } from './Dropdown';
+export { default as ToggleButton } from './ToggleButton';

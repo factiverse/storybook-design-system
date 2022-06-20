@@ -31,7 +31,9 @@ const CheckboxGroup = (props: CheckboxGroupProps) => {
   return (
     <FormControl component="fieldset" variant="standard">
       <FormLabel component="legend">
-        <Typography variant="subtitle2">{title}</Typography>
+        <Typography variant="subtitle2" color="black">
+          {title}
+        </Typography>
       </FormLabel>
       <FormGroup>
         {checkboxes.map((checkbox, key) => (

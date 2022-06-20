@@ -14,7 +14,6 @@ const BorderLinearProgress = withStyles({
   root: {
     height: 40,
     width: 118,
-    // backgroundColor: 'white',
   },
 })(LinearProgress);
 
@@ -56,10 +55,7 @@ const SupportIcon: React.FC<SupportIconProps> = ({
               justifyContent: 'center',
             }}
           >
-            <Typography
-              variant="h4"
-              sx={{ color: 'black', fontFamily: 'DM Mono' }}
-            >
+            <Typography variant="h4" fontFamily="DM Mono" color="black">
               {count}
             </Typography>
           </Box>
@@ -67,7 +63,9 @@ const SupportIcon: React.FC<SupportIconProps> = ({
         <Grid item>
           <Typography
             align="center"
-            sx={{ color: 'black', fontFamily: 'DM Mono' }}
+            variant="body2"
+            color="black"
+            fontFamily="DM Mono"
           >
             {label}
           </Typography>

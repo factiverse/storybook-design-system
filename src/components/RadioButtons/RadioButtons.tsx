@@ -7,7 +7,6 @@ import {
   RadioGroup,
 } from '@mui/material';
 import Typography from '../Typography';
-// import Typography from '../Typography';
 
 export interface RadioButtonsProps {
   radioButtons: string[];
@@ -21,7 +20,9 @@ const RadioButtons = (props: RadioButtonsProps) => {
   return (
     <FormControl margin="dense" size="small">
       <FormLabel id="demo-radio-buttons-group-label">
-        <Typography variant="subtitle2">{title}</Typography>
+        <Typography variant="subtitle2" color="black">
+          {title}
+        </Typography>
       </FormLabel>
       <RadioGroup
         aria-labelledby="demo-radio-buttons-group-label"

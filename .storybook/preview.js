@@ -1,7 +1,6 @@
 import React from 'react';
-import { ThemeProvider, createTheme } from '@mui/material';
+import { createTheme } from '@mui/material';
 import { muiTheme } from 'storybook-addon-material-ui5';
-// import * as CONSTANTS from './constants';
 /**
  * Display test results within Storybook
  * run `npm run test:watch` to keep the test output file up to date
@@ -11,12 +10,9 @@ import { withTests } from '@storybook/addon-jest';
 import results from '../testOutput.json';
 
 const theme = createTheme({
-  /* .MuiButton-containedSecondary {
-    box-shadow: 0px 0px 10px #f8c608;
-  } */
   palette: {
     primary: {
-      main: '#f8c608',
+      main: '#ffffff',
     },
     secondary: {
       main: '#f8c608',
@@ -39,12 +35,9 @@ const theme = createTheme({
   components: {
     MuiButton: {
       styleOverrides: {
-        // Name of the slot
         root: ({ ownerState }) => ({
           ...(ownerState.variant === 'contained' &&
             ownerState.color === 'secondary' && {
-              // backgroundColor: '#202020',
-              // color: '#fff',
               boxShadow: '0px 0px 10px #f8c608',
             }),
         }),
