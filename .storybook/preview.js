@@ -16,13 +16,19 @@ const theme = createTheme({
   } */
   palette: {
     primary: {
-      main: '#fffff',
-      // contrastText: 'black',
+      main: '#f8c608',
     },
     secondary: {
       main: '#f8c608',
-      // boxShadow: '0px 0px 10px #f8c608',
-      // contrastText: '#f8c608',
+    },
+    error: {
+      main: '#f72525',
+    },
+    warning: {
+      main: '#fecd0c',
+    },
+    success: {
+      main: '#0ccb58',
     },
   },
   typography: {

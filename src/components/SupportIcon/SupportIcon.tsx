@@ -1,5 +1,5 @@
 import { LinearProgress, Box, Grid } from '@mui/material';
-// import { withStyles } from '@mui/styles';
+import { withStyles } from '@mui/styles';
 import React from 'react';
 import Typography from '../Typography';
 
@@ -10,13 +10,13 @@ export interface SupportIconProps {
   label: string;
 }
 
-/* const BorderLinearProgress = withStyles({
+const BorderLinearProgress = withStyles({
   root: {
     height: 40,
     width: 118,
-    backgroundColor: 'white',
+    // backgroundColor: 'white',
   },
-})(LinearProgress); */
+})(LinearProgress);
 
 const SupportIcon: React.FC<SupportIconProps> = ({
   value,
@@ -32,8 +32,6 @@ const SupportIcon: React.FC<SupportIconProps> = ({
         return 'error';
       case 'neutral':
         return 'warning';
-      /* default:
-        return ''; */
     }
   };
 
@@ -41,8 +39,7 @@ const SupportIcon: React.FC<SupportIconProps> = ({
     <Grid container direction="column" alignItems="center" spacing={1}>
       <Grid item>
         <Box position="relative" display="inline-flex">
-          <LinearProgress
-            style={{ height: 40, width: 118 }}
+          <BorderLinearProgress
             color={linearProgressColor()}
             variant="determinate"
             value={value}
