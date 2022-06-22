@@ -5,6 +5,8 @@ import CircularProgress, {
 import Typography from '../Typography/Typography'
 import Box from '@mui/material/Box';
 import { Variant } from '@mui/material/styles/createTypography';
+import './circularSupportIndicator.scss';
+import { color } from '@mui/system';
 
 export interface SupportIndicatorProps {
     /* A number between 0.0 and 1.0 indicating the support for the claim. 0.0 being 'disputing the claim' and 1.0 being 'supporting the claim' */
@@ -18,9 +20,13 @@ export interface SupportIndicatorProps {
 export function CircularProgressWithLabel(
   props: CircularProgressProps & { value: number }
 ) {
+
   return (
     <Box sx={{ position: 'relative', display: 'inline-flex' }}>
-      <CircularProgress variant="determinate" {...props} />
+      <CircularProgress variant="determinate" {...props} 
+      sx={{
+        color: '#F8C608',
+      }} />
       <Box
         sx={{
           top: 0,
@@ -38,7 +44,7 @@ export function CircularProgressWithLabel(
         <Typography
           variant="caption"
           color="#F8C608"
-        >{`${Math.round(props.value)}%`}</Typography>
+        >{`${props.value}%`}</Typography>
       </Box>
     </Box>
   );
@@ -72,6 +78,6 @@ export default function CircularSupportIndicator(
         if (props.score >= 0.4 && props.score < 0.6) variant[1] = 'h6';
         if (props.score >= 0.6) variant[2] = 'h6';
 
-  return <CircularProgressWithLabel value={props.score} />;
+  return <CircularProgressWithLabel value={props.score * 100} />;
 }
 
