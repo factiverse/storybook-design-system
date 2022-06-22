@@ -39,6 +39,7 @@ const SupportIcon: React.FC<SupportIconProps> = ({
       <Grid item>
         <Box position="relative" display="inline-flex">
           <BorderLinearProgress
+            data-testid="linearProgressBar"
             color={linearProgressColor()}
             variant="determinate"
             value={value}

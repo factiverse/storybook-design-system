@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Box,
   Checkbox,
   FormControl,
   FormControlLabel,
@@ -16,6 +17,8 @@ export interface CheckboxGroupProps {
   handleChange: () => void;
   disabled?: string[];
   checkedValues: string[];
+  allCheckbox?: boolean;
+  handleChangeAll?: () => void;
 }
 
 const CheckboxGroup = (props: CheckboxGroupProps) => {
@@ -26,6 +29,8 @@ const CheckboxGroup = (props: CheckboxGroupProps) => {
     disabled,
     handleChange,
     checkedValues,
+    allCheckbox = true,
+    handleChangeAll,
   } = props;
 
   return (
@@ -36,22 +41,37 @@ const CheckboxGroup = (props: CheckboxGroupProps) => {
         </Typography>
       </FormLabel>
       <FormGroup>
-        {checkboxes.map((checkbox, key) => (
+        {allCheckbox && (
           <FormControlLabel
-            key={key}
             control={
               <Checkbox
-                checked={checkedValues.includes(checkbox)}
-                onChange={handleChange}
-                name={checkbox}
-                size="small"
-                value={checkbox}
+                checked={checkboxes.toString() === checkedValues.toString()}
+                onChange={handleChangeAll}
                 color="secondary"
+                size="small"
+                name="All"
               />
             }
-            disabled={disabled?.includes(checkbox)}
-            label={<Typography variant="subtitle2">{checkbox}</Typography>}
+            label={<Typography variant="subtitle2">All</Typography>}
           />
+        )}
+        {checkboxes.map((checkbox, key) => (
+          <Box ml={2} key={key}>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={checkedValues.includes(checkbox)}
+                  onChange={handleChange}
+                  name={checkbox}
+                  size="small"
+                  value={checkbox}
+                  color="secondary"
+                />
+              }
+              disabled={disabled?.includes(checkbox)}
+              label={<Typography variant="subtitle2">{checkbox}</Typography>}
+            />
+          </Box>
         ))}
       </FormGroup>
       {helperText && <FormHelperText>{helperText}</FormHelperText>}
