@@ -1,6 +1,7 @@
 import { Grid, Typography, LinearProgress, Box } from '@mui/material';
 import { withStyles } from '@mui/styles';
 import React from 'react';
+import './SupportIndicator.scss';
 
 const BorderLinearProgress = withStyles({
   root: {
