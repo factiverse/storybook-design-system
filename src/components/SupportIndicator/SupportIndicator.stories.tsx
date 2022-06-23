@@ -30,9 +30,17 @@ WithoutLabel.args = {
   type: 'bar',
 };
 
-export const Circular = Template.bind({});
+export const CircularWithoutLabel = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
-Circular.args = {
+CircularWithoutLabel.args = {
+  score: 1,
+  tooltips: [],
+  type: 'circle',
+};
+
+export const CircularWithLabel = Template.bind({});
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+CircularWithLabel.args = {
   score: 1,
   labels: ['disputing', 'balanced', 'supporting'],
   tooltips: [],

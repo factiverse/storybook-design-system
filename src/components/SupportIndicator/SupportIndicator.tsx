@@ -14,7 +14,7 @@ export interface SupportIndicatorProps {
   /* A number between 0.0 and 1.0 indicating the support for the claim. 0.0 being 'disputing the claim' and 1.0 being 'supporting the claim' */
   score: number;
   labels?: string[];
-  tooltips?: string[];
+  tooltips: string[];
   type: string;
 }
 
@@ -29,14 +29,24 @@ export const SupportIndicator: React.FC<SupportIndicatorProps> = ({
   const redClass = ' red-common';
   const yellowClass = ' yellow-common';
 
-  const redColor = 'hotpink';
-  const yellowColor = 'yellow';
-  const greenColor = 'green';
+  const redColor = '#ff8761';
+  const yellowColor = '#ffcd0f';
+  const greenColor = '#86c351';
 
   let circleColor = '';
   if (score < 0.4) circleColor = redColor;
   if (score >= 0.4 && score < 0.6) circleColor = yellowColor;
   if (score >= 0.6) circleColor = greenColor;
+
+  let label = '';
+  if (score < 0.4) label = 'disputing';
+  if (score >= 0.4 && score < 0.6) label = 'balanced';
+  if (score >= 0.6) label = 'supporting';
+
+  let tooltip = '';
+  if (score < 0.4) tooltip = tooltips[2];
+  if (score >= 0.4 && score < 0.6) tooltip = tooltips[1];
+  if (score >= 0.6) tooltip = tooltips[0];
 
   let toAdd = '';
   if (score < 0.4) toAdd = redClass;
@@ -54,6 +64,7 @@ export const SupportIndicator: React.FC<SupportIndicatorProps> = ({
   if (score < 0.4) variant[0] = 'h6';
   if (score >= 0.4 && score < 0.6) variant[1] = 'h6';
   if (score >= 0.6) variant[2] = 'h6';
+  if (score > 1) score = 1;
 
   return (
     <>
@@ -85,8 +96,11 @@ export const SupportIndicator: React.FC<SupportIndicatorProps> = ({
           )}
         </div>
       )}
+
       {type == 'circle' && (
-        <Box sx={{ position: 'relative', display: 'inline-flex' }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', placeContent: 'space-between',              alignItems: 'center',
+        justifyContent: 'center'}}>
+        <Box sx={{ position: 'relative', display: 'flex'}}>
           <CircularProgress
             variant="determinate"
             value={score * 100}
@@ -111,79 +125,18 @@ export const SupportIndicator: React.FC<SupportIndicatorProps> = ({
             }%`}</Typography>
           </Box>
         </Box>
+        
+         <Box>
+           {labels?.length !== undefined && true && (
+         <Tooltip title={tooltip} arrow>
+           <Typography variant='h6'>{label}</Typography>
+        </Tooltip>
+           )}
+               </Box>
+               </Box>
       )}
     </>
   );
 };
 
 export default SupportIndicator;
-
-/**
- * test
- *
- * @param props test
- * @returns test
- */
-export function CircularProgressWithLabel(
-  props: CircularProgressProps & { value: number }
-) {
-  return (
-    <Box sx={{ position: 'relative', display: 'inline-flex' }}>
-      <CircularProgress variant="determinate" {...props} />
-      <Box
-        sx={{
-          top: 0,
-          left: 0,
-          bottom: 0,
-          right: 0,
-          position: 'absolute',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          color: '#F8C608',
-        }}
-      >
-        <Typography variant="caption" color="#F8C608">{`${Math.round(
-          props.value
-        )}%`}</Typography>
-      </Box>
-    </Box>
-  );
-}
-
-/**
- * test
- *
- * @param props test
- * @returns test
- */
-export function circularSupportIndicator(
-  props: SupportIndicatorProps & {
-    score: number;
-    labels: string[];
-    tooltips: string[];
-  }
-) {
-  const className = 'SupportIndicatorItem';
-  const greenClass = ' green-common';
-  const redClass = ' red-common';
-  const yellowClass = ' yellow-common';
-  let toAdd = '';
-  if (props.score < 0.4) toAdd = redClass;
-  if (props.score >= 0.4 && props.score < 0.6) toAdd = yellowClass;
-  if (props.score >= 0.6) toAdd = greenClass;
-
-  const classNames = [];
-  for (let i = 0; i < 5; i++) {
-    let newClassName = className;
-    if (i == 0 || props.score >= i / 5) newClassName += toAdd;
-    classNames[i] = newClassName;
-  }
-
-  const variant: Variant[] = ['subtitle1', 'subtitle1', 'subtitle1'];
-  if (props.score < 0.4) variant[0] = 'h6';
-  if (props.score >= 0.4 && props.score < 0.6) variant[1] = 'h6';
-  if (props.score >= 0.6) variant[2] = 'h6';
-
-  return <CircularProgressWithLabel value={props.score} />;
-}
