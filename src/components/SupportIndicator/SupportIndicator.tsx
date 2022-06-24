@@ -1,8 +1,9 @@
-import { CircularProgress, Grid, Tooltip, Typography } from '@mui/material';
+import { CircularProgress, Grid, Tooltip } from '@mui/material';
 import { Variant } from '@mui/material/styles/createTypography';
 import React from 'react';
 import Box from '@mui/material/Box';
 import './SupportIndicator.scss';
+import Typography from '../Typography';
 
 /*
  * A generic UI element to display support for a claim/by a source in 5 steps from low to high
@@ -80,23 +81,38 @@ export const SupportIndicator: React.FC<SupportIndicatorProps> = ({
                 <>
                   <Grid item>
                     <Tooltip title={tooltips[0]} arrow>
-                      <Typography variant={headlineVariant[0]}>
-                        {labels[0]}
-                      </Typography>
+                      <div>
+                        <Typography
+                          variant={headlineVariant[0]}
+                          fontFamily="DM Mono"
+                        >
+                          {labels[0]}
+                        </Typography>
+                      </div>
                     </Tooltip>
                   </Grid>
                   <Grid item>
                     <Tooltip title={tooltips[1]} arrow>
-                      <Typography variant={headlineVariant[1]}>
-                        {labels[1]}
-                      </Typography>
+                      <div>
+                        <Typography
+                          variant={headlineVariant[1]}
+                          fontFamily="DM Mono"
+                        >
+                          {labels[1]}
+                        </Typography>
+                      </div>
                     </Tooltip>
                   </Grid>
                   <Grid item>
                     <Tooltip title={tooltips[2]} arrow>
-                      <Typography variant={headlineVariant[2]}>
-                        {labels[2]}
-                      </Typography>
+                      <div>
+                        <Typography
+                          variant={headlineVariant[2]}
+                          fontFamily="DM Mono"
+                        >
+                          {labels[2]}
+                        </Typography>
+                      </div>
                     </Tooltip>
                   </Grid>
                 </>
@@ -104,17 +120,26 @@ export const SupportIndicator: React.FC<SupportIndicatorProps> = ({
               {tooltips === undefined && (
                 <>
                   <Grid item>
-                    <Typography variant={headlineVariant[0]}>
+                    <Typography
+                      variant={headlineVariant[0]}
+                      fontFamily="DM Mono"
+                    >
                       {labels[0]}
                     </Typography>
                   </Grid>
                   <Grid item>
-                    <Typography variant={headlineVariant[1]}>
+                    <Typography
+                      variant={headlineVariant[1]}
+                      fontFamily="DM Mono"
+                    >
                       {labels[1]}
                     </Typography>
                   </Grid>
                   <Grid item>
-                    <Typography variant={headlineVariant[2]}>
+                    <Typography
+                      variant={headlineVariant[2]}
+                      fontFamily="DM Mono"
+                    >
                       {labels[2]}
                     </Typography>
                   </Grid>
@@ -157,13 +182,15 @@ export const SupportIndicator: React.FC<SupportIndicatorProps> = ({
             >
               {tooltips !== undefined && (
                 <Tooltip title={tooltip} arrow>
-                  <Typography variant="caption" color={'black'}>{`${
-                    score * 100
-                  }%`}</Typography>
+                  <div>
+                    <Typography variant="caption" fontFamily="DM Mono">{`${
+                      score * 100
+                    }%`}</Typography>
+                  </div>
                 </Tooltip>
               )}
               {tooltips === undefined && (
-                <Typography variant="caption" color={'black'}>{`${
+                <Typography variant="caption" fontFamily="DM Mono">{`${
                   score * 100
                 }%`}</Typography>
               )}
