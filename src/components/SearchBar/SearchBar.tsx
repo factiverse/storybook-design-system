@@ -47,8 +47,6 @@ const SearchBar: React.ForwardRefRenderFunction<
     if (onSearch != undefined) onSearch();
   };
 
-  console.log(label);
-
   return (
     <FormControl fullWidth variant={variant} sx={sx}>
       <TextField
