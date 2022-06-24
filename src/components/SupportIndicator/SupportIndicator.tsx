@@ -11,15 +11,15 @@ export interface SupportIndicatorProps {
   /* A number between 0.0 and 1.0 indicating the support for the claim. 0.0 being 'disputing the claim' and 1.0 being 'supporting the claim' */
   score: number;
   labels?: string[];
-  tooltips: string[];
-  type: string;
+  tooltips?: string[];
+  variant: string;
 }
 
 export const SupportIndicator: React.FC<SupportIndicatorProps> = ({
   score,
   labels,
   tooltips,
-  type,
+  variant,
 }) => {
   const className = 'SupportIndicatorItem';
   const greenClass = ' green-common';
@@ -41,9 +41,11 @@ export const SupportIndicator: React.FC<SupportIndicatorProps> = ({
   if (score >= 0.6) label = 'supporting';
 
   let tooltip = '';
-  if (score < 0.4) tooltip = tooltips[2];
-  if (score >= 0.4 && score < 0.6) tooltip = tooltips[1];
-  if (score >= 0.6) tooltip = tooltips[0];
+  if (tooltips !== undefined) {
+    if (score < 0.4) tooltip = tooltips[2];
+    if (score >= 0.4 && score < 0.6) tooltip = tooltips[1];
+    if (score >= 0.6) tooltip = tooltips[0];
+  }
 
   let toAdd = '';
   if (score < 0.4) toAdd = redClass;
@@ -57,15 +59,15 @@ export const SupportIndicator: React.FC<SupportIndicatorProps> = ({
     classNames[i] = newClassName;
   }
 
-  const variant: Variant[] = ['subtitle1', 'subtitle1', 'subtitle1'];
-  if (score < 0.4) variant[0] = 'h6';
-  if (score >= 0.4 && score < 0.6) variant[1] = 'h6';
-  if (score >= 0.6) variant[2] = 'h6';
+  const headlineVariant: Variant[] = ['subtitle1', 'subtitle1', 'subtitle1'];
+  if (score < 0.4) headlineVariant[0] = 'h6';
+  if (score >= 0.4 && score < 0.6) headlineVariant[1] = 'h6';
+  if (score >= 0.6) headlineVariant[2] = 'h6';
   if (score > 1) score = 1;
 
   return (
     <>
-      {type == 'bar' && (
+      {variant == 'bar' && (
         <div className={'SupportIndicatorContainer'}>
           <div className={'SupportIndicator'}>
             {classNames.map((item) => {
@@ -74,27 +76,56 @@ export const SupportIndicator: React.FC<SupportIndicatorProps> = ({
           </div>
           {labels?.length !== undefined && true && (
             <Grid container justifyContent={'space-between'}>
-              <Grid item>
-                <Tooltip title={tooltips[0]} arrow>
-                  <Typography variant={variant[0]}>{labels[0]}</Typography>
-                </Tooltip>
-              </Grid>
-              <Grid item>
-                <Tooltip title={tooltips[1]} arrow>
-                  <Typography variant={variant[1]}>{labels[1]}</Typography>
-                </Tooltip>
-              </Grid>
-              <Grid item>
-                <Tooltip title={tooltips[2]} arrow>
-                  <Typography variant={variant[2]}>{labels[2]}</Typography>
-                </Tooltip>
-              </Grid>
+              {tooltips !== undefined && (
+                <>
+                  <Grid item>
+                    <Tooltip title={tooltips[0]} arrow>
+                      <Typography variant={headlineVariant[0]}>
+                        {labels[0]}
+                      </Typography>
+                    </Tooltip>
+                  </Grid>
+                  <Grid item>
+                    <Tooltip title={tooltips[1]} arrow>
+                      <Typography variant={headlineVariant[1]}>
+                        {labels[1]}
+                      </Typography>
+                    </Tooltip>
+                  </Grid>
+                  <Grid item>
+                    <Tooltip title={tooltips[2]} arrow>
+                      <Typography variant={headlineVariant[2]}>
+                        {labels[2]}
+                      </Typography>
+                    </Tooltip>
+                  </Grid>
+                </>
+              )}
+              {tooltips === undefined && (
+                <>
+                  <Grid item>
+                    <Typography variant={headlineVariant[0]}>
+                      {labels[0]}
+                    </Typography>
+                  </Grid>
+                  <Grid item>
+                    <Typography variant={headlineVariant[1]}>
+                      {labels[1]}
+                    </Typography>
+                  </Grid>
+                  <Grid item>
+                    <Typography variant={headlineVariant[2]}>
+                      {labels[2]}
+                    </Typography>
+                  </Grid>
+                </>
+              )}
             </Grid>
           )}
         </div>
       )}
 
-      {type == 'circle' && (
+      {variant == 'circle' && (
         <Box
           sx={{
             display: 'flex',
@@ -124,18 +155,19 @@ export const SupportIndicator: React.FC<SupportIndicatorProps> = ({
                 justifyContent: 'center',
               }}
             >
-              <Typography variant="caption" color={'black'}>{`${
-                score * 100
-              }%`}</Typography>
+              {tooltips !== undefined && (
+                <Tooltip title={tooltip} arrow>
+                  <Typography variant="caption" color={'black'}>{`${
+                    score * 100
+                  }%`}</Typography>
+                </Tooltip>
+              )}
+              {tooltips === undefined && (
+                <Typography variant="caption" color={'black'}>{`${
+                  score * 100
+                }%`}</Typography>
+              )}
             </Box>
-          </Box>
-
-          <Box>
-            {labels?.length !== undefined && true && (
-              <Tooltip title={tooltip} arrow>
-                <Typography variant="h6">{label}</Typography>
-              </Tooltip>
-            )}
           </Box>
         </Box>
       )}
