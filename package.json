@@ -23,6 +23,7 @@
     "rollup": "rollup -c",
     "test": "jest --coverage && eslint src",
     "test:watch": "jest --coverage --watchAll --json --outputFile=testOutput.json",
+    "test-storybook": "test-storybook",
     "publish": "npm run rollup"
   },
   "eslintConfig": {
@@ -103,6 +104,7 @@
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^6.5.9",
     "@storybook/storybook-deployer": "^2.8.11",
+    "@storybook/test-runner": "^0.2.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^12.1.5",
     "@testing-library/user-event": "^12.1.10",
@@ -127,7 +129,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "html-webpack-plugin": "^5.5.0",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^27.3.1",
+    "jest": "^27.5.1",
     "mdx-embed": "^1.0.0",
     "postcss": "^8.4.12",
     "prettier": "^2.7.1",
