@@ -1,48 +1,66 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Story, Meta } from '@storybook/react';
 import SupportIndicator from './SupportIndicator';
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'Components/Support Indicator',
+  title: 'Components/SupportIndicator',
   component: SupportIndicator,
-} as ComponentMeta<typeof SupportIndicator>;
+} as Meta;
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof SupportIndicator> = (args) => (
-  <SupportIndicator {...args} />
+const Template: Story = ({ ...args }) => (
+  <SupportIndicator score={1} variant="bar" {...args} />
 );
 
+export const Default = Template.bind({});
+
 export const WithLabel = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
 WithLabel.args = {
-  score: 1,
   labels: ['disputing', 'balanced', 'supporting'],
-  tooltips: [],
-  type: 'bar',
 };
 
-export const WithoutLabel = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-WithoutLabel.args = {
-  score: 1,
-  tooltips: [],
-  type: 'bar',
-};
-
-export const CircularWithoutLabel = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-CircularWithoutLabel.args = {
-  score: 1,
-  tooltips: [],
-  type: 'circle',
-};
-
-export const CircularWithLabel = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-CircularWithLabel.args = {
-  score: 1,
+export const WithTooltips = Template.bind({});
+WithTooltips.args = {
   labels: ['disputing', 'balanced', 'supporting'],
-  tooltips: [],
-  type: 'circle',
+  tooltips: [
+    'Most found sources are disputing this.',
+    'Found sources are conflicting.',
+    'Most found sources are supporting this.',
+  ],
+};
+
+export const Balanced = Template.bind({});
+Balanced.args = {
+  score: 0.5,
+};
+
+export const Disputing = Template.bind({});
+Disputing.args = {
+  score: 0.1,
+};
+
+export const Circular = Template.bind({});
+Circular.args = {
+  variant: 'circle',
+};
+
+export const CircularBalanced = Template.bind({});
+CircularBalanced.args = {
+  score: 0.5,
+  variant: 'circle',
+};
+
+export const CircularDisputing = Template.bind({});
+CircularDisputing.args = {
+  score: 0.1,
+  variant: 'circle',
+};
+
+export const CircularWithTooltip = Template.bind({});
+CircularWithTooltip.args = {
+  tooltips: [
+    'Most found sources are disputing this.',
+    'Found sources are conflicting.',
+    'Most found sources are supporting this.',
+  ],
+  variant: 'circle',
 };
