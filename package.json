@@ -23,7 +23,9 @@
     "rollup": "rollup -c",
     "test": "jest --coverage && eslint src",
     "test:watch": "jest --coverage --watchAll --json --outputFile=testOutput.json",
-    "test-storybook": "test-storybook",
+    "test-storybook": "test-storybook --browsers firefox chromium webkit",
+    "test-storybook:watch": "test-storybook --watch",
+    "test-storybook:browsers": "test-storybook --browsers firefox chromium webkit",
     "publish": "npm run rollup"
   },
   "eslintConfig": {
