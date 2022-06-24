@@ -1,6 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import ButtonGroup from './ButtonGroup';
+import WikipediaIcon from '../../icons/WikipediaIcon';
 
 export default {
   title: 'Components/ButtonGroup',
@@ -30,7 +31,18 @@ export const LanguageButtons = Template.bind({});
 LanguageButtons.args = {
   title: 'Select language',
   buttons: ['Wikipedia', 'Store Norske Leksikon'],
-  startIcon: <i className="ph-facebook-logo"></i>,
+  startIcon: <WikipediaIcon />,
   value: 'Wikipedia',
   onClick: () => console.log('All topics'),
+  selectedButtonStyles: {
+    backgroundColor: 'black',
+    color: 'white',
+    boxShadow: 'none',
+    borderRadius: '10px',
+  },
+  unselectedButtonStyles: {
+    boxShadow: 'none',
+    borderRadius: '10px',
+    backgroundColor: 'lightgrey',
+  },
 };
