@@ -1,9 +1,6 @@
-import { Grid, Tooltip, Typography } from '@mui/material';
+import { CircularProgress, Grid, Tooltip, Typography } from '@mui/material';
 import { Variant } from '@mui/material/styles/createTypography';
 import React from 'react';
-import CircularProgress, {
-  CircularProgressProps,
-} from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import './SupportIndicator.scss';
 
