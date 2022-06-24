@@ -98,42 +98,49 @@ export const SupportIndicator: React.FC<SupportIndicatorProps> = ({
       )}
 
       {type == 'circle' && (
-        <Box sx={{ display: 'flex', flexDirection: 'column', placeContent: 'space-between',              alignItems: 'center',
-        justifyContent: 'center'}}>
-        <Box sx={{ position: 'relative', display: 'flex'}}>
-          <CircularProgress
-            variant="determinate"
-            value={score * 100}
-            sx={{
-              color: circleColor,
-            }}
-          />
-          <Box
-            sx={{
-              top: 0,
-              left: 0,
-              bottom: 0,
-              right: 0,
-              position: 'absolute',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            <Typography variant="caption" color={'black'}>{`${
-              score * 100
-            }%`}</Typography>
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            placeContent: 'space-between',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <Box sx={{ position: 'relative', display: 'flex' }}>
+            <CircularProgress
+              variant="determinate"
+              value={score * 100}
+              sx={{
+                color: circleColor,
+              }}
+            />
+            <Box
+              sx={{
+                top: 0,
+                left: 0,
+                bottom: 0,
+                right: 0,
+                position: 'absolute',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              <Typography variant="caption" color={'black'}>{`${
+                score * 100
+              }%`}</Typography>
+            </Box>
+          </Box>
+
+          <Box>
+            {labels?.length !== undefined && true && (
+              <Tooltip title={tooltip} arrow>
+                <Typography variant="h6">{label}</Typography>
+              </Tooltip>
+            )}
           </Box>
         </Box>
-        
-         <Box>
-           {labels?.length !== undefined && true && (
-         <Tooltip title={tooltip} arrow>
-           <Typography variant='h6'>{label}</Typography>
-        </Tooltip>
-           )}
-               </Box>
-               </Box>
       )}
     </>
   );
