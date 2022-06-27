@@ -1,8 +1,20 @@
 import React from 'react';
-import { Box, Grid, Link, Paper } from '@mui/material';
+import { Box, Grid, Link, Paper, Theme } from '@mui/material';
 import Popup from 'reactjs-popup';
 import withStyles from '@mui/styles/withStyles';
 import Typography from '../Typography';
+import makeStyles from '@mui/styles/makeStyles';
+import createStyles from '@mui/styles/createStyles';
+
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    tooltipPaper: {
+      padding: theme.spacing(1),
+      width: '500px',
+      maxWidth: '90vw',
+    },
+  })
+);
 
 const HighlightedText = withStyles({
   root: {
@@ -11,8 +23,14 @@ const HighlightedText = withStyles({
   },
 })(Box);
 
+export enum EntityType {
+  PER = 'Person',
+  ORG = 'Organization',
+  LOC = 'Location',
+}
+
 export interface MicrofactsTooltipProps {
-  entity?: {
+  entity: {
     description: string;
     checked?: boolean;
     keyFact?: boolean;
@@ -20,15 +38,17 @@ export interface MicrofactsTooltipProps {
     page_url: string;
     feedbackIsHelpful?: boolean;
     hasGivenFeedback?: boolean;
-    entity_type: string;
+    entity_type: EntityType;
     showFeedback?: boolean;
+    domain: string;
   };
   updateEntity: (toReplace: object, newEntity: object) => void;
-  // sliderState: number;
+  sliderState: number;
 }
 
 export const MicrofactsTooltip = (props: MicrofactsTooltipProps) => {
-  const { entity, updateEntity /* sliderState */ } = props;
+  const classes = useStyles();
+  const { entity, updateEntity, sliderState } = props;
 
   const onCloseFeedback = () => {
     if (
@@ -40,7 +60,7 @@ export const MicrofactsTooltip = (props: MicrofactsTooltipProps) => {
       updateEntity(entity, { ...entity, showFeedback: false });
   };
 
-  /* const showMicrofact =
+  const showMicrofact =
     // hide all if the slider is set to show no microfacts
     sliderState != 0 &&
     // entity has to be defined
@@ -48,7 +68,7 @@ export const MicrofactsTooltip = (props: MicrofactsTooltipProps) => {
     // entity has to be selected to be shown
     entity.checked &&
     // entity is a key fact or all facts should be shown
-    ((sliderState == 1 && entity.keyFact) || sliderState == 2); */
+    ((sliderState == 1 && entity.keyFact) || sliderState == 2);
 
   const getMaxLengthDescription = () => {
     const sentences = entity?.description.split('. ') ?? [];
@@ -61,7 +81,7 @@ export const MicrofactsTooltip = (props: MicrofactsTooltipProps) => {
 
   return (
     <>
-      {entity != undefined && (
+      {showMicrofact && (
         <Popup
           trigger={() => (
             <HighlightedText component="span">{entity.entity}</HighlightedText>
@@ -78,15 +98,29 @@ export const MicrofactsTooltip = (props: MicrofactsTooltipProps) => {
           mouseEnterDelay={100}
           mouseLeaveDelay={300}
         >
-          <Paper className="Tooltip" elevation={4} color="secondary">
+          <Paper
+            className={classes.tooltipPaper}
+            elevation={4}
+            color="secondary"
+          >
             <Grid container spacing={1} direction="column">
               <Grid item>
                 <Link href={entity.page_url} target="_blank" rel="noopener">
-                  <Typography variant="h5">
-                    {entity.entity}
-                    {' ['}
-                    {entity.entity_type}
-                    {']'}
+                  <Typography variant="h5">{entity.entity}</Typography>
+                </Link>
+                <Typography>Type: {entity.entity_type}</Typography>
+              </Grid>
+              <Grid container alignItems="center" ml={1}>
+                <Typography>Source: </Typography>
+                <Link
+                  href={entity?.page_url?.replace(/[^/]+$/, '')}
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <Typography
+                    sx={{ textTransform: 'capitalize', paddingLeft: 0.5 }}
+                  >
+                    {entity.domain}
                   </Typography>
                 </Link>
               </Grid>
@@ -95,21 +129,11 @@ export const MicrofactsTooltip = (props: MicrofactsTooltipProps) => {
                   {getMaxLengthDescription()}
                 </Typography>
               </Grid>
-              {/* entity.showFeedback && (
-                <Grid item>
-                  <Box mt={4}>
-                    <FeedbackReader
-                      entity={entity}
-                      updateEntity={updateEntity}
-                    />
-                  </Box>
-                </Grid>
-              ) */}
             </Grid>
           </Paper>
         </Popup>
       )}
-      {entity && /* !showMicrofact  && */ entity.entity}
+      {entity && !showMicrofact && entity.entity}
     </>
   );
 };

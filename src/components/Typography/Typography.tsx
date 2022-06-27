@@ -30,7 +30,8 @@ export const Typography = (props: TypographyProps) => {
         gutterBottom={gutterBottom}
         noWrap={noWrap}
         paragraph={paragraph}
-        sx={sx ?? { fontFamily: fontFamily }}
+        fontFamily={fontFamily}
+        sx={sx}
       >
         {children}
       </TypographyMUI>

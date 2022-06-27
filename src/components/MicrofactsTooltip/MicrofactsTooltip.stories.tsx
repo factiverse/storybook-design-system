@@ -1,15 +1,16 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import MicrofactsTooltip from './MicrofactsTooltip';
-import { Grid } from '@mui/material';
+import MicrofactsTooltip, { EntityType } from './MicrofactsTooltip';
 
 const entity = {
   description:
     'Nele Neuhaus, født Cornelia Löwenberg, er en svært populær tysk kriminalforfatter, særlig kjent for serien om politietterforskerne Oliver von Bodenstein og Pia Kirchhoff som utspiller seg i Taunus. Liv og virke Nele Neuhaus har studert jus, germanistikk og historie samt.',
   entity: 'Nels',
   page_url: 'https://snl.no/Nele_Neuhaus',
-  entity_type: 'PER',
+  entity_type: EntityType.PER,
   checked: true,
+  keyFact: true,
+  domain: 'snl',
 };
 
 export default {
@@ -23,21 +24,7 @@ const Template: ComponentStory<typeof MicrofactsTooltip> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  entity: {
-    description:
-      'Nele Neuhaus, født Cornelia Löwenberg, er en svært populær tysk kriminalforfatter, særlig kjent for serien om politietterforskerne Oliver von Bodenstein og Pia Kirchhoff som utspiller seg i Taunus. Liv og virke Nele Neuhaus har studert jus, germanistikk og historie samt.',
-    entity: 'Nels',
-    page_url: 'https://snl.no/Nele_Neuhaus',
-    entity_type: 'PER',
-    checked: true,
-  },
+  entity: entity,
+  updateEntity: () => console.log('update'),
+  sliderState: 1,
 };
-
-export const Headings: ComponentStory<typeof MicrofactsTooltip> = () => (
-  <Grid>
-    <MicrofactsTooltip
-      entity={entity}
-      updateEntity={() => console.log('update')}
-    />
-  </Grid>
-);
