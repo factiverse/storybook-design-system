@@ -26,12 +26,13 @@ module.exports = {
       propFilter: (prop) => {
         return prop.parent
           ? /@mui/.test(prop.parent.fileName) ||
-              !/node_modules/.test(prop.parent.fileName)
+          !/node_modules/.test(prop.parent.fileName)
           : true;
       },
     },
   },
   features: {
     emotionAlias: false,
+    interactionsDebugger: true,
   },
 };
