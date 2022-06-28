@@ -5,6 +5,15 @@ import Dropdown from './Dropdown';
 export default {
   title: 'Components/Dropdown',
   component: Dropdown,
+  argTypes: {
+    margin: {
+      control: {
+        options: ['none', 'normal', 'dense'],
+        type: 'radio',
+      },
+    },
+    label: { control: 'text' },
+  },
 } as ComponentMeta<typeof Dropdown>;
 
 const Template: ComponentStory<typeof Dropdown> = (args) => (

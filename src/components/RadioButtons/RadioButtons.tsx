@@ -12,13 +12,21 @@ export interface RadioButtonsProps {
   radioButtons: string[];
   title: string;
   defaultValue?: string;
+  margin?: 'none' | 'dense' | 'normal';
+  size?: 'small' | 'medium';
 }
 
 const RadioButtons = (props: RadioButtonsProps) => {
-  const { title, defaultValue, radioButtons } = props;
+  const {
+    title,
+    defaultValue,
+    radioButtons,
+    margin = 'none',
+    size = 'small',
+  } = props;
 
   return (
-    <FormControl margin="dense" size="small">
+    <FormControl margin={margin} size={size}>
       <FormLabel id="demo-radio-buttons-group-label">
         <Typography variant="subtitle2" color="black">
           {title}

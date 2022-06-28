@@ -12,6 +12,7 @@ export interface ButtonGroupProps {
   typographyVariant?: 'button' | 'body1';
   selectedButtonStyles?: React.CSSProperties;
   unselectedButtonStyles?: React.CSSProperties;
+  buttonWithIcon?: string;
 }
 
 const ButtonGroup = (props: ButtonGroupProps) => {
@@ -24,6 +25,7 @@ const ButtonGroup = (props: ButtonGroupProps) => {
     typographyVariant = 'button',
     selectedButtonStyles,
     unselectedButtonStyles,
+    buttonWithIcon,
   } = props;
 
   return (
@@ -41,7 +43,7 @@ const ButtonGroup = (props: ButtonGroupProps) => {
                 variant="contained"
                 onClick={onClick}
                 color={button === value ? 'secondary' : 'primary'}
-                startIcon={button === value && startIcon}
+                startIcon={button === buttonWithIcon && startIcon}
                 sx={
                   button === value
                     ? selectedButtonStyles

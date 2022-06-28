@@ -19,6 +19,7 @@ export interface CheckboxGroupProps {
   checkedValues: string[];
   allCheckbox?: boolean;
   handleChangeAll?: () => void;
+  margin?: 'none' | 'normal' | 'dense';
 }
 
 const CheckboxGroup = (props: CheckboxGroupProps) => {
@@ -31,10 +32,11 @@ const CheckboxGroup = (props: CheckboxGroupProps) => {
     checkedValues,
     allCheckbox = true,
     handleChangeAll,
+    margin = 'none',
   } = props;
 
   return (
-    <FormControl component="fieldset" variant="standard">
+    <FormControl component="fieldset" variant="standard" margin={margin}>
       <FormLabel component="legend">
         <Typography variant="subtitle2" color="black">
           {title}

@@ -5,6 +5,26 @@ import CheckboxGroup from './CheckboxGroup';
 export default {
   title: 'Components/CheckboxGroup',
   component: CheckboxGroup,
+  argTypes: {
+    disabled: {
+      control: 'check',
+      options: ['Supported', 'Unsupported', 'Academia', 'News', 'Social Media'],
+    },
+    checkedValues: {
+      control: 'check',
+      options: ['Supported', 'Unsupported', 'Academia', 'News', 'Social Media'],
+    },
+    helperText: { control: 'text' },
+    allCheckbox: {
+      control: { type: 'boolean' },
+    },
+    margin: {
+      control: {
+        options: ['none', 'normal', 'dense'],
+        type: 'radio',
+      },
+    },
+  },
 } as ComponentMeta<typeof CheckboxGroup>;
 
 const Template: ComponentStory<typeof CheckboxGroup> = (args) => (
@@ -14,14 +34,14 @@ const Template: ComponentStory<typeof CheckboxGroup> = (args) => (
 export const Default = Template.bind({});
 Default.args = {
   title: 'Claims',
-  checkboxes: ['Supported', 'Unsupported'],
+  checkboxes: ['Supported', 'Unsupported', 'Academia', 'News', 'Social Media'],
   checkedValues: ['Supported'],
 };
 
 export const CheckedAll = Template.bind({});
 CheckedAll.args = {
   title: 'Claims',
-  checkboxes: ['Supported', 'Unsupported'],
+  checkboxes: ['Supported', 'Unsupported', 'Academia', 'News', 'Social Media'],
   checkedValues: ['Supported', 'Unsupported'],
   allCheckbox: true,
 };

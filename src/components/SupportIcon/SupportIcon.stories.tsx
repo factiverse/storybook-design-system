@@ -6,6 +6,14 @@ import { Grid } from '@mui/material';
 export default {
   title: 'Components/SupportIcon',
   component: SupportIcon,
+  argTypes: {
+    variant: {
+      control: {
+        options: ['supporting', 'neutral', 'disputing'],
+        type: 'radio',
+      },
+    },
+  },
 } as ComponentMeta<typeof SupportIcon>;
 
 const Template: ComponentStory<typeof SupportIcon> = (args) => (

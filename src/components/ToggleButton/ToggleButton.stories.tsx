@@ -9,6 +9,13 @@ import GoogleIcon from '../../img/GoogleLogo.svg';
 export default {
   title: 'Components/ToggleButton',
   component: ToggleButton,
+  argTypes: {
+    children: {
+      control: {
+        type: 'children',
+      },
+    },
+  },
 } as ComponentMeta<typeof ToggleButton>;
 
 const Template: ComponentStory<typeof ToggleButton> = (args) => (

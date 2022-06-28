@@ -5,6 +5,20 @@ import RadioButtons from './RadioButtons';
 export default {
   title: 'Components/RadioButtons',
   component: RadioButtons,
+  argTypes: {
+    margin: {
+      control: {
+        options: ['none', 'normal', 'dense'],
+        type: 'radio',
+      },
+    },
+    size: {
+      control: {
+        options: ['small', 'medium'],
+        type: 'radio',
+      },
+    },
+  },
 } as ComponentMeta<typeof RadioButtons>;
 
 const Template: ComponentStory<typeof RadioButtons> = (args) => (

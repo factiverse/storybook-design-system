@@ -6,6 +6,19 @@ import WikipediaIcon from '../../icons/WikipediaIcon';
 export default {
   title: 'Components/ButtonGroup',
   component: ButtonGroup,
+  argTypes: {
+    title: { control: 'text' },
+    startIcon: {
+      control: {
+        type: 'element',
+      },
+    },
+    typographyVariant: {
+      control: 'radio',
+      options: ['button', 'body1'],
+    },
+    buttonWithIcon: { control: 'text' },
+  },
 } as ComponentMeta<typeof ButtonGroup>;
 
 const Template: ComponentStory<typeof ButtonGroup> = (args) => (
@@ -33,6 +46,7 @@ LanguageButtons.args = {
   buttons: ['Wikipedia', 'Store Norske Leksikon'],
   startIcon: <WikipediaIcon />,
   value: 'Wikipedia',
+  buttonWithIcon: 'Wikipedia',
   onClick: () => console.log('All topics'),
   selectedButtonStyles: {
     backgroundColor: 'black',

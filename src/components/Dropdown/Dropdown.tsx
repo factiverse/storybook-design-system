@@ -6,13 +6,14 @@ export interface DropdownProps {
   handleChange: () => void;
   values: string[];
   defaultValue: string;
+  margin?: 'none' | 'normal' | 'dense';
 }
 
 const Dropdown = (props: DropdownProps) => {
-  const { label, handleChange, values, defaultValue } = props;
+  const { label, handleChange, values, defaultValue, margin = 'none' } = props;
 
   return (
-    <FormControl fullWidth>
+    <FormControl fullWidth margin={margin}>
       {label && <InputLabel id="demo-simple-select-label">{label}</InputLabel>}
       <Select
         labelId="demo-simple-select-label"
