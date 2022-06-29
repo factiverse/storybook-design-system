@@ -1,7 +1,8 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Dropdown from './Dropdown';
+import userEvent from '@testing-library/user-event';
 
 describe('Dropdown component', () => {
   beforeEach(() => {
@@ -17,5 +18,13 @@ describe('Dropdown component', () => {
 
   it('should render default value', () => {
     expect(screen.getByText('days')).toBeInTheDocument();
+  });
+
+  it('should change value', function () {
+    fireEvent.change(screen.getByDisplayValue(/days/i), {
+      target: { value: 'days' },
+    });
+
+    expect(screen.getByText(/days/i)).toBeInTheDocument();
   });
 });
