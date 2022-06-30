@@ -5,10 +5,12 @@ export const TextField = ({
   sx,
   placeholder,
   id = 'outlined-basic',
-  label = 'Headline',
+  label = '',
   variant = 'outlined',
   disabled = false,
   color = 'primary',
+  error = false,
+  helperText = '',
   ...props
 }: TextFieldProps) => {
   return (
@@ -21,6 +23,8 @@ export const TextField = ({
       disabled={disabled}
       color={color}
       placeholder={placeholder}
+      error={error}
+      helperText={helperText}
       {...props}
     />
   );
