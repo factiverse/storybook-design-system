@@ -3,7 +3,7 @@ import React from 'react';
 
 export interface DropdownProps {
   label?: string;
-  handleChange: () => void;
+  handleChange?: () => void;
   values: string[];
   defaultValue: string;
   margin?: 'none' | 'normal' | 'dense';

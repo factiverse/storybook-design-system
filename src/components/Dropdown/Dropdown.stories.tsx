@@ -23,14 +23,12 @@ const Template: ComponentStory<typeof Dropdown> = (args) => (
 export const Default = Template.bind({});
 Default.args = {
   label: 'Choose duration',
-  handleChange: () => console.log('handleChange'),
   values: ['days', 'months', 'years'],
   defaultValue: 'days',
 };
 
 export const NoLabel = Template.bind({});
 NoLabel.args = {
-  handleChange: () => console.log('handleChange'),
   values: ['days', 'months', 'years'],
   defaultValue: 'days',
 };
