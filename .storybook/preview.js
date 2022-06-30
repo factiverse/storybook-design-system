@@ -12,10 +12,10 @@ import results from '../testOutput.json';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#ffffff',
+      main: '#f8c608',
     },
     secondary: {
-      main: '#f8c608',
+      main: '#ffffff',
     },
     error: {
       main: '#f72525',
@@ -37,7 +37,7 @@ const theme = createTheme({
       styleOverrides: {
         root: ({ ownerState }) => ({
           ...(ownerState.variant === 'contained' &&
-            ownerState.color === 'secondary' && {
+            ownerState.color === 'primary' && {
               boxShadow: '0px 0px 10px #f8c608',
             }),
         }),

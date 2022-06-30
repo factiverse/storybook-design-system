@@ -42,7 +42,13 @@ export const CheckedAll = Template.bind({});
 CheckedAll.args = {
   title: 'Claims',
   checkboxes: ['Supported', 'Unsupported', 'Academia', 'News', 'Social Media'],
-  checkedValues: ['Supported', 'Unsupported'],
+  checkedValues: [
+    'Supported',
+    'Unsupported',
+    'Academia',
+    'News',
+    'Social Media',
+  ],
   allCheckbox: true,
 };
 
