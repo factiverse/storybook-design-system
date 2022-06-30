@@ -31,6 +31,7 @@ export const Typography = (props: TypographyProps) => {
         noWrap={noWrap}
         paragraph={paragraph}
         sx={sx ?? { fontFamily: fontFamily }}
+        {...props}
       >
         {children}
       </TypographyMUI>
