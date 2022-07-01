@@ -15,3 +15,4 @@ export { default as TextField } from './TextField';
 export { default as Typography } from './Typography';
 
 export { default as SupportIndicator } from './SupportIndicator';
+export { default as MicrofactsTooltip } from './MicrofactsTooltip';
