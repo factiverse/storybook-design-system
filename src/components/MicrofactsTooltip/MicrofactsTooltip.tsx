@@ -5,6 +5,7 @@ import withStyles from '@mui/styles/withStyles';
 import Typography from '../Typography';
 import makeStyles from '@mui/styles/makeStyles';
 import createStyles from '@mui/styles/createStyles';
+import { Entity } from '../Entity';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -30,19 +31,8 @@ export enum EntityType {
 }
 
 export interface MicrofactsTooltipProps {
-  entity: {
-    description: string;
-    checked?: boolean;
-    keyFact?: boolean;
-    entity: string;
-    page_url: string;
-    feedbackIsHelpful?: boolean;
-    hasGivenFeedback?: boolean;
-    entity_type: EntityType;
-    showFeedback?: boolean;
-    domain: string;
-  };
-  updateEntity: (toReplace: object, newEntity: object) => void;
+  entity: Entity;
+  updateEntity: (toReplace: Entity, newEntity: Entity) => void;
   sliderState: number;
 }
 
@@ -106,7 +96,9 @@ export const MicrofactsTooltip = (props: MicrofactsTooltipProps) => {
             <Grid container spacing={1} direction="column">
               <Grid item>
                 <Link href={entity.page_url} target="_blank" rel="noopener">
-                  <Typography variant="h5">{entity.entity}</Typography>
+                  <Typography variant="h5" color="black">
+                    {entity.entity}
+                  </Typography>
                 </Link>
                 <Typography>Type: {entity.entity_type}</Typography>
               </Grid>

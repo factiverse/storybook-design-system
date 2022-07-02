@@ -11,6 +11,13 @@ const entity = {
   checked: true,
   keyFact: true,
   domain: 'snl',
+  entId: 1,
+  score: 20,
+  entity_match: true,
+  image_url: '',
+  image_lic: '',
+  kbId: 1,
+  license: '',
 };
 
 export default {

@@ -12,10 +12,10 @@ import results from '../testOutput.json';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#f8c608',
+      main: '#ffffff',
     },
     secondary: {
-      main: '#ffffff',
+      main: '#f8c608',
     },
     error: {
       main: '#f72525',
@@ -37,26 +37,10 @@ const theme = createTheme({
       styleOverrides: {
         root: ({ ownerState }) => ({
           ...(ownerState.variant === 'contained' &&
-            ownerState.color === 'primary' && {
+            ownerState.color === 'secondary' && {
               boxShadow: '0px 0px 10px #f8c608',
             }),
         }),
-      },
-    },
-  },
-
-  overrides: {
-    MuiButton: {
-      contained: {
-        color: '#f8c608',
-        backgroundColor: '#f8c608',
-        '&:hover': {
-          backgroundColor: '#f8c608',
-          // Reset on touch devices, it doesn't add specificity
-          '@media (hover: none)': {
-            backgroundColor: '#f8c608',
-          },
-        },
       },
     },
   },

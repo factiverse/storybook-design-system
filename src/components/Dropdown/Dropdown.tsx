@@ -1,9 +1,15 @@
-import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+import {
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  SelectChangeEvent,
+} from '@mui/material';
 import React from 'react';
 
 export interface DropdownProps {
   label?: string;
-  handleChange?: () => void;
+  handleChange: (event: SelectChangeEvent) => void;
   values: string[];
   defaultValue: string;
   margin?: 'none' | 'normal' | 'dense';

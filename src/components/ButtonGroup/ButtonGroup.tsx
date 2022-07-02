@@ -42,7 +42,7 @@ const ButtonGroup = (props: ButtonGroupProps) => {
               <Button
                 variant="contained"
                 onClick={onClick}
-                color={button === value ? 'primary' : 'secondary'}
+                color={button === value ? 'secondary' : 'primary'}
                 startIcon={button === buttonWithIcon && startIcon}
                 sx={
                   button === value
