@@ -19,30 +19,30 @@ const entities = [
     checked: true,
     keyFact: true,
     domain: 'snl',
-    entId: 1,
-    score: 20,
-    entity_match: true,
-    image_url: '',
-    image_lic: '',
-    kbId: 1,
-    license: '',
+    entId: 0,
+    score: 1,
+    entity_match: false,
+    image_url: 'https://media.snl.no/media/35435/Nele_Neuhaus_2016.jpg',
+    image_lic: 'CC BY NC SA 3.0',
+    kbId: 'Nele_Neuhaus',
+    license: 'begrenset',
   },
   {
     description:
-      'Nele Neuhausorfatter Liv og virke Nele Neuhaus har studert jus, germanistikk og historie samt.',
-    entity: 'Liv',
+      'Ovako Steel og Imatra Steel for å danne konsernet Ovako. Selskapet ble senere restrukturert, og hadde flere eiere, før det japanske stålkonsernet Nippon Steel i 2018 kjøpte opp selskapet. Fundia sin virksomhet i Norge I Norge hadde Fundia et stålverk.',
+    entity: 'Ovakos',
     page_url: 'https://snl.no/Nele_Neuhaus',
-    entity_type: EntityType.LOC,
+    entity_type: EntityType.PER,
     checked: true,
     keyFact: true,
     domain: 'snl',
     entId: 1,
-    score: 20,
-    entity_match: true,
-    image_url: '',
-    image_lic: '',
-    kbId: 1,
-    license: '',
+    score: 1,
+    entity_match: false,
+    image_url: '"https://media.snl.no/media/35435/Nele_Neuhaus_2016.jpg"',
+    image_lic: 'CC BY NC SA 3.0',
+    kbId: 'Nele_Neuhaus',
+    license: 'begrenset',
   },
 ];
 
@@ -57,8 +57,10 @@ const Template: ComponentStory<typeof MicrofactsArticle> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  headline: '',
+  headline:
+    'Her snakker vi enten monstermarginer eller vekstpotensial Harry Potter-style',
   image: '',
-  inputText: '',
+  inputText:
+    'Hydrogenaksjen Nel stiger hele ti prosent på Oslo Børs etter at selskapet torsdag meldte om en ordre på levering av elektrolyserør for 11 millioner euro (110 millioner kroner). Markedsverdien av Nel steg dermed med cirka 2,5 milliarder kroner til over 27 milliarder kroner. Når markedsverdien av selskapet stiger med 2,5 milliarder på bakgrunn av en ordre på 110 millioner kroner prises det åpenbart inn et eller annet som er meget bullish. Det vil trenges ytterligere 22 slike ordrer bare for at kontraktsverdien skal matche økningen i Nels markedsverdi. Vi vet ikke hva ordren på 110 millioner kroner gir av inntjening, men umiddelbart skulle man tro investorene priser inn monstermarginer. Det er neppe tilfellet. Elektrolyserørene skal leveres til Ovako, en europeisk produsent av stål. Selskapet er eid av Nippon Steel. Utstyret skal installeres i Ovakos anlegg i Sverige, og skal bli den første fabrikken i verden til å bruke hydrogen til å varme stålet før det formes videre. Karbonfri hydrogen skal erstatte propangass som i dag benyttes til oppvarmingen. Konverteringen til hydrogen ventes å redusere Ovakos CO₂-utslipp fra stålproduksjonen med 50 prosent fra allerede lave nivåer.',
   entities: entities,
 };

@@ -11,13 +11,13 @@ const entity = {
   checked: true,
   keyFact: true,
   domain: 'snl',
-  entId: 1,
-  score: 20,
-  entity_match: true,
-  image_url: '',
-  image_lic: '',
-  kbId: 1,
-  license: '',
+  entId: 0,
+  score: 1,
+  entity_match: false,
+  image_url: '"https://media.snl.no/media/35435/Nele_Neuhaus_2016.jpg"',
+  image_lic: 'CC BY NC SA 3.0',
+  kbId: 'Nele_Neuhaus',
+  license: 'begrenset',
 };
 
 export default {
@@ -33,5 +33,4 @@ export const Default = Template.bind({});
 Default.args = {
   entity: entity,
   updateEntity: () => console.log('update'),
-  sliderState: 1,
 };

@@ -30,7 +30,7 @@ export const WithState = () => {
       defaultValue={dropdown}
       label="Choose duration"
       handleChange={(event: SelectChangeEvent) => {
-        setDropdown(event.target.value as string);
+        setDropdown(event.target.value);
       }}
     />
   );

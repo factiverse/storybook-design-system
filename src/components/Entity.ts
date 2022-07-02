@@ -8,7 +8,7 @@ export type Entity = {
   entity_type: string;
   image_url: string;
   image_lic: string;
-  kbId: number;
+  kbId: string;
   license: string;
   page_url: string;
   score: number;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Grid, Link, Paper, Theme } from '@mui/material';
 import Popup from 'reactjs-popup';
-import withStyles from '@mui/styles/withStyles';
+// import withStyles from '@mui/styles/withStyles';
 import Typography from '../Typography';
 import makeStyles from '@mui/styles/makeStyles';
 import createStyles from '@mui/styles/createStyles';
@@ -17,12 +17,12 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const HighlightedText = withStyles({
+/* const HighlightedText = withStyles({
   root: {
     backgroundColor: '#FFF9DA',
     cursor: 'pointer',
   },
-})(Box);
+})(Box); */
 
 export enum EntityType {
   PER = 'Person',
@@ -33,12 +33,11 @@ export enum EntityType {
 export interface MicrofactsTooltipProps {
   entity: Entity;
   updateEntity: (toReplace: Entity, newEntity: Entity) => void;
-  sliderState: number;
 }
 
 export const MicrofactsTooltip = (props: MicrofactsTooltipProps) => {
   const classes = useStyles();
-  const { entity, updateEntity, sliderState } = props;
+  const { entity, updateEntity } = props;
 
   const onCloseFeedback = () => {
     if (
@@ -51,14 +50,12 @@ export const MicrofactsTooltip = (props: MicrofactsTooltipProps) => {
   };
 
   const showMicrofact =
-    // hide all if the slider is set to show no microfacts
-    sliderState != 0 &&
     // entity has to be defined
     entity != undefined &&
     // entity has to be selected to be shown
     entity.checked &&
     // entity is a key fact or all facts should be shown
-    ((sliderState == 1 && entity.keyFact) || sliderState == 2);
+    entity.keyFact;
 
   const getMaxLengthDescription = () => {
     const sentences = entity?.description.split('. ') ?? [];
@@ -74,7 +71,12 @@ export const MicrofactsTooltip = (props: MicrofactsTooltipProps) => {
       {showMicrofact && (
         <Popup
           trigger={() => (
-            <HighlightedText component="span">{entity.entity}</HighlightedText>
+            <Box
+              style={{ backgroundColor: '#FFF9DA', cursor: 'pointer' }}
+              component="span"
+            >
+              {entity.entity}
+            </Box>
           )}
           position={[
             'bottom center',
@@ -110,7 +112,11 @@ export const MicrofactsTooltip = (props: MicrofactsTooltipProps) => {
                   rel="noopener"
                 >
                   <Typography
-                    sx={{ textTransform: 'capitalize', paddingLeft: 0.5 }}
+                    sx={{
+                      textTransform: 'capitalize',
+                      paddingLeft: 0.5,
+                      color: 'black',
+                    }}
                   >
                     {entity.domain}
                   </Typography>
