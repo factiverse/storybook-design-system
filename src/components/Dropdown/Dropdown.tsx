@@ -1,16 +1,22 @@
-import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+import {
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  SelectChangeEvent,
+} from '@mui/material';
 import React from 'react';
 
 export interface DropdownProps {
   label?: string;
-  handleChange?: () => void;
+  handleChange: (event: SelectChangeEvent) => void;
   values: string[];
-  defaultValue: string;
+  value: string;
   margin?: 'none' | 'normal' | 'dense';
 }
 
 const Dropdown = (props: DropdownProps) => {
-  const { label, handleChange, values, defaultValue, margin = 'none' } = props;
+  const { label, handleChange, values, value, margin = 'none' } = props;
 
   return (
     <FormControl fullWidth margin={margin}>
@@ -18,7 +24,7 @@ const Dropdown = (props: DropdownProps) => {
       <Select
         labelId="demo-simple-select-label"
         id="demo-simple-select"
-        value={defaultValue}
+        value={value}
         label={label}
         onChange={handleChange}
       >
