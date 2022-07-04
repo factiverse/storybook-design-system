@@ -98,7 +98,7 @@ export const MicrofactsTooltip = (props: MicrofactsTooltipProps) => {
             <Grid container spacing={1} direction="column">
               <Grid item>
                 <Link href={entity.page_url} target="_blank" rel="noopener">
-                  <Typography variant="h5" color="black">
+                  <Typography variant="h5" sx={{ color: '#1976d2' }}>
                     {entity.entity}
                   </Typography>
                 </Link>
@@ -115,7 +115,7 @@ export const MicrofactsTooltip = (props: MicrofactsTooltipProps) => {
                     sx={{
                       textTransform: 'capitalize',
                       paddingLeft: 0.5,
-                      color: 'black',
+                      color: '#1976d2',
                     }}
                   >
                     {entity.domain}
