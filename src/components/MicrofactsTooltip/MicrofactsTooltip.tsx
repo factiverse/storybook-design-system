@@ -104,7 +104,7 @@ export const MicrofactsTooltip = (props: MicrofactsTooltipProps) => {
                 </Link>
                 <Typography>Type: {entity.entity_type}</Typography>
               </Grid>
-              <Grid container alignItems="center" ml={1}>
+              <Grid container alignItems="center" ml={0.5}>
                 <Typography>Source: </Typography>
                 <Link
                   href={entity?.page_url?.replace(/[^/]+$/, '')}

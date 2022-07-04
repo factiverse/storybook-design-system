@@ -24,7 +24,6 @@
     "outDir": "dist",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
-    "emitDeclarationOnly": true,
-    "lib": ["ES2021.String"]
+    "emitDeclarationOnly": true
   }
 }

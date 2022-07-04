@@ -35,7 +35,7 @@ const ReaderView: React.FC<MicrofactsArticleProps> = ({
           return entity.entity;
         })
         .join('|')
-        .replaceAll(' ', '\\s') +
+        .replace(' ', '\\s') +
       ')',
     'g'
   );
