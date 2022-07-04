@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import useState from 'storybook-addon-state';
 import SearchBar from './SearchBar';
 
 import { within, userEvent, waitFor } from '@storybook/testing-library';
@@ -52,7 +51,7 @@ const Template: ComponentStory<typeof SearchBar> = (args) => (
 );
 
 export const WithState = () => {
-  const [value, setValue] = useState('onChange', '');
+  const [value, setValue] = useState<string>('');
 
   return <SearchBar value={value} onChange={setValue} onSearch={setValue} />;
 };
