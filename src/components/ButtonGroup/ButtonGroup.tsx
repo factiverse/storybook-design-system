@@ -5,7 +5,7 @@ import Button from '../Button';
 
 export interface ButtonGroupProps {
   title?: string;
-  onClick: () => void;
+  onClick: (value: string) => void;
   buttons: string[];
   value: string;
   startIcon?: JSX.Element;
@@ -41,7 +41,7 @@ const ButtonGroup = (props: ButtonGroupProps) => {
             <Grid key={key} item>
               <Button
                 variant="contained"
-                onClick={onClick}
+                onClick={() => onClick(button)}
                 color={button === value ? 'primary' : 'secondary'}
                 startIcon={button === buttonWithIcon && startIcon}
                 sx={

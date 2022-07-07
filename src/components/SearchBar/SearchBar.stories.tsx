@@ -1,5 +1,5 @@
-import React from 'react';
-import { Story, Meta } from '@storybook/react';
+import React, { useState } from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import SearchBar from './SearchBar';
 
 import { within, userEvent, waitFor } from '@storybook/testing-library';
@@ -44,9 +44,11 @@ export default {
     },
   },
   parameters: { actions: { argTypesRegex: '^on.*' } },
-} as Meta;
+} as ComponentMeta<typeof SearchBar>;
 
-const Template: Story = ({ ...args }) => <SearchBar {...args} />;
+const Template: ComponentStory<typeof SearchBar> = (args) => (
+  <SearchBar {...args} />
+);
 
 export const Default = Template.bind({});
 
