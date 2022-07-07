@@ -12,6 +12,5 @@ const Template: Story = ({ ...args }) => <SunLoader {...args} />;
 
 export const SunLoaderWithText = Template.bind({});
 SunLoaderWithText.args = {
-  loadingText: 'Unblurring the lines ...'
+  loadingText: 'Unblurring the lines ...',
 };
-
