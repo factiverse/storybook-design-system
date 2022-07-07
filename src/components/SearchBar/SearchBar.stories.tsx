@@ -7,8 +7,6 @@ import { within, userEvent, waitFor } from '@storybook/testing-library';
 
 import { expect } from '@storybook/jest';
 
-import { useArgs } from '@storybook/client-api';
-
 export default {
   title: 'Components/SearchBar',
   component: SearchBar,
@@ -52,25 +50,6 @@ export default {
 const Template: ComponentStory<typeof SearchBar> = (args) => (
   <SearchBar {...args} />
 );
-
-export const WithState = () => {
-  const [value, setValue] = useState('onChange', '');
-
-  return <SearchBar value={value} onChange={setValue} onSearch={setValue} />;
-};
-
-export const WithArgsState = () => {
-  const [{ value }, updateArgs] = useArgs();
-  const handleChange = (newValue: string) => updateArgs({ value: newValue });
-
-  return (
-    <SearchBar
-      value={value}
-      onChange={handleChange}
-      onSearch={() => alert('Searching ' + value)}
-    />
-  );
-};
 
 export const Default = Template.bind({});
 

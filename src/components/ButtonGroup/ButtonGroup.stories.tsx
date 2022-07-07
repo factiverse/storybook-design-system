@@ -4,8 +4,6 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import ButtonGroup from './ButtonGroup';
 import WikipediaIcon from '../../icons/WikipediaIcon';
 
-import { useArgs } from '@storybook/client-api';
-
 export default {
   title: 'Components/ButtonGroup',
   component: ButtonGroup,
@@ -29,6 +27,12 @@ const Template: ComponentStory<typeof ButtonGroup> = (args) => (
   <ButtonGroup {...args} />
 );
 
+export const Default = Template.bind({});
+Default.args = {
+  buttons: ['All Topics', 'Ukraine', 'COVID-19'],
+  value: 'All Topics',
+};
+
 export const WithState = () => {
   const [value, setValue] = useState('click', 'Ukraine');
   return (
@@ -38,25 +42,6 @@ export const WithState = () => {
       onClick={setValue}
     />
   );
-};
-
-export const WithArgsState = () => {
-  const [{ value }, updateArgs] = useArgs();
-  const handleClick = (newValue: string) => updateArgs({ value: newValue });
-
-  return (
-    <ButtonGroup
-      buttons={['All Topics', 'Ukraine', 'COVID-19']}
-      value={value}
-      onClick={handleClick}
-    />
-  );
-};
-
-export const Default = Template.bind({});
-Default.args = {
-  buttons: ['All Topics', 'Ukraine', 'COVID-19'],
-  value: 'All Topics',
 };
 
 export const WithTitle = Template.bind({});
