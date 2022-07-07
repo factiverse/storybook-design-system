@@ -1,5 +1,4 @@
-import React, { ChangeEvent, useCallback } from 'react';
-import useState from 'storybook-addon-state';
+import React, { useState, ChangeEvent, useCallback } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import CheckboxGroup from './CheckboxGroup';
 
@@ -33,7 +32,7 @@ const Template: ComponentStory<typeof CheckboxGroup> = (args) => (
 );
 
 export const WithState = () => {
-  const [checkbox, setCheckbox] = useState('onChange', ['Supported']);
+  const [checkbox, setCheckbox] = useState<string[]>(['Supported']);
 
   const handleChange = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {

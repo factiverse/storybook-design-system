@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import useState from 'storybook-addon-state';
 import SearchBar from './SearchBar';
 
 import { within, userEvent, waitFor } from '@storybook/testing-library';

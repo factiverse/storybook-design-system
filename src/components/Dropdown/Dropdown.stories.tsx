@@ -1,5 +1,4 @@
-import React from 'react';
-import useState from 'storybook-addon-state';
+import React, { useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Dropdown from './Dropdown';
 import { SelectChangeEvent } from '@mui/material';
@@ -23,7 +22,7 @@ const Template: ComponentStory<typeof Dropdown> = (args) => (
 );
 
 export const WithState = () => {
-  const [dropdown, setDropdown] = useState('onChange', 'days');
+  const [dropdown, setDropdown] = useState<string>('days');
   return (
     <Dropdown
       values={['days', 'months', 'years']}

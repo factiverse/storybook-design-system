@@ -1,5 +1,4 @@
-import React from 'react';
-import useState from 'storybook-addon-state';
+import React, { useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import ButtonGroup from './ButtonGroup';
 import WikipediaIcon from '../../icons/WikipediaIcon';
@@ -34,7 +33,7 @@ Default.args = {
 };
 
 export const WithState = () => {
-  const [value, setValue] = useState('click', 'Ukraine');
+  const [value, setValue] = useState<string>('Ukraine');
   return (
     <ButtonGroup
       buttons={['All Topics', 'Ukraine', 'COVID-19']}
