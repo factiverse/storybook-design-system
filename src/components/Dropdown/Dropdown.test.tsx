@@ -10,7 +10,7 @@ describe('Dropdown component', () => {
         label="Choose duration"
         handleChange={() => console.log('handleChange')}
         values={['days', 'months', 'years']}
-        defaultValue="days"
+        value="days"
       />
     );
   });
