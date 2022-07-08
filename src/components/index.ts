@@ -7,6 +7,7 @@ export { default as SearchBar } from './SearchBar';
 export { default as TextField } from './TextField';
 export { default as Typography } from './Typography';
 export { default as MicrofactsTooltip } from './MicrofactsTooltip';
+export { default as MicrofactsArticle } from './MicrofactsArticle';
 export { default as ButtonGroup } from './ButtonGroup';
 export { default as RadioButtons } from './RadioButtons';
 export { default as CheckboxGroup } from './CheckboxGroup';
