@@ -79,8 +79,7 @@
     "@mui/styles": "^5.8.0",
     "i18next": "^21.8.11",
     "react-string-replace": "^1.1.0",
-    "reactjs-popup": "^2.0.5",
-    "storybook-addon-state": "^1.0.3"
+    "reactjs-popup": "^2.0.5"
   },
   "engines": {
     "node": "17.x",
