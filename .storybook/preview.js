@@ -28,7 +28,6 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: 'DM Mono',
     button: {
       fontFamily: 'DM Mono',
     },
