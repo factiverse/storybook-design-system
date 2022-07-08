@@ -41,38 +41,27 @@ const ReaderView: React.FC<MicrofactsArticleProps> = ({
   );
 
   return (
-    <Card>
-      <Box p={2}>
-        <Grid container direction="column" spacing={4} alignItems="center">
-          <Grid item>
-            <Typography variant="h4">{headline}</Typography>
-          </Grid>
-          <Grid item>
-            <img src={image} alt="headline" width={600} />
-          </Grid>
-          <Grid item>
-            <Typography style={{ whiteSpace: 'pre-line' }}>
-              {reactStringReplace(
-                inputText,
-                regex,
-                (match: string, i: number) => (
-                  <MicrofactsTooltip
-                    key={match + i}
-                    entity={getEntity(match) as Entity}
-                    updateEntity={
-                      updateEntity as (
-                        toReplace: Entity,
-                        newEntity: Entity
-                      ) => void
-                    }
-                  />
-                )
-              )}
-            </Typography>
-          </Grid>
-        </Grid>
-      </Box>
-    </Card>
+    <Grid container direction="column" spacing={4} alignItems="center">
+      <Grid item>
+        <Typography variant="h4">{headline}</Typography>
+      </Grid>
+      <Grid item>
+        <img src={image} alt="headline" width={600} />
+      </Grid>
+      <Grid item>
+        <Typography style={{ whiteSpace: 'pre-line' }}>
+          {reactStringReplace(inputText, regex, (match: string, i: number) => (
+            <MicrofactsTooltip
+              key={match + i}
+              entity={getEntity(match) as Entity}
+              updateEntity={
+                updateEntity as (toReplace: Entity, newEntity: Entity) => void
+              }
+            />
+          ))}
+        </Typography>
+      </Grid>
+    </Grid>
   );
 };
 
