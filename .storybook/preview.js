@@ -28,6 +28,7 @@ const theme = createTheme({
     },
   },
   typography: {
+    fontFamily: 'DM Mono',
     button: {
       fontFamily: 'DM Mono',
     },
@@ -38,8 +39,8 @@ const theme = createTheme({
         root: ({ ownerState }) => ({
           ...(ownerState.variant === 'contained' &&
             ownerState.color === 'secondary' && {
-              boxShadow: '0px 0px 10px #f8c608',
-            }),
+            boxShadow: '0px 0px 10px #f8c608',
+          }),
         }),
       },
     },
@@ -65,6 +66,19 @@ export const parameters = {
       color: /(background|color)$/i,
       date: /Date$/,
     },
+  },
+  backgrounds: {
+    default: 'editor',
+    values: [
+      {
+        name: 'editor',
+        value: '#eeeeee',
+      },
+      {
+        name: 'dark',
+        value: '#333333',
+      },
+    ],
   },
   // Add docs for MUI v5
   docs: {
