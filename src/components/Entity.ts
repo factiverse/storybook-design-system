@@ -5,7 +5,7 @@ export type Entity = {
   entId: number;
   entity: string;
   entity_match: boolean;
-  entity_type: string;
+  entity_type: EntityType;
   image_url: string;
   image_lic: string;
   kbId: string;
@@ -56,3 +56,32 @@ export type Entity = {
   // True after the user has given feedback after they deleted an entity
   hasGivenFeedbackAfterDeleted?: boolean;
 };
+
+// entity types from https://github.com/ltgoslo/norne
+export enum EntityType {
+  PER = 'Person',
+  ORG = 'Organization',
+  LOC = 'Location',
+  GPE = 'Geo-political entity',
+  GPE_LOC = 'Geo-political entity',
+  GPE_ORG = 'Geo-political entity',
+  PROD = 'Product',
+  EVT = 'Event',
+  MISC = 'Miscellaneous',
+  DRV = 'Derived',
+  CARDINAL = 'Cardinal',
+  DATE = 'Date',
+  EVENT = 'Event',
+  FAC = 'Facility',
+  LANGUAGE = 'Language',
+  LAW = 'Law',
+  MONEY = 'Money',
+  NORP = 'Nationality or religious or political group',
+  ORDINAL = 'Ordinal',
+  PERCENT = 'Percent',
+  PERSON = 'Person',
+  PRODUCT = 'Product',
+  QUANTITY = 'Quantity',
+  TIME = 'Duration',
+  WORK_OF_ART = 'Work of art',
+}

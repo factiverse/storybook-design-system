@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import MicrofactsArticle from './MicrofactsArticle';
-import { EntityType } from '../MicrofactsTooltip/MicrofactsTooltip';
+import { EntityType } from '..//Entity';
 import articlePhoto from '../../img/harry-potter.jpg';
 
 const entities = [

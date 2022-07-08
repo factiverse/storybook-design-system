@@ -23,13 +23,6 @@ const useStyles = makeStyles((theme: Theme) =>
     cursor: 'pointer',
   },
 })(Box); */
-
-export enum EntityType {
-  PER = 'Person',
-  ORG = 'Organization',
-  LOC = 'Location',
-}
-
 export interface MicrofactsTooltipProps {
   entity: Entity;
   updateEntity: (toReplace: Entity, newEntity: Entity) => void;
@@ -86,7 +79,6 @@ export const MicrofactsTooltip = (props: MicrofactsTooltipProps) => {
             'right top',
           ]}
           onClose={onCloseFeedback}
-          on={['hover', 'focus']}
           mouseEnterDelay={100}
           mouseLeaveDelay={300}
         >
@@ -97,7 +89,12 @@ export const MicrofactsTooltip = (props: MicrofactsTooltipProps) => {
           >
             <Grid container spacing={1} direction="column">
               <Grid item>
-                <Link href={entity.page_url} target="_blank" rel="noopener">
+                <Link
+                  href={entity.page_url}
+                  target="_blank"
+                  rel="noopener"
+                  sx={{ outline: 'none' }} // TODO: How to disable default focus outline when Microfact is clicked? focus should only show once 'tab' is pressed
+                >
                   <Typography variant="h5" sx={{ color: '#1976d2' }}>
                     {entity.entity}
                   </Typography>
