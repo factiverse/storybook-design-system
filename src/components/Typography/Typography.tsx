@@ -15,6 +15,7 @@ export const Typography = (props: TypographyProps) => {
     gutterBottom = false,
     noWrap = false,
     paragraph = false,
+    fontFamily = 'Arizona Serif',
     sx,
   } = props;
 
@@ -30,6 +31,7 @@ export const Typography = (props: TypographyProps) => {
         noWrap={noWrap}
         paragraph={paragraph}
         sx={sx}
+        fontFamily={fontFamily}
         {...props}
       >
         {children}
