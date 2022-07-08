@@ -73,7 +73,7 @@ const SearchBar = (props: SearchBarProps) => {
             <InputAdornment position="end">
               <Button
                 variant={'contained'}
-                color={color}
+                color="secondary"
                 disabled={disabled}
                 onClick={handleClick}
               >

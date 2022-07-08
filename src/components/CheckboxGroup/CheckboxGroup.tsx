@@ -67,7 +67,7 @@ const CheckboxGroup = (props: CheckboxGroupProps) => {
                   name={checkbox}
                   size="small"
                   value={checkbox}
-                  color="primary"
+                  color="secondary"
                 />
               }
               disabled={disabled?.includes(checkbox)}
