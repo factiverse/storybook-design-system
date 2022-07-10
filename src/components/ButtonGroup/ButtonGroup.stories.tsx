@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import ButtonGroup from './ButtonGroup';
 import WikipediaIcon from '../../icons/WikipediaIcon';
@@ -8,6 +8,7 @@ export default {
   component: ButtonGroup,
   argTypes: {
     title: { control: 'text' },
+    value: { control: 'text', defaultValue: 'All Topics' },
     startIcon: {
       control: {
         type: 'element',
@@ -29,7 +30,17 @@ export const Default = Template.bind({});
 Default.args = {
   buttons: ['All Topics', 'Ukraine', 'COVID-19'],
   value: 'All Topics',
-  onClick: () => console.log('All topics'),
+};
+
+export const WithState = () => {
+  const [value, setValue] = useState<string>('Ukraine');
+  return (
+    <ButtonGroup
+      buttons={['All Topics', 'Ukraine', 'COVID-19']}
+      value={value}
+      onClick={setValue}
+    />
+  );
 };
 
 export const WithTitle = Template.bind({});
@@ -37,7 +48,6 @@ WithTitle.args = {
   title: 'Discover recent fact checks on:',
   buttons: ['All Topics', 'Ukraine', 'COVID-19'],
   value: 'All Topics',
-  onClick: () => console.log('All topics'),
 };
 
 export const LanguageButtons = Template.bind({});
@@ -47,7 +57,6 @@ LanguageButtons.args = {
   startIcon: <WikipediaIcon />,
   value: 'Wikipedia',
   buttonWithIcon: 'Wikipedia',
-  onClick: () => console.log('All topics'),
   selectedButtonStyles: {
     backgroundColor: 'black',
     color: 'white',

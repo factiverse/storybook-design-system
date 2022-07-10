@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, ChangeEvent, useCallback } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import CheckboxGroup from './CheckboxGroup';
 
@@ -30,6 +30,50 @@ export default {
 const Template: ComponentStory<typeof CheckboxGroup> = (args) => (
   <CheckboxGroup {...args} />
 );
+
+export const WithState = () => {
+  const [checkbox, setCheckbox] = useState<string[]>(['Supported']);
+
+  const handleChange = useCallback(
+    (event: ChangeEvent<HTMLInputElement>) => {
+      const isChecked = event.target.checked;
+      const checked = event.target.value;
+      const checkedValues = isChecked
+        ? [...checkbox, checked]
+        : [...checkbox.filter((c) => c !== checked)];
+      setCheckbox(checkedValues);
+    },
+    [checkbox]
+  );
+
+  const handleChangeAll = useCallback(
+    (event: ChangeEvent<HTMLInputElement>) => {
+      const isChecked = event.target.checked;
+      const checkedValues = isChecked
+        ? ['Supported', 'Unsupported', 'Academia', 'News', 'Social Media']
+        : [];
+      setCheckbox(checkedValues);
+    },
+    []
+  );
+
+  return (
+    <CheckboxGroup
+      allCheckbox={true}
+      handleChangeAll={handleChangeAll}
+      handleChange={handleChange}
+      title="Claims"
+      checkedValues={checkbox}
+      checkboxes={[
+        'Supported',
+        'Unsupported',
+        'Academia',
+        'News',
+        'Social Media',
+      ]}
+    />
+  );
+};
 
 export const Default = Template.bind({});
 Default.args = {

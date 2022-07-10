@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 import {
   Box,
   Checkbox,
@@ -14,11 +14,11 @@ export interface CheckboxGroupProps {
   title: string;
   helperText?: string;
   checkboxes: string[];
-  handleChange: () => void;
+  handleChange: (event: ChangeEvent<HTMLInputElement>) => void;
   disabled?: string[];
   checkedValues: string[];
   allCheckbox?: boolean;
-  handleChangeAll?: () => void;
+  handleChangeAll?: (event: ChangeEvent<HTMLInputElement>) => void;
   margin?: 'none' | 'normal' | 'dense';
 }
 
@@ -67,7 +67,7 @@ const CheckboxGroup = (props: CheckboxGroupProps) => {
                   name={checkbox}
                   size="small"
                   value={checkbox}
-                  color="primary"
+                  color="secondary"
                 />
               }
               disabled={disabled?.includes(checkbox)}
