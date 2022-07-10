@@ -2,33 +2,26 @@ import React, { ChangeEventHandler, MouseEventHandler } from 'react';
 import { FormControl, Typography, InputAdornment } from '@mui/material';
 import TextField from '../TextField';
 import Button from '../Button';
-import {
-  ComponentSize,
-  ComponentVariant,
-  ComponentColor,
-} from '../../config/sizes';
+import { ComponentVariant, ComponentColor } from '../../config/sizes';
 
 export interface SearchBarProps {
-  size?: ComponentSize;
   width?: string;
-  value?: string;
-  onChange?: ChangeEventHandler<HTMLInputElement>;
-  onClick?: MouseEventHandler<HTMLButtonElement>;
+  value: string;
+  onChange: (newValue: string) => void;
+  onSearch: (value: string) => void;
   placeholder?: string;
   variant?: ComponentVariant;
   color?: ComponentColor;
   disabled?: boolean;
   focused?: boolean;
   label?: string;
+  error?: boolean;
+  helperText?: string;
   sx?: object;
 }
 
-const SearchBar: React.ForwardRefRenderFunction<
-  HTMLDivElement,
-  SearchBarProps
-> = (props) => {
+const SearchBar = (props: SearchBarProps) => {
   const {
-    size = 'medium',
     value,
     onChange,
     placeholder,
@@ -37,9 +30,19 @@ const SearchBar: React.ForwardRefRenderFunction<
     disabled = false,
     focused = false,
     label,
-    onClick,
+    error,
+    helperText,
+    onSearch,
     sx,
   } = props;
+
+  const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
+    onChange(event.target.value);
+  };
+
+  const handleClick: MouseEventHandler<HTMLButtonElement> = () => {
+    onSearch(value);
+  };
 
   return (
     <FormControl fullWidth variant={variant} sx={sx}>
@@ -47,9 +50,11 @@ const SearchBar: React.ForwardRefRenderFunction<
         focused={focused}
         variant={variant}
         value={value}
-        onChange={onChange}
+        onChange={handleChange}
         color={color}
         label={label}
+        error={error}
+        helperText={helperText}
         // TODO: # 125 Use random/popular claims as the placeholder, let the user check one without having to type anything
         placeholder={placeholder}
         sx={{
@@ -67,11 +72,10 @@ const SearchBar: React.ForwardRefRenderFunction<
           endAdornment: (
             <InputAdornment position="end">
               <Button
-                size={size}
                 variant={'contained'}
-                color={color}
+                color="secondary"
                 disabled={disabled}
-                onClick={onClick}
+                onClick={handleClick}
               >
                 <Typography variant="button">Check claim</Typography>
               </Button>

@@ -1,15 +1,50 @@
 import React from 'react';
-// import { ThemeProvider, createTheme } from '@mui/material';
+import { createTheme } from '@mui/material';
 import { muiTheme } from 'storybook-addon-material-ui5';
-
 /**
  * Display test results within Storybook
  * run `npm run test:watch` to keep the test output file up to date
  */
 import { addDecorator } from '@storybook/react';
 import { withTests } from '@storybook/addon-jest';
-
 import results from '../testOutput.json';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#ffffff',
+    },
+    secondary: {
+      main: '#f8c608',
+    },
+    error: {
+      main: '#f72525',
+    },
+    warning: {
+      main: '#fecd0c',
+    },
+    success: {
+      main: '#0ccb58',
+    },
+  },
+  typography: {
+    button: {
+      fontFamily: 'DM Mono',
+    },
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: ({ ownerState }) => ({
+          ...(ownerState.variant === 'contained' &&
+            ownerState.color === 'secondary' && {
+            boxShadow: '0px 0px 10px #f8c608',
+          }),
+        }),
+      },
+    },
+  },
+});
 
 addDecorator(
   withTests({
@@ -17,16 +52,7 @@ addDecorator(
   })
 );
 
-// import { muiTheme } from 'storybook-addon-material-ui'
-
-export const decorators = [
-  muiTheme(),
-  (Story) => (
-    <>
-      <Story />
-    </>
-  ),
-];
+export const decorators = [muiTheme(theme)];
 
 /*
  * More on Storybook global parameters at:
@@ -39,6 +65,19 @@ export const parameters = {
       color: /(background|color)$/i,
       date: /Date$/,
     },
+  },
+  backgrounds: {
+    default: 'editor',
+    values: [
+      {
+        name: 'editor',
+        value: '#eeeeee',
+      },
+      {
+        name: 'dark',
+        value: '#333333',
+      },
+    ],
   },
   // Add docs for MUI v5
   docs: {

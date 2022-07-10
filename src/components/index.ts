@@ -1,15 +1,17 @@
 export { default as Autocomplete } from './Autocomplete';
-
 export { default as Button } from './Button';
-
 export { default as Header } from './Header';
-
 export { default as Footer } from './Footer';
-
 export { default as Claim } from './Claim';
-
 export { default as SearchBar } from './SearchBar';
-
 export { default as TextField } from './TextField';
-
 export { default as Typography } from './Typography';
+export { default as MicrofactsTooltip } from './MicrofactsTooltip';
+export { default as MicrofactsArticle } from './MicrofactsArticle';
+export { default as ButtonGroup } from './ButtonGroup';
+export { default as RadioButtons } from './RadioButtons';
+export { default as CheckboxGroup } from './CheckboxGroup';
+export { default as SupportIcon } from './SupportIcon';
+export { default as Dropdown } from './Dropdown';
+export { default as ToggleButton } from './ToggleButton';
+export { default as SupportIndicator } from './SupportIndicator';
