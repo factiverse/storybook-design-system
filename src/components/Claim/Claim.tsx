@@ -79,9 +79,9 @@ const Claim = (props: ClaimProps) => {
                       style={{ width: 25, height: 25 }}
                       src={'https://' + claim.domain + '/favicon.ico'}
                       alt={'favicon ' + claim.domain}
-                      onError={(i) =>
+                      /* onError={(i) =>
                         ((i.target as HTMLImageElement).style.display = 'none')
-                      }
+                      } */
                     />
                   </Grid>
                   <Grid item>

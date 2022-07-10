@@ -6,9 +6,9 @@ import { ComponentVariant, ComponentColor } from '../../config/sizes';
 
 export interface SearchBarProps {
   width?: string;
-  value?: string;
-  onChange?: (newValue: string) => void;
-  onSearch?: () => void;
+  value: string;
+  onChange: (newValue: string) => void;
+  onSearch: (value: string) => void;
   placeholder?: string;
   variant?: ComponentVariant;
   color?: ComponentColor;
@@ -20,10 +20,7 @@ export interface SearchBarProps {
   sx?: object;
 }
 
-const SearchBar: React.ForwardRefRenderFunction<
-  HTMLDivElement,
-  SearchBarProps
-> = (props) => {
+const SearchBar = (props: SearchBarProps) => {
   const {
     value,
     onChange,
@@ -40,11 +37,11 @@ const SearchBar: React.ForwardRefRenderFunction<
   } = props;
 
   const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
-    if (onChange != undefined) onChange(event.target.value);
+    onChange(event.target.value);
   };
 
   const handleClick: MouseEventHandler<HTMLButtonElement> = () => {
-    if (onSearch != undefined) onSearch();
+    onSearch(value);
   };
 
   return (
@@ -76,7 +73,7 @@ const SearchBar: React.ForwardRefRenderFunction<
             <InputAdornment position="end">
               <Button
                 variant={'contained'}
-                color={color}
+                color="secondary"
                 disabled={disabled}
                 onClick={handleClick}
               >

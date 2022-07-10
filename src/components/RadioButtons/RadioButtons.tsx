@@ -41,7 +41,7 @@ const RadioButtons = (props: RadioButtonsProps) => {
           <FormControlLabel
             key={key}
             value={button}
-            control={<Radio size="small" color="primary" />}
+            control={<Radio size="small" color="secondary" />}
             label={<Typography variant="subtitle2">{button}</Typography>}
           />
         ))}
