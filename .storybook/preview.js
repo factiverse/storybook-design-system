@@ -12,19 +12,16 @@ import results from '../testOutput.json';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#ffffff',
+      main: '#E8EBEC',
     },
     secondary: {
+      main: 'rgba(0,0,0,0.7)',
+    },
+    tertiary: {
+      light: '#FFE275',
       main: '#f8c608',
-    },
-    error: {
-      main: '#f72525',
-    },
-    warning: {
-      main: '#fecd0c',
-    },
-    success: {
-      main: '#0ccb58',
+      dark: '#C7A008',
+      contrastText: '#000',
     },
   },
   typography: {
@@ -32,18 +29,18 @@ const theme = createTheme({
       fontFamily: 'DM Mono',
     },
   },
-  components: {
-    MuiButton: {
-      styleOverrides: {
-        root: ({ ownerState }) => ({
-          ...(ownerState.variant === 'contained' &&
-            ownerState.color === 'secondary' && {
-            boxShadow: '0px 0px 10px #f8c608',
-          }),
-        }),
-      },
-    },
-  },
+  // components: {
+  //   MuiButton: {
+  //     styleOverrides: {
+  //       root: ({ ownerState }) => ({
+  //         ...(ownerState.variant === 'contained' &&
+  //           ownerState.color === 'secondary' && {
+  //             boxShadow: '0px 0px 10px #f8c608',
+  //           }),
+  //       }),
+  //     },
+  //   },
+  // },
 });
 
 addDecorator(
@@ -67,11 +64,11 @@ export const parameters = {
     },
   },
   backgrounds: {
-    default: 'editor',
+    default: 'light',
     values: [
       {
-        name: 'editor',
-        value: '#eeeeee',
+        name: 'light',
+        value: '#E8EBEC',
       },
       {
         name: 'dark',
@@ -90,10 +87,5 @@ export const parameters = {
     element: '#root',
     // sets the execution mode for the addon
     manual: false,
-  },
-  options: {
-    storySort: {
-      order: ['Introduction', 'Colors', 'Typography'],
-    },
   },
 };

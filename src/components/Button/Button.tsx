@@ -1,19 +1,13 @@
 import React from 'react';
 import { Button as ButtonMUI, ButtonProps } from '@mui/material';
 
-export const Button = ({
-  variant,
-  size,
-  color = 'secondary',
-  disabled,
-  ...props
-}: ButtonProps) => {
+export const Button = ({ variant, color, disabled, ...props }: ButtonProps) => {
   return (
     <ButtonMUI
       variant={variant}
-      size={size}
       color={color}
       disabled={disabled}
+      sx={{ borderRadius: '8px' }}
       {...props}
     />
   );
@@ -21,9 +15,6 @@ export const Button = ({
 
 Button.defaultProps = {
   variant: 'contained',
-  size: 'medium',
-  color: 'primary',
-  disabled: false,
 };
 
 export default Button;

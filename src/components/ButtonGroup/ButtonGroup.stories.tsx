@@ -65,7 +65,6 @@ LanguageButtons.args = {
   },
   unselectedButtonStyles: {
     boxShadow: 'none',
-    borderRadius: '10px',
     backgroundColor: 'lightgrey',
   },
 };

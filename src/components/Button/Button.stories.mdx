@@ -1,0 +1,61 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+
+import { Button } from './Button';
+
+import { within, userEvent, waitFor } from '@storybook/testing-library';
+
+import { expect } from '@storybook/jest';
+
+<Meta
+  title="UI components/Button"
+  argTypes={{
+    onClick: {
+      action: true,
+    },
+  }}
+  component={Button}
+/>
+
+# Buttons
+
+## Usage
+
+- `color="primary"` for the most common interactions
+- `color="secondary"` for important interactions
+- `color="tertitary"` for only the most important interactions to **draw attention**
+
+<Canvas>
+  <Story name="All Buttons">
+    <form>
+      <Button color="primary">Primary</Button>{' '}
+      <Button color="secondary">Secondary</Button>{' '}
+      <Button color="tertiary">Tertiary</Button>{' '}
+      <Button variant="text" color="secondary">
+        Text
+      </Button>{' '}
+      <Button variant="outlined" color="secondary">
+        Outlined
+      </Button>{' '}
+      <Button disabled>Disabled</Button>
+    </form>
+  </Story>
+</Canvas>
+
+export const Template = (args) => <Button {...args}>Button</Button>;
+
+<Canvas>
+  <Story
+    name="Button click"
+    play={async ({ args, canvasElement }) => {
+      const canvas = within(canvasElement);
+      await userEvent.click(canvas.getByRole('button'));
+      await waitFor(() => expect(args.onClick).toHaveBeenCalled());
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Args Table
+
+<ArgsTable of={Button} />
