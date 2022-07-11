@@ -36,11 +36,6 @@ export const SupportIndicator: React.FC<SupportIndicatorProps> = ({
   if (score >= 0.4 && score < 0.6) circleColor = yellowColor;
   if (score >= 0.6) circleColor = greenColor;
 
-  let label = '';
-  if (score < 0.4) label = 'disputing';
-  if (score >= 0.4 && score < 0.6) label = 'balanced';
-  if (score >= 0.6) label = 'supporting';
-
   let tooltip = '';
   if (tooltips !== undefined) {
     if (score < 0.4) tooltip = tooltips[2];
