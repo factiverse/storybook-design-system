@@ -27,19 +27,14 @@ const theme = createTheme({
       main: '#0ccb58',
     },
   },
-  typography: {
-    button: {
-      fontFamily: 'DM Mono',
-    },
-  },
   components: {
     MuiButton: {
       styleOverrides: {
         root: ({ ownerState }) => ({
           ...(ownerState.variant === 'contained' &&
             ownerState.color === 'secondary' && {
-            boxShadow: '0px 0px 10px #f8c608',
-          }),
+              boxShadow: '0px 0px 10px #f8c608',
+            }),
         }),
       },
     },

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Box, Grid, Link, Paper, Theme } from '@mui/material';
 import Popup from 'reactjs-popup';
-// import withStyles from '@mui/styles/withStyles';
 import Typography from '../Typography';
 import makeStyles from '@mui/styles/makeStyles';
 import createStyles from '@mui/styles/createStyles';
@@ -17,12 +16,6 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-/* const HighlightedText = withStyles({
-  root: {
-    backgroundColor: '#FFF9DA',
-    cursor: 'pointer',
-  },
-})(Box); */
 export interface MicrofactsTooltipProps {
   entity: Entity;
   updateEntity: (toReplace: Entity, newEntity: Entity) => void;
