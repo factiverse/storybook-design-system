@@ -27,6 +27,11 @@ const theme = createTheme({
       main: '#0ccb58',
     },
   },
+  typography: {
+    button: {
+      fontFamily: 'DM Mono',
+    },
+  },
   components: {
     MuiButton: {
       styleOverrides: {

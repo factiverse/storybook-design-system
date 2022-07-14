@@ -2,10 +2,10 @@ import React from 'react';
 import { Button as ButtonMUI, ButtonProps } from '@mui/material';
 
 export const Button = ({
-  variant,
-  size,
+  variant = 'contained',
+  size = 'medium',
   color = 'secondary',
-  disabled,
+  disabled = false,
   ...props
 }: ButtonProps) => {
   return (
@@ -17,13 +17,6 @@ export const Button = ({
       {...props}
     />
   );
-};
-
-Button.defaultProps = {
-  variant: 'contained',
-  size: 'medium',
-  color: 'primary',
-  disabled: false,
 };
 
 export default Button;

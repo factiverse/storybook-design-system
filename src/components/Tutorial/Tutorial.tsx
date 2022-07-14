@@ -9,35 +9,39 @@ import { useTheme } from '@mui/material/styles';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import classnames from 'classnames';
+import logo from '../../img/Logo.png';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     tutorialWrapper: {
       top: '50%',
-      margin: 'auto',
     },
     tutorialBody: {
-      maxWidth: 400,
-      width: 400,
       flexGrow: 1,
       position: 'relative',
+    },
+    tutorialBodyFirstLast: {
+      width: 400,
+    },
+    tutorialBodyMiddle: {
+      width: 330,
     },
     textWrapper: {
       height: 255,
       padding: theme.spacing(3),
       background: '#FCFCFC',
+      textAlign: 'center',
     },
     textWrapperRadius: {
       borderRadius: 5,
     },
     textWrapperStepRadius: {
       borderTopLeftRadius: 5,
-      borderTopRightRadius: 5,
     },
     firstStep: {
       background: '#FCFCFC',
       textAlign: 'center',
-      marginTop: '-15px',
+      marginTop: '-23px',
       borderRadius: 5,
     },
     skipTour: {
@@ -58,6 +62,21 @@ const useStyles = makeStyles((theme: Theme) =>
     stepper: {
       background: '#fcfcfc',
       borderBottomLeftRadius: 5,
+    },
+    imageFieldBox: {
+      width: '330px',
+      height: '351px',
+      borderTopRightRadius: 5,
+      borderBottomRightRadius: 5,
+    },
+    startTutorialButton: {
+      width: 'auto',
+      fontWeight: 600,
+    },
+    imageFieldImageStyles: {
+      width: 'inherit',
+      height: 'inherit',
+      borderTopRightRadius: 5,
       borderBottomRightRadius: 5,
     },
   })
@@ -65,7 +84,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export interface TutorialProps {
   productName: string;
-  steps: { label: string; description: string }[];
+  steps: { label: string; description: string; imageUrl?: string }[];
 }
 
 const Tutorial = (props: TutorialProps) => {
@@ -78,6 +97,8 @@ const Tutorial = (props: TutorialProps) => {
 
   const firstStep = activeStep === 0;
   const lastStep = activeStep === maxSteps - 1;
+
+  const firstOrLastCheck = firstStep || lastStep;
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -101,13 +122,25 @@ const Tutorial = (props: TutorialProps) => {
     return (
       <Box
         className={
-          firstStep || lastStep
+          firstOrLastCheck
             ? classnames(classes.textWrapperRadius, classes.textWrapper)
             : classnames(classes.textWrapperStepRadius, classes.textWrapper)
         }
       >
-        <Typography variant="h6">{steps[activeStep].description}</Typography>
-        <Typography variant="subtitle1">{steps[activeStep].label}</Typography>
+        {firstStep && <img width="180px" src={logo} alt="logo" />}
+        <Grid mt={!firstOrLastCheck ? 5 : 0}>
+          <Typography
+            variant="h6"
+            fontWeight="bold"
+            gutterBottom
+            textAlign="center"
+          >
+            {steps[activeStep].label}
+          </Typography>
+          <Typography variant="subtitle1" textAlign="center" sx={{ mt: 2 }}>
+            {steps[activeStep].description}
+          </Typography>
+        </Grid>
       </Box>
     );
   };
@@ -122,15 +155,13 @@ const Tutorial = (props: TutorialProps) => {
       >
         <Grid item xs={12}>
           <Button
-            style={{ width: 'auto' }}
+            className={classes.startTutorialButton}
             onClick={
               firstStep ? handleStartTutorial : () => setOpenTutorial(false)
             }
             color="secondary"
           >
-            <Typography variant="subtitle2" fontWeight={600}>
-              {firstStep ? 'Start a quick tour' : `Explore ${productName}`}
-            </Typography>
+            {firstStep ? 'Start a quick tour' : `Explore ${productName}`}
           </Button>
         </Grid>
         <Grid item xs={12}>
@@ -140,9 +171,7 @@ const Tutorial = (props: TutorialProps) => {
             color="inherit"
             onClick={firstStep ? () => setOpenTutorial(false) : handleBack}
           >
-            <Typography variant="subtitle2" fontWeight={600}>
-              {firstStep ? 'Skip the tour' : 'Back to the tour'}
-            </Typography>
+            {firstStep ? 'Skip the tour' : 'Back to the tour'}
           </Button>
         </Grid>
       </Grid>
@@ -162,13 +191,13 @@ const Tutorial = (props: TutorialProps) => {
         }}
         className={classes.stepper}
         nextButton={
-          <Button size="small" color="secondary" onClick={handleNext}>
-            <Typography
-              variant="subtitle1"
-              sx={{ textTransform: 'capitalize' }}
-            >
-              Next
-            </Typography>
+          <Button
+            size="small"
+            color="secondary"
+            onClick={handleNext}
+            sx={{ fontWeight: 600 }}
+          >
+            Next
             {theme.direction === 'rtl' ? (
               <KeyboardArrowLeft />
             ) : (
@@ -181,7 +210,7 @@ const Tutorial = (props: TutorialProps) => {
             color="primary"
             size="small"
             onClick={handleBack}
-            sx={{ textTransform: 'capitalize' }}
+            sx={{ fontWeight: 600 }}
             disabled={activeStep === 0}
           >
             {theme.direction === 'rtl' ? (
@@ -189,15 +218,26 @@ const Tutorial = (props: TutorialProps) => {
             ) : (
               <KeyboardArrowLeft />
             )}
-            <Typography>Back</Typography>
+            Back
           </Button>
         }
       />
     );
   };
 
+  const ImageField = () => {
+    return (
+      <Box className={classes.imageFieldBox}>
+        <img
+          src={steps[activeStep].imageUrl}
+          className={classes.imageFieldImageStyles}
+        />
+      </Box>
+    );
+  };
+
   return (
-    <div className={classes.tutorialWrapper}>
+    <Grid m={'auto'} className={classes.tutorialWrapper}>
       <Modal
         open={openTutorial}
         onClose={() => setOpenTutorial(false)}
@@ -208,12 +248,24 @@ const Tutorial = (props: TutorialProps) => {
         closeAfterTransition
         disableAutoFocus
       >
-        <Box className={classes.tutorialBody}>
-          <TutorialBody />
-          {firstStep || lastStep ? <FirstLastStepper /> : <BodyStepper />}
-        </Box>
+        <Grid container sx={{ width: 'auto' }}>
+          <Box
+            className={
+              firstOrLastCheck
+                ? classnames(
+                    classes.tutorialBodyFirstLast,
+                    classes.tutorialBody
+                  )
+                : classnames(classes.tutorialBodyMiddle, classes.tutorialBody)
+            }
+          >
+            <TutorialBody />
+            {firstOrLastCheck ? <FirstLastStepper /> : <BodyStepper />}
+          </Box>
+          {!firstOrLastCheck && <ImageField />}
+        </Grid>
       </Modal>
-    </div>
+    </Grid>
   );
 };
 
