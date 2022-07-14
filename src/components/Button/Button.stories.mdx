@@ -7,7 +7,7 @@ import { within, userEvent, waitFor } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
 
 <Meta
-  title="UI components/Button"
+  title="Base Components/Button"
   argTypes={{
     onClick: {
       action: true,
@@ -17,6 +17,8 @@ import { expect } from '@storybook/jest';
 />
 
 # Buttons
+
+We use wrapped Material UI Buttons. The same properties can be passed to this component (see the Args Table below) but we prefer to use the following default variations in most cases.
 
 ## Usage
 
@@ -40,6 +42,8 @@ import { expect } from '@storybook/jest';
     </form>
   </Story>
 </Canvas>
+
+## Interaction Test
 
 export const Template = (args) => <Button {...args}>Button</Button>;
 
