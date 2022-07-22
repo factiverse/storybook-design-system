@@ -37,9 +37,9 @@ export const SupportIndicator: React.FC<SupportIndicatorProps> = ({
   if (score >= 0.6) circleColor = greenColor;
 
   let label = '';
-  if (score < 0.4) label = 'disputing';
-  if (score >= 0.4 && score < 0.6) label = 'balanced';
-  if (score >= 0.6) label = 'supporting';
+  if (score < 0.4) label = 'Disputing';
+  if (score >= 0.4 && score < 0.6) label = 'Conflicting sources';
+  if (score >= 0.6) label = 'Supporting';
 
   let tooltip = '';
   if (tooltips !== undefined) {
@@ -70,11 +70,6 @@ export const SupportIndicator: React.FC<SupportIndicatorProps> = ({
     <>
       {variant == 'bar' && (
         <div className={'SupportIndicatorContainer'}>
-          <div className={'SupportIndicator'}>
-            {classNames.map((item) => {
-              return <div className={item} key={Math.random()}></div>;
-            })}
-          </div>
           {labels?.length !== undefined && true && (
             <Grid container justifyContent={'space-between'}>
               {tooltips !== undefined && (
@@ -147,6 +142,11 @@ export const SupportIndicator: React.FC<SupportIndicatorProps> = ({
               )}
             </Grid>
           )}
+          <div className={'SupportIndicator'}>
+            {classNames.map((item) => {
+              return <div className={item} key={Math.random()}></div>;
+            })}
+          </div>
         </div>
       )}
 
