@@ -15,7 +15,7 @@ export const Default = Template.bind({});
 
 export const WithLabel = Template.bind({});
 WithLabel.args = {
-  labels: ['disputing', 'balanced', 'supporting'],
+  labels: ['Disputing', 'Conflicting sources', 'Supporting'],
 };
 
 export const WithTooltips = Template.bind({});

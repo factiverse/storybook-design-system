@@ -71,7 +71,7 @@ export const SupportIndicator: React.FC<SupportIndicatorProps> = ({
       {variant == 'bar' && (
         <div className={'SupportIndicatorContainer'}>
           {labels?.length !== undefined && true && (
-            <Grid container justifyContent={'space-between'}>
+            <Grid sx={{ px: 10 }} container justifyContent={'space-between'}>
               {tooltips !== undefined && (
                 <>
                   <Grid item>

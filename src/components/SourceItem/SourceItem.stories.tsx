@@ -4,6 +4,9 @@ import SourceItem from './SourceItem';
 export default {
   title: 'Components/SourceItem',
   component: SourceItem,
+  parameters: {
+    layout: 'centered',
+  },
 } as Meta;
 
 const defaultClaim = {
