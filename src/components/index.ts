@@ -16,3 +16,4 @@ export { default as Dropdown } from './Dropdown';
 export { default as ToggleButton } from './ToggleButton';
 export { default as SupportIndicator } from './SupportIndicator';
 export { default as SourceItem } from './SourceItem';
+export { default as Favicon } from './Favicon';
