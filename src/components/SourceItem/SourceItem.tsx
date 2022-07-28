@@ -36,7 +36,7 @@ export const SourceItem: React.FC<SourceProps> = ({ source }) => {
         >
           <Favicon
             displayLink={source.domain ?? ''}
-            variant={'circleWrapped'}
+            variant={'squareWrapped'}
           />
         </Grid>
         <Box sx={{ px: 7, pt: 5 }}>
