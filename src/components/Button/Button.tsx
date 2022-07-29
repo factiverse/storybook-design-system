@@ -4,7 +4,7 @@ import { Button as ButtonMUI, ButtonProps } from '@mui/material';
 export const Button = ({
   variant = 'contained',
   size = 'medium',
-  color = 'secondary',
+  color = 'primary',
   disabled = false,
   ...props
 }: ButtonProps) => {
