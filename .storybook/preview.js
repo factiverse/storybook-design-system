@@ -96,5 +96,4 @@ export const parameters = {
       order: ['Introduction', 'Colors', 'Typography'],
     },
   },
-  layout: 'centered',
 };

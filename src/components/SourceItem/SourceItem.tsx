@@ -34,10 +34,7 @@ export const SourceItem: React.FC<SourceProps> = ({ source }) => {
             left: '49%',
           }}
         >
-          <Favicon
-            displayLink={source.domain ?? ''}
-            variant={'squareWrapped'}
-          />
+          <Favicon domain={source.domain ?? ''} />
         </Grid>
         <Box sx={{ px: 7, pt: 5 }}>
           {source.publishDate != '' && source.publishDate != undefined && (
@@ -62,13 +59,6 @@ export const SourceItem: React.FC<SourceProps> = ({ source }) => {
                   </Typography>
                 </Link>
               </Grid>
-              {/* <Grid item xs={1}>
-              <FeedbackSourceRelevance
-                claim={claim}
-                source={source}
-                onFeedbackSourceRelevance={onFeedbackSourceRelevance}
-              />
-            </Grid> */}
             </Grid>
           )}
           <Grid item>
@@ -92,13 +82,6 @@ export const SourceItem: React.FC<SourceProps> = ({ source }) => {
                   variant={'bar'}
                 />
               </Grid>
-              {/* <Grid item xs={1}>
-              <FeedbackSourceSupport
-                claim={claim}
-                source={source}
-                onFeedbackSourceSupport={onFeedbackSourceSupport}
-              />
-            </Grid> */}
             </Grid>
           )}
         </Grid>
