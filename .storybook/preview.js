@@ -38,8 +38,8 @@ const theme = createTheme({
         root: ({ ownerState }) => ({
           ...(ownerState.variant === 'contained' &&
             ownerState.color === 'secondary' && {
-            boxShadow: '0px 0px 10px #f8c608',
-          }),
+              boxShadow: '0px 0px 10px #f8c608',
+            }),
         }),
       },
     },
