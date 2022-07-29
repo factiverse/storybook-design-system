@@ -33,3 +33,6 @@ Default.args = {
   ),
   title: 'I am tooltip',
 };
+Default.parameters = {
+  layout: 'centered',
+};
