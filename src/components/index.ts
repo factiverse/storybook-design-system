@@ -15,3 +15,5 @@ export { default as SupportIcon } from './SupportIcon';
 export { default as Dropdown } from './Dropdown';
 export { default as ToggleButton } from './ToggleButton';
 export { default as SupportIndicator } from './SupportIndicator';
+export { default as Tooltip } from './Tooltip';
+export { default as Tutorial } from './Tutorial';

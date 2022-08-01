@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from './Button';
-import { Story, Meta } from '@storybook/react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { linkTo } from '@storybook/addon-links';
 
 export default {
@@ -12,73 +12,42 @@ export default {
     },
   },
   parameters: { actions: { argTypesRegex: '^on.*' } },
-} as Meta;
+} as ComponentMeta<typeof Button>;
 
-const Template: Story = ({ ...args }) => <Button {...args} />;
-
-export const Default = Template.bind({});
-Default.args = {
-  children: 'Default',
-};
-
-export const Primary = Template.bind({});
-Primary.args = {
-  children: 'Primary',
-  color: 'primary',
-};
-
-export const Secondary = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-Secondary.args = {
-  children: 'Secondary',
-  color: 'secondary',
-};
-
-export const Success = Template.bind({});
-Success.args = {
-  children: 'Success',
-  color: 'success',
-};
-
-export const Error = Template.bind({});
-Error.args = {
-  children: 'Error',
-  color: 'error',
-};
-
-export const Info = Template.bind({});
-Info.args = {
-  children: 'Information',
-  color: 'info',
-};
-
-export const Warning = Template.bind({});
-Warning.args = {
-  children: 'warning',
-  color: 'warning',
-};
-
-export const Disabled = Template.bind({});
-Disabled.args = {
-  children: 'disabled',
-  disabled: true,
-};
-
-export const Sizes = () => {
-  return (
-    <>
-      <Button style={{ marginRight: '1' + 'em' }} size="large">
-        Large
-      </Button>
-      <Button style={{ marginRight: '1' + 'em' }} size="medium">
-        medium
-      </Button>
-      <Button style={{ marginRight: '1' + 'em' }} size="small">
-        Small
-      </Button>
-    </>
-  );
-};
+export const Stories: ComponentStory<typeof Button> = (args) => (
+  <>
+    <Button {...args} color="primary">
+      Primary
+    </Button>
+    <Button {...args} color="secondary">
+      Secondary
+    </Button>
+    <Button {...args} color="success">
+      Success
+    </Button>
+    <Button {...args} color="error">
+      Error
+    </Button>
+    <Button {...args} color="warning">
+      Warning
+    </Button>
+    <Button {...args} color="info">
+      Information
+    </Button>
+    <Button {...args} disabled>
+      Disabled
+    </Button>
+    <Button {...args} size="large">
+      Large
+    </Button>
+    <Button {...args} size="medium">
+      Medium
+    </Button>
+    <Button {...args} size="small">
+      Small
+    </Button>
+  </>
+);
 
 // Example for @storybook/addon-links: link from one component to another
 export const first = () => (
