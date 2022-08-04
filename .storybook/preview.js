@@ -15,13 +15,14 @@ const theme = createTheme({
       main: '#E8EBEC',
     },
     secondary: {
-      main: 'rgba(0,0,0,0.7)',
-    },
-    tertiary: {
       light: '#FFE275',
       main: '#f8c608',
       dark: '#C7A008',
       contrastText: '#000',
+    },
+    neutral: {
+      main: 'rgba(0,0,0,0.7)',
+      contrastText: '#fff',
     },
   },
   typography: {
