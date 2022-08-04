@@ -1,7 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Typography from './Typography';
-import { Grid } from '@mui/material';
 
 export default {
   title: 'Components/Typography',
@@ -57,90 +56,76 @@ export default {
   },
 } as ComponentMeta<typeof Typography>;
 
-const Template: ComponentStory<typeof Typography> = (args) => (
-  <Typography {...args} />
-);
-
-const MultipleTemplates: ComponentStory<typeof Typography> = (args) => (
+export const Stories: ComponentStory<typeof Typography> = (args) => (
   <>
-    <Typography {...args} />
-    <Typography {...args} />
-  </>
-);
-
-export const Default = Template.bind({});
-Default.args = {
-  children: 'Hello world!',
-  variant: 'body2',
-};
-
-export const Paragraph = Template.bind({});
-Paragraph.args = {
-  children:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-  paragraph: true,
-};
-
-export const NoWrap = Template.bind({});
-NoWrap.args = {
-  children:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-  noWrap: true,
-};
-
-export const GutterBottom = MultipleTemplates.bind({});
-GutterBottom.args = {
-  children:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-  gutterBottom: true,
-};
-
-export const Headings: ComponentStory<typeof Typography> = () => (
-  <>
-    <Typography variant="h1">H1</Typography>
-    <Typography variant="h2">H2</Typography>
-    <Typography variant="h3">H3</Typography>
-    <Typography variant="h4">H4</Typography>
-    <Typography variant="h5">H5</Typography>
-    <Typography variant="h6">H6</Typography>
-  </>
-);
-
-export const Subtitles: ComponentStory<typeof Typography> = () => (
-  <>
-    <Typography variant="subtitle1">Subtitle 1</Typography>
-    <Typography variant="subtitle2">Subtitle 2</Typography>
-  </>
-);
-
-export const BodySizes: ComponentStory<typeof Typography> = () => (
-  <>
-    <Typography variant="body1">Body 1</Typography>
-    <Typography variant="body2">Body 2</Typography>
-  </>
-);
-
-export const OtherSizes: ComponentStory<typeof Typography> = () => (
-  <Grid container flexDirection="column">
-    <Typography variant="caption">Caption</Typography>
-    <Typography variant="button">Button</Typography>
-    <Typography variant="overline">Overline</Typography>
-    <Typography variant="inherit">Inherit</Typography>
-  </Grid>
-);
-
-export const FontFamilies: ComponentStory<typeof Typography> = () => (
-  <>
-    <Typography fontFamily="DM Mono">DM Mono</Typography>
-    <Typography fontFamily="Arizona Serif">Arizona Serif</Typography>
-  </>
-);
-
-export const Align: ComponentStory<typeof Typography> = () => (
-  <>
-    <Typography align="left">Left</Typography>
-    <Typography align="center">Center</Typography>
-    <Typography align="right">Right</Typography>
-    <Typography align="justify">Justify</Typography>
+    <Typography variant="h1" {...args}>
+      H1
+    </Typography>
+    <Typography variant="h2" {...args}>
+      H2
+    </Typography>
+    <Typography variant="h3" {...args}>
+      H3
+    </Typography>
+    <Typography variant="h4" {...args}>
+      H4
+    </Typography>
+    <Typography variant="h5" {...args}>
+      H5
+    </Typography>
+    <Typography variant="h6" {...args}>
+      H6
+    </Typography>
+    <Typography variant="subtitle1" {...args}>
+      Subtitle 1
+    </Typography>
+    <Typography variant="subtitle2" {...args}>
+      Subtitle 2
+    </Typography>
+    <Typography variant="body1" {...args}>
+      Body 1
+    </Typography>
+    <Typography variant="body2" {...args}>
+      Body 2
+    </Typography>
+    <Typography variant="caption" {...args}>
+      Caption
+    </Typography>
+    <Typography variant="button" {...args}>
+      Button
+    </Typography>
+    <Typography variant="overline" {...args}>
+      Overline
+    </Typography>
+    <Typography variant="inherit" {...args}>
+      Inherit
+    </Typography>
+    <Typography fontFamily="DM Mono" {...args}>
+      DM Mono
+    </Typography>
+    <Typography fontFamily="Arizona Serif" {...args}>
+      Arizona Serif
+    </Typography>
+    <Typography align="left" {...args}>
+      Left
+    </Typography>
+    <Typography align="center" {...args}>
+      Center
+    </Typography>
+    <Typography align="right" {...args}>
+      Right
+    </Typography>
+    <Typography align="justify" {...args}>
+      Justify
+    </Typography>
+    <Typography paragraph {...args}>
+      paragraph
+    </Typography>
+    <Typography noWrap {...args}>
+      noWrap
+    </Typography>
+    <Typography gutterBottom {...args}>
+      gutterBottom
+    </Typography>
   </>
 );
