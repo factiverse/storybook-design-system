@@ -42,7 +42,7 @@ const entities = [
 ];
 
 export default {
-  title: 'Components/MicrofactsArticle',
+  title: 'Microfacts/Article',
   component: MicrofactsArticle,
 } as ComponentMeta<typeof MicrofactsArticle>;
 

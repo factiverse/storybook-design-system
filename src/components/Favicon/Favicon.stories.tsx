@@ -3,7 +3,7 @@ import { Meta, ComponentStory } from '@storybook/react';
 import Favicon from './Favicon';
 
 export default {
-  title: 'Components/Favicon',
+  title: 'Base Components/Favicon',
   component: Favicon,
 } as Meta;
 

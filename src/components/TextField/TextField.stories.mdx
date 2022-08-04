@@ -1,0 +1,72 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+import { TextField } from './TextField';
+import { InputAdornment, Box } from '@mui/material';
+
+<Meta title="Base Components/TextField" component={TextField} />
+
+# Text Field
+
+We use wrapped Material UI TextField. The same properties can be passed to this component (see the Args Table below) but we prefer to use the following default variations in most cases.
+
+<Canvas>
+  <Story name="Variants" height="420px">
+    <>
+      <TextField />
+      <Box p={1} />
+      <TextField helperText="With Helper Text" />
+      <Box p={1} />
+      <TextField focused />
+      <Box p={1} />
+      <TextField label="With Label" />
+      <Box p={1} />
+      <TextField
+        label="With Icon"
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+              <i className="ph-smiley"></i>
+            </InputAdornment>
+          ),
+        }}
+      />
+    </>
+  </Story>
+</Canvas>
+
+## Args Table
+
+<ArgsTable of={TextField} />
+
+<!-- TODO: get argtypes to work -->
+<!-- argTypes: {
+    disabled: {
+      control: { type: 'boolean' },
+    },
+    label: {
+      control: {
+        options: ['headline', 'claims', 'Test'],
+        type: 'string',
+      },
+    },
+    helperText: {
+      control: {
+        type: 'string',
+      },
+    },
+    variant: {
+      control: {
+        options: ['outlined', 'standard', 'filled'],
+        type: 'radio',
+      },
+    },
+    id: {
+      control: {
+        options: ['input-with-icon-textfield', 'filled-search'],
+        type: 'radio',
+      },
+    },
+    focused: {
+      control: { type: 'boolean' },
+    },
+  },
+  parameters: { actions: { argTypesRegex: '^on.*' } }, -->

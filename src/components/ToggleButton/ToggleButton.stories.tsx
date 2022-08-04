@@ -7,7 +7,7 @@ import Typography from '../Typography';
 import GoogleIcon from '../../img/GoogleLogo.svg';
 
 export default {
-  title: 'Components/ToggleButton',
+  title: 'Base Components/ToggleButton',
   component: ToggleButton,
   argTypes: {
     children: {

@@ -4,7 +4,7 @@ import ButtonGroup from './ButtonGroup';
 import WikipediaIcon from '../../icons/WikipediaIcon';
 
 export default {
-  title: 'Components/ButtonGroup',
+  title: 'Composite Components/ButtonGroup',
   component: ButtonGroup,
   argTypes: {
     title: { control: 'text' },

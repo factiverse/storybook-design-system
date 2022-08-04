@@ -1,30 +1,18 @@
 import React from 'react';
 import { TextField as TextFieldMUI, TextFieldProps } from '@mui/material';
 
-export const TextField = ({
-  sx,
-  placeholder,
-  id = 'outlined-basic',
-  label = '',
-  variant = 'outlined',
-  disabled = false,
-  color = 'primary',
-  error = false,
-  helperText = '',
-  ...props
-}: TextFieldProps) => {
+export const TextField = ({ ...props }: TextFieldProps) => {
+  const { variant = 'outlined' } = props;
   return (
     <TextFieldMUI
       fullWidth
-      sx={sx}
-      label={label}
+      sx={{
+        '& .MuiInputLabel-root.Mui-focused': { color: 'rgba(0, 0, 0, 0.65)' },
+        '& .MuiOutlinedInput-root.Mui-focused': {
+          '& > fieldset': { borderColor: '#FFE275' },
+        },
+      }}
       variant={variant}
-      id={id}
-      disabled={disabled}
-      color={color}
-      placeholder={placeholder}
-      error={error}
-      helperText={helperText}
       {...props}
     />
   );
