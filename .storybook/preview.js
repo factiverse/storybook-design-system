@@ -29,18 +29,18 @@ const theme = createTheme({
       fontFamily: 'DM Mono',
     },
   },
-  // components: {
-  //   MuiButton: {
-  //     styleOverrides: {
-  //       root: ({ ownerState }) => ({
-  //         ...(ownerState.variant === 'contained' &&
-  //           ownerState.color === 'secondary' && {
-  //             boxShadow: '0px 0px 10px #f8c608',
-  //           }),
-  //       }),
-  //     },
-  //   },
-  // },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: ({ ownerState }) => ({
+          ...(ownerState.variant === 'contained' &&
+            ownerState.color === 'secondary' && {
+              boxShadow: '0px 0px 10px #f8c608',
+            }),
+        }),
+      },
+    },
+  },
 });
 
 addDecorator(
