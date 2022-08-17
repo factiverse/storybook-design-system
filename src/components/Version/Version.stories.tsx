@@ -35,5 +35,5 @@ const Template: ComponentStory<typeof Version> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  color: 'blue',
+  color: 'primary',
 };

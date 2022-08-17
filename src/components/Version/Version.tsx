@@ -1,19 +1,18 @@
 import React from 'react';
 import { version } from '../../../package.json';
+import { IconButton, IconButtonProps } from '@mui/material';
 
-export interface VersionProps {
-  disabled?: boolean;
-  color?: string;
-  title?: string;
-}
-
-const Version = (props: VersionProps) => {
-  const { color, title = version } = props;
-
+const Version = ({
+  color = 'primary',
+  disabled = false,
+  title = version,
+}: IconButtonProps) => {
   return (
-    <a aria-label={title} color={color}>
-      {title}
-    </a>
+    <>
+      <IconButton color={color} disabled={disabled}>
+        {title}
+      </IconButton>
+    </>
   );
 };
 
