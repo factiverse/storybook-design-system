@@ -25,13 +25,19 @@ export const SourceItem: React.FC<SourceProps> = ({ source }) => {
 
   return (
     <Paper elevation={1} sx={{ overflow: 'hidden' }}>
-      <Grid container direction="column" spacing={2}>
+      <Grid
+        container
+        direction="column"
+        spacing={2}
+        sx={{ position: 'relative' }}
+      >
         <Grid
           item
           sx={{
             position: 'absolute',
             transform: 'translate( -50%, -35%)',
             left: '49%',
+            overflow: 'visible',
           }}
         >
           <Favicon domain={source.domain ?? ''} />

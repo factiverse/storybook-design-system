@@ -71,3 +71,11 @@ type OnFeedbackSourceSupport = (
   source: Source,
   userAgrees: boolean
 ) => void;
+
+type Filter = {
+  label: string;
+  selected: boolean;
+};
+type OnFeedbackCredibility = (claim: Claim, userAgrees: boolean) => void;
+type OnDeleteClaim = (selectedClaim: ClaimItem) => void;
+type OnCheckClaim = (claimId: string) => void;
