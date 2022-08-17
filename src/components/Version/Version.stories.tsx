@@ -9,6 +9,7 @@ export default {
     color: {
       control: {
         options: [
+          'default',
           'primary',
           'secondary',
           'success',

@@ -3,14 +3,14 @@ import { version } from '../../../package.json';
 import { IconButton, IconButtonProps } from '@mui/material';
 
 const Version = ({
-  color = 'primary',
+  color = 'default',
   disabled = false,
   title = version,
 }: IconButtonProps) => {
   return (
     <>
       <IconButton color={color} disabled={disabled}>
-        {title}
+        v{title}
       </IconButton>
     </>
   );
