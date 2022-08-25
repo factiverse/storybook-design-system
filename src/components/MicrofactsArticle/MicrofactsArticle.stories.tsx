@@ -47,7 +47,7 @@ const entities = [
     checked: true,
     keyFact: true,
     entity_match: false,
-    entity_type: 'PERSON',
+    entity_type: EntityType.PERSON,
     image_lic: '',
     image_url: '',
     kbId: '125248',
