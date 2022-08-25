@@ -72,9 +72,7 @@ export const MicrofactsTooltip = (props: MicrofactsTooltipProps) => {
             'right top',
           ]}
           onClose={onCloseFeedback}
-          on={['hover', 'focus']}
-          mouseEnterDelay={100}
-          mouseLeaveDelay={300}
+          on={['click', 'focus']}
         >
           <Paper
             className={classes.tooltipPaper}

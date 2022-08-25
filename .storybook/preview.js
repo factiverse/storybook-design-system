@@ -24,6 +24,15 @@ const theme = createTheme({
       main: 'rgba(0,0,0,0.7)',
       contrastText: '#fff',
     },
+    success: {
+      main: '#86c252',
+    },
+    error: {
+      main: '#fe8661',
+    },
+    warning: {
+      main: '#fecd0c',
+    },
   },
   typography: {
     button: {
