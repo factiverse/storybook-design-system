@@ -24,31 +24,6 @@ export const SourceList: React.FC<SourceListProps> = ({
   onFeedbackSourceRelevance,
   onFeedbackSourceSupport,
 }) => {
-  /**
-   * Checks if the source should be hidden from results
-   *
-   * @param {Object} source The source
-   * @return {boolean} True if the source should not be shown
-   */
-
-  let supporting = 0;
-  let balanced = 0;
-  let disputing = 0;
-
-  claim.evidence?.forEach((source) => {
-    if (
-      typeof source === 'undefined' ||
-      typeof source.softmaxScore === 'undefined'
-    )
-      return;
-    if (source.softmaxScore[1] < 0.4) disputing++;
-    if (source.softmaxScore[1] >= 0.4 && source.softmaxScore[1] < 0.6)
-      balanced++;
-    if (source.softmaxScore[1] >= 0.6) supporting++;
-  });
-
-  //   const show = supporting > 0 || disputing > 0 || balanced > 0;
-
   return (
     <>
       <Card
@@ -60,7 +35,7 @@ export const SourceList: React.FC<SourceListProps> = ({
         //   overflowX: 'hidden',
         // }}
       >
-        <Grid container spacing={4}>
+        <Grid container spacing={4} sx={{ px: 7, pt: 5 }}>
           {sources?.map((source) => {
             return (
               <Grid

@@ -1,6 +1,6 @@
 import React from 'react';
 import ToggleButton from '@mui/material/ToggleButton';
-import { Tooltip, Typography } from '@mui/material';
+import { Tooltip } from '@mui/material';
 import { Grid } from '@mui/material';
 import SupportIcon from '../SupportIcon/SupportIcon';
 import { withStyles } from '@mui/styles';

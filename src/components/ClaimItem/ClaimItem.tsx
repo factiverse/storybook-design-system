@@ -1,9 +1,10 @@
 import React from 'react';
-import { Grid, IconButton, Paper, Tooltip, Typography } from '@mui/material';
+import { Grid, IconButton, Paper, Tooltip } from '@mui/material';
 import SourceList from '../SourceList/SourceList';
 import FilterBar from '../Filter/FilterBar';
 import ClearIcon from '@mui/icons-material/Clear';
 import Loading from '../Loading/Loading';
+import Typography from '../Typography';
 
 export interface ClaimProps {
   // The claim that is displayed
@@ -78,7 +79,7 @@ export const ClaimItem: React.FC<ClaimProps> = ({
 
   return (
     <Paper className="ClaimItem" elevation={4}>
-      <Typography component={'span'} align="center">
+      <Typography variant="body1" align="center">
         <Grid container direction="column" spacing={2}>
           <Grid item>
             <Grid container justifyContent="center" alignItems="center">

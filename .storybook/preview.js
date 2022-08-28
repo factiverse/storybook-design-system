@@ -18,13 +18,13 @@ const theme = createTheme({
       main: '#f8c608',
     },
     error: {
-      main: '#f72525',
+      main: '#ff8761',
     },
     warning: {
       main: '#fecd0c',
     },
     success: {
-      main: '#0ccb58',
+      main: '#86c351',
     },
   },
   typography: {
