@@ -26,12 +26,6 @@ const Template: ComponentStory<typeof ButtonGroup> = (args) => (
   <ButtonGroup {...args} />
 );
 
-export const Default = Template.bind({});
-Default.args = {
-  buttons: ['All Topics', 'Ukraine', 'COVID-19'],
-  value: 'All Topics',
-};
-
 export const WithState = () => {
   const [value, setValue] = useState<string>('Ukraine');
   return (
