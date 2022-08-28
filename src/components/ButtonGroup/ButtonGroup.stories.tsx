@@ -43,16 +43,8 @@ export const WithState = () => {
   );
 };
 
-export const WithTitle = Template.bind({});
-WithTitle.args = {
-  title: 'Discover recent fact checks on:',
-  buttons: ['All Topics', 'Ukraine', 'COVID-19'],
-  value: 'All Topics',
-};
-
 export const LanguageButtons = Template.bind({});
 LanguageButtons.args = {
-  title: 'Select language',
   buttons: ['Wikipedia', 'Store Norske Leksikon'],
   startIcon: <WikipediaIcon />,
   value: 'Wikipedia',
