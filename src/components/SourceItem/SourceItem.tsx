@@ -28,11 +28,8 @@ export const SourceItem: React.FC<SourceProps> = ({ source }) => {
       <Grid container direction="column" spacing={2}>
         <Grid
           item
-          sx={{
-            position: 'absolute',
-            transform: 'translate( -50%, -35%)',
-            left: '49%',
-          }}
+          container
+          sx={{ mt: 1, ml: 'auto', mr: 'auto', width: '34px' }}
         >
           <Favicon domain={source.domain ?? ''} />
         </Grid>

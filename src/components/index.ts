@@ -19,3 +19,5 @@ export { default as SourceItem } from './SourceItem';
 export { default as Favicon } from './Favicon';
 export { default as Tooltip } from './Tooltip';
 export { default as Tutorial } from './Tutorial';
+export { default as ClaimItem } from './ClaimItem';
+export { default as SourceList } from './SourceList';
