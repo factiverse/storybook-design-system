@@ -48,19 +48,15 @@ export const ClaimItem: React.FC<ClaimProps> = ({
   const containsNumbers = /\d/.test(claim.claim);
 
   let supporting = 0;
-  let balanced = 0;
+  let neutral = 0;
   let disputing = 0;
 
-  const [filter, setFilter] = React.useState([
-    { label: 'Supporting', selected: false },
-    { label: 'Disputing', selected: false },
-    { label: 'Neutral', selected: false },
-    { label: 'Google', selected: true },
-    { label: 'Wikipedia', selected: true },
-    { label: 'Google Claim', selected: true },
-    { label: 'Bing News', selected: true },
-  ]);
-  const updateFilter = (newFilter: Array<Filter>) => {
+  const [filter, setFilter] = React.useState({
+    supporting: false,
+    neutral: false,
+    disputing: false,
+  });
+  const updateFilter = (newFilter: Filter) => {
     setFilter(newFilter);
   };
 
@@ -72,7 +68,7 @@ export const ClaimItem: React.FC<ClaimProps> = ({
       return;
     if (source.softmaxScore[1] < 0.4) disputing++;
     if (source.softmaxScore[1] >= 0.4 && source.softmaxScore[1] < 0.6)
-      balanced++;
+      neutral++;
     if (source.softmaxScore[1] >= 0.6) supporting++;
   });
 
@@ -110,10 +106,10 @@ export const ClaimItem: React.FC<ClaimProps> = ({
             <Grid item>
               <FilterBar
                 filter={filter}
-                updateFilter={updateFilter}
-                supporting={supporting}
-                disputing={disputing}
-                balanced={balanced}
+                onUpdateFilter={updateFilter}
+                countSupporting={supporting}
+                countDisputing={disputing}
+                countNeutral={neutral}
               />
             </Grid>
           )}

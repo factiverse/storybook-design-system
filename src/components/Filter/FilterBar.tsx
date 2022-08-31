@@ -1,16 +1,16 @@
 import React from 'react';
 import ToggleButton from '@mui/material/ToggleButton';
-import { Tooltip, Typography } from '@mui/material';
+import { Tooltip } from '@mui/material';
 import { Grid } from '@mui/material';
 import SupportIcon from '../SupportIcon/SupportIcon';
 import { withStyles } from '@mui/styles';
 
 export interface FilterBarProps {
-  filter: Array<Filter>;
-  updateFilter: (newFilters: Array<Filter>) => void;
-  supporting: number;
-  balanced: number;
-  disputing: number;
+  filter: Filter;
+  onUpdateFilter: (newFilter: Filter) => void;
+  countSupporting: number;
+  countNeutral: number;
+  countDisputing: number;
 }
 
 const CustomToggleButton = withStyles({
@@ -29,93 +29,104 @@ const CustomToggleButton = withStyles({
 
 const FilterBar: React.FC<FilterBarProps> = ({
   filter,
-  updateFilter,
-  supporting,
-  balanced,
-  disputing,
+  onUpdateFilter,
+  countSupporting,
+  countNeutral,
+  countDisputing,
 }) => {
-  const handleChange = (label: string) => {
-    updateFilter(
-      filter.map((item) => {
-        if (item.label == label) return { ...item, selected: !item.selected };
-        return item;
-      })
-    );
-  };
+  const total = countSupporting + countNeutral + countDisputing;
 
-  const total = supporting + balanced + disputing;
-
+  // TODO: Refactor the filter bar to avoid code duplication
   return (
     <>
       {filter != undefined && (
         <Grid container spacing={2} justifyContent="center" alignItems="center">
-          {supporting > 0 && (
+          {countSupporting > 0 && (
             <Grid item xs={4} md="auto">
               <Tooltip
                 title={
-                  filter[0].selected
+                  filter.supporting
                     ? 'Click to hide supporting sources'
                     : 'Click to show supporting sources'
                 }
               >
                 <CustomToggleButton
-                  value={'Supporting'}
-                  selected={filter[0].selected}
-                  onChange={() => handleChange('Supporting')}
+                  value="supporting"
+                  selected={filter.supporting}
+                  onChange={() =>
+                    onUpdateFilter({
+                      ...filter,
+                      supporting: !filter.supporting,
+                    })
+                  }
                 >
                   <SupportIcon
                     variant="supporting"
-                    value={supporting != 0 ? (supporting / total) * 100 : 5}
-                    label="Supporting"
-                    count={supporting}
+                    value={
+                      countSupporting != 0 ? (countSupporting / total) * 100 : 5
+                    }
+                    label="supporting"
+                    count={countSupporting}
                   />
                 </CustomToggleButton>
               </Tooltip>
             </Grid>
           )}
-          {balanced > 0 && (
+          {countNeutral > 0 && (
             <Grid item xs={4} md="auto">
               <Tooltip
                 title={
-                  filter[2].selected
+                  filter.neutral
                     ? 'Click to hide neutral sources'
                     : 'Click to show neutral sources'
                 }
               >
                 <CustomToggleButton
-                  value={'Neutral'}
-                  selected={filter[2].selected}
-                  onChange={() => handleChange('Neutral')}
+                  value="neutral"
+                  selected={filter.neutral}
+                  onChange={() =>
+                    onUpdateFilter({
+                      ...filter,
+                      neutral: !filter.neutral,
+                    })
+                  }
                 >
                   <SupportIcon
                     variant="neutral"
-                    value={balanced != 0 ? (balanced / total) * 100 : 5}
-                    label="Neutral"
-                    count={balanced}
+                    value={countNeutral != 0 ? (countNeutral / total) * 100 : 5}
+                    label="neutral"
+                    count={countNeutral}
                   />
                 </CustomToggleButton>
               </Tooltip>
             </Grid>
           )}
-          {disputing > 0 && (
+          {countDisputing > 0 && (
             <Grid item xs={4} md="auto">
               <Tooltip
                 title={
-                  filter[1].selected
+                  filter.disputing
                     ? 'Click to hide disputing sources'
                     : 'Click to show disputing sources'
                 }
               >
                 <CustomToggleButton
-                  value={'Disputing'}
-                  selected={filter[1].selected}
-                  onChange={() => handleChange('Disputing')}
+                  value="disputing"
+                  selected={filter.disputing}
+                  onChange={() =>
+                    onUpdateFilter({
+                      ...filter,
+                      disputing: !filter.disputing,
+                    })
+                  }
                 >
                   <SupportIcon
                     variant="disputing"
-                    value={disputing != 0 ? (disputing / total) * 100 : 5}
-                    label="Disputing"
-                    count={disputing}
+                    value={
+                      countDisputing != 0 ? (countDisputing / total) * 100 : 5
+                    }
+                    label="disputing"
+                    count={countDisputing}
                   />
                 </CustomToggleButton>
               </Tooltip>
