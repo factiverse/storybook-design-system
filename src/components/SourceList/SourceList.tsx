@@ -27,20 +27,10 @@ export const SourceList: React.FC<SourceListProps> = ({
   return (
     <>
       <Card variant="outlined">
-        <Grid container spacing={4}>
+        <Grid container spacing={2} p={2}>
           {sources?.map((source) => {
             return (
-              <Grid
-                key={source.id}
-                item
-                sx={{
-                  minHeigh: '180px',
-                  maxHeigh: '450px',
-                }}
-                xs={12}
-                md={6}
-                xl={3}
-              >
+              <Grid key={source.id} item xs={12} md={6} xl={3}>
                 <SourceItem
                   claim={claim}
                   source={source}

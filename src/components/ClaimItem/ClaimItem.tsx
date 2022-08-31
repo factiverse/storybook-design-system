@@ -76,7 +76,7 @@ export const ClaimItem: React.FC<ClaimProps> = ({
   return (
     <Paper className="ClaimItem" elevation={4}>
       <Typography variant="body1" align="center">
-        <Grid container direction="column" spacing={2}>
+        <Grid container direction="column" spacing={2} alignItems="center">
           <Grid item>
             <Grid container justifyContent="center" alignItems="center">
               <Grid item xs={1}></Grid>

@@ -2,7 +2,6 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import MicrofactsArticle from './MicrofactsArticle';
 import { EntityType } from '..//Entity';
-import articlePhoto from '../../img/harry-potter.jpg';
 
 const entities = [
   {
@@ -54,7 +53,7 @@ export const Default = Template.bind({});
 Default.args = {
   headline:
     'Her snakker vi enten monstermarginer eller vekstpotensial Harry Potter-style',
-  image: articlePhoto,
+  image: 'https://microfactbox.netlify.app/img/harry-potter.jpg',
   inputText:
     'Hydrogenaksjen Nel stiger hele ti prosent på Oslo Børs etter at selskapet torsdag meldte om en ordre på levering av elektrolyserør for 11 millioner euro (110 millioner kroner). Markedsverdien av Nel steg dermed med cirka 2,5 milliarder kroner til over 27 milliarder kroner. Når markedsverdien av selskapet stiger med 2,5 milliarder på bakgrunn av en ordre på 110 millioner kroner prises det åpenbart inn et eller annet som er meget bullish. Det vil trenges ytterligere 22 slike ordrer bare for at kontraktsverdien skal matche økningen i Nels markedsverdi. Vi vet ikke hva ordren på 110 millioner kroner gir av inntjening, men umiddelbart skulle man tro investorene priser inn monstermarginer. Det er neppe tilfellet. Elektrolyserørene skal leveres til Ovako, en europeisk produsent av stål. Selskapet er eid av Nippon Steel. Utstyret skal installeres i Ovakos anlegg i Sverige, og skal bli den første fabrikken i verden til å bruke hydrogen til å varme stålet før det formes videre. Karbonfri hydrogen skal erstatte propangass som i dag benyttes til oppvarmingen. Konverteringen til hydrogen ventes å redusere Ovakos CO₂-utslipp fra stålproduksjonen med 50 prosent fra allerede lave nivåer.',
   entities: entities,
