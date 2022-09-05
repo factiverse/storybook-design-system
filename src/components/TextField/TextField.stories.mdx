@@ -2,13 +2,48 @@ import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
 import { TextField } from './TextField';
 import { InputAdornment, Box } from '@mui/material';
 
-<Meta title="Base Components/TextField" component={TextField} />
+<Meta
+  title="Base Components/TextField"
+  component={TextField}
+  argTypes={{
+    disabled: {
+      control: { type: 'boolean' },
+      defaultValue: false,
+    },
+    helperText: {
+      control: {
+        type: 'string',
+      },
+      defaultValue: 'Helper Text',
+    },
+    label: {
+      control: {
+        type: 'string',
+      },
+      defaultValue: 'Label Text',
+    },
+    variant: {
+      control: {
+        options: ['outlined', 'standard', 'filled'],
+        type: 'radio',
+      },
+      defaultValue: 'outlined',
+    },
+    focused: {
+      control: { type: 'boolean' },
+      defaultValue: false,
+    },
+  }}
+/>
 
 # Text Field
 
 We use wrapped Material UI TextField. The same properties can be passed to this component (see the Args Table below) but we prefer to use the following default variations in most cases.
 
+export const Template = (args) => <TextField {...args}>Button</TextField>;
+
 <Canvas>
+  <Story name="Default">{Template.bind()}</Story>
   <Story name="Variants" height="420px">
     <>
       <TextField />
@@ -36,37 +71,3 @@ We use wrapped Material UI TextField. The same properties can be passed to this 
 ## Args Table
 
 <ArgsTable of={TextField} />
-
-<!-- TODO: get argtypes to work -->
-<!-- argTypes: {
-    disabled: {
-      control: { type: 'boolean' },
-    },
-    label: {
-      control: {
-        options: ['headline', 'claims', 'Test'],
-        type: 'string',
-      },
-    },
-    helperText: {
-      control: {
-        type: 'string',
-      },
-    },
-    variant: {
-      control: {
-        options: ['outlined', 'standard', 'filled'],
-        type: 'radio',
-      },
-    },
-    id: {
-      control: {
-        options: ['input-with-icon-textfield', 'filled-search'],
-        type: 'radio',
-      },
-    },
-    focused: {
-      control: { type: 'boolean' },
-    },
-  },
-  parameters: { actions: { argTypesRegex: '^on.*' } }, -->
