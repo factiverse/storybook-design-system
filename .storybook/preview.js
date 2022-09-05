@@ -47,7 +47,18 @@ const theme = createTheme({
             ownerState.color === 'secondary' && {
               boxShadow: '0px 0px 10px #f8c608',
             }),
+          borderRadius: '8px',
         }),
+      },
+    },
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          '& .MuiInputLabel-root.Mui-focused': { color: 'rgba(0, 0, 0, 0.65)' },
+          '& .MuiOutlinedInput-root.Mui-focused': {
+            '& > fieldset': { borderColor: '#FFE275' },
+          },
+        },
       },
     },
   },
