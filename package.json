@@ -26,7 +26,12 @@
     "test-storybook": "test-storybook",
     "test-storybook:watch": "test-storybook --watch",
     "test-storybook:browsers": "test-storybook --browsers firefox chromium webkit",
-    "publish": "npm run rollup"
+    "publish": "npm run rollup",
+    "clean": "rm -rf ./dist",
+    "copy-fonts": "copyfiles -u 1 src/config/fonts/* dist/",
+    "compile-icons": "npx @svgr/cli -d src/icons src/icons --typescript",
+    "prebuild": "npm run clean && npm run compile-icons",
+    "postbuild": "npm run copy-fonts"
   },
   "eslintConfig": {
     "extends": [
@@ -115,6 +120,7 @@
     "@storybook/storybook-deployer": "^2.8.11",
     "@storybook/test-runner": "^0.2.0",
     "@storybook/testing-library": "^0.0.13",
+    "@svgr/cli": "^6.3.1",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^12.1.5",
     "@testing-library/user-event": "^12.1.10",
@@ -127,6 +133,7 @@
     "babel-jest": "^27.3.1",
     "babel-loader": "^8.2.3",
     "chromatic": "^6.6.3",
+    "copyfiles": "^2.4.1",
     "css-loader": "^6.5.1",
     "email-validator": "^2.0.4",
     "eslint": "^8.18.0",
