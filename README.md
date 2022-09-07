@@ -12,9 +12,14 @@ Testing automatic publishing
 
 ### Structure
 
-There are two key folders, namely 'components' and 'dev.components'
+All components should be stored in the `src/components` folder.
 
-Move finished components from dev.components to components once they compile in rollup.
+- @rollup/plugin-node-resolve - Resolve third party dependencies in node_modules
+- @rollup/plugin-commonjs - To convert commonjs modules into ES6
+- @rollup/plugin-typescript - To transpile our Typescript code in JS
+- rollup-plugin-peer-deps-external - To prevent bundling peerDependencies
+- rollup-plugin-postcss - To handle our css
+- rollup-plugin-terser - To minify our bundle
 
 ### Run this component library
 
