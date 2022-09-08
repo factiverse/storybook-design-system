@@ -24,20 +24,18 @@ This component can add visualization to domains and makes it easier for the user
 export const Template = (args) => <Favicon {...args} />;
 
 <Canvas>
-  <Story name="Controls">{Template.bind({})}</Story>
+  <Story name="Default">{Template.bind({})}</Story>
   <Story name="Examples">
-    <p>Favicons saved at the standard location domain.com/favicon.ico:</p>
     <Favicon domain={'physicsworld.com'} />
     <Favicon domain={'bbc.co.uk'} />
     <Favicon domain={'politifact.com'} />
     <Favicon domain={'fullfact.org'} />
-    <p>
-      Favicons referenced within head with rel="shortcute icon" or rel="icon":
-    </p>
     <Favicon domain={'usatoday.com'} />
     <Favicon domain={'factchecker.in'} />
-    <p>Should never be displayed since the url is incorrect:</p>
-    <Favicon domain={'abcde.fgh'} />
+    <Favicon domain={'verafiles.org'} />
+    <Favicon domain={'newsmobile.in'} />
+    <Favicon domain={'faktisk.no'} />
+    <Favicon domain={'verifica.efe.com'} />
   </Story>
 </Canvas>
 
