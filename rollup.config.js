@@ -16,11 +16,6 @@ export default [
     input: 'src/index.ts',
     output: [
       {
-        file: packageJson.main,
-        format: 'cjs',
-        sourcemap: true,
-      },
-      {
         file: packageJson.module,
         format: 'esm',
         sourcemap: true,
@@ -31,8 +26,8 @@ export default [
       peerDeps(),
       resolve(),
       commonjs(),
-      typescript({ 
-        tsconfig: './tsconfig.build.json'
+      typescript({
+        tsconfig: './tsconfig.build.json',
       }),
       postcss(),
       terser(),
@@ -43,7 +38,7 @@ export default [
     ],
   },
   {
-    input: 'dist/esm/types/index.d.ts',
+    input: 'dist/types/src/index.d.ts',
     output: [{ file: 'dist/index.d.ts', format: 'esm' }],
     plugins: [dts()],
     external: [/\.(css|less|scss)$/, 'react', '@material-ui/core', 'react-dom'],

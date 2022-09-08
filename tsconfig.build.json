@@ -5,9 +5,14 @@
     "build",
     "dist",
     "scripts",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/*.stories.ts",
+    "**/*.stories.tsx",
+    "acceptance-tests",
     "webpack",
     "jest",
-    "src/stories/**"
-    
+    "src/stories/**",
+    "./src/setupTests.ts"
   ]
 }

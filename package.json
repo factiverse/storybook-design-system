@@ -21,7 +21,7 @@
     "deploy-storybook": "storybook-to-ghpages",
     "release": "auto shipit --base-branch=main",
     "prebuild": "rimraf dist",
-    "build": "tsc --outDir dist --declaration true && rollup -c",
+    "build": "tsc --outDir dist/esm --declarationDir dist/types --declaration true && rollup -c",
     "test": "jest --coverage && eslint src",
     "test:watch": "jest --coverage --watchAll --json --outputFile=testOutput.json",
     "test-storybook": "test-storybook",
@@ -74,14 +74,16 @@
       "react-dom": "^17.0.0"
     }
   },
-  "dependencies": {
+  "peerDependencies": {
     "@babel/plugin-transform-runtime": "^7.17.12",
     "@mui/material": "^5.6.2",
     "@mui/styles": "^5.8.0",
     "classnames": "^2.3.1",
     "i18next": "^21.8.11",
     "react-string-replace": "^1.1.0",
-    "reactjs-popup": "^2.0.5"
+    "reactjs-popup": "^2.0.5",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.2"
   },
   "engines": {
     "node": "17.x",
@@ -145,8 +147,6 @@
     "mdx-embed": "^1.0.0",
     "postcss": "^8.4.12",
     "prettier": "^2.7.1",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.2",
     "react-is": "^18.2.0",
     "rimraf": "^3.0.2",
     "rollup": "^2.75.7",
