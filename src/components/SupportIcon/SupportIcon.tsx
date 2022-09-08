@@ -37,6 +37,16 @@ const SupportIcon: React.FC<SupportIconProps> = ({
   return (
     <Grid container direction="column" alignItems="center" spacing={1}>
       <Grid item>
+        <Typography
+          align="center"
+          variant="body2"
+          color="black"
+          fontFamily="DM Mono"
+        >
+          {label}
+        </Typography>
+      </Grid>
+      <Grid item>
         <Box position="relative" display="inline-flex">
           <BorderLinearProgress
             data-testid="linearProgressBar"
@@ -61,16 +71,6 @@ const SupportIcon: React.FC<SupportIconProps> = ({
             </Typography>
           </Box>
         </Box>
-        <Grid item>
-          <Typography
-            align="center"
-            variant="body2"
-            color="black"
-            fontFamily="DM Mono"
-          >
-            {label}
-          </Typography>
-        </Grid>
       </Grid>
     </Grid>
   );
