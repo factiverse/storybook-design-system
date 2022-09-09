@@ -29,7 +29,9 @@ export default {
       browser: true,
     }),
     commonjs(),
-    typescript(),
+    typescript({
+      tsconfig: './tsconfig.build.json',
+    }),
     postcss(),
     image(),
     visualizer({
