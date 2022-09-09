@@ -21,6 +21,13 @@ All components should be stored in the `src/components` folder.
 - rollup-plugin-postcss - To handle our css
 - rollup-plugin-terser - To minify our bundle
 
+
+Dependencies:
+
+PeerDependencies:
+
+DevDependencies:
+
 ### Run this component library
 
 Use the following config on your local machine:
