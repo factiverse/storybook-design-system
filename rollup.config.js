@@ -13,32 +13,25 @@ import copy from 'rollup-plugin-copy';
 const packageJson = require('./package.json');
 
 export default {
-  input: ['src/index.ts'],
+  input: 'src/index.ts',
   output: [
     {
       file: packageJson.main,
       format: 'cjs',
       sourcemap: true,
     },
-    {
-      file: packageJson.module,
-      format: 'esm',
-      sourcemap: true,
-    },
   ],
   plugins: [
     peerDepsExternal(),
     json(),
-    image(),
     terser(),
-    postcss(),
     resolve({
       browser: true,
     }),
     commonjs(),
-    typescript({
-      tsconfig: './tsconfig.build.json',
-    }),
+    typescript(),
+    postcss(),
+    image(),
     visualizer({
       filename: 'bundle-analysis.html',
       open: true,
@@ -46,12 +39,12 @@ export default {
     copy({
       targets: [
         {
-          src: 'src/icons/*.svg',
-          dest: 'dist/icons',
+          src: 'src/config/fonts',
+          dest: 'build/config',
         },
         {
-          src: 'src/config/fonts/**/*',
-          dest: 'dist/config',
+          src: 'src/icons/*.svg',
+          dest: 'build/icons',
         },
       ],
     }),

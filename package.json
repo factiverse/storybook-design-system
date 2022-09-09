@@ -19,15 +19,21 @@
     "build-storybook-docs": "build-storybook  --docs",
     "chromatic": "npx chromatic --project-token=e8130cbb59b8 --exit-once-uploaded",
     "deploy-storybook": "storybook-to-ghpages",
+    "prebuild": "rimraf build",
+    "build": "rollup -c",
+    "publish": "npm run build",
+    "build:local": "npm run build && npm pack",
+    "build:publish": "npm run build && npm publish",
     "release": "auto shipit --base-branch=main",
-    "prebuild": "rimraf dist",
-    "build": "tsc --outDir dist --declarationDir dist/types --declaration true --emitDeclarationOnly true && rollup -c",
+    "release:patch": "standard-version --release-as patch",
+    "release:minor": "standard-version --release-as minor",
+    "release:major": "standard-version --release-as major",
+    "release:pre:alpha": "standard-version --prerelease alpha",
     "test": "jest --coverage && eslint src",
     "test:watch": "jest --coverage --watchAll --json --outputFile=testOutput.json",
     "test-storybook": "test-storybook",
     "test-storybook:watch": "test-storybook --watch",
-    "test-storybook:browsers": "test-storybook --browsers firefox chromium webkit",
-    "publish": "npm run build"
+    "test-storybook:browsers": "test-storybook --browsers firefox chromium webkit"
   },
   "eslintConfig": {
     "extends": [
@@ -63,11 +69,11 @@
     ]
   },
   "files": [
-    "dist"
+    "build"
   ],
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/index.d.ts",
+  "main": "build/cjs/index.js",
+  "module": "build/esm/index.js",
+  "types": "build/index.d.ts",
   "overrides": {
     "mdx-embed": {
       "react": "^17.0.0",

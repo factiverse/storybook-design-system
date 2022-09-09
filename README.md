@@ -20,6 +20,7 @@ All components should be stored in the `src/components` folder.
 - rollup-plugin-peer-deps-external - To prevent bundling peerDependencies
 - rollup-plugin-postcss - To handle our css
 - rollup-plugin-terser - To minify our bundle
+- rollup-plugin-copy - copy the fonts and style
 
 
 Dependencies:
