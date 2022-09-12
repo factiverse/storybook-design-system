@@ -10,15 +10,18 @@ To look at the components and/or get started developing check out the GitHub Pag
 
 Testing automatic publishing
 
-
 ### Create a component using the generate script
 
-To create a new component, from the root folder, after running `npm i`, run the following:
+To create a new component, from the root folder, run the following:
 
-`npm run generate <Name of Component>`
+```
+cd storybook-design-system
+npm i
+npm run generate <Name of Component>
+cd src/components/<Name of Component>
+```
 
-Then to check the component:
-`cd src/components/<Name of Component>`
+Then to check the component.
 ### Structure
 
 All components should be stored in the `src/components` folder.
