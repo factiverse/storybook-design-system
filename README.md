@@ -20,8 +20,6 @@ npm i
 npm run generate <Name of Component>
 cd src/components/<Name of Component>
 ```
-
-Then to check the component.
 ### Structure
 
 All components should be stored in the `src/components` folder.

@@ -11,7 +11,7 @@ describe('Test Component', () => {
 
   beforeEach(() => {
     props = {
-      foo: 'bar'
+      foo: 'bar',
     };
   });
 
