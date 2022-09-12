@@ -1,6 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import MicrofactsArticle from './MicrofactsArticle';
+import { EntityType } from '..//Entity';
 
 const entities = [
   {

@@ -1,0 +1,31 @@
+.SupportIndicatorContainer {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+}
+
+$red-common: #ff8761;
+$green-common: #86c351;
+$yellow-common: #ffcd0f;
+
+.SupportIndicator {
+  display: flex;
+}
+
+.SupportIndicatorItem {
+  width: 100%;
+  background-color: lightgray;
+  margin-right: 2px;
+  height: 8px;
+
+  &.red-common {
+    background: $red-common !important;
+  }
+
+  &.yellow-common {
+    background: $yellow-common !important;
+  }
+
+  &.green-common {
+    background: $green-common !important;
+  }
+}
