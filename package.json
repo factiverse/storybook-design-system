@@ -75,9 +75,6 @@
   "main": "build/index.js",
   "module": "build/esm/index.js",
   "types": "build/index.d.ts",
-  "imports": {
-    "#package.json": "./package.json"
-  },
   "overrides": {
     "mdx-embed": {
       "react": "^17.0.0",
