@@ -31,10 +31,7 @@
     "release:major": "standard-version --release-as major",
     "release:pre:alpha": "standard-version --prerelease alpha",
     "test": "jest --coverage && eslint src",
-    "test:watch": "jest --coverage --watchAll --json --outputFile=testOutput.json",
-    "test-storybook": "test-storybook",
-    "test-storybook:watch": "test-storybook --watch",
-    "test-storybook:browsers": "test-storybook --browsers firefox chromium webkit"
+    "test:watch": "jest --coverage --watchAll --json --outputFile=testOutput.json"
   },
   "eslintConfig": {
     "extends": [
@@ -83,12 +80,12 @@
   },
   "dependencies": {
     "@babel/plugin-transform-runtime": "^7.17.12",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.2",
     "@mui/material": "^5.6.2",
     "@mui/styles": "^5.8.0",
     "classnames": "^2.3.1",
     "i18next": "^21.8.11",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.2",
     "react-string-replace": "^1.1.0",
     "reactjs-popup": "^2.0.5"
   },
@@ -125,7 +122,6 @@
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^6.5.9",
     "@storybook/storybook-deployer": "^2.8.11",
-    "@storybook/test-runner": "^0.2.0",
     "@storybook/testing-library": "^0.0.13",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^12.1.5",

@@ -4,5 +4,5 @@ module.exports = {
     '.(css|less|scss)$': 'identity-obj-proxy',
   },
   modulePathIgnorePatterns: ['node_modules', 'testOutput.json'],
-  testPathDirs: ['src/components'],
+  roots: ['src/components'],
 };
