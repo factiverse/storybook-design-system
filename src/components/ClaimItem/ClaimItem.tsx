@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, IconButton, Paper, Tooltip } from '@mui/material';
 import SourceList from '../SourceList/SourceList';
-import FilterBar from '../Filter/FilterBar';
+import FilterBar from '../FilterBar/FilterBar';
 import ClearIcon from '@mui/icons-material/Clear';
 import Loading from '../Loading/Loading';
 import Typography from '../Typography';

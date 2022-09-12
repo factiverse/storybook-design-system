@@ -1,9 +1,7 @@
 {
   "compilerOptions": {
     "rootDir": "src",
-    "declaration": true,
     "skipLibCheck": true,
-    "declarationDir": "build",
     "forceConsistentCasingInFileNames": true,
     "module": "esnext",
     "target": "es5",
@@ -15,7 +13,7 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
   },
-  "include": ["src/**/*"],
+  "include": ["src", "src/components", "src/declaration.d.ts"],
   "exclude": [
     "node_modules",
     "build",

@@ -1,6 +1,8 @@
 require('colors');
-import fs from 'fs';
-import templates from './templates';
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const fs = require('fs');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const templates = require('./templates');
 
 const componentName = process.argv[2];
 
@@ -11,7 +13,7 @@ if (!componentName) {
 
 console.log('Creating Component Templates with name: ' + componentName);
 
-const componentDirectory = `./src/${componentName}`;
+const componentDirectory = `./src/components/${componentName}`;
 
 if (fs.existsSync(componentDirectory)) {
   console.error(`Component ${componentName} already exists.`.red);

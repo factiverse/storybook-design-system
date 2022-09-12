@@ -1,11 +1,11 @@
 import React from 'react';
-import { version } from '../../../package.json';
+
 import { IconButton, IconButtonProps } from '@mui/material';
 
 const Version = ({
   color = 'default',
   disabled = false,
-  title = version,
+  title = '1.0',
 }: IconButtonProps) => {
   return (
     <>
