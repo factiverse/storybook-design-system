@@ -31,7 +31,10 @@
     "release:major": "standard-version --release-as major",
     "release:pre:alpha": "standard-version --prerelease alpha",
     "test": "jest --coverage && eslint src",
-    "test:watch": "jest --coverage --watchAll --json --outputFile=testOutput.json"
+    "test:watch": "jest --coverage --watchAll --json --outputFile=testOutput.json",
+    "test-storybook": "test-storybook",
+    "test-storybook:watch": "test-storybook --watch",
+    "test-storybook:browsers": "test-storybook --browsers firefox chromium webkit"
   },
   "eslintConfig": {
     "extends": [
@@ -122,6 +125,7 @@
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^6.5.9",
     "@storybook/storybook-deployer": "^2.8.11",
+    "@storybook/test-runner": "^0.2.0",
     "@storybook/testing-library": "^0.0.13",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^12.1.5",
