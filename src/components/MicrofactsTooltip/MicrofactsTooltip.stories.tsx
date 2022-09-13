@@ -7,7 +7,7 @@ const entity = {
     'Nele Neuhaus, født Cornelia Löwenberg, er en svært populær tysk kriminalforfatter, særlig kjent for serien om politietterforskerne Oliver von Bodenstein og Pia Kirchhoff som utspiller seg i Taunus. Liv og virke Nele Neuhaus har studert jus, germanistikk og historie samt.',
   entity: 'Nels',
   page_url: 'https://snl.no/Nele_Neuhaus',
-  entity_type: EntityType.PER,
+  entity_type: 'Person',
   checked: true,
   keyFact: true,
   domain: 'snl',
