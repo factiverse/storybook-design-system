@@ -25,6 +25,7 @@
     "publish": "npm run build",
     "build:local": "npm run build && npm pack",
     "build:publish": "npm run build && npm publish",
+    "rollup": "rollup -c",
     "release": "auto shipit --base-branch=main",
     "release:patch": "standard-version --release-as patch",
     "release:minor": "standard-version --release-as minor",
