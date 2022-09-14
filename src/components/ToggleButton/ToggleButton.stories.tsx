@@ -1,9 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import ToggleButton from './ToggleButton';
-import { Grid } from '@mui/material';
 import SupportIcon from '../SupportIcon';
-import Typography from '../Typography';
 
 export default {
   title: 'Components/ToggleButton',

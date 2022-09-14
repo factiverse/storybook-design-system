@@ -2,7 +2,6 @@ import React from 'react';
 import { Grid, Typography } from '@material-ui/core';
 import reactStringReplace from 'react-string-replace';
 import MicrofactsTooltip from '../MicrofactsTooltip/MicrofactsTooltip';
-import { Entity } from '../Entity';
 
 export interface MicrofactsArticleProps {
   headline: string;

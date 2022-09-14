@@ -7,26 +7,34 @@
   },
   "author": "Tobias Tykvart",
   "license": "MIT",
-  "version": "0.2.0",
+  "version": "0.2.4",
   "private": false,
   "bugs": {
     "url": "https://github.com/factiverse/storybook-design-system/issues"
   },
   "homepage": "https://github.com/factiverse/storybook-design-system#readme",
   "scripts": {
+    "generate": "node ./util/create-component",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook",
     "build-storybook-docs": "build-storybook  --docs",
     "chromatic": "npx chromatic --project-token=e8130cbb59b8 --exit-once-uploaded",
     "deploy-storybook": "storybook-to-ghpages",
+    "prebuild": "rimraf build",
+    "build": "tsc --outDir build --declarationDir build --declaration true && rollup -c",
+    "publish": "npm run build",
+    "build:local": "npm run build && npm pack",
+    "build:publish": "npm run build && npm publish",
     "release": "auto shipit --base-branch=main",
-    "rollup": "rollup -c",
+    "release:patch": "standard-version --release-as patch",
+    "release:minor": "standard-version --release-as minor",
+    "release:major": "standard-version --release-as major",
+    "release:pre:alpha": "standard-version --prerelease alpha",
     "test": "jest --coverage && eslint src",
     "test:watch": "jest --coverage --watchAll --json --outputFile=testOutput.json",
     "test-storybook": "test-storybook",
     "test-storybook:watch": "test-storybook --watch",
-    "test-storybook:browsers": "test-storybook --browsers firefox chromium webkit",
-    "publish": "npm run rollup"
+    "test-storybook:browsers": "test-storybook --browsers firefox chromium webkit"
   },
   "eslintConfig": {
     "extends": [
@@ -62,11 +70,11 @@
     ]
   },
   "files": [
-    "dist"
+    "build"
   ],
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/index.d.ts",
+  "main": "build/index.js",
+  "module": "build/esm/index.js",
+  "types": "build/index.d.ts",
   "overrides": {
     "mdx-embed": {
       "react": "^17.0.0",
@@ -74,13 +82,17 @@
     }
   },
   "dependencies": {
-    "@babel/plugin-transform-runtime": "^7.17.12",
     "@mui/material": "^5.6.2",
     "@mui/styles": "^5.8.0",
     "classnames": "^2.3.1",
     "i18next": "^21.8.11",
     "react-string-replace": "^1.1.0",
     "reactjs-popup": "^2.0.5"
+  },
+  "peerDependencies": {
+    "@babel/plugin-transform-runtime": "^7.18.5",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.2"
   },
   "engines": {
     "node": "17.x",
@@ -97,8 +109,10 @@
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
     "@mui/icons-material": "^5.8.4",
-    "@mui/material": "^5.8.5",
+    "@mui/material": "^5.6.2",
     "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-image": "^2.1.1",
+    "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.0.6",
     "@rollup/plugin-typescript": "^8.3.3",
     "@storybook/addon-a11y": "^6.5.9",
@@ -127,6 +141,7 @@
     "babel-jest": "^27.3.1",
     "babel-loader": "^8.2.3",
     "chromatic": "^6.6.3",
+    "colors": "^1.4.0",
     "css-loader": "^6.5.1",
     "email-validator": "^2.0.4",
     "eslint": "^8.18.0",
@@ -146,9 +161,14 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.2",
     "react-is": "^18.2.0",
+    "rimraf": "^3.0.2",
     "rollup": "^2.75.7",
+    "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-dts": "^4.2.2",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.1",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-visualizer": "^5.8.1",
     "sass": "^1.53.0",
     "sass-loader": "^12.3.0",
     "storybook-addon-material-ui": "^0.9.0-alpha.24",
