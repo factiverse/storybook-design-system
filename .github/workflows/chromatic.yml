@@ -10,7 +10,14 @@ jobs:
     runs-on: ubuntu-latest
     # The list of steps that the action will go through
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+          cache: 'npm'
+          cache-dependency-path: '**/package-lock.json'
+      - run: rm -rf package-lock.json
       - run: npm install
         #👇 Adds Chromatic as a step in the workflow
       - uses: chromaui/action@v1
