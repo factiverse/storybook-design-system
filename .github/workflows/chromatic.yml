@@ -10,15 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     # The list of steps that the action will go through
     steps:
-      - uses: actions/checkout@v3
-      - name: Setup node
-        uses: actions/setup-node@v3
+        # 👇 Version 2 of the action
+      - name: Checkout repository
+        uses: actions/checkout@v2
         with:
-          node-version: ${{ matrix.node }}
-          cache: 'npm'
-          cache-dependency-path: '**/package-lock.json'
-      - run: rm -rf package-lock.json
-      - run: npm install
+          fetch-depth: 0 # 👈 Required to retrieve git history
+      - name: Install dependencies
+        run: yarn
         #👇 Adds Chromatic as a step in the workflow
       - uses: chromaui/action@v1
         # Options required for Chromatic's GitHub Action
