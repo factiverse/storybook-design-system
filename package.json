@@ -90,7 +90,7 @@
     "reactjs-popup": "^2.0.5"
   },
   "peerDependencies": {
-    "@babel/plugin-transform-runtime": "^7.17.12",
+    "@babel/plugin-transform-runtime": "^7.18.5",
     "react": "^17.0.1",
     "react-dom": "^17.0.2"
   },
@@ -158,6 +158,8 @@
     "mdx-embed": "^1.0.0",
     "postcss": "^8.4.12",
     "prettier": "^2.7.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.2",
     "react-is": "^18.2.0",
     "rimraf": "^3.0.2",
     "rollup": "^2.75.7",
