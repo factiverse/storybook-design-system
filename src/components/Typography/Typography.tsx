@@ -16,6 +16,7 @@ export const Typography = (props: TypographyProps) => {
     noWrap = false,
     paragraph = false,
     fontFamily = 'Arizona Serif',
+    sx,
   } = props;
 
   let theme = createTheme();
@@ -29,7 +30,9 @@ export const Typography = (props: TypographyProps) => {
         gutterBottom={gutterBottom}
         noWrap={noWrap}
         paragraph={paragraph}
-        sx={{ fontFamily: fontFamily }}
+        sx={sx}
+        fontFamily={fontFamily}
+        {...props}
       >
         {children}
       </TypographyMUI>

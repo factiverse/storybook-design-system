@@ -1,90 +1,48 @@
 @font-face {
-  font-family: 'Arizona Serif';
-  src: url('./ABCArizonaSerif-Light.ttf') format('truetype');
+  font-family: 'ArizonaSerif';
+  src: url('./ArizonaSerif/ArizonaSerif-Light.otf') format('opentype');
+  font-weight: 200;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Arizona Serif';
-  src: url('./ArizonaSerif-Light.woff') format('woff');
+  src: url('./ArizonaSerif/ArizonaSerif-Light.otf') format('opentype');
+  font-weight: 200;
   font-style: normal;
 }
 
-@font-face {
-  font-family: 'Arizona Serif';
-  src: url('./ArizonaSerif-Light.woff2') format('woff2');
-  font-style: normal;
-}
+
 
 @font-face {
   font-family: 'Arizona Text';
-  src: url('./ArizonaText-Light.ttf') format('truetype');
+  src: url('./ArizonaSerif/ArizonaText-Light.otf') format('opentype');
+  font-weight: 200;
   font-style: normal;
 }
 
-@font-face {
-  font-family: 'Arizona Text';
-  src: url('./ArizonaText-Light.woff') format('woff');
-  font-style: normal;
-}
+
 
 @font-face {
   font-family: 'Arizona Text';
-  src: url('./ArizonaText-Light.woff2') format('woff2');
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Arizona Text';
-  src: url('./ArizonaText-LightItalic.ttf') format('truetype');
+  src: url('./ArizonaSerif/ArizonaText-LightItalic.otf') format('opentype');
+  font-weight: 200;
   font-style: italic;
 }
 
-@font-face {
-  font-family: 'Arizona Text';
-  src: url('./ArizonaText-LightItalic.woff') format('woff');
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'Arizona Text';
-  src: url('./ArizonaText-LightItalic.woff2') format('woff2');
-  font-style: italic;
-}
 
 @font-face {
   font-family: 'DM Mono';
-  src: url('./DMMono-Light.ttf') format('truetype');
+  src: url('./DMmono/DMMono-Light.ttf') format('truetype');
+  font-weight: 200;
   font-style: normal;
 }
 
-@font-face {
-  font-family: 'DM Mono';
-  src: url('./DMMono-Light.woff') format('woff');
-  font-style: normal;
-}
 
 @font-face {
   font-family: 'DM Mono';
-  src: url('./DMMono-Light.woff2') format('woff2');
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'DM Mono';
-  src: url('./DMMono-LightItalic.ttf') format('truetype');
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'DM Mono';
-  src: url('./DMMono-LightItalic.woff') format('woff');
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'DM Mono';
-  src: url('./DMMono-LightItalic.woff2') format('woff2');
+  src: url('./DMmono/DMMono-LightItalic.ttf') format('truetype');
+  font-weight: 200;
   font-style: italic;
 }
 
@@ -92,5 +50,6 @@
   font-family: 'DM Mono';
   src: url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap')
     format('woff2');
+  font-weight: 200;
   font-style: italic;
 }

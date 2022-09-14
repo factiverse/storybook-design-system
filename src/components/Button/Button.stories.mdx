@@ -1,0 +1,63 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+import { Button } from './Button';
+import { within, userEvent, waitFor } from '@storybook/testing-library';
+import { expect } from '@storybook/jest';
+
+<Meta
+  title="Base Components/Button"
+  argTypes={{
+    onClick: {
+      action: true,
+    },
+  }}
+  component={Button}
+/>
+
+# Buttons
+
+We use wrapped Material UI Buttons. The same properties can be passed to this component (see the Args Table below) but we prefer to use the following default variations in most cases.
+
+## Usage
+
+- `color="primary"` for the most common interactions
+- `color="secondary"` for important interactions to **draw attention**
+
+<Canvas>
+  <Story name="All Buttons">
+    <>
+      <Button color="primary">Primary</Button>{' '}
+      <Button color="secondary">Secondary</Button>{' '}
+      <Button color="neutral">Neutral</Button>{' '}
+      <Button variant="text" color="secondary">
+        Text
+      </Button>{' '}
+      <Button variant="outlined" color="secondary">
+        Outlined
+      </Button>{' '}
+      <Button disabled>Disabled</Button>
+    </>
+  </Story>
+</Canvas>
+
+## Interaction Test
+
+This is testing a button click, check the tab "Canvas -> Interactions" to see it passing.
+
+export const Template = (args) => <Button {...args}>Button</Button>;
+
+<Canvas>
+  <Story
+    name="Button click"
+    play={async ({ args, canvasElement }) => {
+      const canvas = within(canvasElement);
+      await userEvent.click(canvas.getByRole('button'));
+      await waitFor(() => expect(args.onClick).toHaveBeenCalled());
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Args Table
+
+<ArgsTable of={Button} />

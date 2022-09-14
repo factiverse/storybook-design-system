@@ -1,12 +1,9 @@
 import React from 'react';
-import './Button.scss';
+import { Button as ButtonMUI, ButtonProps } from '@mui/material';
 
-export interface ButtonProps {
-  label: string;
-}
-
-const Button = (props: ButtonProps) => {
-  return <button>{props.label}</button>;
+export const Button = ({ ...props }: ButtonProps) => {
+  const { variant = 'contained' } = props;
+  return <ButtonMUI disableRipple variant={variant} {...props} />;
 };
 
 export default Button;

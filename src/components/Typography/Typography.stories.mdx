@@ -1,0 +1,118 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+import Typography from './Typography';
+import Button from '../Button/Button';
+
+<Meta title="Base Components/Typography" component={Typography} />
+
+<!-- TODO: get argTypes to work -->
+<!-- argTypes={{
+    children: {
+      control: {
+        type: 'element',
+        require: true,
+      },
+    },
+    variant: {
+      control: {
+        options: [
+          'h1',
+          'h2',
+          'h3',
+          'h4',
+          'h5',
+          'h6',
+          'subtitle1',
+          'subtitle2',
+          'body1',
+          'body2',
+          'caption',
+          'button',
+          'overline',
+          'inherit',
+        ],
+        type: 'radio',
+      },
+    },
+    align: {
+      control: {
+        type: 'radio',
+      },
+    },
+    gutterBottom: {
+      control: { type: 'boolean' },
+    },
+    noWrap: {
+      control: { type: 'boolean' },
+    },
+    paragraph: {
+      control: { type: 'boolean' },
+    },
+    fontFamily: {
+      control: {
+        options: ['DM Mono', 'Arizona Serif'],
+        type: 'radio',
+      },
+    }} -->
+
+# Typography
+
+We use wrapped Material UI Typography. The same properties can be passed to this component (see the Args Table below) but we prefer to use the following composition in most cases.
+
+<Canvas>
+  <Story name="Typeface Composition" height="320px">
+    <Typography fontFamily="DM Mono">Mission</Typography>
+    <Typography variant="h3">
+      Unblurring the lines between fact and misinformation
+    </Typography>
+    <Typography variant="body1" fontFamily="Arizona Text">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+      est laborum.
+    </Typography>
+    <Button sx={{ marginTop: 2 }} color="secondary">
+      Call To Action
+    </Button>
+  </Story>
+</Canvas>
+
+## Primary Typeface: Arizona Serif
+
+Arizona Serif is the primary typeface and is used for headlines and body text to increase readability in small sizes.
+
+<Canvas>
+  <Story name="Primary Typeface" height="530px">
+    <>
+      <Typography variant="h1">H1 Arizona Serif</Typography>
+      <Typography variant="h2">H2 Arizona Serif</Typography>
+      <Typography variant="h3">H3 Arizona Serif</Typography>
+      <Typography variant="h4">H4 Arizona Serif</Typography>
+      <Typography variant="h5">H5 Arizona Serif</Typography>
+      <Typography variant="h6">H6 Arizona Serif</Typography>
+      <Typography variant="subtitle1">Subtitle1 Arizona Serif</Typography>
+      <Typography variant="subtitle2">Subtitle2 Arizona Serif</Typography>
+      <Typography variant="body1">Body Arizona Serif</Typography>
+      <Typography align="left">Left Aligned</Typography>
+      <Typography align="center">Center Aligned</Typography>
+      <Typography align="right">Right Aligned</Typography>
+      <Typography align="justify">Justify Aligned</Typography>
+    </>
+  </Story>
+</Canvas>
+
+## Secondary Typeface: DM Mono
+
+DM Mono is used on smaller elements like overline headings and buttons, and should not be used in big sizes.
+
+<Canvas>
+  <Story name="Secondary Typeface">
+    <Typography fontFamily="DM Mono">DM Mono</Typography>
+  </Story>
+</Canvas>
+
+## Args Table
+
+<ArgsTable of={Typography} />

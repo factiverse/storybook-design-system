@@ -1,14 +1,18 @@
 module.exports = {
-  stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
+  stories: ['../src/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
   addons: [
+    // Official addons
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/preset-scss',
     '@storybook/addon-a11y',
     '@storybook/addon-interactions',
+    'storybook-addon-material-ui5',
+    '@storybook/addon-jest',
+
+    // Community addons
+    'storybook-mobile',
     'storybook-addon-mdx-embed',
-    // '@storybook/preset-create-react-app'
-    // 'storybook-addon-material-ui',
   ],
   core: {
     builder: 'webpack5',
@@ -19,11 +23,16 @@ module.exports = {
     reactDocgen: 'react-docgen-typescript',
     reactDocgenTypescriptOptions: {
       shouldExtractLiteralValuesFromEnum: true,
-      propFilter: (prop) =>
-        prop.parent ? !/node_modules/.test(prop.parent.fileName) : true,
+      propFilter: (prop) => {
+        return prop.parent
+          ? /@mui/.test(prop.parent.fileName) ||
+              !/node_modules/.test(prop.parent.fileName)
+          : true;
+      },
     },
   },
   features: {
     emotionAlias: false,
+    interactionsDebugger: true,
   },
 };
