@@ -12,7 +12,6 @@ jobs:
           node-version: 16
           cache: 'npm'
           cache-dependency-path: '**/package-lock.json'
-      - run: rm -rf package-lock.json
       - run: npm install
       - name: Install Playwright
         run: npx playwright install --with-deps
