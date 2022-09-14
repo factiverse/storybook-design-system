@@ -9,11 +9,8 @@ jobs:
     - uses: actions/setup-node@v3
       with:
         node-version: 16
-        cache: 'npm'
-        cache-dependency-path: '**/package-lock.json'
-
       - name: Install dependencies
-        run: npm install
+        run: rm -rf package-lock.json && npm install
       - name: Install Playwright
         run: npx playwright install --with-deps
       - name: Build Storybook
