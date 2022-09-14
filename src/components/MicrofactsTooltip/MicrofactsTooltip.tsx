@@ -4,7 +4,6 @@ import Popup from 'reactjs-popup';
 import Typography from '../Typography';
 import makeStyles from '@mui/styles/makeStyles';
 import createStyles from '@mui/styles/createStyles';
-import { Entity } from '../Entity';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
