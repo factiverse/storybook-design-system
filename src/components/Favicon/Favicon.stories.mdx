@@ -1,0 +1,44 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+
+import Favicon from './Favicon';
+
+<Meta
+  title="Base Components/Favicon"
+  argTypes={{
+    domain: {
+      name: 'Domain',
+      description: 'The domain',
+      defaultValue: 'google.com',
+      control: {
+        type: 'text',
+      },
+    },
+  }}
+  component={Favicon}
+/>
+
+# Favicon
+
+This component can add visualization to domains and makes it easier for the user to recognize them.
+
+export const Template = (args) => <Favicon {...args} />;
+
+<Canvas>
+  <Story name="Default">{Template.bind({})}</Story>
+  <Story name="Examples">
+    <Favicon domain={'physicsworld.com'} />
+    <Favicon domain={'bbc.co.uk'} />
+    <Favicon domain={'politifact.com'} />
+    <Favicon domain={'fullfact.org'} />
+    <Favicon domain={'usatoday.com'} />
+    <Favicon domain={'factchecker.in'} />
+    <Favicon domain={'verafiles.org'} />
+    <Favicon domain={'newsmobile.in'} />
+    <Favicon domain={'faktisk.no'} />
+    <Favicon domain={'verifica.efe.com'} />
+  </Story>
+</Canvas>
+
+## Args Table
+
+<ArgsTable of={Favicon} />

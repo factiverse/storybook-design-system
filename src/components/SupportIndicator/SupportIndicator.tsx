@@ -1,6 +1,6 @@
 import { CircularProgress, Grid, Tooltip } from '@mui/material';
 import { Variant } from '@mui/material/styles/createTypography';
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Box from '@mui/material/Box';
 import './SupportIndicator.scss';
 import Typography from '../Typography';
@@ -36,11 +36,6 @@ export const SupportIndicator: React.FC<SupportIndicatorProps> = ({
   if (score >= 0.4 && score < 0.6) circleColor = yellowColor;
   if (score >= 0.6) circleColor = greenColor;
 
-  let label = '';
-  if (score < 0.4) label = 'Disputing';
-  if (score >= 0.4 && score < 0.6) label = 'Conflicting sources';
-  if (score >= 0.6) label = 'Supporting';
-
   let tooltip = '';
   if (tooltips !== undefined) {
     if (score < 0.4) tooltip = tooltips[2];
@@ -66,80 +61,41 @@ export const SupportIndicator: React.FC<SupportIndicatorProps> = ({
   if (score >= 0.6) headlineVariant[2] = 'h6';
   if (score > 1) score = 1;
 
+  const refContainer = useRef<HTMLHeadingElement>(null);
+  const [width, setWidth] = useState(0);
+  const handleResize = () => {
+    if (refContainer.current) {
+      setWidth(refContainer.current.offsetWidth);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize, false);
+    handleResize();
+  }, []);
+
   return (
     <>
       {variant == 'bar' && (
-        <div className={'SupportIndicatorContainer'}>
-          {labels?.length !== undefined && true && (
-            <Grid sx={{ px: 10 }} container justifyContent={'space-between'}>
-              {tooltips !== undefined && (
-                <>
-                  <Grid item>
-                    <Tooltip title={tooltips[0]} arrow>
+        <div className={'SupportIndicatorContainer'} ref={refContainer}>
+          {width > 400 && labels != undefined && (
+            <Grid container justifyContent={'space-between'}>
+              {labels.map((label, index) => {
+                return (
+                  <Grid item key={label}>
+                    <Tooltip title={tooltips?.[index] ?? ''} arrow>
                       <div>
                         <Typography
-                          variant={headlineVariant[0]}
+                          variant={headlineVariant[index]}
                           fontFamily="DM Mono"
                         >
-                          {labels[0]}
+                          {label}
                         </Typography>
                       </div>
                     </Tooltip>
                   </Grid>
-                  <Grid item>
-                    <Tooltip title={tooltips[1]} arrow>
-                      <div>
-                        <Typography
-                          variant={headlineVariant[1]}
-                          fontFamily="DM Mono"
-                        >
-                          {labels[1]}
-                        </Typography>
-                      </div>
-                    </Tooltip>
-                  </Grid>
-                  <Grid item>
-                    <Tooltip title={tooltips[2]} arrow>
-                      <div>
-                        <Typography
-                          variant={headlineVariant[2]}
-                          fontFamily="DM Mono"
-                        >
-                          {labels[2]}
-                        </Typography>
-                      </div>
-                    </Tooltip>
-                  </Grid>
-                </>
-              )}
-              {tooltips === undefined && (
-                <>
-                  <Grid item>
-                    <Typography
-                      variant={headlineVariant[0]}
-                      fontFamily="DM Mono"
-                    >
-                      {labels[0]}
-                    </Typography>
-                  </Grid>
-                  <Grid item>
-                    <Typography
-                      variant={headlineVariant[1]}
-                      fontFamily="DM Mono"
-                    >
-                      {labels[1]}
-                    </Typography>
-                  </Grid>
-                  <Grid item>
-                    <Typography
-                      variant={headlineVariant[2]}
-                      fontFamily="DM Mono"
-                    >
-                      {labels[2]}
-                    </Typography>
-                  </Grid>
-                </>
-              )}
+                );
+              })}
             </Grid>
           )}
           <div className={'SupportIndicator'}>

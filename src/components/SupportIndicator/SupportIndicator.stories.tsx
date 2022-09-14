@@ -15,12 +15,12 @@ export const Default = Template.bind({});
 
 export const WithLabel = Template.bind({});
 WithLabel.args = {
-  labels: ['Disputing', 'Conflicting sources', 'Supporting'],
+  labels: ['Disputing', 'Conflicting', 'Supporting'],
 };
 
 export const WithTooltips = Template.bind({});
 WithTooltips.args = {
-  labels: ['Disputing', 'Conflicting sources', 'Supporting'],
+  labels: ['Disputing', 'Conflicting', 'Supporting'],
   tooltips: [
     'Most found sources are disputing this.',
     'Found sources are conflicting.',
