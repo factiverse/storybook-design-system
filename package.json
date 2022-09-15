@@ -6,7 +6,7 @@
     "url": "git+https://github.com/factiverse/storybook-design-system.git"
   },
   "author": "Tobias Tykvart",
-  "license": "MIT",
+  "license": "Unlicensed",
   "version": "0.3.0",
   "private": false,
   "bugs": {
