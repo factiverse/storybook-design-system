@@ -1,4 +1,8 @@
-import React, { ChangeEventHandler, MouseEventHandler } from 'react';
+import React, {
+  ChangeEventHandler,
+  MouseEventHandler,
+  KeyboardEventHandler,
+} from 'react';
 import { FormControl, Typography, InputAdornment } from '@mui/material';
 import TextField from '../TextField';
 import Button from '../Button';
@@ -18,6 +22,7 @@ export interface SearchBarProps {
   error?: boolean;
   helperText?: string;
   sx?: object;
+  onKeyDown?: KeyboardEventHandler<HTMLDivElement>;
 }
 
 const SearchBar = (props: SearchBarProps) => {
@@ -34,6 +39,7 @@ const SearchBar = (props: SearchBarProps) => {
     helperText,
     onSearch,
     sx,
+    onKeyDown,
   } = props;
 
   const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
@@ -55,6 +61,7 @@ const SearchBar = (props: SearchBarProps) => {
         label={label}
         error={error}
         helperText={helperText}
+        onKeyDown={onKeyDown}
         // TODO: # 125 Use random/popular claims as the placeholder, let the user check one without having to type anything
         placeholder={placeholder}
         sx={{
