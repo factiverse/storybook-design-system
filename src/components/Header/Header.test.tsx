@@ -6,17 +6,7 @@ import { disclaimerText } from './Header';
 
 describe('Header component', () => {
   beforeEach(() => {
-    render(
-      <Header
-        logo="https://editor.factiverse.no/79b028bc000a5e47c9a7.png"
-        appBarColor="default"
-        disclaimerStart={true}
-        logoWidth="200"
-        logoHeight="58"
-        mobileLogoWidth="130"
-        mobileLogoHeight="35"
-      />
-    );
+    render(<Header appBarColor="default" disclaimerStart={true} />);
   });
 
   it('should render logo', () => {
