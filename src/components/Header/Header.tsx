@@ -11,7 +11,6 @@ import { useMediaQuery } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import Button from '../Button';
 import Logo from '../../img/Logo.png';
 
 const defaultLogoSize = { width: 221, height: 72 };
@@ -23,6 +22,7 @@ export interface HeaderProps {
   disclaimerStart?: boolean;
   diclaimerWrapper?: React.ReactElement;
   signInButtons?: React.ReactElement;
+  appBarStyles?: React.CSSProperties;
 }
 
 const DrawerHeader = styled('div')(({ theme }) => ({
@@ -43,6 +43,7 @@ const Header = (props: HeaderProps) => {
     disclaimerStart,
     diclaimerWrapper,
     signInButtons,
+    appBarStyles,
   } = props;
   const theme = useTheme();
   const isMobileSize = useMediaQuery(theme.breakpoints.down('sm'));
@@ -96,11 +97,13 @@ const Header = (props: HeaderProps) => {
         <AppBar
           position="static"
           color={appBarColor}
-          sx={{
-            backgroundColor: 'whitesmoke',
-            border: '1px solid grey',
-            boxShadow: 'none',
-          }}
+          sx={
+            appBarStyles ?? {
+              backgroundColor: 'whitesmoke',
+              border: '1px solid grey',
+              boxShadow: 'none',
+            }
+          }
         >
           <Toolbar>
             <IconButton
@@ -121,11 +124,13 @@ const Header = (props: HeaderProps) => {
         <AppBar
           position="static"
           color={appBarColor}
-          sx={{
-            backgroundColor: 'whitesmoke',
-            border: '1px solid grey',
-            boxShadow: 'none',
-          }}
+          sx={
+            appBarStyles ?? {
+              backgroundColor: 'whitesmoke',
+              border: '1px solid grey',
+              boxShadow: 'none',
+            }
+          }
         >
           <Toolbar>
             <Grid container alignItems="center" justifyContent="space-between">
