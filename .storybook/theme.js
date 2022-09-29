@@ -5,6 +5,6 @@ export default create({
   base: 'light',
   brandTitle: 'Factiverse Design System',
   brandUrl:
-    'https://factiverse.github.io/storybook-design-system/?path=/story/base-components-autocomplete--with-data',
+    'https://factiverse.github.io/storybook-design-system/?path=/story/introduction--page',
   brandImage: DesignSystemLogo,
 });
