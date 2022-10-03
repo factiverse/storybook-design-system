@@ -48,6 +48,10 @@ export default {
           src: 'src/icons/*.svg',
           dest: 'build/icons',
         },
+        {
+          src: 'src/img',
+          dest: 'build',
+        },
       ],
     }),
   ],
