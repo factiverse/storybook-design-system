@@ -15,6 +15,9 @@
 
 dist
 .env
+.tgz
+
+bundle-analysis.html
 
 # misc
 .DS_Store
