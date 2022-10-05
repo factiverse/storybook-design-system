@@ -13,7 +13,6 @@ module.exports = {
 
     // Community addons
     'storybook-mobile',
-    'storybook-addon-mdx-embed',
   ],
   core: {
     builder: 'webpack5',
