@@ -71,9 +71,7 @@ export const MicrofactsTooltip = (props: MicrofactsTooltipProps) => {
             'right top',
           ]}
           onClose={onCloseFeedback}
-          on={['hover', 'focus']}
-          mouseEnterDelay={100}
-          mouseLeaveDelay={300}
+          on={['click', 'focus']}
         >
           <Paper
             className={classes.tooltipPaper}
@@ -92,7 +90,6 @@ export const MicrofactsTooltip = (props: MicrofactsTooltipProps) => {
                     {entity.entity}
                   </Typography>
                 </Link>
-                <Typography>Type: {entity.entity_type}</Typography>
               </Grid>
               <Grid container alignItems="center" ml={0.5}>
                 <Typography>Source: </Typography>

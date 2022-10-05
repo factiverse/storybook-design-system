@@ -11,24 +11,27 @@ import { useMediaQuery } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import Logo from '../../img/Logo.png';
+import Button from '../Button';
 
 const defaultLogoSize = { width: 221, height: 72 };
-const mobileLogoSize = { width: 180, height: 60 };
+const mobileLogoSize = { width: 160, height: 45 };
 
 export interface HeaderProps {
+  logo: string;
   appBarColor: 'default' | 'inherit' | 'primary';
+  diclaimerClick: () => void;
+  signInClick?: () => void;
+  signUpClick?: () => void;
   disclaimerEnd?: boolean;
   disclaimerStart?: boolean;
-  diclaimerWrapper?: React.ReactElement;
-  signInButtons?: React.ReactElement;
-  appBarStyles?: React.CSSProperties;
+  withLoginAndSignup?: boolean;
 }
 
 const DrawerHeader = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   padding: theme.spacing(0, 1),
+  // necessary for content to be below app bar
   ...theme.mixins.toolbar,
   justifyContent: 'flex-start',
 }));
@@ -36,13 +39,16 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 export const disclaimerText = 'ALPHA V0.1';
 
 const Header = (props: HeaderProps) => {
+  // default logo size is for Topics logo
   const {
+    withLoginAndSignup = false,
+    logo,
     appBarColor = 'inherit',
     disclaimerEnd,
     disclaimerStart,
-    diclaimerWrapper,
-    signInButtons,
-    appBarStyles,
+    diclaimerClick,
+    signInClick,
+    signUpClick,
   } = props;
   const theme = useTheme();
   const isMobileSize = useMediaQuery(theme.breakpoints.down('sm'));
@@ -52,12 +58,18 @@ const Header = (props: HeaderProps) => {
   const logoWrapper = (
     <a href={'https://www.factiverse.no/'} target={'_blank'} rel="noreferrer">
       <img
-        src={Logo}
+        src={logo}
         alt="Factiverse Logo"
         width={isMobileSize ? mobileLogoSize.width : defaultLogoSize.width}
         height={isMobileSize ? mobileLogoSize.height : defaultLogoSize.height}
       />
     </a>
+  );
+
+  const diclaimerWrapper = (
+    <Grid item>
+      <Button onClick={diclaimerClick}>{disclaimerText}</Button>
+    </Grid>
   );
 
   const drawer = (
@@ -79,9 +91,14 @@ const Header = (props: HeaderProps) => {
         </DrawerHeader>
         {/* mobile menu content  */}
         <Grid container flexDirection="column" px={3}>
-          {signInButtons && (
-            <Grid container spacing={2}>
-              <Grid item>{signInButtons}</Grid>
+          {withLoginAndSignup && signInClick && signUpClick && (
+            <Grid container flexDirection="column">
+              <Grid mb={1}>
+                <Button onClick={signInClick}>sign in</Button>
+              </Grid>
+              <Grid mb={1}>
+                <Button onClick={signUpClick}>sign up for free</Button>
+              </Grid>
             </Grid>
           )}
           {diclaimerWrapper}
@@ -93,17 +110,7 @@ const Header = (props: HeaderProps) => {
   return (
     <>
       {isMobileSize ? (
-        <AppBar
-          position="static"
-          color={appBarColor}
-          sx={
-            appBarStyles ?? {
-              backgroundColor: 'whitesmoke',
-              border: '1px solid grey',
-              boxShadow: 'none',
-            }
-          }
-        >
+        <AppBar position="fixed" color={appBarColor}>
           <Toolbar>
             <IconButton
               color="inherit"
@@ -120,25 +127,20 @@ const Header = (props: HeaderProps) => {
           {drawer}
         </AppBar>
       ) : (
-        <AppBar
-          position="static"
-          color={appBarColor}
-          sx={
-            appBarStyles ?? {
-              backgroundColor: 'whitesmoke',
-              border: '1px solid grey',
-              boxShadow: 'none',
-            }
-          }
-        >
+        <AppBar position="static" color={appBarColor}>
           <Toolbar>
             <Grid container alignItems="center" justifyContent="space-between">
               {disclaimerStart && diclaimerWrapper}
               <Grid item>{logoWrapper}</Grid>
               <Grid>
-                {signInButtons && (
-                  <Grid container spacing={2}>
-                    <Grid item>{signInButtons}</Grid>
+                {withLoginAndSignup && signInClick && signUpClick && (
+                  <Grid container flexDirection="row">
+                    <Grid mr={2}>
+                      <Button onClick={signInClick}>sign in</Button>
+                    </Grid>
+                    <Grid>
+                      <Button onClick={signUpClick}>sign up for free</Button>
+                    </Grid>
                   </Grid>
                 )}
                 {disclaimerEnd && diclaimerWrapper}

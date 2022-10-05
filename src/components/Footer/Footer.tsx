@@ -11,7 +11,7 @@ export const footerText =
   'We are continuously developing our patented AI for different use cases and would love to hear from you. If you have any questions or want to know more about our services feel free to contact us:';
 
 const Footer = (props: FooterProps) => {
-  const { text = footerText } = props;
+  const { text = footerText, year } = props;
   return (
     <div>
       <Grid item>
@@ -26,9 +26,7 @@ const Footer = (props: FooterProps) => {
       </Grid>
       <Grid item>
         <Box mt={1}>
-          <Typography align="center">
-            &copy; {new Date().getFullYear()} by Factiverse AS
-          </Typography>
+          <Typography align="center">&copy; {year} by Factiverse AS</Typography>
         </Box>
       </Grid>
       <Grid item>

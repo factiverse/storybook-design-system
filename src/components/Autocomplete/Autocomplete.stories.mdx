@@ -1,0 +1,45 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+
+import Autocomplete from './Autocomplete';
+
+<Meta
+  title="Base Components/Autocomplete"
+  argTypes={{
+    label: {
+      name: 'Text field label',
+      description: 'The label displayed within the text field',
+      control: {
+        type: 'text',
+      },
+    },
+  }}
+  component={Autocomplete}
+/>
+
+# Autocomplete
+
+This component allows us to suggest inputs to the user. It displays a list of strings, if none are provided it behaves like a normal text field. It is based on [Material UI Autocomplete](https://mui.com/material-ui/react-autocomplete/).
+
+export const Template = (args) => <Autocomplete {...args}>Button</Autocomplete>;
+
+<Canvas>
+  <Story
+    name="With Data"
+    args={{
+      label: 'Search',
+      data: [
+        'Russia has no plans to occupy Ukraine.',
+        'There are U.S. biolabs in Ukraine funded by the U.S. government.',
+        'Putin beheaded bioweapons engineers in Ukraine',
+        'Will Smith slapped Chris Rock to take focus away from Ukraine',
+        'Ethnic Russians face genocide perpetrated by the Kyiv regime.',
+      ],
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Args Table
+
+<ArgsTable of={Autocomplete} />

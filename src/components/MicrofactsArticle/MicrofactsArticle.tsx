@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Typography } from '@material-ui/core';
+import { Grid, Typography } from '@mui/material';
 import reactStringReplace from 'react-string-replace';
 import MicrofactsTooltip from '../MicrofactsTooltip/MicrofactsTooltip';
 

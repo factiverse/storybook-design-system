@@ -10,7 +10,6 @@ describe('Button Group component', () => {
         buttons={['All Topics', 'Ukraine', 'COVID-19']}
         value="All Topics"
         onClick={() => console.log('buttonGroup')}
-        title="Discover recent fact checks on:"
       />
     );
   });
@@ -25,11 +24,5 @@ describe('Button Group component', () => {
 
   it('should render covid-19 button', () => {
     expect(screen.getByText('COVID-19')).toBeInTheDocument();
-  });
-
-  it('should render button group title', () => {
-    expect(
-      screen.getByText(/discover recent fact checks on/i)
-    ).toBeInTheDocument();
   });
 });

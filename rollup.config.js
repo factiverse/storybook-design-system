@@ -5,7 +5,7 @@ import typescript from '@rollup/plugin-typescript';
 import postcss from 'rollup-plugin-postcss';
 import image from '@rollup/plugin-image';
 import { terser } from 'rollup-plugin-terser';
-import visualizer from 'rollup-plugin-visualizer';
+// import visualizer from 'rollup-plugin-visualizer';
 import json from '@rollup/plugin-json';
 import copy from 'rollup-plugin-copy';
 
@@ -34,10 +34,10 @@ export default {
     }),
     postcss(),
     image(),
-    visualizer({
-      filename: 'bundle-analysis.html',
-      open: true,
-    }),
+    // visualizer({
+    //   filename: 'bundle-analysis.html',
+    //   open: true,
+    // }),
     copy({
       targets: [
         {
@@ -47,10 +47,6 @@ export default {
         {
           src: 'src/icons/*.svg',
           dest: 'build/icons',
-        },
-        {
-          src: 'src/img',
-          dest: 'build',
         },
       ],
     }),

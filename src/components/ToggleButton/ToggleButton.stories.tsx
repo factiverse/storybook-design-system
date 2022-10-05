@@ -4,7 +4,7 @@ import ToggleButton from './ToggleButton';
 import SupportIcon from '../SupportIcon';
 
 export default {
-  title: 'Components/ToggleButton',
+  title: 'Base Components/ToggleButton',
   component: ToggleButton,
   argTypes: {
     children: {

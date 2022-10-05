@@ -1,8 +1,4 @@
-import React, {
-  ChangeEventHandler,
-  MouseEventHandler,
-  KeyboardEventHandler,
-} from 'react';
+import React, { ChangeEventHandler, MouseEventHandler } from 'react';
 import { FormControl, Typography, InputAdornment } from '@mui/material';
 import TextField from '../TextField';
 import Button from '../Button';
@@ -48,10 +44,6 @@ const SearchBar = (props: SearchBarProps) => {
     onSearch(value);
   };
 
-  const handleEnterClick: KeyboardEventHandler<HTMLDivElement> = () => {
-    onSearch(value);
-  };
-
   return (
     <FormControl fullWidth variant={variant} sx={sx}>
       <TextField
@@ -63,7 +55,6 @@ const SearchBar = (props: SearchBarProps) => {
         label={label}
         error={error}
         helperText={helperText}
-        onKeyDown={handleEnterClick}
         // TODO: # 125 Use random/popular claims as the placeholder, let the user check one without having to type anything
         placeholder={placeholder}
         sx={{
