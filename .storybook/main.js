@@ -15,7 +15,13 @@ module.exports = {
     'storybook-mobile',
   ],
   core: {
-    builder: 'webpack5',
+    builder: {
+      name: 'webpack5',
+      options: {
+        lazyCompilation: true,
+        fsCache: true,
+      },
+    },
   },
   typescript: {
     check: true, // type-check stories during Storybook build
