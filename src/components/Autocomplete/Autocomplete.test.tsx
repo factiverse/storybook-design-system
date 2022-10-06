@@ -18,7 +18,7 @@ describe('Autocomplete', () => {
         year: 2022,
       },
     ];
-    render(<Autocomplete data={data} id={'1'} />);
+    render(<Autocomplete data={data} id={'1'} label="Search input" />);
     userEvent.click(screen.getByLabelText(/Search input/));
 
     expect(
