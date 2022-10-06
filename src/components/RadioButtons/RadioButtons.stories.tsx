@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import RadioButtons from './RadioButtons';
 
 export default {
-  title: 'Composite Components/RadioButtons',
+  title: 'Components/RadioButtons',
   component: RadioButtons,
   argTypes: {
     margin: {

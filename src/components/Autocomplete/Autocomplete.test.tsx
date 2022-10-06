@@ -5,39 +5,24 @@ import userEvent from '@testing-library/user-event';
 import Autocomplete from './Autocomplete';
 
 describe('Autocomplete', () => {
-  beforeEach(() => {
-    const data = [
-      'Russia has no plans to occupy Ukraine.',
-      'There are U.S. biolabs in Ukraine funded by the U.S. government.',
-    ];
-    render(<Autocomplete data={data} label="Search Input" />);
-  });
-
   it('should render autocomplete component', () => {
-    expect(screen.getByLabelText('Search Input')).toBeInTheDocument();
+    const data = [];
+    render(<Autocomplete data={data} id={'1'} />);
+    expect(screen.getByLabelText(/Search input/)).toBeInTheDocument();
   });
 
-  it('should suggest sentences.', async () => {
-    await userEvent.click(screen.getByLabelText('Search Input'));
+  it('should suggest sentences.', () => {
+    const data = [
+      {
+        title: 'Russia has no plans to occupy Ukraine.',
+        year: 2022,
+      },
+    ];
+    render(<Autocomplete data={data} id={'1'} />);
+    userEvent.click(screen.getByLabelText(/Search input/));
 
     expect(
       screen.getByText('Russia has no plans to occupy Ukraine.')
-    ).toBeInTheDocument();
-  });
-
-  it('should filter suggestions when typing.', async () => {
-    const autocomplete = screen.getByLabelText('Search Input');
-    await userEvent.click(autocomplete);
-
-    await userEvent.type(autocomplete, 'bio');
-
-    expect(
-      screen.queryByText('Russia has no plans to occupy Ukraine.')
-    ).not.toBeInTheDocument();
-    expect(
-      screen.queryByText(
-        'There are U.S. biolabs in Ukraine funded by the U.S. government.'
-      )
     ).toBeInTheDocument();
   });
 });

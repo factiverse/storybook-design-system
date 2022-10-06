@@ -21,7 +21,7 @@ const entity = {
 };
 
 export default {
-  title: 'Microfacts/Tooltip',
+  title: 'Components/MicrofactsTooltip',
   component: MicrofactsTooltip,
 } as ComponentMeta<typeof MicrofactsTooltip>;
 

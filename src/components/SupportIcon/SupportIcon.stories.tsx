@@ -4,7 +4,7 @@ import SupportIcon from './SupportIcon';
 import { Grid } from '@mui/material';
 
 export default {
-  title: 'Fact Checking/SupportIcon',
+  title: 'Components/SupportIcon',
   component: SupportIcon,
   argTypes: {
     variant: {

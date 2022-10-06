@@ -7,7 +7,7 @@ import { within, userEvent, waitFor } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
 
 export default {
-  title: 'Composite Components/SearchBar',
+  title: 'Components/SearchBar',
   component: SearchBar,
   argTypes: {
     value: {

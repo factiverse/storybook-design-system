@@ -30,8 +30,8 @@ export const color = {
   border: 'rgba(0,0,0,0.1)',
 
   // Status
-  supported: '#86c252',
-  disputed: '#fe8661',
+  supported: '#86c351',
+  disputed: '#ff8761',
   conflicting: '#fecd0c',
   unknown: '#cdd4d7',
 };

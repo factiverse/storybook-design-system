@@ -4,7 +4,7 @@ import Tooltip from './Tooltip';
 import { Grid } from '@mui/material';
 
 export default {
-  title: 'Base Components/Tooltip',
+  title: 'Components/Tooltip',
   component: Tooltip,
   argTypes: {
     children: {

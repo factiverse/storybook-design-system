@@ -4,7 +4,7 @@ import Header from './Header';
 import Logo from '../../img/Logo.png';
 
 export default {
-  title: 'Composite Components/Header',
+  title: 'Components/Header',
   component: Header,
 } as ComponentMeta<typeof Header>;
 

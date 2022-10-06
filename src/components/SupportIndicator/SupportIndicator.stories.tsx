@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react';
 import SupportIndicator from './SupportIndicator';
 
 export default {
-  title: 'Fact Checking/SupportIndicator',
+  title: 'Components/SupportIndicator',
   component: SupportIndicator,
 } as Meta;
 
