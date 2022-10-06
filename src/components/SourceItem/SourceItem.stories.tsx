@@ -2,7 +2,7 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react';
 import SourceItem from './SourceItem';
 export default {
-  title: 'Fact Checking/SourceItem',
+  title: 'Components/SourceItem',
   component: SourceItem,
   parameters: {
     layout: 'centered',

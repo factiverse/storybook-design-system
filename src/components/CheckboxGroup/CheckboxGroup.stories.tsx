@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import CheckboxGroup from './CheckboxGroup';
 
 export default {
-  title: 'Composite Components/CheckboxGroup',
+  title: 'Components/CheckboxGroup',
   component: CheckboxGroup,
   argTypes: {
     disabled: {

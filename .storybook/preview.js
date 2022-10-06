@@ -12,26 +12,19 @@ import results from '../testOutput.json';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#E8EBEC',
+      main: '#ffffff',
     },
     secondary: {
-      light: '#FFE275',
       main: '#f8c608',
-      dark: '#C7A008',
-      contrastText: '#000',
-    },
-    neutral: {
-      main: 'rgba(0,0,0,0.7)',
-      contrastText: '#fff',
-    },
-    success: {
-      main: '#86c252',
     },
     error: {
-      main: '#fe8661',
+      main: '#ff8761',
     },
     warning: {
       main: '#fecd0c',
+    },
+    success: {
+      main: '#86c351',
     },
   },
   typography: {
@@ -47,18 +40,7 @@ const theme = createTheme({
             ownerState.color === 'secondary' && {
               boxShadow: '0px 0px 10px #f8c608',
             }),
-          borderRadius: '8px',
         }),
-      },
-    },
-    MuiTextField: {
-      styleOverrides: {
-        root: {
-          '& .MuiInputLabel-root.Mui-focused': { color: 'rgba(0, 0, 0, 0.65)' },
-          '& .MuiOutlinedInput-root.Mui-focused': {
-            '& > fieldset': { borderColor: '#FFE275' },
-          },
-        },
       },
     },
   },
@@ -85,11 +67,11 @@ export const parameters = {
     },
   },
   backgrounds: {
-    default: 'light',
+    default: 'editor',
     values: [
       {
-        name: 'light',
-        value: '#E8EBEC',
+        name: 'editor',
+        value: '#eeeeee',
       },
       {
         name: 'dark',
@@ -108,5 +90,10 @@ export const parameters = {
     element: '#root',
     // sets the execution mode for the addon
     manual: false,
+  },
+  options: {
+    storySort: {
+      order: ['Introduction', 'Colors', 'Typography'],
+    },
   },
 };

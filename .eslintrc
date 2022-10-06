@@ -83,12 +83,6 @@
       "inheritdoc": false,
       "class": false
     },
-    "overrides": [
-      {
-        "files": "*.mdx",
-        "extends": "plugin:mdx/recommended"
-      }
-    ],
     "overrideReplacesDocs": false
   }
 }

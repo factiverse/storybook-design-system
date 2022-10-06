@@ -4,7 +4,7 @@ import Dropdown from './Dropdown';
 import { SelectChangeEvent } from '@mui/material';
 
 export default {
-  title: 'Base Components/Dropdown',
+  title: 'Components/Dropdown',
   component: Dropdown,
   argTypes: {
     margin: {

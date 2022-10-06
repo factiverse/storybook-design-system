@@ -4,7 +4,7 @@ import ButtonGroup from './ButtonGroup';
 import WikipediaIcon from '../../icons/WikipediaIcon';
 
 export default {
-  title: 'Composite Components/ButtonGroup',
+  title: 'Components/ButtonGroup',
   component: ButtonGroup,
   argTypes: {
     title: { control: 'text' },
@@ -26,6 +26,12 @@ const Template: ComponentStory<typeof ButtonGroup> = (args) => (
   <ButtonGroup {...args} />
 );
 
+export const Default = Template.bind({});
+Default.args = {
+  buttons: ['All Topics', 'Ukraine', 'COVID-19'],
+  value: 'All Topics',
+};
+
 export const WithState = () => {
   const [value, setValue] = useState<string>('Ukraine');
   return (
@@ -37,8 +43,16 @@ export const WithState = () => {
   );
 };
 
+export const WithTitle = Template.bind({});
+WithTitle.args = {
+  title: 'Discover recent fact checks on:',
+  buttons: ['All Topics', 'Ukraine', 'COVID-19'],
+  value: 'All Topics',
+};
+
 export const LanguageButtons = Template.bind({});
 LanguageButtons.args = {
+  title: 'Select language',
   buttons: ['Wikipedia', 'Store Norske Leksikon'],
   startIcon: <WikipediaIcon />,
   value: 'Wikipedia',
@@ -51,6 +65,7 @@ LanguageButtons.args = {
   },
   unselectedButtonStyles: {
     boxShadow: 'none',
+    borderRadius: '10px',
     backgroundColor: 'lightgrey',
   },
 };

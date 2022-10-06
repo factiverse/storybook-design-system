@@ -4,7 +4,7 @@ import Tutorial from './Tutorial';
 import editor from '../../img/Editor.png';
 
 export default {
-  title: 'Composite Components/Tutorial',
+  title: 'Components/Tutorial',
   component: Tutorial,
   argTypes: {
     children: {

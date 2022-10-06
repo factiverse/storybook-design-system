@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Claim from './Claim';
 
 export default {
-  title: 'Fact Checking/Claim',
+  title: 'Components/Claim',
   component: Claim,
   argTypes: {
     simpleClaimVariant: {

@@ -4,7 +4,7 @@ import Loading from './Loading';
 import { Story } from '@storybook/react';
 
 export default {
-  title: 'Base Components/Loading',
+  title: 'Components/Loading',
   component: Loading,
 } as ComponentMeta<typeof Loading>;
 
