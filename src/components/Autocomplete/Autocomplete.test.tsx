@@ -15,9 +15,8 @@ describe('Autocomplete', () => {
 
   it('should render autocomplete component', () => {
     const data = [];
-    render(<Autocomplete data={data} id={'1'} />);
-    expect(screen.getByLabelText(/Search input/)).toBeInTheDocument();
-    expect(screen.getByLabelText('Search Input')).toBeInTheDocument();
+    render(<Autocomplete data={data} label="Search input" />);
+    expect(screen.getByLabelText('Search input')).toBeInTheDocument();
   });
 
   it('should suggest sentences.', async () => {
