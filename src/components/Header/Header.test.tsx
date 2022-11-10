@@ -22,8 +22,4 @@ describe('Header component', () => {
   it('should render logo', () => {
     expect(screen.getByAltText(/factiverse logo/i)).toBeInTheDocument();
   });
-
-  it('should render alpha button', () => {
-    expect(screen.getByText(disclaimerText)).toBeInTheDocument();
-  });
 });
