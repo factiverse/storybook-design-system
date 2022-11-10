@@ -77,6 +77,20 @@ export const decorators = [muiTheme(theme)];
  * https://storybook.js.org/docs/react/writing-stories/parameters#global-parameters
  */
 export const parameters = {
+  options: {
+    storySort: {
+      order: [
+        'Introduction',
+        'Colors',
+        'Typography',
+        'Icons',
+        'Base Components',
+        'Composite Components',
+        'Microfacts',
+        'Fact Checking',
+      ],
+    },
+  },
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
     matchers: {
