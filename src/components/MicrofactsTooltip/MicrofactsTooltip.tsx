@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Grid, Link, Paper, Theme } from '@mui/material';
+import { Box, Grid, Theme, Card } from '@mui/material';
 import Popup from 'reactjs-popup';
 import Typography from '../Typography';
 import makeStyles from '@mui/styles/makeStyles';
@@ -22,17 +22,7 @@ export interface MicrofactsTooltipProps {
 
 export const MicrofactsTooltip = (props: MicrofactsTooltipProps) => {
   const classes = useStyles();
-  const { entity, updateEntity } = props;
-
-  const onCloseFeedback = () => {
-    if (
-      entity != undefined &&
-      entity.feedbackIsHelpful != undefined &&
-      entity.hasGivenFeedback != undefined &&
-      entity.hasGivenFeedback
-    )
-      updateEntity(entity, { ...entity, showFeedback: false });
-  };
+  const { entity } = props;
 
   const showMicrofact =
     // entity has to be defined
@@ -42,86 +32,75 @@ export const MicrofactsTooltip = (props: MicrofactsTooltipProps) => {
     // entity is a key fact or all facts should be shown
     entity.keyFact;
 
-  const getMaxLengthDescription = () => {
-    const sentences = entity?.description.split('. ') ?? [];
-    let result = '';
-    for (let i = 0; i < 6 && i < sentences.length; i++) {
-      result = result.concat(sentences[i], '. ');
-    }
-    return result.slice(0, result.length - 2) + '..';
-  };
-
   return (
     <>
-      {showMicrofact && (
+      {showMicrofact ? (
         <Popup
           trigger={() => (
             <Box
-              style={{ backgroundColor: '#FFF9DA', cursor: 'pointer' }}
               component="span"
+              sx={{
+                color: 'rgba(86, 82, 78, 1)',
+                cursor: 'help',
+                borderBottom: '1px dashed #56524E',
+                textDecoration: 'none',
+              }}
             >
               {entity.entity}
             </Box>
           )}
           position={[
             'bottom center',
-            'bottom right',
             'bottom left',
-            'left top',
+            'bottom right',
             'right top',
+            'top left',
+            'top right',
           ]}
-          onClose={onCloseFeedback}
-          on={['hover', 'focus']}
-          mouseEnterDelay={100}
-          mouseLeaveDelay={300}
+          closeOnDocumentClick
         >
-          <Paper
-            className={classes.tooltipPaper}
-            elevation={4}
-            color="secondary"
+          <Card
+            sx={{
+              backgroundColor: '#e9edee',
+              color: '#000000',
+              boxShadow: '0px 6px 7px rgba(0, 0, 0, 0.2)',
+              backdropFilter: 'blur(7.5px)',
+              borderRadius: '13px',
+              borderBottom: '2px solid #FFE275',
+              width: '42vw',
+              maxWidth: '24rem',
+              maxHeight: '20rem',
+              overflowY: 'auto',
+              padding: '0.5em',
+            }}
           >
-            <Grid container spacing={1} direction="column">
+            <Grid container direction="column" spacing={0.5}>
               <Grid item>
-                <Link
-                  href={entity.page_url}
-                  target="_blank"
-                  rel="noopener"
-                  sx={{ outline: 'none' }} // TODO: How to disable default focus outline when Microfact is clicked? focus should only show once 'tab' is pressed
-                >
-                  <Typography variant="h5" sx={{ color: '#1976d2' }}>
-                    {entity.entity}
-                  </Typography>
-                </Link>
-                <Typography>Type: {entity.entity_type}</Typography>
-              </Grid>
-              <Grid container alignItems="center" ml={0.5}>
-                <Typography>Source: </Typography>
-                <Link
-                  href={entity?.page_url?.replace(/[^/]+$/, '')}
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <Typography
-                    sx={{
-                      textTransform: 'capitalize',
-                      paddingLeft: 0.5,
-                      color: '#1976d2',
-                    }}
-                  >
-                    {entity.domain}
-                  </Typography>
-                </Link>
+                <Typography variant="h6">{entity.entity}</Typography>
               </Grid>
               <Grid item>
-                <Typography variant="body1">
-                  {getMaxLengthDescription()}
+                <Typography variant="body1" fontSize={'0.9em'}>
+                  {entity.description.length > 220
+                    ? entity.description.slice(0, 220) + ' ...'
+                    : entity.description}
+                </Typography>
+              </Grid>
+              <Grid item>
+                <Typography fontFamily="DM Mono" fontSize={'0.8em'}>
+                  Read more on:{' '}
+                  {
+                    <a href={entity.page_url} target="_blank" rel="noreferrer">
+                      {entity.domain}
+                    </a>
+                  }
                 </Typography>
               </Grid>
             </Grid>
-          </Paper>
+          </Card>
         </Popup>
+      ) : (
+        <Box component="span">{entity?.entity}</Box>
       )}
-      {entity && !showMicrofact && entity.entity}
     </>
   );
 };
