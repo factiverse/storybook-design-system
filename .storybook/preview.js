@@ -12,19 +12,26 @@ import results from '../testOutput.json';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#ffffff',
+      main: '#E8EBEC',
     },
     secondary: {
+      light: '#FFE275',
       main: '#f8c608',
+      dark: '#C7A008',
+      contrastText: '#000',
+    },
+    neutral: {
+      main: 'rgba(0,0,0,0.7)',
+      contrastText: '#fff',
+    },
+    success: {
+      main: '#86c252',
     },
     error: {
-      main: '#ff8761',
+      main: '#fe8661',
     },
     warning: {
       main: '#fecd0c',
-    },
-    success: {
-      main: '#86c351',
     },
   },
   typography: {
@@ -40,7 +47,18 @@ const theme = createTheme({
             ownerState.color === 'secondary' && {
               boxShadow: '0px 0px 10px #f8c608',
             }),
+          borderRadius: '8px',
         }),
+      },
+    },
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          '& .MuiInputLabel-root.Mui-focused': { color: 'rgba(0, 0, 0, 0.65)' },
+          '& .MuiOutlinedInput-root.Mui-focused': {
+            '& > fieldset': { borderColor: '#FFE275' },
+          },
+        },
       },
     },
   },
@@ -59,6 +77,20 @@ export const decorators = [muiTheme(theme)];
  * https://storybook.js.org/docs/react/writing-stories/parameters#global-parameters
  */
 export const parameters = {
+  options: {
+    storySort: {
+      order: [
+        'Introduction',
+        'Colors',
+        'Typography',
+        'Icons',
+        'Base Components',
+        'Composite Components',
+        'Microfacts',
+        'Fact Checking',
+      ],
+    },
+  },
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
     matchers: {
@@ -67,11 +99,11 @@ export const parameters = {
     },
   },
   backgrounds: {
-    default: 'editor',
+    default: 'light',
     values: [
       {
-        name: 'editor',
-        value: '#eeeeee',
+        name: 'light',
+        value: '#E8EBEC',
       },
       {
         name: 'dark',
@@ -90,10 +122,5 @@ export const parameters = {
     element: '#root',
     // sets the execution mode for the addon
     manual: false,
-  },
-  options: {
-    storySort: {
-      order: ['Introduction', 'Colors', 'Typography'],
-    },
   },
 };

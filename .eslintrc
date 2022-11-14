@@ -34,7 +34,6 @@
     "jest/no-identical-title": "error",
     "jest/prefer-to-have-length": "warn",
     "jest/valid-expect": "error",
-    "valid-jsdoc": "off",
     "comma-dangle": [
       "error",
       {
@@ -72,17 +71,12 @@
       "pragma": "React",
       "version": "detect"
     },
-    "jsdoc": {
-      "return": "returns",
-      "constructor": "constructor",
-      "prop": "property",
-      "arg": "param",
-      "augments": "extends",
-      "description": false,
-      "desc": false,
-      "inheritdoc": false,
-      "class": false
-    },
+    "overrides": [
+      {
+        "files": "*.mdx",
+        "extends": "plugin:mdx/recommended"
+      }
+    ],
     "overrideReplacesDocs": false
   }
 }

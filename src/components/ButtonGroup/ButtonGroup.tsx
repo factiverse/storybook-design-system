@@ -4,7 +4,6 @@ import Typography from '../Typography';
 import Button from '../Button';
 
 export interface ButtonGroupProps {
-  title?: string;
   onClick: (value: string) => void;
   buttons: string[];
   value: string;
@@ -17,7 +16,6 @@ export interface ButtonGroupProps {
 
 const ButtonGroup = (props: ButtonGroupProps) => {
   const {
-    title,
     buttons,
     value,
     onClick,
@@ -29,35 +27,26 @@ const ButtonGroup = (props: ButtonGroupProps) => {
   } = props;
 
   return (
-    <Grid>
-      {title && (
-        <Grid mb={2}>
-          <Typography variant="h5">{title}</Typography>
-        </Grid>
-      )}
-      <Grid container spacing={2} alignItems="center">
-        {buttons.map((button, key) => {
-          return (
-            <Grid key={key} item>
-              <Button
-                variant="contained"
-                onClick={() => onClick(button)}
-                color={button === value ? 'secondary' : 'primary'}
-                startIcon={button === buttonWithIcon && startIcon}
-                sx={
-                  button === value
-                    ? selectedButtonStyles
-                    : unselectedButtonStyles
-                }
-              >
-                <Typography fontFamily="DM Mono" variant={typographyVariant}>
-                  {button}
-                </Typography>
-              </Button>
-            </Grid>
-          );
-        })}
-      </Grid>
+    <Grid container spacing={2} alignItems="center">
+      {buttons.map((button, key) => {
+        return (
+          <Grid key={key} item>
+            <Button
+              variant="contained"
+              onClick={() => onClick(button)}
+              color={button === value ? 'secondary' : 'primary'}
+              startIcon={button === buttonWithIcon && startIcon}
+              sx={
+                button === value ? selectedButtonStyles : unselectedButtonStyles
+              }
+            >
+              <Typography fontFamily="DM Mono" variant={typographyVariant}>
+                {button}
+              </Typography>
+            </Button>
+          </Grid>
+        );
+      })}
     </Grid>
   );
 };
