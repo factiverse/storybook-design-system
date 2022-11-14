@@ -1,0 +1,36 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+import { useState } from 'react';
+import LanguageSelect from './LanguageSelect';
+
+<Meta title="Base Components/LanguageSelect" component={LanguageSelect} />
+
+# LanguageSelect
+
+<Canvas>
+  <Story name="Default">
+    {() => {
+      const languages = [
+        'Danish',
+        'Dutch',
+        'English',
+        'French',
+        'German',
+        'Norwegian',
+        'Spanish',
+      ];
+      const [language, setLanguage] = useState('Danish');
+      return (
+        <LanguageSelect
+          languages={languages}
+          language={language}
+          setLanguage={setLanguage}
+          fixedLanguages={['English', 'Norwegian']}
+        />
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Args Table
+
+<ArgsTable of={LanguageSelect} />
