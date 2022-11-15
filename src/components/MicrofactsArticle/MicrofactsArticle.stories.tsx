@@ -5,42 +5,67 @@ import MicrofactsArticle from './MicrofactsArticle';
 const entities = [
   {
     description:
-      'Nele Neuhaus, født Cornelia Löwenberg, er en svært populær tysk kriminalforfatter, særlig kjent for serien om politietterforskerne Oliver von Bodenstein og Pia Kirchhoff som utspiller seg i Taunus. Liv og virke Nele Neuhaus har studert jus, germanistikk og historie samt.',
-    entity: 'Nels',
-    page_url: 'https://snl.no/Nele_Neuhaus',
-    entity_type: 'Person',
+      "St Paul's Cathedral is an Anglican cathedral in London and is the seat of the Bishop of London. The cathedral serves as the mother church of the Diocese.",
+    domain: 'wikipedia',
+    entId: 2,
+    entity: "St Paul's Cathedral",
     checked: true,
     keyFact: true,
-    domain: 'snl',
-    entId: 0,
-    score: 1,
     entity_match: false,
-    image_url: 'https://media.snl.no/media/35435/Nele_Neuhaus_2016.jpg',
-    image_lic: 'CC BY NC SA 3.0',
-    kbId: 'Nele_Neuhaus',
-    license: 'begrenset',
+    entity_type: 'FAC',
+    image_lic: '',
+    image_url: '',
+    kbId: '102198',
+    license: '',
+    page_url: 'https://en.wikipedia.org/?curid=102198',
+    score: 1,
   },
   {
     description:
-      'Ovako Steel og Imatra Steel for å danne konsernet Ovako. Selskapet ble senere restrukturert, og hadde flere eiere, før det japanske stålkonsernet Nippon Steel i 2018 kjøpte opp selskapet. Fundia sin virksomhet i Norge I Norge hadde Fundia et stålverk.',
-    entity: 'Ovakos',
-    page_url: 'https://snl.no/Nele_Neuhaus',
-    entity_type: 'Person',
+      "Buckingham Palace (UK: ) is a London royal residence and the administrative headquarters of the monarch of the United Kingdom. Located in the City of Westminster, the palace is often at the centre of state occasions and royal hospitality. It has been a focal point for the British people at times of national rejoicing and mourning.\nOriginally known as Buckingham House, the building at the core of today's palace was a large townhouse built for the Duke of Buckingham in 1703 on a site that had been in private ownership for at least 150 years. It was acquired by King George III in 1761 as a private residence for Queen Charlotte and became known as The Queen's House.",
+    domain: 'wikipedia',
+    entId: 3,
+    entity: 'Buckingham Palace',
     checked: true,
     keyFact: true,
-    domain: 'snl',
-    entId: 1,
+    entity_match: true,
+    entity_type: 'ORG',
+    image_lic: '',
+    image_url: '',
+    kbId: '3969',
+    license: '',
+    page_url: 'https://en.wikipedia.org/?curid=3969',
     score: 1,
+  },
+  {
+    description:
+      'Charles, Prince of Wales (Charles Philip Arthur George; born 14 November 1948), is the heir apparent to the British throne as the eldest son of Queen.',
+    domain: 'wikipedia',
+    entId: 6,
+    entity: 'Prince Charles',
+    checked: true,
+    keyFact: true,
     entity_match: false,
-    image_url: '"https://media.snl.no/media/35435/Nele_Neuhaus_2016.jpg"',
-    image_lic: 'CC BY NC SA 3.0',
-    kbId: 'Nele_Neuhaus',
-    license: 'begrenset',
+    entity_type: 'PERSON',
+    image_lic: '',
+    image_url: '',
+    kbId: '125248',
+    license: '',
+    page_url: 'https://en.wikipedia.org/?curid=125248',
+    score: 1,
   },
 ];
 
+const queen =
+  "A service of Thanksgiving for the Queen's 70 years on the throne is being held at St Paul's Cathedral in London\n" +
+  'The Queen herself is not there after experiencing “discomfort” following celebrations on Thursday to kick off the four-day Jubilee weekend\n' +
+  'Buckingham Palace said the decision was made with great reluctance and that the Queen appreciated and enjoyed a “memorable” first day of festivities\n' +
+  "Prince Charles, Prince William, Prince Harry and Meghan are all at the Jubilee service at St Paul's Cathedral\n" +
+  'It is the first public appearance in the UK for Harry and Meghan in two years - they kept a low-profile a the events\n' +
+  'Senior politicians including PM Boris Johnson, along with leaders of world faiths and others, are at the service.';
+
 export default {
-  title: 'Components/MicrofactsArticle',
+  title: 'Microfacts/MicrofactsArticle',
   component: MicrofactsArticle,
 } as ComponentMeta<typeof MicrofactsArticle>;
 
@@ -50,10 +75,9 @@ const Template: ComponentStory<typeof MicrofactsArticle> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  headline:
-    'Her snakker vi enten monstermarginer eller vekstpotensial Harry Potter-style',
-  image: 'https://microfactbox.netlify.app/img/harry-potter.jpg',
-  inputText:
-    'Hydrogenaksjen Nel stiger hele ti prosent på Oslo Børs etter at selskapet torsdag meldte om en ordre på levering av elektrolyserør for 11 millioner euro (110 millioner kroner). Markedsverdien av Nel steg dermed med cirka 2,5 milliarder kroner til over 27 milliarder kroner. Når markedsverdien av selskapet stiger med 2,5 milliarder på bakgrunn av en ordre på 110 millioner kroner prises det åpenbart inn et eller annet som er meget bullish. Det vil trenges ytterligere 22 slike ordrer bare for at kontraktsverdien skal matche økningen i Nels markedsverdi. Vi vet ikke hva ordren på 110 millioner kroner gir av inntjening, men umiddelbart skulle man tro investorene priser inn monstermarginer. Det er neppe tilfellet. Elektrolyserørene skal leveres til Ovako, en europeisk produsent av stål. Selskapet er eid av Nippon Steel. Utstyret skal installeres i Ovakos anlegg i Sverige, og skal bli den første fabrikken i verden til å bruke hydrogen til å varme stålet før det formes videre. Karbonfri hydrogen skal erstatte propangass som i dag benyttes til oppvarmingen. Konverteringen til hydrogen ventes å redusere Ovakos CO₂-utslipp fra stålproduksjonen med 50 prosent fra allerede lave nivåer.',
+  headline: 'Celebrating the Queen’s 70 years on the throne',
+  image:
+    'https://www.royal.uk/sites/default/files/styles/featured_image_hero/public/images/feature-chapters/pa-67245101.jpg?itok=zMuyL9gu&anti-cache=eafe7583c8e5f',
+  inputText: queen,
   entities: entities,
 };

@@ -1,5 +1,6 @@
 module.exports = {
-  stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
+  stories: ['../src/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
+  staticDirs: ['../public'],
   addons: [
     // Official addons
     '@storybook/addon-links',
@@ -12,10 +13,15 @@ module.exports = {
 
     // Community addons
     'storybook-mobile',
-    'storybook-addon-mdx-embed'
   ],
   core: {
-    builder: 'webpack5',
+    builder: {
+      name: 'webpack5',
+      options: {
+        lazyCompilation: true,
+        fsCache: true,
+      },
+    },
   },
   typescript: {
     check: true, // type-check stories during Storybook build
@@ -26,7 +32,7 @@ module.exports = {
       propFilter: (prop) => {
         return prop.parent
           ? /@mui/.test(prop.parent.fileName) ||
-          !/node_modules/.test(prop.parent.fileName)
+              !/node_modules/.test(prop.parent.fileName)
           : true;
       },
     },
