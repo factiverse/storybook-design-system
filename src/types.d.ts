@@ -96,6 +96,7 @@ type Entity = {
   license: string;
   page_url: string;
   score: number;
+  text: string;
 
   // additional info
 

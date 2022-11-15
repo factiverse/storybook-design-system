@@ -8,7 +8,6 @@ export interface MicrofactsArticleProps {
   image: string;
   inputText: string;
   entities: Array<Entity>;
-  updateEntity?: (toReplace: Entity, newEntity: Entity) => void;
 }
 
 const ReaderView: React.FC<MicrofactsArticleProps> = ({
@@ -16,7 +15,6 @@ const ReaderView: React.FC<MicrofactsArticleProps> = ({
   image,
   inputText,
   entities,
-  updateEntity,
 }) => {
   // Find an entity
   const getEntity = (entity: string) => {
@@ -40,7 +38,13 @@ const ReaderView: React.FC<MicrofactsArticleProps> = ({
   );
 
   return (
-    <Grid container direction="column" spacing={4} alignItems="center">
+    <Grid
+      container
+      direction="column"
+      spacing={4}
+      alignItems="center"
+      className="articleContainer"
+    >
       <Grid item>
         <Typography variant="h4">{headline}</Typography>
       </Grid>
@@ -52,10 +56,8 @@ const ReaderView: React.FC<MicrofactsArticleProps> = ({
           {reactStringReplace(inputText, regex, (match: string, i: number) => (
             <MicrofactsTooltip
               key={match + i}
-              entity={getEntity(match) as Entity}
-              updateEntity={
-                updateEntity as (toReplace: Entity, newEntity: Entity) => void
-              }
+              microfact={getEntity(match) as Entity}
+              keepTooltipInsideId=".articleContainer"
             />
           ))}
         </Typography>

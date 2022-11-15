@@ -12,41 +12,84 @@ const useStyles = makeStyles((theme: Theme) =>
       width: '500px',
       maxWidth: '90vw',
     },
+    factBoxCard: {
+      backgroundColor: '#e9edee',
+      color: '#000000',
+      boxShadow: '0px 6px 7px rgba(0, 0, 0, 0.2)',
+      backdropFilter: 'blur(7.5px)',
+      borderRadius: '13px',
+      borderBottom: '2px solid #FFE275',
+      width: '42vw',
+      maxWidth: '24rem',
+      maxHeight: '20rem',
+      overflowY: 'auto',
+      padding: '0.5em',
+    },
+    triggerBox: {
+      color: 'rgba(86, 82, 78, 1)',
+      cursor: 'help',
+      borderBottom: '1px dashed #56524E',
+      textDecoration: 'none',
+    },
   })
 );
 
+interface FactboxProps {
+  entity: string;
+  description: string;
+  displayLink: string;
+  link: string;
+}
+
+const Factbox = (props: FactboxProps) => {
+  const classes = useStyles();
+  const { entity, description, displayLink, link } = props;
+
+  return (
+    <Card className={classes.factBoxCard}>
+      <Grid container direction="column" spacing={0.5}>
+        <Grid item>
+          <Typography variant="h6">{entity}</Typography>
+        </Grid>
+        <Grid item>
+          <Typography variant="body1" fontSize={'0.9em'}>
+            {description.length > 220
+              ? description.slice(0, 220) + ' ...'
+              : description}
+          </Typography>
+        </Grid>
+        <Grid item>
+          <Typography fontFamily="DM Mono" fontSize={'0.8em'}>
+            Read more on:{' '}
+            <a href={link} target="_blank" rel="noreferrer">
+              {displayLink}
+            </a>
+          </Typography>
+        </Grid>
+      </Grid>
+    </Card>
+  );
+};
+
 export interface MicrofactsTooltipProps {
-  entity: Entity;
-  updateEntity: (toReplace: Entity, newEntity: Entity) => void;
+  microfact: Entity;
+  keepTooltipInsideId?: string;
 }
 
 export const MicrofactsTooltip = (props: MicrofactsTooltipProps) => {
   const classes = useStyles();
-  const { entity } = props;
+  const { microfact, keepTooltipInsideId } = props;
 
-  const showMicrofact =
-    // entity has to be defined
-    entity != undefined &&
-    // entity has to be selected to be shown
-    entity.checked &&
-    // entity is a key fact or all facts should be shown
-    entity.keyFact;
+  const capitalizeSentence = (sentence: string) =>
+    sentence.charAt(0).toUpperCase() + sentence.slice(1);
 
   return (
     <>
-      {showMicrofact ? (
+      {microfact.checked ? (
         <Popup
           trigger={() => (
-            <Box
-              component="span"
-              sx={{
-                color: 'rgba(86, 82, 78, 1)',
-                cursor: 'help',
-                borderBottom: '1px dashed #56524E',
-                textDecoration: 'none',
-              }}
-            >
-              {entity.entity}
+            <Box component="span" className={classes.triggerBox}>
+              {microfact.text}
             </Box>
           )}
           position={[
@@ -58,48 +101,21 @@ export const MicrofactsTooltip = (props: MicrofactsTooltipProps) => {
             'top right',
           ]}
           closeOnDocumentClick
+          keepTooltipInside={keepTooltipInsideId}
         >
-          <Card
-            sx={{
-              backgroundColor: '#e9edee',
-              color: '#000000',
-              boxShadow: '0px 6px 7px rgba(0, 0, 0, 0.2)',
-              backdropFilter: 'blur(7.5px)',
-              borderRadius: '13px',
-              borderBottom: '2px solid #FFE275',
-              width: '42vw',
-              maxWidth: '24rem',
-              maxHeight: '20rem',
-              overflowY: 'auto',
-              padding: '0.5em',
-            }}
-          >
-            <Grid container direction="column" spacing={0.5}>
-              <Grid item>
-                <Typography variant="h6">{entity.entity}</Typography>
-              </Grid>
-              <Grid item>
-                <Typography variant="body1" fontSize={'0.9em'}>
-                  {entity.description.length > 220
-                    ? entity.description.slice(0, 220) + ' ...'
-                    : entity.description}
-                </Typography>
-              </Grid>
-              <Grid item>
-                <Typography fontFamily="DM Mono" fontSize={'0.8em'}>
-                  Read more on:{' '}
-                  {
-                    <a href={entity.page_url} target="_blank" rel="noreferrer">
-                      {entity.domain}
-                    </a>
-                  }
-                </Typography>
-              </Grid>
-            </Grid>
-          </Card>
+          <Factbox
+            entity={microfact.text}
+            description={capitalizeSentence(
+              microfact.description ?? 'Missing description'
+            )}
+            displayLink={capitalizeSentence(
+              microfact.domain ?? 'Missing source'
+            )}
+            link={microfact.page_url ?? ''}
+          />
         </Popup>
       ) : (
-        <Box component="span">{entity?.entity}</Box>
+        <Box component="span">{microfact?.text}</Box>
       )}
     </>
   );
