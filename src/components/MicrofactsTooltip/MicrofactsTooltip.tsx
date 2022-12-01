@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Grid, Link, Paper, Theme } from '@mui/material';
+import { Box, Grid, Theme, Card } from '@mui/material';
 import Popup from 'reactjs-popup';
 import Typography from '../Typography';
 import makeStyles from '@mui/styles/makeStyles';
@@ -12,113 +12,122 @@ const useStyles = makeStyles((theme: Theme) =>
       width: '500px',
       maxWidth: '90vw',
     },
+    factBoxCard: {
+      backgroundColor: '#e9edee',
+      color: '#000000',
+      boxShadow: '0px 6px 7px rgba(0, 0, 0, 0.2)',
+      backdropFilter: 'blur(7.5px)',
+      borderRadius: '13px',
+      borderBottom: '2px solid #FFE275',
+      width: '42vw',
+      maxWidth: '24rem',
+      maxHeight: '20rem',
+      overflowY: 'auto',
+      padding: '0.5em',
+    },
+    triggerBox: {
+      color: 'rgba(86, 82, 78, 1)',
+      cursor: 'help',
+      borderBottom: '1px dashed #56524E',
+      textDecoration: 'none',
+    },
+    link: {
+      '&:focus': {
+        outline: 'none',
+      },
+    },
   })
 );
 
+interface FactboxProps {
+  entity: string;
+  description: string;
+  displayLink: string;
+  link: string;
+}
+
+const Factbox = (props: FactboxProps) => {
+  const classes = useStyles();
+  const { entity, description, displayLink, link } = props;
+
+  return (
+    <Card className={classes.factBoxCard}>
+      <Grid container direction="column" spacing={0.5}>
+        <Grid item>
+          <Typography variant="h6">{entity}</Typography>
+        </Grid>
+        <Grid item>
+          <Typography variant="body1" fontSize={'0.9em'}>
+            {description.length > 220
+              ? description.slice(0, 220) + ' ...'
+              : description}
+          </Typography>
+        </Grid>
+        <Grid item>
+          <Typography fontFamily="DM Mono" fontSize={'0.8em'}>
+            Read more on:{' '}
+            <a
+              href={link}
+              target="_blank"
+              rel="noreferrer"
+              className={classes.link}
+            >
+              {displayLink}
+            </a>
+          </Typography>
+        </Grid>
+      </Grid>
+    </Card>
+  );
+};
+
 export interface MicrofactsTooltipProps {
-  entity: Entity;
-  updateEntity: (toReplace: Entity, newEntity: Entity) => void;
+  microfact: Entity;
+  keepTooltipInsideId?: string;
 }
 
 export const MicrofactsTooltip = (props: MicrofactsTooltipProps) => {
   const classes = useStyles();
-  const { entity, updateEntity } = props;
+  const { microfact, keepTooltipInsideId } = props;
 
-  const onCloseFeedback = () => {
-    if (
-      entity != undefined &&
-      entity.feedbackIsHelpful != undefined &&
-      entity.hasGivenFeedback != undefined &&
-      entity.hasGivenFeedback
-    )
-      updateEntity(entity, { ...entity, showFeedback: false });
-  };
-
-  const showMicrofact =
-    // entity has to be defined
-    entity != undefined &&
-    // entity has to be selected to be shown
-    entity.checked &&
-    // entity is a key fact or all facts should be shown
-    entity.keyFact;
-
-  const getMaxLengthDescription = () => {
-    const sentences = entity?.description.split('. ') ?? [];
-    let result = '';
-    for (let i = 0; i < 6 && i < sentences.length; i++) {
-      result = result.concat(sentences[i], '. ');
-    }
-    return result.slice(0, result.length - 2) + '..';
-  };
+  const capitalizeSentence = (sentence: string) =>
+    sentence.charAt(0).toUpperCase() + sentence.slice(1);
 
   return (
     <>
-      {showMicrofact && (
+      {microfact.checked ? (
         <Popup
           trigger={() => (
-            <Box
-              style={{ backgroundColor: '#FFF9DA', cursor: 'pointer' }}
-              component="span"
-            >
-              {entity.entity}
+            <Box component="span" className={classes.triggerBox}>
+              {microfact.text}
             </Box>
           )}
           position={[
             'bottom center',
-            'bottom right',
             'bottom left',
-            'left top',
+            'bottom right',
             'right top',
+            'top left',
+            'top right',
           ]}
-          onClose={onCloseFeedback}
-          on={['click', 'focus']}
+          arrow={false}
+          closeOnDocumentClick
+          keepTooltipInside={keepTooltipInsideId}
         >
-          <Paper
-            className={classes.tooltipPaper}
-            elevation={4}
-            color="secondary"
-          >
-            <Grid container spacing={1} direction="column">
-              <Grid item>
-                <Link
-                  href={entity.page_url}
-                  target="_blank"
-                  rel="noopener"
-                  sx={{ outline: 'none' }} // TODO: How to disable default focus outline when Microfact is clicked? focus should only show once 'tab' is pressed
-                >
-                  <Typography variant="h5" sx={{ color: '#1976d2' }}>
-                    {entity.entity}
-                  </Typography>
-                </Link>
-              </Grid>
-              <Grid container alignItems="center" ml={0.5}>
-                <Typography>Source: </Typography>
-                <Link
-                  href={entity?.page_url?.replace(/[^/]+$/, '')}
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <Typography
-                    sx={{
-                      textTransform: 'capitalize',
-                      paddingLeft: 0.5,
-                      color: '#1976d2',
-                    }}
-                  >
-                    {entity.domain}
-                  </Typography>
-                </Link>
-              </Grid>
-              <Grid item>
-                <Typography variant="body1">
-                  {getMaxLengthDescription()}
-                </Typography>
-              </Grid>
-            </Grid>
-          </Paper>
+          <Factbox
+            entity={microfact.text}
+            description={capitalizeSentence(
+              microfact.description ?? 'Missing description'
+            )}
+            displayLink={capitalizeSentence(
+              microfact.domain ?? 'Missing source'
+            )}
+            link={microfact.page_url ?? ''}
+          />
         </Popup>
+      ) : (
+        <Box component="span">{microfact?.text}</Box>
       )}
-      {entity && !showMicrofact && entity.entity}
     </>
   );
 };
