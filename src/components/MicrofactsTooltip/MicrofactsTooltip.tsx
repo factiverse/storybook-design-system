@@ -31,6 +31,11 @@ const useStyles = makeStyles((theme: Theme) =>
       borderBottom: '1px dashed #56524E',
       textDecoration: 'none',
     },
+    link: {
+      '&:focus': {
+        outline: 'none',
+      },
+    },
   })
 );
 
@@ -61,7 +66,12 @@ const Factbox = (props: FactboxProps) => {
         <Grid item>
           <Typography fontFamily="DM Mono" fontSize={'0.8em'}>
             Read more on:{' '}
-            <a href={link} target="_blank" rel="noreferrer">
+            <a
+              href={link}
+              target="_blank"
+              rel="noreferrer"
+              className={classes.link}
+            >
               {displayLink}
             </a>
           </Typography>
@@ -100,6 +110,7 @@ export const MicrofactsTooltip = (props: MicrofactsTooltipProps) => {
             'top left',
             'top right',
           ]}
+          arrow={false}
           closeOnDocumentClick
           keepTooltipInside={keepTooltipInsideId}
         >
