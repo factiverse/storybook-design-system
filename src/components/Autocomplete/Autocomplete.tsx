@@ -4,17 +4,31 @@ import { Autocomplete as AutocompleteMUI } from '@mui/material';
 import TextField from '../TextField';
 
 interface AutocompleteProps {
-  data?: string[];
+  /**
+   * The list of options to choose from which are narrowed down as the user types in the search field.
+   */
+  options?: string[];
+  /**
+   * The label of the search field.
+   */
   label?: string;
 }
 
-export const Autocomplete = ({ data, label }: AutocompleteProps) => {
+/**
+ * A component to autocomplete a search as the user is typing.
+ * Wrapper for MUI Autocomplete
+ *
+ * @return {JSX.Element}
+ */
+export const Autocomplete = ({ options, label }: AutocompleteProps) => {
   return (
     <AutocompleteMUI
       disableClearable
       freeSolo
       autoHighlight={true}
-      options={data !== undefined ? data.map((option: string) => option) : []}
+      options={
+        options !== undefined ? options.map((option: string) => option) : []
+      }
       renderInput={(params) => (
         <TextField
           {...params}
