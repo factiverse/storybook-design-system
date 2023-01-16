@@ -1,0 +1,42 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+import { useState } from 'react';
+import Select from './Select';
+
+<Meta
+  title="Base Components/Select"
+  argTypes={{
+    options: {
+      control: 'array',
+      description: 'test of options to choose from',
+      defaultValue: ['Danish', 'English', 'French', 'German', 'Norwegian'],
+    },
+    option: {
+      control: 'select',
+      description: 'Currently selected option',
+      defaultValue: 'English',
+      options: ['Danish', 'English', 'French', 'German', 'Norwegian'],
+    },
+    setOption: {
+      action: 'setOption',
+    },
+    fixedOptions: {
+      control: 'array',
+      description:
+        'Prioritised options which are sorted to the top of the list',
+      defaultValue: ['English', 'Norwegian'],
+    },
+  }}
+  component={Select}
+/>
+
+export const Template = (args) => <Select {...args} />;
+
+# Select
+
+<Canvas>
+  <Story name="Languages">{Template.bind({})}</Story>
+</Canvas>
+
+## Args Table
+
+<ArgsTable of={Select} />
