@@ -7,6 +7,12 @@ import {
   createTheme,
 } from '@mui/material/styles';
 
+/**
+ * Wrapper for [Material UI Typography](https://mui.com/material-ui/react-typography/).
+ *
+ * @param {TypographyProps} props
+ * @return {JSX.Element}
+ */
 export const Typography = (props: TypographyProps) => {
   const {
     children = 'Hello World',

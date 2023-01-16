@@ -15,8 +15,8 @@ interface AutocompleteProps {
 }
 
 /**
- * A component to autocomplete a search as the user is typing.
- * Wrapper for MUI Autocomplete
+ * This component allows us to suggest inputs to the user. It displays a list of strings, if none are provided it behaves like a normal text field.
+ * Wrapper for [Material UI Autocomplete](https://mui.com/material-ui/react-autocomplete/).
  *
  * @return {JSX.Element}
  */
