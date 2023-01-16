@@ -1,12 +1,20 @@
 /* eslint-disable new-cap */
 import { Paper } from '@mui/material';
 import React from 'react';
-interface FaviconProps {
-  /* The link displayed in the UI */
+export interface FaviconProps {
+  /**
+   * The favicon is fetched for this given domain.
+   *
+   * @example google.com
+   */
   domain: string;
 }
 
-/* A component to display the link to the article and its publishing date */
+/**
+ * A component to display the link to the article and its publishing date
+ *
+ * @return {React.FC}
+ */
 const Favicon: React.FC<FaviconProps> = ({ domain }) => {
   return (
     <Paper sx={{ height: 34, width: 34 }} variant="outlined" elevation={3}>
