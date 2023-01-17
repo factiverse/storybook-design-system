@@ -14,7 +14,7 @@ export interface ButtonGroupProps {
    */
   buttons: string[];
   /**
-   * The value sets the active button
+   * Sets the active button
    */
   value: string;
   startIcon?: JSX.Element;
