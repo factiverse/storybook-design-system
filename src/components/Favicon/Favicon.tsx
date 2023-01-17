@@ -11,7 +11,7 @@ export interface FaviconProps {
 }
 
 /**
- * A component to display the link to the article and its publishing date
+ * Displays the favicon for a given website.
  *
  * @return {React.FC}
  */
