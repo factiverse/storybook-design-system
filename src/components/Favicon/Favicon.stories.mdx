@@ -5,7 +5,7 @@ import Favicon from './Favicon';
 <Meta
   title="Base Components/Favicon"
   argTypes={{
-    domain: {
+    rootDomain: {
       name: 'Domain',
       description: 'The domain',
       defaultValue: 'google.com',
@@ -26,16 +26,16 @@ export const Template = (args) => <Favicon {...args} />;
 <Canvas>
   <Story name="Default">{Template.bind({})}</Story>
   <Story name="Examples">
-    <Favicon domain={'physicsworld.com'} />
-    <Favicon domain={'bbc.co.uk'} />
-    <Favicon domain={'politifact.com'} />
-    <Favicon domain={'fullfact.org'} />
-    <Favicon domain={'usatoday.com'} />
-    <Favicon domain={'factchecker.in'} />
-    <Favicon domain={'verafiles.org'} />
-    <Favicon domain={'newsmobile.in'} />
-    <Favicon domain={'faktisk.no'} />
-    <Favicon domain={'verifica.efe.com'} />
+    <Favicon rootDomain={'physicsworld.com'} />
+    <Favicon rootDomain={'bbc.co.uk'} />
+    <Favicon rootDomain={'politifact.com'} />
+    <Favicon rootDomain={'fullfact.org'} />
+    <Favicon rootDomain={'usatoday.com'} />
+    <Favicon rootDomain={'factchecker.in'} />
+    <Favicon rootDomain={'verafiles.org'} />
+    <Favicon rootDomain={'newsmobile.in'} />
+    <Favicon rootDomain={'faktisk.no'} />
+    <Favicon rootDomain={'verifica.efe.com'} />
   </Story>
 </Canvas>
 
