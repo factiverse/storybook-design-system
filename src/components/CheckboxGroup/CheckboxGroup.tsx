@@ -60,7 +60,7 @@ const CheckboxGroup = ({
               <Checkbox
                 checked={checkboxes.toString() === checkedValues.toString()}
                 onChange={handleChangeAll}
-                color="primary"
+                color="secondary"
                 size="small"
                 name="All"
               />
