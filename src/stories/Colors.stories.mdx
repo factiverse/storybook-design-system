@@ -1,6 +1,6 @@
 import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
 
-import { color } from '../config/styles';
+import { theme } from '../../.storybook/preview';
 
 <Meta title="Colors" />
 
@@ -8,47 +8,33 @@ import { color } from '../config/styles';
 
 <ColorPalette>
   <ColorItem
-    title="theme.color.primary"
+    title="theme.palette.primary"
     subtitle="Primary"
-    colors={[color.primary]}
+    colors={[theme.palette.primary.main]}
   />
   <ColorItem
-    title="theme.color.secondary"
-    subtitle="Primary light"
-    colors={[color.primaryLight]}
+    title="theme.palette.secondary"
+    subtitle="Secondary"
+    colors={[theme.palette.secondary.main]}
   />
   <ColorItem
-    title="theme.color.supported"
+    title="theme.palette.neutral"
+    subtitle="Neutral"
+    colors={[theme.palette.neutral.main]}
+  />
+  <ColorItem
+    title="theme.palette.success"
     subtitle="Supported Claim"
-    colors={[color.supported]}
+    colors={[theme.palette.success.main]}
   />
   <ColorItem
-    title="theme.color.disputed"
-    subtitle="Disputed Claim"
-    colors={[color.disputed]}
+    title="theme.palette.error"
+    subtitle="Disputed sources"
+    colors={[theme.palette.error.main]}
   />
   <ColorItem
-    title="theme.color.conflicting"
+    title="theme.palette.warning"
     subtitle="Conflicting sources"
-    colors={[color.conflicting]}
-  />
-  <ColorItem
-    title="theme.color.unknown"
-    subtitle="Unknown support"
-    colors={[color.unknown]}
-  />
-  <ColorItem
-    title="Monochrome"
-    colors={[
-      color.darkest,
-      color.darker,
-      color.dark,
-      color.mediumdark,
-      color.medium,
-      color.mediumlight,
-      color.light,
-      color.lighter,
-      color.lightest,
-    ]}
+    colors={[theme.palette.warning.main]}
   />
 </ColorPalette>
