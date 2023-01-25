@@ -31,7 +31,7 @@ export const SourceItem: React.FC<SourceProps> = ({ source }) => {
           container
           sx={{ mt: 1, ml: 'auto', mr: 'auto', width: '34px' }}
         >
-          <Favicon domain={source.domain ?? ''} />
+          <Favicon rootDomain={source.domain ?? ''} />
         </Grid>
         <Box sx={{ px: 7, pt: 5 }}>
           {source.publishDate != '' && source.publishDate != undefined && (

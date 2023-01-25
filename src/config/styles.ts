@@ -1,6 +1,8 @@
 import { css } from '@storybook/theming';
 import { rgba } from 'polished';
 
+// TODO: Can this file be deleted? All theming should be in .storybook/preview.js
+
 // Global style variables
 export const background = {
   app: '#e8ebec',

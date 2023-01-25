@@ -1,0 +1,92 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+import ButtonGroup from './ButtonGroup';
+import { useState } from 'react';
+import WikipediaIcon from '../../icons/WikipediaIcon';
+import { within, userEvent, waitFor } from '@storybook/testing-library';
+import { expect } from '@storybook/jest';
+
+<Meta
+  title="Composite Components/ButtonGroup"
+  argTypes={{
+    value: {
+      control: {
+        type: 'text',
+      },
+    },
+    onClick: {
+      action: true,
+    },
+  }}
+  component={ButtonGroup}
+/>
+
+# Autocomplete
+
+This component can be used like 'tabs':
+
+- One button is selected while the others are deselected.
+- By updating 'value' we can toggle between the buttons.
+
+<Canvas>
+  <Story name="Topics">
+    {() => {
+      const [value, setValue] = useState('All Topics');
+      return (
+        <ButtonGroup
+          buttons={['All Topics', 'Ukraine', 'COVID-19']}
+          value={value}
+          onClick={setValue}
+        />
+      );
+    }}
+  </Story>
+  <Story name="Sources">
+    {() => {
+      const [value, setValue] = useState('Wikipedia');
+      return (
+        <ButtonGroup
+          buttons={['Wikipedia', 'Store Norske Leksikon']}
+          value={value}
+          onClick={setValue}
+          buttonWithIcon="Wikipedia"
+          startIcon={<WikipediaIcon />}
+          selectedButtonStyles={{
+            backgroundColor: 'black',
+            color: 'white',
+            boxShadow: 'none',
+            borderRadius: '10px',
+          }}
+          unselectedButtonStyles={{
+            boxShadow: 'none',
+            backgroundColor: 'lightgrey',
+          }}
+        />
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Interaction Test
+
+This is testing a button click, check the tab "Canvas -> Interactions" to see it passing.
+
+export const Template = (args) => (
+  <ButtonGroup buttons={['All Topics', 'Ukraine', 'COVID-19']} {...args} />
+);
+
+<Canvas>
+  <Story
+    name="Button click"
+    play={async ({ args, canvasElement }) => {
+      const canvas = within(canvasElement);
+      await userEvent.click(canvas.getAllByRole('button')[2]);
+      await waitFor(() => expect(args.onClick).toHaveBeenCalled());
+    }}
+  >
+    {Template.bind({})};
+  </Story>
+</Canvas>
+
+## Args Table
+
+<ArgsTable of={ButtonGroup} />

@@ -9,7 +9,7 @@ import { addDecorator } from '@storybook/react';
 import { withTests } from '@storybook/addon-jest';
 import results from '../testOutput.json';
 
-const theme = createTheme({
+export const theme = createTheme({
   palette: {
     primary: {
       main: '#E8EBEC',

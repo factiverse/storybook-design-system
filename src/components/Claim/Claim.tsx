@@ -33,15 +33,14 @@ export const defaultClaim = {
   url: 'https://topics.factiverse.no/',
 };
 
-const Claim = (props: ClaimProps) => {
-  const {
-    claim = defaultClaim,
-    onLinkClicked,
-    simpleClaim = false,
-    checkClaimClick,
-    simpleClaimStyles,
-    simpleClaimVariant = 'caption',
-  } = props;
+export const Claim = ({
+  claim = defaultClaim,
+  onLinkClicked,
+  simpleClaim,
+  checkClaimClick,
+  simpleClaimStyles,
+  simpleClaimVariant = 'caption',
+}: ClaimProps) => {
   const theme = useTheme();
   const isMobileSize = useMediaQuery(theme.breakpoints.down('sm'));
 

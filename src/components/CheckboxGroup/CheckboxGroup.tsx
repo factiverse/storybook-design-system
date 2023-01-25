@@ -11,37 +11,48 @@ import {
 import Typography from '../Typography';
 
 export interface CheckboxGroupProps {
-  title: string;
+  title?: string;
   helperText?: string;
+  /**
+   * Each given string is a checkbox label
+   */
   checkboxes: string[];
   handleChange: (event: ChangeEvent<HTMLInputElement>) => void;
   disabled?: string[];
+  /**
+   * Each given string sets a checkbox as selected, others are deselected
+   */
   checkedValues: string[];
   allCheckbox?: boolean;
   handleChangeAll?: (event: ChangeEvent<HTMLInputElement>) => void;
   margin?: 'none' | 'normal' | 'dense';
 }
 
-const CheckboxGroup = (props: CheckboxGroupProps) => {
-  const {
-    title,
-    helperText,
-    checkboxes,
-    disabled,
-    handleChange,
-    checkedValues,
-    allCheckbox = true,
-    handleChangeAll,
-    margin = 'none',
-  } = props;
-
+/**
+ * A list of checkboxes wich can be selected independently with an (optional) additional checkbox to select/deselect all options
+ *
+ * @return {JSX.Element}
+ */
+const CheckboxGroup = ({
+  title,
+  helperText,
+  checkboxes,
+  disabled,
+  handleChange,
+  checkedValues,
+  allCheckbox = true,
+  handleChangeAll,
+  margin = 'none',
+}: CheckboxGroupProps) => {
   return (
     <FormControl component="fieldset" variant="standard" margin={margin}>
-      <FormLabel component="legend">
-        <Typography variant="subtitle2" color="black">
-          {title}
-        </Typography>
-      </FormLabel>
+      {title && (
+        <FormLabel component="legend">
+          <Typography variant="subtitle2" color="black">
+            {title}
+          </Typography>
+        </FormLabel>
+      )}
       <FormGroup>
         {allCheckbox && (
           <FormControlLabel
@@ -49,7 +60,7 @@ const CheckboxGroup = (props: CheckboxGroupProps) => {
               <Checkbox
                 checked={checkboxes.toString() === checkedValues.toString()}
                 onChange={handleChangeAll}
-                color="primary"
+                color="secondary"
                 size="small"
                 name="All"
               />

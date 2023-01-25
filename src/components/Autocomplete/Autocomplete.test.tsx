@@ -10,12 +10,12 @@ describe('Autocomplete', () => {
       'Russia has no plans to occupy Ukraine.',
       'There are U.S. biolabs in Ukraine funded by the U.S. government.',
     ];
-    render(<Autocomplete data={data} label="Search Input" />);
+    render(<Autocomplete options={data} label="Search Input" />);
   });
 
   it('should render autocomplete component', () => {
     const data = [];
-    render(<Autocomplete data={data} label="Search input" />);
+    render(<Autocomplete options={data} label="Search input" />);
     expect(screen.getByLabelText('Search input')).toBeInTheDocument();
   });
 
