@@ -13,8 +13,8 @@ Testing automatic publishing
 ### Get Started
 Requirements:
 ```
-Node version >= 17.7.1
-NPM version >= v8.5.2
+Node version >= 18.0.0
+NPM version >= v9.3.x
 ```
 
 To run storybook locally:
@@ -151,6 +151,6 @@ export default App;
 
 ### References
 
-(NPM Package)[https://www.npmjs.com/package/@factiverse/design-system]
-(rollup)[https://rollupjs.org/guide/en/]
-(rollup plugins)[https://github.com/rollup/plugins]
+[NPM Package](https://www.npmjs.com/package/@factiverse/design-system)
+[rollup](https://rollupjs.org/guide/en/)
+[rollup plugins](https://github.com/rollup/plugins)
