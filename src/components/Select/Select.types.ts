@@ -12,8 +12,11 @@ export interface SelectProps {
    */
   setOption: (newLanguage: string) => void;
   /**
-   * Optional.
    * Prioritised options which are sorted to the top of the list
    */
   fixedOptions?: string[];
+  /**
+   * Indicates that more options are being loaded
+   */
+  loading?: boolean;
 }
