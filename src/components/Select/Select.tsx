@@ -13,7 +13,6 @@ import {
   CircularProgress,
 } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
-import { margin } from '@mui/system';
 
 /**
  * This component kets the user select an item from a dropdown.
