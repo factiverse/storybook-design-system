@@ -1,4 +1,4 @@
-import { SelectProps } from './Select.types';
+import { SelectWithSearchProps } from './SelectWithSearch.types';
 import React, { useState, useMemo } from 'react';
 import {
   FormControl,
@@ -13,22 +13,21 @@ import {
   CircularProgress,
 } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
+import { containsText } from '../../utils/utils';
 
 /**
  * This component kets the user select an item from a dropdown.
  *
  * @return {JSX.Element}
  */
-const Select: React.FC<SelectProps> = ({
+const SelectWithSearch: React.FC<SelectWithSearchProps> = ({
   options,
   option,
   fixedOptions,
+  label,
   setOption,
   loading,
 }) => {
-  const containsText = (text: string, searchText: string) =>
-    text.toLowerCase().indexOf(searchText.toLowerCase()) > -1;
-
   const [searchText, setSearchText] = useState('');
 
   const displayedOptions = useMemo(
@@ -54,7 +53,7 @@ const Select: React.FC<SelectProps> = ({
     <>
       {displaySelect ? (
         <FormControl fullWidth>
-          <InputLabel id="search-select-label">Language</InputLabel>
+          <InputLabel id="search-select-label">{label}</InputLabel>
           <MuiSelect
             // Disables auto focus on MenuItems and allows TextField to be in focus
             MenuProps={{ autoFocus: false }}
@@ -127,4 +126,4 @@ const Select: React.FC<SelectProps> = ({
   );
 };
 
-export default Select;
+export default SelectWithSearch;

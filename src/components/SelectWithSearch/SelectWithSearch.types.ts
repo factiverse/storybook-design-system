@@ -1,4 +1,4 @@
-export interface SelectProps {
+export interface SelectWithSearchProps {
   /**
    * List of options to choose from
    */
@@ -11,6 +11,10 @@ export interface SelectProps {
    * Sets the language on change
    */
   setOption: (newLanguage: string) => void;
+  /**
+   * Displayed above the select component
+   */
+  label: string;
   /**
    * Prioritised options which are sorted to the top of the list
    */

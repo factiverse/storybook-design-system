@@ -1,11 +1,11 @@
 import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
 import { useState, useEffect } from 'react';
-import Select from './Select';
+import SelectWithSearch from './SelectWithSearch';
 import { userEvent, waitFor, screen} from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
 
 <Meta
-  title="Base Components/Select"
+  title="Base Components/Select with search"
   argTypes={{
     options: {
       control: 'array',
@@ -21,6 +21,7 @@ import { expect } from '@storybook/jest';
     setOption: {
       action: true,
     },
+    label: {defaultValue: "Language", control: 'text',},
     fixedOptions: {
       control: 'array',
       description:
@@ -34,7 +35,7 @@ import { expect } from '@storybook/jest';
       options: [true, false],
     },
   }}
-  component={Select}
+  component={SelectWithSearch}
 />
 
 export const Template = (args) => <Select {...args} />;
@@ -59,7 +60,7 @@ export const Template = (args) => <Select {...args} />;
     }}>
       {() => {
         const [option, setOption] = useState('English');
-        return <Select options={['Danish', 'English', 'French', 'German', 'Norwegian']} option={option} setOption={setOption} fixedOptions={['English', 'Norwegian']}/>
+        return <SelectWithSearch label='Language' options={['Danish', 'English', 'French', 'German', 'Norwegian']} option={option} setOption={setOption} fixedOptions={['English', 'Norwegian']}/>
       }}
     </Story>
 </Canvas>
@@ -88,11 +89,11 @@ export const Template = (args) => <Select {...args} />;
       }, 5000);
         return () => clearTimeout(timer);
       }, []);
-      return <Select options={options} option={option} setOption={setOption} fixedOptions={['English', 'Norwegian']} loading={loading}/>
+      return <SelectWithSearch label='Language' options={options} option={option} setOption={setOption} fixedOptions={['English', 'Norwegian']} loading={loading}/>
     }}
   </Story>
 </Canvas>
 
 ## Args Table
 
-<ArgsTable of={Select} />
+<ArgsTable of={SelectWithSearch} />
