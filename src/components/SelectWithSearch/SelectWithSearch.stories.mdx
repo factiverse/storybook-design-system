@@ -1,0 +1,99 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+import { useState, useEffect } from 'react';
+import SelectWithSearch from './SelectWithSearch';
+import { userEvent, waitFor, screen} from '@storybook/testing-library';
+import { expect } from '@storybook/jest';
+
+<Meta
+  title="Base Components/Select with search"
+  argTypes={{
+    options: {
+      control: 'array',
+      description: 'test of options to choose from',
+      defaultValue: ['Danish', 'English', 'French', 'German', 'Norwegian'],
+    },
+    option: {
+      control: 'select',
+      description: 'Currently selected option',
+      defaultValue: 'English',
+      options: ['Danish', 'English', 'French', 'German', 'Norwegian'],
+    },
+    setOption: {
+      action: true,
+    },
+    label: {defaultValue: "Language", control: 'text',},
+    fixedOptions: {
+      control: 'array',
+      description:
+        'Prioritised options which are sorted to the top of the list',
+      defaultValue: ['English', 'Norwegian'],
+    },
+    loading: {
+      control: 'radio',
+      description: 'Indicates that more options are being loaded.',
+      defaultValue: 'false',
+      options: [true, false],
+    },
+  }}
+  component={SelectWithSearch}
+/>
+
+export const Template = (args) => <Select {...args} />;
+
+# Select
+
+<Canvas>
+  <Story
+    name="Languages"
+    height='350px'
+    play={async ({ args }) => {
+      await userEvent.click(screen.getByRole('button'));
+      await userEvent.click(screen.getByText('Norwegian'));
+      await waitFor(() => expect(screen.queryByText('English')).not.toBeInTheDocument());
+      await waitFor(() => expect(screen.getByText('Norwegian')).toBeInTheDocument());
+      await userEvent.click(screen.getByRole('button'));
+      await userEvent.click(screen.getByRole('textbox'));
+      await userEvent.keyboard('German');
+      await waitFor(() => expect(screen.queryByText('English')).not.toBeInTheDocument());
+      await waitFor(() => expect(screen.getByText('German')).toBeInTheDocument());
+      await userEvent.click(screen.getByText('German'));
+    }}>
+      {() => {
+        const [option, setOption] = useState('English');
+        return <SelectWithSearch label='Language' options={['Danish', 'English', 'French', 'German', 'Norwegian']} option={option} setOption={setOption} fixedOptions={['English', 'Norwegian']}/>
+      }}
+    </Story>
+</Canvas>
+
+## Loading more options later
+
+`loading = true` can be set to indicate that the options are pending.
+
+<Canvas>
+  <Story
+    name="Delayed options"
+    height='350px'
+    play={async ({ args }) => {
+      await userEvent.click(screen.getByRole('button'));
+      await waitFor(() => expect(screen.queryByText('Danish')).not.toBeInTheDocument());
+      await waitFor(() => expect(screen.getAllByText('English')[0]).toBeInTheDocument());
+    }}>
+    {() => {
+      const [option, setOption] = useState('English');
+      const [options, setOptions] = useState([]);
+      const [loading, setLoading] = useState(true);
+      useEffect(() => {
+        const timer = setTimeout(() => {
+        setOptions(['Danish', 'English', 'French', 'German', 'Norwegian']);
+        setLoading(false);
+      }, 5000);
+        return () => clearTimeout(timer);
+      }, []);
+      return <SelectWithSearch label='Language' options={options} option={option} setOption={setOption} fixedOptions={['English', 'Norwegian']} loading={loading}/>
+    }}
+  </Story>
+</Canvas>
+
+## Args Table
+
+<ArgsTable of={SelectWithSearch} />
