@@ -60,7 +60,7 @@ export const Template = (args) => <Select {...args} />;
     }}>
       {() => {
         const [option, setOption] = useState('English');
-        return <SelectWithSearch label='Languages' options={['Danish', 'English', 'French', 'German', 'Norwegian']} option={option} setOption={setOption} fixedOptions={['English', 'Norwegian']}/>
+        return <SelectWithSearch label='Language' options={['Danish', 'English', 'French', 'German', 'Norwegian']} option={option} setOption={setOption} fixedOptions={['English', 'Norwegian']}/>
       }}
     </Story>
 </Canvas>
