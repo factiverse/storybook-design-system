@@ -14,7 +14,7 @@ export interface SelectWithSearchProps {
   /**
    * Displayed above the select component
    */
-  label: string;
+  label?: string;
   /**
    * Prioritised options which are sorted to the top of the list
    */
@@ -23,4 +23,8 @@ export interface SelectWithSearchProps {
    * Indicates that more options are being loaded
    */
   loading?: boolean;
+  /**
+   * True if Select component should be small
+   */
+  small?: boolean;
 }
