@@ -89,7 +89,7 @@ export const Template = (args) => <Select {...args} />;
       }, 5000);
         return () => clearTimeout(timer);
       }, []);
-      return <SelectWithSearch label='Language' options={options} option={option} setOption={setOption} fixedOptions={['English', 'Norwegian']} loading={loading}/>
+      return <SelectWithSearch small={true} label='Language' options={options} option={option} setOption={setOption} fixedOptions={['English', 'Norwegian']} loading={loading}/>
     }}
   </Story>
 </Canvas>
