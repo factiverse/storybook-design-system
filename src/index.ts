@@ -13,11 +13,12 @@ import Loading from './components/Loading/Loading';
 import MicrofactsArticle from './components/MicrofactsArticle/MicrofactsArticle';
 import MicrofactsTooltip from './components/MicrofactsTooltip/MicrofactsTooltip';
 import RadioButtons from './components/RadioButtons/RadioButtons';
+import SearchBar from './components/SearchBar/SearchBar';
+import SelectWithSearch from './components/SelectWithSearch';
 import SourceList from './components/SourceList/SourceList';
 import SourceItem from './components/SourceItem/SourceItem';
 import SupportIcon from './components/SupportIcon/SupportIcon';
 import SupportIndicator from './components/SupportIndicator/SupportIndicator';
-import SearchBar from './components/SearchBar/SearchBar';
 import TextField from './components/TextField/TextField';
 import Typography from './components/Typography/Typography';
 import Tooltip from './components/Tooltip/Tooltip';
@@ -42,6 +43,7 @@ export {
   MicrofactsTooltip,
   RadioButtons,
   SearchBar,
+  SelectWithSearch,
   SourceList,
   SourceItem,
   SupportIcon,

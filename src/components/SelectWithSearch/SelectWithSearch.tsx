@@ -16,7 +16,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import { containsText } from '../../utils/utils';
 
 /**
- * This component kets the user select an item from a dropdown.
+ * This component lets the user select an item from a dropdown.
  *
  * @return {JSX.Element}
  */
@@ -27,6 +27,7 @@ const SelectWithSearch: React.FC<SelectWithSearchProps> = ({
   label,
   setOption,
   loading,
+  small,
 }) => {
   const [searchText, setSearchText] = useState('');
 
@@ -55,17 +56,22 @@ const SelectWithSearch: React.FC<SelectWithSearchProps> = ({
         <FormControl fullWidth>
           <InputLabel id="search-select-label">{label}</InputLabel>
           <MuiSelect
-            // Disables auto focus on MenuItems and allows TextField to be in focus
-            MenuProps={{ autoFocus: false }}
+            MenuProps={{
+              // Disables auto focus on MenuItems and allows TextField to be in focus
+              autoFocus: false,
+              // Restricts the size of the options popover
+              PaperProps: { sx: { maxHeight: '50vh' } },
+            }}
             labelId="search-select-label"
             id="search-select"
             value={option}
-            label="Options"
+            label={label}
             onChange={(e) => setOption(e.target.value)}
             onClose={() => setSearchText('')}
             // This prevents rendering empty string in Select's value
             // if search text would exclude currently selected option.
             renderValue={() => option}
+            size={small ? 'small' : 'medium'}
             endAdornment={
               loading ? (
                 <InputAdornment position="end">
@@ -75,7 +81,10 @@ const SelectWithSearch: React.FC<SelectWithSearchProps> = ({
                       marginTop: '5px',
                     }}
                   >
-                    <CircularProgress size={35} color="secondary" />
+                    <CircularProgress
+                      size={small ? 25 : 35}
+                      color="secondary"
+                    />
                   </Box>
                 </InputAdornment>
               ) : null
