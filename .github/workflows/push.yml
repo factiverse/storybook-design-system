@@ -37,6 +37,8 @@ jobs:
           #👇 npm token, see https://storybook.js.org/tutorials/design-systems-for-developers/react/en/distribute/ to obtain it
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
+          git config user.email "rollup@release.com"
+          git config user.name "Rollup Release Worker"
           npm ci
           npm run build
           npm run release
