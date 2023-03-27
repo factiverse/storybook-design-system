@@ -39,5 +39,5 @@ jobs:
         run: |
           npm install
           npm run build
-          git add . && git commit -m "Release"
+          git clean
           npm run release
