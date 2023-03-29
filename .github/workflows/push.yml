@@ -20,13 +20,10 @@ jobs:
         run: git fetch --unshallow --tags
       - name: Use Node.js 16.x
         uses: actions/setup-node@v3
-          with:
-            node-version: 16
-            cache: 'npm'
-            cache-dependency-path: '**/package-lock.json'
-        uses: actions/setup-node@v3
         with:
           node-version: 16
+          cache: 'npm'
+          cache-dependency-path: '**/package-lock.json'
       - name: Cache node modules
         uses: actions/cache@v3
         with:
@@ -40,6 +37,8 @@ jobs:
           #👇 npm token, see https://storybook.js.org/tutorials/design-systems-for-developers/react/en/distribute/ to obtain it
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          npm install
+          git config user.email "rollup@release.com"
+          git config user.name "Rollup Release Worker"
+          npm ci
           npm run build
           npm run release
