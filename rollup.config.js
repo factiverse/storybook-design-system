@@ -5,7 +5,6 @@ import typescript from '@rollup/plugin-typescript';
 import postcss from 'rollup-plugin-postcss';
 import image from '@rollup/plugin-image';
 import { terser } from 'rollup-plugin-terser';
-import visualizer from 'rollup-plugin-visualizer';
 import json from '@rollup/plugin-json';
 import copy from 'rollup-plugin-copy';
 
@@ -34,10 +33,6 @@ export default {
     }),
     postcss(),
     image(),
-    visualizer({
-      filename: 'bundle-analysis.html',
-      open: true,
-    }),
     copy({
       targets: [
         {
