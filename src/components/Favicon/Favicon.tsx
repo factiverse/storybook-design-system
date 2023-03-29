@@ -47,7 +47,7 @@ const Favicon: React.FC<FaviconProps> = ({ rootDomain }) => {
   };
 
   return (
-    <Paper sx={{ height: 34, width: 34 }} variant="outlined">
+    <Paper sx={{ height: 32, width: 32 }} variant="outlined">
       <img
         width={32}
         // DuckDuckGo scrapes favicons and catches all different ways of adding them to a website
