@@ -47,12 +47,12 @@ const Favicon: React.FC<FaviconProps> = ({ rootDomain }) => {
   };
 
   return (
-    <Paper sx={{ height: 34, width: 34 }} variant="outlined" elevation={3}>
+    <Paper sx={{ height: 32, width: 32 }} variant="outlined">
       <img
         width={32}
         // DuckDuckGo scrapes favicons and catches all different ways of adding them to a website
         src={
-          'https://icons.duckduckgo.com/ip2/www.' +
+          'https://icons.duckduckgo.com/ip3/www.' +
           getRootDomain(rootDomain) +
           '.ico'
         }
