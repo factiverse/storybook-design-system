@@ -52,7 +52,7 @@ const Favicon: React.FC<FaviconProps> = ({ rootDomain }) => {
         width={32}
         // DuckDuckGo scrapes favicons and catches all different ways of adding them to a website
         src={
-          'https://icons.duckduckgo.com/ip2/www.' +
+          'https://icons.duckduckgo.com/ip3/www.' +
           getRootDomain(rootDomain) +
           '.ico'
         }
